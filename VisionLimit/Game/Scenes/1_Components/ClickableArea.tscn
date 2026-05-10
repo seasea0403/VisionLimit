@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bumsha53k50sf"]
+
+[node name="ClickableArea" type="Area2D" unique_id=273454987]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=742165325]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=811534215]
