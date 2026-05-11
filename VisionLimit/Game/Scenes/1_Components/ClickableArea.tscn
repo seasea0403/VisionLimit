@@ -1,7 +1,13 @@
 [gd_scene format=3 uid="uid://bumsha53k50sf"]
 
-[node name="ClickableArea" type="Area2D" unique_id=273454987]
+[ext_resource type="Script" uid="uid://v4h0xqgt3hsj" path="res://Script/Components/clickable_area.gd" id="1_cwf3k"]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=742165325]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwf3k"]
+size = Vector2(16.527195, 9.972105)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=811534215]
+[node name="ClickableArea" type="Area2D" unique_id=676050068]
+script = ExtResource("1_cwf3k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=55883732]
+scale = Vector2(28.680002, 28.680002)
+shape = SubResource("RectangleShape2D_cwf3k")

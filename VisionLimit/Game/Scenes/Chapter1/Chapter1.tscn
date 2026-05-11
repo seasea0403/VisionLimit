@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://lttuv5wp8u0c"]
+
+[ext_resource type="Texture2D" uid="uid://7twvcojxkhdk" path="res://Art/Scenes/Scene1/Background/Background1.jpg" id="1_2bt4d"]
+[ext_resource type="Script" uid="uid://dpf1dfnu8mwee" path="res://Script/Chapters/chapter_1.gd" id="1_f0je0"]
+[ext_resource type="PackedScene" uid="uid://ilevtssko1gr" path="res://Game/Scenes/1_Components/ItemDetail.tscn" id="2_f0je0"]
+[ext_resource type="PackedScene" uid="uid://j0xbvmq5qgge" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_Table.tscn" id="2_xnqfp"]
+[ext_resource type="PackedScene" uid="uid://27gd30d4udt2" path="res://Game/Scenes/Chapter1/items/foodbox.tscn" id="5_5oj76"]
+[ext_resource type="PackedScene" uid="uid://e5g0f23rifgx" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_Board.tscn" id="6_uari3"]
+[ext_resource type="PackedScene" uid="uid://bmrjobut2qgfn" path="res://Game/Scenes/Chapter1/zoomview/zoomview_board.tscn" id="7_6oq13"]
+
+[sub_resource type="GDScript" id="GDScript_ef27q"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Chapter1" type="Node2D" unique_id=1721673035]
+script = ExtResource("1_f0je0")
+metadata/_edit_horizontal_guides_ = [-29.0]
+metadata/_edit_group_ = true
+
+[node name="Background" type="Sprite2D" parent="." unique_id=383558280]
+position = Vector2(960, 540)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_2bt4d")
+
+[node name="UILayer" type="Node" parent="." unique_id=172521637]
+
+[node name="ItemDetail" parent="UILayer" unique_id=552734023 instance=ExtResource("2_f0je0")]
+visible = false
+
+[node name="DarkBackground" parent="UILayer/ItemDetail" index="0" unique_id=1174300489]
+visible = true
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.3372549)
+
+[node name="RecordButton" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="3" unique_id=1437699816]
+offset_left = 1645.9999
+offset_top = 894.0
+offset_right = 1705.9999
+offset_bottom = 934.0
+
+[node name="CloseButton" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="4" unique_id=642903845]
+offset_left = 22.0
+offset_top = 27.0
+offset_right = 82.0
+offset_bottom = 67.0
+
+[node name="ZoomViews" type="Node2D" parent="." unique_id=691051636]
+
+[node name="Table" parent="ZoomViews" unique_id=676050068 instance=ExtResource("2_xnqfp")]
+
+[node name="Background" parent="ZoomViews/Table" index="0" unique_id=520141795]
+texture = ExtResource("1_2bt4d")
+
+[node name="foodbox" parent="ZoomViews/Table/Zoomview_desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="2" unique_id=223355110 instance=ExtResource("5_5oj76")]
+
+[node name="CollisionShape2D" parent="ZoomViews/Table/Zoomview_desk/Items/foodbox" index="0" unique_id=398543410]
+position = Vector2(1782, 837)
+
+[node name="CloseButton" parent="ZoomViews/Table/Zoomview_desk" parent_id_path=PackedInt32Array(676050068, 198920514) index="2" unique_id=547770466]
+script = SubResource("GDScript_ef27q")
+
+[node name="ClickableArea" parent="ZoomViews" unique_id=1768123374 instance=ExtResource("6_uari3")]
+
+[node name="Zoomview" parent="ZoomViews/ClickableArea" unique_id=198920514 instance=ExtResource("7_6oq13")]
+
+[editable path="UILayer/ItemDetail"]
+[editable path="ZoomViews/Table"]
+[editable path="ZoomViews/Table/Zoomview_desk"]
+[editable path="ZoomViews/Table/Zoomview_desk/Items/Certification"]
+[editable path="ZoomViews/Table/Zoomview_desk/Items/foodbox"]
+[editable path="ZoomViews/ClickableArea"]
+[editable path="ZoomViews/ClickableArea/Zoomview"]

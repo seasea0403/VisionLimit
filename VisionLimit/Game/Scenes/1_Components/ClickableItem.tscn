@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://cn2nfjinw7sfg"]
 
-[ext_resource type="Texture2D" uid="uid://byxrlsh4fs2qy" path="res://Art/Scenes/Scene1/Elements/Patent.png" id="1_4c5t8"]
+[ext_resource type="Script" uid="uid://c112ek75jh68r" path="res://Script/Components/clickable_item.gd" id="1_ykyii"]
 
 [node name="ClickableItem" type="Area2D" unique_id=223355110]
+script = ExtResource("1_ykyii")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=398543410]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=771681859]
 position = Vector2(910, 561)
-texture = ExtResource("1_4c5t8")

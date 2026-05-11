@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://27gd30d4udt2"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Game/Scenes/1_Components/ClickableItem.tscn" id="1_lwiks"]
+[ext_resource type="Texture2D" uid="uid://b7qjtdkr8vhoy" path="res://Art/Scenes/Scene1/Elements/Food_box.png" id="2_3r1p7"]
+[ext_resource type="Texture2D" uid="uid://d3qkjxc8hl36w" path="res://Art/Scenes/Scene1/Elements/Food_box_back.png" id="3_h6a2x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3qws"]
+size = Vector2(13.872547, 22.794117)
+
+[node name="foodbox" unique_id=223355110 instance=ExtResource("1_lwiks")]
+item_id = "3"
+item_name = "外卖"
+detail_image = ExtResource("2_3r1p7")
+detail_image_scale = Vector2(0.5, 0.5)
+detail_image_offset = Vector2(500, 50)
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(1781.5, 836.5)
+scale = Vector2(20.400002, 20.400002)
+shape = SubResource("RectangleShape2D_s3qws")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+position = Vector2(960, 540)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_h6a2x")

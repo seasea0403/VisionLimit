@@ -1,37 +1,65 @@
 [gd_scene format=3 uid="uid://ilevtssko1gr"]
 
-[ext_resource type="Script" uid="uid://mol3f16m37gd" path="res://Script/Components/ItemDetail.gd" id="1_k4abo"]
+[ext_resource type="Script" uid="uid://bg2vohf6s0umg" path="res://Script/Components/item_detail.gd" id="1_e1v3h"]
+[ext_resource type="FontFile" uid="uid://bvl8ulxuys0rb" path="res://Font/华文隶书.TTF" id="2_e1v3h"]
+[ext_resource type="Texture2D" uid="uid://evxnvr56p2ao" path="res://Art/Scenes/Scene1/Elements/Certification.png" id="2_inpxe"]
 
 [node name="ItemDetail" type="CanvasLayer" unique_id=552734023]
-script = ExtResource("1_k4abo")
+script = ExtResource("1_e1v3h")
 
 [node name="DarkBackground" type="ColorRect" parent="." unique_id=1174300489]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1364765534]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Control" type="Control" parent="." unique_id=327138164]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1065669787]
-layout_mode = 2
-
-[node name="ImageDisplay" type="TextureRect" parent="PanelContainer/VBoxContainer" unique_id=491325269]
-layout_mode = 2
-
-[node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1811732885]
-layout_mode = 2
-
-[node name="DescriptionLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1691985772]
-layout_mode = 2
-
-[node name="ButtonContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/DescriptionLabel" unique_id=1947071320]
+[node name="ImageDisplay" type="TextureRect" parent="Control" unique_id=491325269]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 3200.0
+offset_bottom = 1800.0
+texture = ExtResource("2_inpxe")
 
-[node name="RecordButton" type="Button" parent="PanelContainer/VBoxContainer/DescriptionLabel/ButtonContainer" unique_id=1437699816]
-layout_mode = 2
+[node name="TitleLabel" type="Label" parent="Control" unique_id=1811732885]
+layout_mode = 0
+offset_left = 816.0
+offset_top = 892.0
+offset_right = 1116.0
+offset_bottom = 935.0
+theme_override_fonts/font = ExtResource("2_e1v3h")
+theme_override_font_sizes/font_size = 40
+text = "物品名称"
+horizontal_alignment = 1
 
-[node name="CloseButton" type="Button" parent="PanelContainer/VBoxContainer/DescriptionLabel/ButtonContainer" unique_id=642903845]
-layout_mode = 2
+[node name="DescriptionLabel" type="Label" parent="Control" unique_id=1691985772]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 956.0
+offset_right = 1862.0
+offset_bottom = 1016.0
+theme_override_fonts/font = ExtResource("2_e1v3h")
+theme_override_font_sizes/font_size = 40
+text = "物品描述"
+horizontal_alignment = 1
+
+[node name="RecordButton" type="Button" parent="Control" unique_id=1437699816]
+layout_mode = 0
+offset_left = 1680.0
+offset_top = 891.99994
+offset_right = 1740.0
+offset_bottom = 931.99994
+scale = Vector2(2.8400025, 2.8400025)
+text = "记录"
+
+[node name="CloseButton" type="Button" parent="Control" unique_id=642903845]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 82.0
+offset_right = 172.0
+offset_bottom = 122.0
+scale = Vector2(2.6799998, 2.6799998)
+text = "返回"

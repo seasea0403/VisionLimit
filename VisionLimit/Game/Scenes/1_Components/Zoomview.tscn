@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c6fjnaypcpj1t"]
+
+[ext_resource type="Script" uid="uid://cu07srmobwlt3" path="res://Script/Components/zoomview.gd" id="1_do4lk"]
+[ext_resource type="Texture2D" uid="uid://cldu1xby0ik7m" path="res://Art/Scenes/Scene1/Elements/Patent_back.png" id="2_ef27q"]
+
+[node name="Zoomview" type="Node2D" unique_id=198920514]
+script = ExtResource("1_do4lk")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=698713652]
+position = Vector2(960, 540)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_ef27q")
+
+[node name="Items" type="Node2D" parent="." unique_id=1759582505]
+
+[node name="CloseButton" type="Button" parent="." unique_id=547770466]
+offset_right = 40.0
+offset_bottom = 31.0
+scale = Vector2(7.1765013, 5.575293)
+text = "返回"

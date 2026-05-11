@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://brshx6nvhwpvn"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Game/Scenes/1_Components/ClickableItem.tscn" id="1_p1g7i"]
+[ext_resource type="Texture2D" uid="uid://evxnvr56p2ao" path="res://Art/Scenes/Scene1/Elements/Certification.png" id="2_uhapn"]
+[ext_resource type="Texture2D" uid="uid://bi48t86qcmlgb" path="res://Art/Scenes/Scene1/Elements/Certification_back.png" id="2_yrw60"]
+
+[sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_uhapn"]
+
+[node name="Certification" unique_id=223355110 instance=ExtResource("1_p1g7i")]
+item_name = "证书"
+detail_image = ExtResource("2_uhapn")
+detail_image_scale = Vector2(0.5, 0.5)
+detail_image_offset = Vector2(200, 50)
+can_record = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(55.99997, 1041)
+rotation = 4.0518622
+scale = Vector2(38.64272, 39.625526)
+shape = SubResource("ConcavePolygonShape2D_uhapn")
+disabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1" unique_id=525369250]
+position = Vector2(960, 539.99994)
+scale = Vector2(0.6, 0.6)
+polygon = PackedVector2Array(-1301.7, -201, -1315.9, -221.70001, -1329.3, -217.70001, -1593.1, -173, -1600, -173, -1600, 900, -1364.8, 900, -1173.3, 830.19995, -1112.3, 834, -1100.6, 834, -1091.3, 819.9, -1072.6, 826, -1061, 826, -1058.8, 823, -1050.3, 823, -1012.4, 790.30005, -959.6, 784, -942.8, 784, -945.7, 759.80005, -933.3, 769, -915.5, 769, -912.6, 751.1, -880.5, 739.4, -879.3, 746, -854, 746, -854, 711.80005, -765, 691, -754.4, 691, -745.7, 670.19995, -641.8, 659, -631.6, 659, -626.7, 643, -610.6, 641, -594.9, 641, -604.9, 617.5, -592.6, 614, -586.6, 614, -581.2, 602.5, -598.3, 582, -614.7, 582, -733.2, 598.5, -712, 573.69995, -712, 559, -751, 529.9, -751, 527.4, -952, 443, -956.4, 443, -1130.5, 346.30005, -1121, 340.69995, -1121, 326.5, -1136, 307.5, -1136, 300, -1176.4, 300, -1210.4, 175, -1263.7, -61.5, -1266, -88.400024, -1253, -85.599976, -1253, -103.900024, -1274, -136.29999, -1273, -180.90002, -1273, -185.90002, -1282.5, -201)
+
+[node name="Sprite2D" parent="." index="2" unique_id=771681859]
+position = Vector2(960, 540)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_yrw60")
