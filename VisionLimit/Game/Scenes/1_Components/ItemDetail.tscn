@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bg2vohf6s0umg" path="res://Script/Components/item_detail.gd" id="1_e1v3h"]
 [ext_resource type="FontFile" uid="uid://bvl8ulxuys0rb" path="res://Font/华文隶书.TTF" id="2_e1v3h"]
-[ext_resource type="Texture2D" uid="uid://evxnvr56p2ao" path="res://Art/Scenes/Scene1/Elements/Certification.png" id="2_inpxe"]
+[ext_resource type="Texture2D" uid="uid://d22r6v5tthnwx" path="res://Art/Scenes/Scene2/Elements/Voice.png" id="2_inpxe"]
 
 [node name="ItemDetail" type="CanvasLayer" unique_id=552734023]
 script = ExtResource("1_e1v3h")

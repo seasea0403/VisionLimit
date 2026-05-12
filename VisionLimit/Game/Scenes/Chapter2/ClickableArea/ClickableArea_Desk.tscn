@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ba3yili7tv48i"]
+
+[ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Game/Scenes/1_Components/ClickableArea.tscn" id="1_qams2"]
+[ext_resource type="PackedScene" uid="uid://da0wfbu0i4wx0" path="res://Game/Scenes/Chapter2/zoomview/zoomview_desk.tscn" id="2_0ri17"]
+
+[node name="ClickableArea_Desk" unique_id=676050068 instance=ExtResource("1_qams2")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=55883732]
+position = Vector2(987.49994, 605.5)
+
+[node name="Zoomview_Desk" parent="." index="1" unique_id=198920514 instance=ExtResource("2_0ri17")]
+
+[node name="CloseButton" parent="Zoomview_Desk" index="2" unique_id=547770466]
+offset_left = 22.0
+offset_top = 36.0
+offset_right = 62.0
+offset_bottom = 67.0
+scale = Vector2(4.241692, 3.2952933)
+
+[editable path="Zoomview_Desk"]

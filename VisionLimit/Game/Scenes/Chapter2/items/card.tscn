@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://6gcnyd60t0x0"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Game/Scenes/1_Components/ClickableItem.tscn" id="1_mqupk"]
+[ext_resource type="Texture2D" uid="uid://c73u87fw88jye" path="res://Art/Scenes/Scene2/Elements/Card_back.png" id="2_5ruf5"]
+[ext_resource type="Texture2D" uid="uid://y0bucipn3nlv" path="res://Art/Scenes/Scene2/Elements/Card.png" id="2_dbicw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbicw"]
+size = Vector2(18.483435, 34.16484)
+
+[node name="Card" unique_id=223355110 instance=ExtResource("1_mqupk")]
+item_name = "名片"
+detail_image = ExtResource("2_dbicw")
+detail_image_scale = Vector2(0.5, 0.5)
+detail_image_offset = Vector2(150, 150)
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(676.5, 759.4636)
+scale = Vector2(15.202802, -5.007276)
+shape = SubResource("RectangleShape2D_dbicw")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+position = Vector2(960, 540)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_5ruf5")

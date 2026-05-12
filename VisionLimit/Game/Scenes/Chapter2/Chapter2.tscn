@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://co8efd5qpadh7"]
+
+[ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Game/Scenes/1_Components/Chapter.tscn" id="1_82wsi"]
+[ext_resource type="Texture2D" uid="uid://dlh01n04p20kx" path="res://Art/Scenes/Scene2/Background/Background2.png" id="2_cnicp"]
+[ext_resource type="PackedScene" uid="uid://dophknobhb3t2" path="res://Game/Scenes/Chapter2/ClickableArea/ClickableArea_Paper.tscn" id="3_1aq8v"]
+[ext_resource type="Texture2D" uid="uid://bflaty3kl88aj" path="res://Art/Scenes/Scene2/Elements/Note.png" id="3_mchdh"]
+[ext_resource type="PackedScene" uid="uid://ba3yili7tv48i" path="res://Game/Scenes/Chapter2/ClickableArea/ClickableArea_Desk.tscn" id="5_o75tl"]
+[ext_resource type="PackedScene" uid="uid://cjl71cimgvjyn" path="res://Game/Scenes/Chapter2/items/map.tscn" id="5_t8q1s"]
+[ext_resource type="PackedScene" uid="uid://bibfk1oybbrna" path="res://Game/Scenes/Chapter2/items/note.tscn" id="7_kx07f"]
+
+[node name="Chapter2" unique_id=1917343286 instance=ExtResource("1_82wsi")]
+
+[node name="Background" parent="." index="0" unique_id=2106778844]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_cnicp")
+
+[node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(532451042) index="0" unique_id=552734023]
+visible = true
+
+[node name="ImageDisplay" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="0" unique_id=491325269]
+offset_right = 6667.0
+offset_bottom = 3850.0
+texture = ExtResource("3_mchdh")
+
+[node name="ClickableArea_Paper" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("3_1aq8v")]
+
+[node name="Calender" parent="ZoomViews/ClickableArea_Paper/Zoomview_paper/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="0" unique_id=223355110]
+detail_image_scale = Vector2(0.2, 0.2)
+detail_image_offset = Vector2(300, 150)
+
+[node name="ClickableArea_Desk" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=1165186953 instance=ExtResource("5_o75tl")]
+
+[node name="Card" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(1165186953, 198920514, 1759582505) index="0" unique_id=223355110]
+detail_image_scale = Vector2(0.3, 0.3)
+detail_image_offset = Vector2(0, 0)
+
+[node name="Voice" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(1165186953, 198920514, 1759582505) index="1" unique_id=187221517]
+detail_image_scale = Vector2(0.2, 0.2)
+detail_image_offset = Vector2(150, 100)
+
+[node name="Photo" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(1165186953, 198920514, 1759582505) index="2" unique_id=1268860870]
+detail_image_scale = Vector2(0.25, 0.25)
+detail_image_offset = Vector2(175, 50)
+
+[node name="Items" type="Node2D" parent="." index="3" unique_id=1563513548]
+
+[node name="Map" parent="Items" index="0" unique_id=437292561 instance=ExtResource("5_t8q1s")]
+detail_image_scale = Vector2(0.22, 0.22)
+detail_image_offset = Vector2(200, 100)
+
+[node name="Note" parent="Items" index="1" unique_id=322429971 instance=ExtResource("7_kx07f")]
+detail_image_scale = Vector2(0.2, 0.2)
+detail_image_offset = Vector2(300, 100)
+
+[editable path="UILayer/ItemDetail"]
+[editable path="ZoomViews/ClickableArea_Paper"]
+[editable path="ZoomViews/ClickableArea_Paper/Zoomview_paper"]
+[editable path="ZoomViews/ClickableArea_Desk"]
+[editable path="ZoomViews/ClickableArea_Desk/Zoomview_Desk"]
+[editable path="Items/Map"]
+[editable path="Items/Note"]

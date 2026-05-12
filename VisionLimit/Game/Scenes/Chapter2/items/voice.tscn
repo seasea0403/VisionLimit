@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cvjvonowbse6o"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Game/Scenes/1_Components/ClickableItem.tscn" id="1_l6o04"]
+[ext_resource type="Texture2D" uid="uid://d22r6v5tthnwx" path="res://Art/Scenes/Scene2/Elements/Voice.png" id="2_er5vu"]
+[ext_resource type="Texture2D" uid="uid://dqwnuoyukqqth" path="res://Art/Scenes/Scene2/Elements/Voice_back.png" id="2_y1aur"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_er5vu"]
+size = Vector2(33.928345, 18.526346)
+
+[node name="Voice" unique_id=223355110 instance=ExtResource("1_l6o04")]
+item_name = "录音笔"
+detail_image = ExtResource("2_er5vu")
+detail_image_scale = Vector2(0.45, 0.45)
+detail_image_offset = Vector2(300, 150)
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(140.06834, 955.0061)
+rotation = 2.9027247
+scale = Vector2(9.562999, -7.221371)
+shape = SubResource("RectangleShape2D_er5vu")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+texture = ExtResource("2_y1aur")

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cjl71cimgvjyn"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Game/Scenes/1_Components/ClickableItem.tscn" id="1_87ffi"]
+[ext_resource type="Texture2D" uid="uid://pxn3yhqr87yf" path="res://Art/Scenes/Scene2/Elements/Map.png" id="2_20ws8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb1hh"]
+size = Vector2(20.687088, 184.54083)
+
+[node name="Map" unique_id=223355110 instance=ExtResource("1_87ffi")]
+item_name = "苍屿市地图"
+detail_image = ExtResource("2_20ws8")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(652.5674, 330.5)
+scale = Vector2(15.813477, -1.2409179)
+shape = SubResource("RectangleShape2D_mb1hh")

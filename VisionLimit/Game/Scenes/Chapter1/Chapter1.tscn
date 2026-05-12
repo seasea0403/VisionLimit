@@ -59,9 +59,6 @@ offset_bottom = 67.0
 
 [node name="Table" parent="ZoomViews" unique_id=676050068 instance=ExtResource("2_xnqfp")]
 
-[node name="Background" parent="ZoomViews/Table" index="0" unique_id=520141795]
-texture = ExtResource("1_2bt4d")
-
 [node name="foodbox" parent="ZoomViews/Table/Zoomview_desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="2" unique_id=223355110 instance=ExtResource("5_5oj76")]
 
 [node name="CollisionShape2D" parent="ZoomViews/Table/Zoomview_desk/Items/foodbox" index="0" unique_id=398543410]
@@ -70,14 +67,20 @@ position = Vector2(1782, 837)
 [node name="CloseButton" parent="ZoomViews/Table/Zoomview_desk" parent_id_path=PackedInt32Array(676050068, 198920514) index="2" unique_id=547770466]
 script = SubResource("GDScript_ef27q")
 
-[node name="ClickableArea" parent="ZoomViews" unique_id=1768123374 instance=ExtResource("6_uari3")]
+[node name="Board" parent="ZoomViews" unique_id=1768123374 instance=ExtResource("6_uari3")]
 
-[node name="Zoomview" parent="ZoomViews/ClickableArea" unique_id=198920514 instance=ExtResource("7_6oq13")]
+[node name="Zoomview" parent="ZoomViews/Board" unique_id=198920514 instance=ExtResource("7_6oq13")]
+
+[node name="CloseButton" parent="ZoomViews/Board/Zoomview" index="2" unique_id=547770466]
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(1, 1)
+text = ""
 
 [editable path="UILayer/ItemDetail"]
 [editable path="ZoomViews/Table"]
 [editable path="ZoomViews/Table/Zoomview_desk"]
 [editable path="ZoomViews/Table/Zoomview_desk/Items/Certification"]
 [editable path="ZoomViews/Table/Zoomview_desk/Items/foodbox"]
-[editable path="ZoomViews/ClickableArea"]
-[editable path="ZoomViews/ClickableArea/Zoomview"]
+[editable path="ZoomViews/Board"]
+[editable path="ZoomViews/Board/Zoomview"]

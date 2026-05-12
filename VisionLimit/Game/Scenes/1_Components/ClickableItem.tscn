@@ -9,4 +9,5 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=398543410]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=771681859]
-position = Vector2(910, 561)
+position = Vector2(960, 540)
+scale = Vector2(0.6, 0.6)

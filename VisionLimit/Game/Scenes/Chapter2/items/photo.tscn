@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dd4wk83i6vbe"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Game/Scenes/1_Components/ClickableItem.tscn" id="1_8gpqu"]
+[ext_resource type="Texture2D" uid="uid://cffs5ifsapfsr" path="res://Art/Scenes/Scene2/Elements/Photo.png" id="2_38ljv"]
+[ext_resource type="Texture2D" uid="uid://c6a33rvt10yl2" path="res://Art/Scenes/Scene2/Elements/Photo_back.png" id="3_jbuep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gpqu"]
+size = Vector2(19.115124, 73)
+
+[node name="Photo" unique_id=223355110 instance=ExtResource("1_8gpqu")]
+item_name = "采访照片"
+detail_image = ExtResource("2_38ljv")
+detail_image_scale = Vector2(0.45, 0.45)
+detail_image_offset = Vector2(300, 150)
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(1767, 453.5)
+scale = Vector2(15.903631, 1.161763)
+shape = SubResource("RectangleShape2D_8gpqu")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+texture = ExtResource("3_jbuep")

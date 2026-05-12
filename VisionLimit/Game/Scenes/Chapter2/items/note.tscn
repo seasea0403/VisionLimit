@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bibfk1oybbrna"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Game/Scenes/1_Components/ClickableItem.tscn" id="1_f287k"]
+[ext_resource type="Texture2D" uid="uid://bflaty3kl88aj" path="res://Art/Scenes/Scene2/Elements/Note.png" id="2_by3t1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_by3t1"]
+size = Vector2(237.5, 202)
+
+[node name="Note" unique_id=223355110 instance=ExtResource("1_f287k")]
+item_name = "备忘录"
+detail_image = ExtResource("2_by3t1")
+detail_image_scale = Vector2(0.45, 0.45)
+detail_image_offset = Vector2(200, 150)
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(519.25, 570)
+shape = SubResource("RectangleShape2D_by3t1")
