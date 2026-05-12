@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cdlcvo37gsmie"]
+
+[ext_resource type="Texture2D" uid="uid://ce6l5e7euqrft" path="res://Art/UI/Document/Full.jpg" id="1_jc6hk"]
+[ext_resource type="Texture2D" uid="uid://ndb8y20jammm" path="res://Art/UI/Document/微信图片_20260508171852_57728_299.png" id="2_r5eg8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gxcmv"]
+load_path = "res://.godot/imported/微信图片_20260508171852_57728_299.png-c6bd2a13d6fd63862b2ede7f1b452e98.ctex"
+
+[node name="StopPanel" type="CanvasLayer" unique_id=727040872]
+
+[node name="Background" type="TextureRect" parent="." unique_id=521670966]
+offset_right = 3200.0
+offset_bottom = 1800.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_jc6hk")
+
+[node name="Button" type="Button" parent="." unique_id=37529286]
+offset_left = 1032.0
+offset_top = 302.00006
+offset_right = 2057.0
+offset_bottom = 895.00006
+rotation = -0.00053662114
+scale = Vector2(0.57280767, 0.57442045)
+theme_override_font_sizes/font_size = 60
+theme_override_icons/icon = ExtResource("2_r5eg8")
+button_mask = 0
+text = "章节选择"
+icon = SubResource("CompressedTexture2D_gxcmv")

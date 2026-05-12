@@ -9,11 +9,11 @@ radius = 7.506529
 
 [node name="Badges" unique_id=223355110 instance=ExtResource("1_trf46")]
 scale = Vector2(1.001095, 1.0090336)
-item_name = "工牌"
+item_name = "旧工牌和新工牌"
 detail_image = ExtResource("2_vjy8d")
 detail_image_scale = Vector2(0.5, 0.5)
 detail_image_offset = Vector2(200, 50)
-description = "旧工牌和新工牌描述"
+description = "工作似乎成了我的一种惯性。现在的我不缺钱。我缺的是对抗乏味生活的手段。"
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
 position = Vector2(232, 342)
@@ -21,6 +21,5 @@ scale = Vector2(15.319999, 15.319999)
 shape = SubResource("CapsuleShape2D_vjy8d")
 
 [node name="Sprite2D" parent="." index="1" unique_id=771681859]
-position = Vector2(960, 540)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_tegq6")

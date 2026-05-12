@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cl8uyrp6bfud1"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Game/Scenes/1_Components/ClickableItem.tscn" id="1_4gk7c"]
+[ext_resource type="Texture2D" uid="uid://c4ojqot7a4vh3" path="res://Art/Scenes/Scene1/Elements/Patent_itemback.png" id="2_d3mfc"]
+[ext_resource type="Texture2D" uid="uid://tocrla1nfmlt" path="res://Art/Scenes/Scene1/Elements/Patent_itemback1.png" id="3_we15d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1kq2"]
+size = Vector2(17.907322, 23.541962)
+
+[node name="patent" unique_id=223355110 instance=ExtResource("1_4gk7c")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(969.7625, 388.20645)
+rotation = 0.13614628
+scale = Vector2(37.200005, 37.200005)
+shape = SubResource("RectangleShape2D_x1kq2")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+position = Vector2(960, 540)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_d3mfc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="2" unique_id=1660421165]
+position = Vector2(960, 540)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_we15d")

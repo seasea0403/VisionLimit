@@ -9,10 +9,11 @@ size = Vector2(13.872547, 22.794117)
 
 [node name="foodbox" unique_id=223355110 instance=ExtResource("1_lwiks")]
 item_id = "3"
-item_name = "外卖"
+item_name = "外卖盒"
 detail_image = ExtResource("2_3r1p7")
 detail_image_scale = Vector2(0.5, 0.5)
 detail_image_offset = Vector2(500, 50)
+description = "制取美食是高雅的艺术。我只是艺术的赏味者。"
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
 position = Vector2(1781.5, 836.5)
@@ -20,6 +21,4 @@ scale = Vector2(20.400002, 20.400002)
 shape = SubResource("RectangleShape2D_s3qws")
 
 [node name="Sprite2D" parent="." index="1" unique_id=771681859]
-position = Vector2(960, 540)
-scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_h6a2x")

@@ -1,14 +1,16 @@
 [gd_scene format=3 uid="uid://ilevtssko1gr"]
 
 [ext_resource type="Script" uid="uid://bg2vohf6s0umg" path="res://Script/Components/item_detail.gd" id="1_e1v3h"]
-[ext_resource type="FontFile" uid="uid://bvl8ulxuys0rb" path="res://Font/华文隶书.TTF" id="2_e1v3h"]
 [ext_resource type="Texture2D" uid="uid://d22r6v5tthnwx" path="res://Art/Scenes/Scene2/Elements/Voice.png" id="2_inpxe"]
+[ext_resource type="Texture2D" uid="uid://c4luyc4441l5w" path="res://Art/UI/Content.png" id="3_ynnx8"]
+[ext_resource type="Texture2D" uid="uid://hl0dm7k4wthg" path="res://Art/Character/人物立绘/沈意.png" id="4_ggvg5"]
+[ext_resource type="AudioStream" uid="uid://c8sfux86n8ld0" path="res://Audio/SFX/Text.mp3" id="4_inpxe"]
+[ext_resource type="FontFile" uid="uid://be1qr0r137vm1" path="res://Font/12×16莫妮卡圆像素2026-3-3/x12y16MyMaruMonica-2026-3-3.ttf" id="4_ynnx8"]
 
 [node name="ItemDetail" type="CanvasLayer" unique_id=552734023]
 script = ExtResource("1_e1v3h")
 
 [node name="DarkBackground" type="ColorRect" parent="." unique_id=1174300489]
-visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -24,34 +26,52 @@ offset_right = 3200.0
 offset_bottom = 1800.0
 texture = ExtResource("2_inpxe")
 
+[node name="TextBackground" type="TextureRect" parent="Control" unique_id=1305692855]
+layout_mode = 0
+offset_left = 64.37903
+offset_top = 843.00006
+offset_right = 2839.379
+offset_bottom = 1248.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_ynnx8")
+
+[node name="Character" type="TextureRect" parent="Control" unique_id=984582437]
+layout_mode = 0
+offset_left = 631.379
+offset_top = 376.0
+offset_right = 1392.379
+offset_bottom = 2139.0
+scale = Vector2(-0.9584481, 0.92158455)
+texture = ExtResource("4_ggvg5")
+
 [node name="TitleLabel" type="Label" parent="Control" unique_id=1811732885]
 layout_mode = 0
-offset_left = 816.0
-offset_top = 892.0
-offset_right = 1116.0
-offset_bottom = 935.0
-theme_override_fonts/font = ExtResource("2_e1v3h")
-theme_override_font_sizes/font_size = 40
+offset_left = 794.0
+offset_top = 56.0
+offset_right = 1094.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 60
 text = "物品名称"
 horizontal_alignment = 1
 
 [node name="DescriptionLabel" type="Label" parent="Control" unique_id=1691985772]
 layout_mode = 0
-offset_left = 62.0
-offset_top = 956.0
-offset_right = 1862.0
-offset_bottom = 1016.0
-theme_override_fonts/font = ExtResource("2_e1v3h")
-theme_override_font_sizes/font_size = 40
-text = "物品描述"
-horizontal_alignment = 1
+offset_left = 346.0
+offset_top = 928.0
+offset_right = 1549.621
+offset_bottom = 1055.0
+theme_override_colors/font_color = Color(0.021434637, 0.021434635, 0.021434633, 1)
+theme_override_fonts/font = ExtResource("4_ynnx8")
+theme_override_font_sizes/font_size = 50
+text = "物品描啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦"
+autowrap_mode = 3
 
 [node name="RecordButton" type="Button" parent="Control" unique_id=1437699816]
 layout_mode = 0
-offset_left = 1680.0
-offset_top = 891.99994
-offset_right = 1740.0
-offset_bottom = 931.99994
+offset_left = 1721.0
+offset_top = 950.0
+offset_right = 1781.0
+offset_bottom = 990.0
 scale = Vector2(2.8400025, 2.8400025)
 text = "记录"
 
@@ -63,3 +83,7 @@ offset_right = 172.0
 offset_bottom = 122.0
 scale = Vector2(2.6799998, 2.6799998)
 text = "返回"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1938186859]
+stream = ExtResource("4_inpxe")
+volume_db = 10.284

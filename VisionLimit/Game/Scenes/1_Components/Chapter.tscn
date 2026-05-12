@@ -37,4 +37,6 @@ offset_bottom = 67.0
 
 [node name="ZoomViews" type="Node2D" parent="." unique_id=395467288]
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=996875468]
+
 [editable path="UILayer/ItemDetail"]

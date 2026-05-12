@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var description_label = $Control/DescriptionLabel
 @onready var record_button = $Control/RecordButton
 @onready var close_button = $Control/CloseButton
+@onready var text_sfx = $AudioStreamPlayer2D
 
 # ==================== 状态变量 ====================
 var current_item_id: String = ""
@@ -83,6 +84,7 @@ func show_detail(texture: Texture2D, description: String, title: String, can_rec
 	# 如果不可记录，隐藏记录按钮
 	record_button.visible = can_record_flag
 	show()
+	text_sfx.play()
 
 
 # ==================== 隐藏方法 ====================

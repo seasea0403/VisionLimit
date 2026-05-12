@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Game/Scenes/1_Components/ClickableArea.tscn" id="1_bi7ba"]
 [ext_resource type="PackedScene" uid="uid://ddjkykjrmi8k6" path="res://Game/Scenes/Chapter1/zoomview/zoomview_table.tscn" id="2_bsx2r"]
+[ext_resource type="PackedScene" uid="uid://27gd30d4udt2" path="res://Game/Scenes/Chapter1/items/foodbox.tscn" id="3_o4mdb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bsx2r"]
 size = Vector2(103.09778, 39.588596)
@@ -14,5 +15,7 @@ scale = Vector2(6.1449313, 6.1794825)
 shape = SubResource("RectangleShape2D_bsx2r")
 
 [node name="Zoomview_desk" parent="." index="1" unique_id=198920514 instance=ExtResource("2_bsx2r")]
+
+[node name="foodbox" parent="Zoomview_desk/Items" parent_id_path=PackedInt32Array(198920514, 1759582505) index="2" unique_id=223355110 instance=ExtResource("3_o4mdb")]
 
 [editable path="Zoomview_desk"]
