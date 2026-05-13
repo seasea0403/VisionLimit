@@ -1,24 +1,11 @@
 [gd_scene format=3 uid="uid://6d53pjf3ur5"]
 
-[ext_resource type="Script" uid="uid://dpf1dfnu8mwee" path="res://Script/Chapters/chapter_1.gd" id="1_si3j8"]
+[ext_resource type="Script" uid="uid://dpf1dfnu8mwee" path="res://Script/Chapters/chapter.gd" id="1_si3j8"]
 [ext_resource type="Texture2D" uid="uid://7twvcojxkhdk" path="res://Art/Scenes/Scene1/Background/Background1.jpg" id="2_p3xvj"]
-[ext_resource type="PackedScene" uid="uid://ilevtssko1gr" path="res://Game/Scenes/1_Components/ItemDetail.tscn" id="3_2gdxs"]
+[ext_resource type="PackedScene" uid="uid://ilevtssko1gr" path="res://Template/Scene/ItemDetail.tscn" id="3_2gdxs"]
+[ext_resource type="PackedScene" uid="uid://db36xmmdbc587" path="res://Game/UI/HUD/HUDPanel.tscn" id="4_tyate"]
 [ext_resource type="PackedScene" uid="uid://j0xbvmq5qgge" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_Table.tscn" id="4_xsbss"]
 [ext_resource type="PackedScene" uid="uid://e5g0f23rifgx" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_Board.tscn" id="6_ixcci"]
-
-[sub_resource type="GDScript" id="GDScript_ef27q"]
-script/source = "extends Button
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [node name="Chapter1" type="Node2D" unique_id=1721673035]
 script = ExtResource("1_si3j8")
@@ -36,40 +23,24 @@ texture = ExtResource("2_p3xvj")
 visible = false
 
 [node name="DarkBackground" parent="UILayer/ItemDetail" index="0" unique_id=1174300489]
-visible = true
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.3372549)
 
-[node name="RecordButton" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="3" unique_id=1437699816]
-offset_left = 1645.9999
-offset_top = 894.0
-offset_right = 1705.9999
-offset_bottom = 934.0
-
-[node name="CloseButton" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="4" unique_id=642903845]
-offset_left = 22.0
-offset_top = 27.0
-offset_right = 82.0
-offset_bottom = 67.0
+[node name="HudPanel" parent="UILayer" unique_id=1624742861 instance=ExtResource("4_tyate")]
 
 [node name="ZoomViews" type="Node2D" parent="." unique_id=691051636]
 
 [node name="Table" parent="ZoomViews" unique_id=676050068 instance=ExtResource("4_xsbss")]
 
+[node name="Badges" parent="ZoomViews/Table/Zoomview_desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="0" unique_id=223355110]
+record_entry_title = ""
+record_entry_description = ""
+
 [node name="CollisionShape2D" parent="ZoomViews/Table/Zoomview_desk/Items/foodbox" parent_id_path=PackedInt32Array(676050068, 223355110) index="0" unique_id=398543410]
 position = Vector2(1782, 837)
 
-[node name="CloseButton" parent="ZoomViews/Table/Zoomview_desk" parent_id_path=PackedInt32Array(676050068, 198920514) index="2" unique_id=547770466]
-script = SubResource("GDScript_ef27q")
-
 [node name="Board" parent="ZoomViews" unique_id=1768123374 instance=ExtResource("6_ixcci")]
-
-[node name="CloseButton" parent="ZoomViews/Board/Zoomview" parent_id_path=PackedInt32Array(1768123374, 198920514) index="2" unique_id=547770466]
-offset_right = 8.0
-offset_bottom = 8.0
-scale = Vector2(1, 1)
-text = ""
 
 [editable path="UILayer/ItemDetail"]
 [editable path="ZoomViews/Table"]

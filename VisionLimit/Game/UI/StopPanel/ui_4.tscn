@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://275fxm18275m"]
+
+[ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="1_0c782"]
+[ext_resource type="Texture2D" uid="uid://b0qq1npada0sw" path="res://Art/UI/Document/stop/微信图片_20260508171858_57732_299.png" id="2_0c782"]
+
+[node name="UI1" unique_id=213310980 instance=ExtResource("1_0c782")]
+position = Vector2(0, -1)
+
+[node name="TextureButton" parent="." index="0" unique_id=1367535632]
+texture_normal = ExtResource("2_0c782")
+
+[node name="Label" parent="TextureButton" index="0" unique_id=1029178860]
+offset_left = 126.0
+offset_top = 222.0
+offset_right = 476.0
+offset_bottom = 293.0
+rotation = -0.034020312
+scale = Vector2(1.3371891, 1.3371891)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "返回主界面"

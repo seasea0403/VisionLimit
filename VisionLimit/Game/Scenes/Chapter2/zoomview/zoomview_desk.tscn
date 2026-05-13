@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://da0wfbu0i4wx0"]
 
-[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Game/Scenes/1_Components/Zoomview.tscn" id="1_fgeiq"]
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_fgeiq"]
 [ext_resource type="Texture2D" uid="uid://j6ltiv4qpmcw" path="res://Art/Scenes/Scene2/Elements/Desk_back.png" id="2_ccwa1"]
 [ext_resource type="PackedScene" uid="uid://6gcnyd60t0x0" path="res://Game/Scenes/Chapter2/items/card.tscn" id="3_ccwa1"]
 [ext_resource type="PackedScene" uid="uid://cvjvonowbse6o" path="res://Game/Scenes/Chapter2/items/voice.tscn" id="4_r80mg"]

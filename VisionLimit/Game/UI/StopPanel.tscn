@@ -1,28 +1,45 @@
 [gd_scene format=3 uid="uid://cdlcvo37gsmie"]
 
-[ext_resource type="Texture2D" uid="uid://ce6l5e7euqrft" path="res://Art/UI/Document/Full.jpg" id="1_jc6hk"]
-[ext_resource type="Texture2D" uid="uid://ndb8y20jammm" path="res://Art/UI/Document/微信图片_20260508171852_57728_299.png" id="2_r5eg8"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gxcmv"]
-load_path = "res://.godot/imported/微信图片_20260508171852_57728_299.png-c6bd2a13d6fd63862b2ede7f1b452e98.ctex"
+[ext_resource type="Texture2D" uid="uid://xriom1ky86kn" path="res://Art/UI/Document/stop/微信图片_20260508171850_57727_299.png" id="1_78ssj"]
+[ext_resource type="PackedScene" uid="uid://c05m48f2v5h8t" path="res://Game/UI/StopPanel/ui_1.tscn" id="2_78ssj"]
+[ext_resource type="PackedScene" uid="uid://bnmu03sygdamf" path="res://Game/UI/StopPanel/ui_2.tscn" id="3_ud28p"]
+[ext_resource type="PackedScene" uid="uid://wynn7inyoy1h" path="res://Game/UI/StopPanel/ui_3.tscn" id="4_0uxf7"]
+[ext_resource type="PackedScene" uid="uid://275fxm18275m" path="res://Game/UI/StopPanel/ui_4.tscn" id="5_yxibi"]
+[ext_resource type="PackedScene" uid="uid://bxihnabmkhat4" path="res://Game/UI/StopPanel/ui_5.tscn" id="6_83jv0"]
+[ext_resource type="Script" uid="uid://bokoo7d1vs6ys" path="res://Script/UI/stop_panel.gd" id="7_stop1"]
+[ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="8_back"]
 
 [node name="StopPanel" type="CanvasLayer" unique_id=727040872]
+script = ExtResource("7_stop1")
 
 [node name="Background" type="TextureRect" parent="." unique_id=521670966]
 offset_right = 3200.0
 offset_bottom = 1800.0
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_jc6hk")
+texture = ExtResource("1_78ssj")
 
-[node name="Button" type="Button" parent="." unique_id=37529286]
-offset_left = 1032.0
-offset_top = 302.00006
-offset_right = 2057.0
-offset_bottom = 895.00006
-rotation = -0.00053662114
-scale = Vector2(0.57280767, 0.57442045)
-theme_override_font_sizes/font_size = 60
-theme_override_icons/icon = ExtResource("2_r5eg8")
-button_mask = 0
-text = "章节选择"
-icon = SubResource("CompressedTexture2D_gxcmv")
+[node name="button" type="Node2D" parent="." unique_id=2018166669]
+
+[node name="UI1" parent="button" unique_id=213310980 instance=ExtResource("2_78ssj")]
+position = Vector2(233.00002, -26)
+scale = Vector2(1.312403, 1.312402)
+
+[node name="UI2" parent="button" unique_id=1405001197 instance=ExtResource("3_ud28p")]
+position = Vector2(911.99994, 167.00002)
+scale = Vector2(1.202086, 1.1527995)
+
+[node name="UI3" parent="button" unique_id=1856777751 instance=ExtResource("4_0uxf7")]
+z_index = 1
+position = Vector2(504.99997, 339)
+scale = Vector2(1.1967946, 1.1031426)
+
+[node name="UI4" parent="button" unique_id=1462514879 instance=ExtResource("5_yxibi")]
+position = Vector2(292, 531)
+scale = Vector2(1.308703, 1.3037521)
+
+[node name="UI5" parent="button" unique_id=1092146597 instance=ExtResource("6_83jv0")]
+position = Vector2(889, 483)
+scale = Vector2(1.2254158, 1.2542483)
+
+[node name="BackButton" parent="." unique_id=1659967677 instance=ExtResource("8_back")]
+position = Vector2(8, -10)

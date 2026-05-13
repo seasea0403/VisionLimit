@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://doesud42gb1g4"]
+
+[ext_resource type="Script" uid="uid://dpf1dfnu8mwee" path="res://Script/Chapters/chapter.gd" id="1_3ndok"]
+[ext_resource type="Texture2D" uid="uid://7twvcojxkhdk" path="res://Art/Scenes/Scene1/Background/Background1.jpg" id="1_jjl8d"]
+[ext_resource type="PackedScene" uid="uid://ilevtssko1gr" path="res://Template/Scene/ItemDetail.tscn" id="2_3ndok"]
+[ext_resource type="PackedScene" uid="uid://db36xmmdbc587" path="res://Game/UI/HUD/HUDPanel.tscn" id="4_rts0y"]
+
+[node name="Chapter" type="Node2D" unique_id=1917343286]
+script = ExtResource("1_3ndok")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2106778844]
+position = Vector2(960, 540)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_jjl8d")
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=577909593]
+
+[node name="ItemDetail" parent="UILayer" unique_id=552734023 instance=ExtResource("2_3ndok")]
+
+[node name="DarkBackground" parent="UILayer/ItemDetail" index="0" unique_id=1174300489]
+layout_mode = 3
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.3372549)
+
+[node name="Control" parent="UILayer/ItemDetail" index="1" unique_id=327138164]
+layout_mode = 3
+
+[node name="HudPanel" parent="UILayer" unique_id=1624742861 instance=ExtResource("4_rts0y")]
+z_index = 5
+
+[node name="ZoomViews" type="Node2D" parent="." unique_id=395467288]
+
+[node name="SceneBgm" type="AudioStreamPlayer2D" parent="." unique_id=996875468]
+
+[editable path="UILayer/ItemDetail"]

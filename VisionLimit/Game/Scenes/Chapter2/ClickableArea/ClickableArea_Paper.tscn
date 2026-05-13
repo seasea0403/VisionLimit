@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dophknobhb3t2"]
 
-[ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Game/Scenes/1_Components/ClickableArea.tscn" id="1_mvmou"]
+[ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Template/Scene/ClickableArea.tscn" id="1_mvmou"]
 [ext_resource type="PackedScene" uid="uid://cq3u0weg6wxvh" path="res://Game/Scenes/Chapter2/zoomview/zoomview_paper.tscn" id="2_mvmou"]
 
 [node name="ClickableArea_Paper" unique_id=676050068 instance=ExtResource("1_mvmou")]

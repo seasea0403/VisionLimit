@@ -1,18 +1,22 @@
 [gd_scene format=3 uid="uid://brshx6nvhwpvn"]
 
-[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Game/Scenes/1_Components/ClickableItem.tscn" id="1_p1g7i"]
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_p1g7i"]
 [ext_resource type="Texture2D" uid="uid://evxnvr56p2ao" path="res://Art/Scenes/Scene1/Elements/Certification.png" id="2_uhapn"]
 [ext_resource type="Texture2D" uid="uid://bi48t86qcmlgb" path="res://Art/Scenes/Scene1/Elements/Certification_back.png" id="2_yrw60"]
 
 [sub_resource type="ConcavePolygonShape2D" id="ConcavePolygonShape2D_uhapn"]
 
 [node name="Certification" unique_id=223355110 instance=ExtResource("1_p1g7i")]
-item_name = "证书"
+item_id = "2"
+item_name = "二级托管师执照"
 detail_image = ExtResource("2_uhapn")
-detail_image_scale = Vector2(0.5, 0.5)
-detail_image_offset = Vector2(200, 50)
-description = "谁不想做海芯时代的神经托管师？但记忆海受创后，我连基本的写入都做不到了..."
+detail_image_offset = Vector2(-50, -10)
+description = "我毕业时正值记忆紊乱频发的时期，托管师当时还是份新兴的职业。二级执照限制很多，但对我而言谋生和谋利都够用了。只是没想到我的托管师职业生涯会这么短暂..."
 can_record = true
+record_entry_title = "记忆紊乱"
+record_entry_description = "真实记忆和固化记忆这两种不同格式的记忆共存在个体的神经空间里，有时会产生格式冲突。时间越长，写入量越大，调用次数越多，二者之间冲突越严重。记忆紊乱包括轻度，中度和重度三种级别。"
+record_entry_title_2 = "托管师"
+record_entry_description_2 = "托管师是海芯时代出现的新兴职业，负责通过神经接入技术进入患者的记忆海，帮助梳理紊乱结构，修复受损的记忆网络。托管服务根据接入程度的不同，分为一至四级。"
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
 position = Vector2(55.99997, 1041)

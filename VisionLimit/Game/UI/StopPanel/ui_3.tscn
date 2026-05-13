@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://wynn7inyoy1h"]
+
+[ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="1_rnjes"]
+[ext_resource type="Texture2D" uid="uid://dex6x83hq3l21" path="res://Art/UI/Document/stop/微信图片_20260508171857_57731_299.png" id="2_rnjes"]
+
+[node name="UI3" unique_id=213310980 instance=ExtResource("1_rnjes")]
+
+[node name="TextureButton" parent="." index="0" unique_id=1367535632]
+texture_normal = ExtResource("2_rnjes")
+
+[node name="Label" parent="TextureButton" index="0" unique_id=1029178860]
+offset_left = 438.0
+offset_top = 202.0
+offset_right = 718.0
+offset_bottom = 273.0
+text = "记录册"

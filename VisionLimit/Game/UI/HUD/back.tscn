@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://djcpyudlr71mj"]
+
+[ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="1_whdg0"]
+[ext_resource type="Texture2D" uid="uid://bqgmb11r1udcv" path="res://Art/UI/HUD/返回按钮.png" id="2_hf817"]
+
+[node name="back" unique_id=2074814427 instance=ExtResource("1_whdg0")]
+
+[node name="TextureButton" parent="." index="0" unique_id=1367535632]
+offset_left = 19.0
+offset_top = 15.0
+offset_right = 961.0
+offset_bottom = 445.0
+scale = Vector2(0.3057868, 0.30372068)
+texture_normal = ExtResource("2_hf817")
+
+[node name="Label" parent="TextureButton" index="0" unique_id=1029178860]
+text = ""
+
+[node name="hover" parent="." index="1" unique_id=2003038747]
+stream = null

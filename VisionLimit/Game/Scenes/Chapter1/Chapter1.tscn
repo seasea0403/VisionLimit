@@ -1,7 +1,10 @@
 [gd_scene format=4 uid="uid://cl5a74euhmg35"]
 
-[ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Game/Scenes/1_Components/Chapter.tscn" id="1_xnqfp"]
+[ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_xnqfp"]
+[ext_resource type="PackedScene" uid="uid://ccp5mfhfncfts" path="res://Game/UI/RecordPanel/RecordPanel.tscn" id="2_geqti"]
 [ext_resource type="PackedScene" uid="uid://j0xbvmq5qgge" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_Table.tscn" id="2_xnqfp"]
+[ext_resource type="PackedScene" uid="uid://bhd38bbkdsotp" path="res://Game/Scenes/Chapter1/items/bed.tscn" id="4_f0je0"]
+[ext_resource type="PackedScene" uid="uid://ceft3bne41ye8" path="res://Game/Scenes/Chapter1/items/dock.tscn" id="5_5oj76"]
 [ext_resource type="PackedScene" uid="uid://e5g0f23rifgx" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_Board.tscn" id="6_uari3"]
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_xnqfp"]
@@ -10,11 +13,30 @@ loop = true
 
 [node name="Chapter" unique_id=1917343286 instance=ExtResource("1_xnqfp")]
 
-[node name="ClickableArea_Table" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("2_xnqfp")]
+[node name="RecordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="1" unique_id=1173323693 instance=ExtResource("2_geqti")]
 
-[node name="ClickableArea" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=1055747330 instance=ExtResource("6_uari3")]
+[node name="ZoomViews" parent="." index="2" unique_id=395467288]
+visible = false
 
-[node name="AudioStreamPlayer2D" parent="." index="3" unique_id=996875468]
+[node name="ClickableArea_Table" parent="ZoomViews" index="0" unique_id=676050068 instance=ExtResource("2_xnqfp")]
+
+[node name="Certification" parent="ZoomViews/ClickableArea_Table/Zoomview_desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="1" unique_id=1689087515]
+record_entry_title = ""
+record_entry_description = ""
+record_entry_title_2 = ""
+record_entry_description_2 = ""
+
+[node name="ClickableArea" parent="ZoomViews" index="1" unique_id=1055747330 instance=ExtResource("6_uari3")]
+
+[node name="items" type="Node2D" parent="." index="3" unique_id=1824441566]
+
+[node name="bed" parent="items" index="0" unique_id=621484511 instance=ExtResource("4_f0je0")]
+
+[node name="dock" parent="items" index="1" unique_id=241473976 instance=ExtResource("5_5oj76")]
+record_entry_title = ""
+record_entry_description = ""
+
+[node name="SceneBgm" parent="." index="4" unique_id=996875468]
 stream = SubResource("AudioStreamMP3_xnqfp")
 autoplay = true
 

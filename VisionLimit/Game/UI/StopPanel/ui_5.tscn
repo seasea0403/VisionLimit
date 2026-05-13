@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bxihnabmkhat4"]
+
+[ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="1_vnffb"]
+[ext_resource type="Texture2D" uid="uid://gfhd87xa1odw" path="res://Art/UI/Document/stop/微信图片_20260508171855_57730_299.png" id="2_vnffb"]
+
+[node name="UI1" unique_id=213310980 instance=ExtResource("1_vnffb")]
+
+[node name="TextureButton" parent="." index="0" unique_id=1367535632]
+texture_normal = ExtResource("2_vnffb")
+
+[node name="Label" parent="TextureButton" index="0" unique_id=1029178860]
+offset_left = 212.0
+offset_top = 234.0
+offset_right = 492.0
+offset_bottom = 305.0
+text = "设置"

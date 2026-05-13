@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c05m48f2v5h8t"]
+
+[ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="1_ux6cw"]
+[ext_resource type="Texture2D" uid="uid://dyb1ads3x8rom" path="res://Art/UI/Document/stop/微信图片_20260508171853_57729_299.png" id="2_jooxs"]
+
+[node name="UI1" unique_id=213310980 instance=ExtResource("1_ux6cw")]
+
+[node name="TextureButton" parent="." index="0" unique_id=1367535632]
+offset_top = 123.0
+offset_right = 1137.0
+offset_bottom = 796.0
+texture_normal = ExtResource("2_jooxs")
+
+[node name="Label" parent="TextureButton" index="0" unique_id=1029178860]
+offset_left = 302.0
+offset_top = 264.0
+offset_right = 582.0
+offset_bottom = 335.0
+text = "笔记本"

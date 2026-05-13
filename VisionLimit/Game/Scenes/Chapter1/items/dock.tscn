@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ceft3bne41ye8"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_xfaek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oicy"]
+size = Vector2(227.33131, 456.43048)
+
+[node name="dock" unique_id=223355110 instance=ExtResource("1_xfaek")]
+item_id = "6"
+item_name = "港口"
+description = "我从出生起就没离开过苍屿。我喜欢这扇窗，远去的船舶和船鸣声会给我带来平静。"
+can_record = true
+record_entry_title = "苍屿县"
+record_entry_description = "苍屿不是个穷地方，但是个正在变穷的地方。这个世代以渔业为重的地方，渔获出口量却在逐年断崖式下跌。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(1350.25, 372)
+scale = Vector2(2.2148292, 1.0078206)
+shape = SubResource("RectangleShape2D_5oicy")

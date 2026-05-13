@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://sdwoweqjwvnd"]
+
+[ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="1_jqm4m"]
+[ext_resource type="Texture2D" uid="uid://cymcacjhhnk21" path="res://Art/UI/HUD/book.png" id="2_jqm4m"]
+
+[node name="book" unique_id=2074814427 instance=ExtResource("1_jqm4m")]
+
+[node name="TextureButton" parent="." index="0" unique_id=1367535632]
+offset_left = 1743.0
+offset_top = 861.99994
+offset_right = 2382.0
+offset_bottom = 1500.0
+rotation = 0.15555952
+scale = Vector2(0.2905571, 0.28836036)
+texture_normal = ExtResource("2_jqm4m")
+
+[node name="Label" parent="TextureButton" index="0" unique_id=1029178860]
+text = ""
+
+[node name="hover" parent="." index="1" unique_id=2003038747]
+stream = null

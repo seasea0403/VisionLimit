@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cr5xn53fe80j"]
+
+[ext_resource type="Texture2D" uid="uid://b2mnfvovhhhnc" path="res://Art/UI/Document/Setting/微信图片_20260508172241_57735_299.png" id="1_fbf3x"]
+[ext_resource type="Texture2D" uid="uid://iknkeqw2y1ka" path="res://Art/UI/Document/Setting/微信图片_20260508172243_57736_299.png" id="2_155yb"]
+
+[node name="SettingPanel" type="Control" unique_id=1445172142]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="background" type="TextureRect" parent="." unique_id=1351474503]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_fbf3x")
+
+[node name="icon" type="TextureRect" parent="." unique_id=736338406]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 313.0
+offset_right = 977.0
+offset_bottom = 1061.0
+scale = Vector2(0.6120328, 0.6120328)
+texture = ExtResource("2_155yb")
+
+[node name="HSlider" type="HSlider" parent="." unique_id=1020086916]
+layout_mode = 0
+offset_left = 805.0
+offset_top = 395.99997
+offset_right = 945.0
+offset_bottom = 422.28998
+scale = Vector2(4.4836574, 4.4176273)
+
+[node name="HSlider2" type="HSlider" parent="." unique_id=1420028307]
+layout_mode = 0
+offset_left = 807.0
+offset_top = 599.0
+offset_right = 947.0
+offset_bottom = 625.29004
+scale = Vector2(4.4836574, 4.4176273)

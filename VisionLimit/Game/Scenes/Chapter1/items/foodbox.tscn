@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://27gd30d4udt2"]
 
-[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Game/Scenes/1_Components/ClickableItem.tscn" id="1_lwiks"]
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_lwiks"]
 [ext_resource type="Texture2D" uid="uid://b7qjtdkr8vhoy" path="res://Art/Scenes/Scene1/Elements/Food_box.png" id="2_3r1p7"]
 [ext_resource type="Texture2D" uid="uid://d3qkjxc8hl36w" path="res://Art/Scenes/Scene1/Elements/Food_box_back.png" id="3_h6a2x"]
 
@@ -11,8 +11,6 @@ size = Vector2(13.872547, 22.794117)
 item_id = "3"
 item_name = "外卖盒"
 detail_image = ExtResource("2_3r1p7")
-detail_image_scale = Vector2(0.5, 0.5)
-detail_image_offset = Vector2(500, 50)
 description = "制取美食是高雅的艺术。我只是艺术的赏味者。"
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]

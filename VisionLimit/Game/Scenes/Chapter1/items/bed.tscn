@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bhd38bbkdsotp"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_o7ifm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oicy"]
+size = Vector2(257.8077, 382.42865)
+
+[node name="bed" unique_id=223355110 instance=ExtResource("1_o7ifm")]
+item_id = "5"
+item_name = "床"
+description = "记忆海把人类从记忆的苦海中解脱了出来，但我相信不会有人支持把睡眠替代掉吧。睡觉是一项是神圣不可侵犯的活动。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(1632.5, 875.7097)
+scale = Vector2(2.2148292, 1.0078206)
+shape = SubResource("RectangleShape2D_5oicy")

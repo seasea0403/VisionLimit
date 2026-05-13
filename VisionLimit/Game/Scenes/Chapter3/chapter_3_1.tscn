@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dm73m13o2toqy"]
 
-[ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Game/Scenes/1_Components/Chapter.tscn" id="1_symjg"]
+[ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_symjg"]
 [ext_resource type="Texture2D" uid="uid://ch5v2d5wmihbh" path="res://Art/Scenes/Scene3/Background/Background3_1.png" id="2_0j8q1"]
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_w43u8"]

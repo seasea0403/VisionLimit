@@ -1,18 +1,8 @@
 [gd_scene format=3 uid="uid://bmrjobut2qgfn"]
 
-[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Game/Scenes/1_Components/Zoomview.tscn" id="1_og683"]
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_og683"]
 [ext_resource type="PackedScene" uid="uid://ddemr2ph2cwfi" path="res://Game/Scenes/Chapter1/items/patent.tscn" id="3_0kc1v"]
-[ext_resource type="Texture2D" uid="uid://byxrlsh4fs2qy" path="res://Art/Scenes/Scene1/Elements/Patent.png" id="4_juwep"]
 
 [node name="Zoomview" unique_id=198920514 instance=ExtResource("1_og683")]
 
 [node name="patent" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_0kc1v")]
-detail_image = ExtResource("4_juwep")
-detail_image_scale = Vector2(0.5, 0.5)
-detail_image_offset = Vector2(200, 50)
-
-[node name="CloseButton" parent="." index="2" unique_id=547770466]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 40.0
-offset_bottom = 31.0

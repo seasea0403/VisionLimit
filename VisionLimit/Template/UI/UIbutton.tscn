@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://83rj51cr1eo7"]
+
+[ext_resource type="Texture2D" uid="uid://ndb8y20jammm" path="res://Art/UI/Document/stop/微信图片_20260508171852_57728_299.png" id="1_cuoax"]
+[ext_resource type="Script" uid="uid://boieymagmevip" path="res://Script/uibutton.gd" id="1_rgnnw"]
+[ext_resource type="FontFile" uid="uid://bjtrn41cebq4e" path="res://Font/CLFN 16x CN.ttf" id="2_6dran"]
+[ext_resource type="AudioStream" uid="uid://clxlvgt42wy8j" path="res://Audio/SFX/Click.mp3" id="4_jdlfd"]
+[ext_resource type="AudioStream" uid="uid://ol3monah1368" path="res://Audio/SFX/hover.mp3" id="4_y51m4"]
+
+[node name="UIbutton" type="Node2D" unique_id=2074814427]
+script = ExtResource("1_rgnnw")
+hover_tint = Color(0.84890544, 0.84890544, 0.84890544, 1)
+pressed_tint = Color(0.60933006, 0.6093301, 0.60933006, 1)
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1367535632]
+offset_left = 92.0
+offset_top = 125.0
+offset_right = 925.0
+offset_bottom = 710.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_cuoax")
+
+[node name="Label" type="Label" parent="TextureButton" unique_id=1029178860]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 208.0
+offset_right = 478.0
+offset_bottom = 279.0
+scale = Vector2(1.64, 1.64)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6dran")
+theme_override_font_sizes/font_size = 70
+text = "选择关卡"
+
+[node name="hover" type="AudioStreamPlayer2D" parent="." unique_id=2003038747]
+stream = ExtResource("4_y51m4")
+volume_db = 11.368
+
+[node name="click" type="AudioStreamPlayer2D" parent="." unique_id=2041742026]
+stream = ExtResource("4_jdlfd")
+volume_db = 11.655

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://db36xmmdbc587"]
+
+[ext_resource type="PackedScene" uid="uid://sdwoweqjwvnd" path="res://Game/UI/HUD/book.tscn" id="1_xcelq"]
+[ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="2_sdnxa"]
+
+[node name="HudPanel" type="Control" unique_id=1624742861]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="book" parent="." unique_id=2074814427 instance=ExtResource("1_xcelq")]
+
+[node name="back" parent="." unique_id=116801208 instance=ExtResource("2_sdnxa")]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://j0xbvmq5qgge"]
 
-[ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Game/Scenes/1_Components/ClickableArea.tscn" id="1_bi7ba"]
+[ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Template/Scene/ClickableArea.tscn" id="1_bi7ba"]
 [ext_resource type="PackedScene" uid="uid://ddjkykjrmi8k6" path="res://Game/Scenes/Chapter1/zoomview/zoomview_table.tscn" id="2_bsx2r"]
 [ext_resource type="PackedScene" uid="uid://27gd30d4udt2" path="res://Game/Scenes/Chapter1/items/foodbox.tscn" id="3_o4mdb"]
 

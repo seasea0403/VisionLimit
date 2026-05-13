@@ -22,6 +22,18 @@ extends Area2D
 ## 是否可以记录进发现册
 @export var can_record: bool = false
 
+## 记录册词条标题（留空则使用 item_name）
+@export var record_entry_title: String = ""
+
+## 记录册词条描述（留空则使用 description）
+@export_multiline var record_entry_description: String = ""
+
+## 第二条记录册词条标题
+@export var record_entry_title_2: String = ""
+
+## 第二条记录册词条描述
+@export_multiline var record_entry_description_2: String = ""
+
 var item_detail: CanvasLayer
 
 
@@ -36,7 +48,8 @@ func _ready() -> void:
 
 # ==================== 信号处理 ====================
 func _on_input_event(_viewport, event, _shape_idx):
-	if event is InputEventMouseButton and Input.is_action_pressed("click"):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		get_viewport().set_input_as_handled()
 		print("\n=== ClickableItem 被点击 ===")
 		print("物品名称: ", item_name)
 		print("物品ID: ", item_id)
@@ -55,7 +68,11 @@ func _on_input_event(_viewport, event, _shape_idx):
 				can_record,
 				item_id,
 				detail_image_scale,
-				detail_image_offset
+				detail_image_offset,
+				record_entry_title,
+				record_entry_description,
+				record_entry_title_2,
+				record_entry_description_2
 			)
 		else:
 			print("✗ 错误：找不到 ItemDetail!")

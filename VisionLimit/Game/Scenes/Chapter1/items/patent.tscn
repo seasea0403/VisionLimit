@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ddemr2ph2cwfi"]
 
-[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Game/Scenes/1_Components/ClickableItem.tscn" id="1_5dnbc"]
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_5dnbc"]
+[ext_resource type="Texture2D" uid="uid://byxrlsh4fs2qy" path="res://Art/Scenes/Scene1/Elements/Patent.png" id="2_bhr47"]
 [ext_resource type="Texture2D" uid="uid://c4ojqot7a4vh3" path="res://Art/Scenes/Scene1/Elements/Patent_itemback.png" id="2_rgcay"]
 [ext_resource type="Texture2D" uid="uid://tocrla1nfmlt" path="res://Art/Scenes/Scene1/Elements/Patent_itemback1.png" id="3_bhr47"]
 
@@ -8,6 +9,13 @@
 size = Vector2(17.907322, 23.541962)
 
 [node name="patent" unique_id=223355110 instance=ExtResource("1_5dnbc")]
+item_id = "4"
+item_name = "神经接入资质证明"
+detail_image = ExtResource("2_bhr47")
+description = "我至今记得领取神经接入设备的那天，瓢泼的雨，晃动的人群，挤进我风衣里的刺骨的冷。当时的我在想什么？好像是希望下次办证时能有个好天气？几年前那场大单结束后，我的记忆海再也无法写入任何数据，神经接入设备对现在的我而言只是无用的金属。"
+can_record = true
+record_entry_title = "神经接入设备"
+record_entry_description = "托管师的托管工作需要使用神经接入设备建立两人之间的记忆双向通道。托管师进入后，必须在自己的神经网络中运行患者的神经模板，感知患者神经网络的状态。"
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
 position = Vector2(969.7625, 388.20645)
@@ -16,7 +24,6 @@ scale = Vector2(37.200005, 37.200005)
 shape = SubResource("RectangleShape2D_x1kq2")
 
 [node name="Sprite2D" parent="." index="1" unique_id=771681859]
-position = Vector2(960, 540)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_rgcay")
 

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bnmu03sygdamf"]
+
+[ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="1_kcyek"]
+
+[node name="UI1" unique_id=213310980 instance=ExtResource("1_kcyek")]
+
+[node name="Label" parent="TextureButton" parent_id_path=PackedInt32Array(1367535632) index="0" unique_id=1029178860]
+offset_left = 172.0
+offset_top = 206.0
+offset_right = 452.0
+offset_bottom = 277.0
+rotation = -0.07169331
+theme_override_colors/font_color = Color(1, 1, 1, 1)
