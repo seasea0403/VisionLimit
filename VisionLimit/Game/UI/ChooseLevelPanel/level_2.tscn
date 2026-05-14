@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://chxs0ion330qx"]
+
+[ext_resource type="PackedScene" uid="uid://cjipdyax8bo6i" path="res://Template/UI/Level.tscn" id="1_oqxi3"]
+
+[node name="Level1" unique_id=321591673 instance=ExtResource("1_oqxi3")]
+
+[node name="title" parent="." index="2" unique_id=21943005]
+text = "2.访客"

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cjipdyax8bo6i"]
+
+[ext_resource type="Texture2D" uid="uid://ck3sqr03it3tc" path="res://Art/UI/Choose_Level/微信图片_20260506224731_267_2323.png" id="1_j4ncm"]
+[ext_resource type="Texture2D" uid="uid://7twvcojxkhdk" path="res://Art/Scenes/Scene1/Background/Background1.jpg" id="2_l4qb1"]
+[ext_resource type="Script" uid="uid://8mb27x2e0jub" path="res://Template/UI/texture_rect.gd" id="3_bddgu"]
+[ext_resource type="FontFile" uid="uid://bjtrn41cebq4e" path="res://Font/CLFN 16x CN.ttf" id="3_jg0hn"]
+
+[node name="Level" type="Control" unique_id=321591673]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Background" type="TextureRect" parent="." unique_id=1064044338]
+layout_mode = 0
+offset_right = 970.0
+offset_bottom = 976.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_j4ncm")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=289125975]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 73.00001
+offset_right = 1725.814
+offset_bottom = 973.0
+scale = Vector2(0.14549783, 0.2746159)
+texture = ExtResource("2_l4qb1")
+script = ExtResource("3_bddgu")
+
+[node name="title" type="Label" parent="." unique_id=21943005]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 396.0
+offset_right = 434.7821
+offset_bottom = 447.0
+rotation = -0.17509624
+theme_override_colors/font_color = Color(0.103743516, 0.10374353, 0.103743516, 1)
+theme_override_fonts/font = ExtResource("3_jg0hn")
+theme_override_font_sizes/font_size = 45
+text = "1.来信"
+horizontal_alignment = 1
