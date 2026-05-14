@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b0uvd0cwvf55l"]
+
+[ext_resource type="Script" uid="uid://cmefpvveb5vef" path="res://Script/UI/ui_terminal.gd" id="1_wfscp"]
+
+[node name="UiTerminal" type="Control" unique_id=1376980927]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wfscp")

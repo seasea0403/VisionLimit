@@ -1,8 +1,13 @@
 [gd_scene format=3 uid="uid://bmrjobut2qgfn"]
 
 [ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_og683"]
+[ext_resource type="Texture2D" uid="uid://cldu1xby0ik7m" path="res://Art/Scenes/Scene1/Elements/Patent_back.png" id="2_8i0cr"]
 [ext_resource type="PackedScene" uid="uid://ddemr2ph2cwfi" path="res://Game/Scenes/Chapter1/items/patent.tscn" id="3_0kc1v"]
 
 [node name="Zoomview" unique_id=198920514 instance=ExtResource("1_og683")]
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_8i0cr")
 
 [node name="patent" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_0kc1v")]

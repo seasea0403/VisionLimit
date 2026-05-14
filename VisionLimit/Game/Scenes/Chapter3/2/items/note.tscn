@@ -11,6 +11,7 @@ size = Vector2(3.205, 29.754852)
 item_id = "2"
 item_name = "黄色便签纸"
 detail_image = ExtResource("2_kcs0q")
+can_record = true
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
 position = Vector2(1427, 577)

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://4ofvf6rdn6pg"]
+
+[ext_resource type="Texture2D" uid="uid://c2nclxdrlh5xa" path="res://Art/UI/Choose_Level/微信图片_20260506224729_266_2323.png" id="1_86ye0"]
+
+[node name="ChooseLevelPanel" type="Control" unique_id=1388235762]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Background" type="TextureRect" parent="." unique_id=1695243419]
+layout_mode = 0
+offset_right = 3200.0
+offset_bottom = 1800.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_86ye0")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=236420664]
+layout_mode = 0
+offset_right = 4259.0
+offset_bottom = 1081.0

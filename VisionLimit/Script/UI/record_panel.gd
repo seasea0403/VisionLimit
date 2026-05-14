@@ -1,7 +1,83 @@
+@tool
 extends Control
 
 var entries: Dictionary = {}
 var selected_entry_key: String = "default_memory_sea"
+
+var _entry_button_min_height: float = 52.0
+var _entry_button_font_size: int = 26
+var _entry_button_font: Font
+var _entry_button_selected_font: Font
+var _entry_button_font_color: Color = Color(0, 0, 0, 1)
+var _entry_button_selected_font_color: Color = Color(0.35, 0.16, 0.08, 1)
+var _editor_preview_enabled: bool = true
+var _editor_preview_titles: PackedStringArray = ["记忆海", "苍屿症", "郑和平"]
+var _editor_preview_description: String = "在编辑器中预览词条按钮的字体、字号和选中颜色。运行游戏后这里会显示真实词条内容。"
+var _editor_preview_selected_index: int = 0
+
+@export_group("Entry Button Style")
+@export var entry_button_min_height: float = 52.0:
+	set(value):
+		_entry_button_min_height = value
+		_queue_preview_refresh()
+	get:
+		return _entry_button_min_height
+@export var entry_button_font_size: int = 26:
+	set(value):
+		_entry_button_font_size = value
+		_queue_preview_refresh()
+	get:
+		return _entry_button_font_size
+@export var entry_button_font: Font:
+	set(value):
+		_entry_button_font = value
+		_queue_preview_refresh()
+	get:
+		return _entry_button_font
+@export var entry_button_selected_font: Font:
+	set(value):
+		_entry_button_selected_font = value
+		_queue_preview_refresh()
+	get:
+		return _entry_button_selected_font
+@export var entry_button_font_color: Color = Color(0, 0, 0, 1):
+	set(value):
+		_entry_button_font_color = value
+		_queue_preview_refresh()
+	get:
+		return _entry_button_font_color
+@export var entry_button_selected_font_color: Color = Color(0.35, 0.16, 0.08, 1):
+	set(value):
+		_entry_button_selected_font_color = value
+		_queue_preview_refresh()
+	get:
+		return _entry_button_selected_font_color
+
+@export_group("Editor Preview")
+@export var editor_preview_enabled: bool = true:
+	set(value):
+		_editor_preview_enabled = value
+		_queue_preview_refresh()
+	get:
+		return _editor_preview_enabled
+@export var editor_preview_titles: PackedStringArray = ["记忆海", "苍屿症", "郑和平"]:
+	set(value):
+		_editor_preview_titles = value
+		_queue_preview_refresh()
+	get:
+		return _editor_preview_titles
+@export_multiline var editor_preview_description: String = "在编辑器中预览词条按钮的字体、字号和选中颜色。运行游戏后这里会显示真实词条内容。":
+	set(value):
+		_editor_preview_description = value
+		_queue_preview_refresh()
+	get:
+		return _editor_preview_description
+@export var editor_preview_selected_index: int = 0:
+	set(value):
+		_editor_preview_selected_index = value
+		_queue_preview_refresh()
+	get:
+		return _editor_preview_selected_index
 
 @onready var panel: Panel = $Panel
 @onready var entry_list: VBoxContainer = $Panel/Layout/LeftPage/Scroll/EntryList
@@ -10,6 +86,10 @@ var selected_entry_key: String = "default_memory_sea"
 
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		_queue_preview_refresh()
+		return
+
 	if back_button and back_button.has_node("TextureButton"):
 		back_button.get_node("TextureButton").pressed.connect(hide)
 	_seed_default_entries()
@@ -62,22 +142,38 @@ func toggle_panel() -> void:
 
 
 func _rebuild_entry_list() -> void:
+	if not is_instance_valid(entry_list):
+		return
+
 	for child in entry_list.get_children():
 		child.queue_free()
 
-	var keys := entries.keys()
+	var source_entries := _get_display_entries()
+	var keys := source_entries.keys()
 	keys.sort()
 	for key in keys:
-		var data: Dictionary = entries[key]
+		var data: Dictionary = source_entries[key]
 		var button := Button.new()
 		var title: String = data.get("title", key)
-		button.text = title if key != selected_entry_key else title + "\n______"
-		button.custom_minimum_size = Vector2(0, 52)
+		var is_selected: bool = key == selected_entry_key
+		var button_color := _entry_button_selected_font_color if is_selected else _entry_button_font_color
+		button.text = title
+		button.custom_minimum_size = Vector2(0, _entry_button_min_height)
 		button.flat = true
 		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		button.add_theme_color_override("font_color", Color(0, 0, 0, 1))
-		button.add_theme_font_size_override("font_size", 26)
-		button.pressed.connect(_on_entry_pressed.bind(key))
+		button.focus_mode = Control.FOCUS_NONE
+		button.add_theme_color_override("font_color", button_color)
+		button.add_theme_color_override("font_hover_color", button_color)
+		button.add_theme_color_override("font_pressed_color", button_color)
+		button.add_theme_color_override("font_focus_color", button_color)
+		button.add_theme_font_size_override("font_size", _entry_button_font_size)
+
+		var font_override: Font = _entry_button_selected_font if is_selected and _entry_button_selected_font else _entry_button_font
+		if font_override:
+			button.add_theme_font_override("font", font_override)
+
+		if not Engine.is_editor_hint():
+			button.pressed.connect(_on_entry_pressed.bind(key))
 		entry_list.add_child(button)
 
 
@@ -88,8 +184,53 @@ func _on_entry_pressed(key: String) -> void:
 
 
 func _open_entry(key: String) -> void:
-	if not entries.has(key):
+	var source_entries := _get_display_entries()
+	if not source_entries.has(key):
 		return
-	var data: Dictionary = entries[key]
+	var data: Dictionary = source_entries[key]
 	var description: String = data.get("description", "")
 	detail_label.text = description
+
+
+func _get_display_entries() -> Dictionary:
+	if Engine.is_editor_hint() and _editor_preview_enabled:
+		return _build_editor_preview_entries()
+	return entries
+
+
+func _build_editor_preview_entries() -> Dictionary:
+	var preview_entries: Dictionary = {}
+	for index in range(_editor_preview_titles.size()):
+		var title := _editor_preview_titles[index].strip_edges()
+		if title.is_empty():
+			continue
+		preview_entries["preview_%s" % index] = {
+			"title": title,
+			"description": _editor_preview_description
+		}
+
+	if preview_entries.is_empty():
+		preview_entries["preview_0"] = {
+			"title": "预览词条",
+			"description": _editor_preview_description
+		}
+
+	var preview_keys := preview_entries.keys()
+	preview_keys.sort()
+	var clamped_index := clampi(_editor_preview_selected_index, 0, max(preview_keys.size() - 1, 0))
+	selected_entry_key = preview_keys[clamped_index]
+	return preview_entries
+
+
+func _queue_preview_refresh() -> void:
+	if not is_node_ready():
+		return
+		
+	call_deferred("_refresh_preview")
+
+
+func _refresh_preview() -> void:
+	if not is_node_ready():
+		return
+	_rebuild_entry_list()
+	_open_entry(selected_entry_key)
