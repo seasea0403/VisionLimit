@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bmb8uhlo1u0qq"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_dq5cy"]
+[ext_resource type="Texture2D" uid="uid://cmlerdd8ukljy" path="res://Art/Scenes/Scene5/Elements/block.png" id="2_pl107"]
+[ext_resource type="Texture2D" uid="uid://dxfn4qdkt2hg3" path="res://Art/Scenes/Scene5/Elements/block_back.png" id="3_pqtus"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(27.665041, 23.971943)
+
+[node name="block" unique_id=223355110 instance=ExtResource("1_dq5cy")]
+item_id = "1"
+item_name = "信号屏蔽仪"
+detail_image = ExtResource("2_pl107")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(753.58887, 355.42795)
+rotation = 0.003573399
+scale = Vector2(16.66317, 13.6)
+shape = SubResource("RectangleShape2D_rm26b")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+texture = ExtResource("3_pqtus")

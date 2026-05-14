@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://drsytc0ou5b12"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_lwcvk"]
+[ext_resource type="Texture2D" uid="uid://cunyj4gorjh1" path="res://Art/Scenes/Scene5/Zoomview/zoomview_desk.png" id="2_lwcvk"]
+[ext_resource type="PackedScene" uid="uid://qjngngsndtwa" path="res://Game/Scenes/Chapter5/items/keyboard.tscn" id="3_f7vuv"]
+[ext_resource type="PackedScene" uid="uid://bemgw3m6mkulv" path="res://Game/Scenes/Chapter5/items/cup.tscn" id="4_4dp42"]
+[ext_resource type="PackedScene" uid="uid://tkrdimab86w7" path="res://Game/Scenes/Chapter5/items/hardcore.tscn" id="5_xn4oo"]
+
+[node name="Zoomview_Desk" unique_id=198920514 instance=ExtResource("1_lwcvk")]
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_lwcvk")
+
+[node name="Note" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_f7vuv")]
+
+[node name="Card" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="1" unique_id=1064052470 instance=ExtResource("4_4dp42")]
+
+[node name="hardcore" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="2" unique_id=2007174856 instance=ExtResource("5_xn4oo")]
