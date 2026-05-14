@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bibfk1oybbrna"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_f287k"]
+[ext_resource type="Texture2D" uid="uid://da850xsyv40gd" path="res://Art/Scenes/Scene3/Elements_1/painting.png" id="2_xeyrw"]
+[ext_resource type="Texture2D" uid="uid://xoo1ydgbdkoa" path="res://Art/Scenes/Scene3/Elements_1/paint_back.png" id="3_g8lox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_by3t1"]
+size = Vector2(237.5, 202)
+
+[node name="paint" unique_id=223355110 instance=ExtResource("1_f287k")]
+item_id = "6"
+item_name = "儿童画"
+detail_image = ExtResource("2_xeyrw")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(401, 788)
+shape = SubResource("RectangleShape2D_by3t1")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+texture = ExtResource("3_g8lox")

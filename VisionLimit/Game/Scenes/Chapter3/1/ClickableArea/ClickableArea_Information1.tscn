@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bf1jp4la0lmc2"]
+
+[ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Template/Scene/ClickableArea.tscn" id="1_4dvvo"]
+[ext_resource type="PackedScene" uid="uid://di1xh6isrudh2" path="res://Game/Scenes/Chapter3/1/zoomview/zoomview_information1.tscn" id="3_4dvvo"]
+
+[node name="ClickableArea_Information1" unique_id=676050068 instance=ExtResource("1_4dvvo")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=55883732]
+position = Vector2(768.75, 575.098)
+scale = Vector2(16.812447, 53.536106)
+
+[node name="Zoomview_information1" parent="." index="1" unique_id=198920514 instance=ExtResource("3_4dvvo")]
+
+[editable path="Zoomview_information1"]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dd4wk83i6vbe"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_oh0uu"]
+[ext_resource type="Texture2D" uid="uid://bv7lvkcvk66sd" path="res://Art/Scenes/Scene3/Elements_1/smallnote_back.png" id="2_7qm0g"]
+[ext_resource type="Texture2D" uid="uid://dl6cgj6in4127" path="res://Art/Scenes/Scene3/Elements_1/small_note.png" id="2_n5ad3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gpqu"]
+size = Vector2(25.95584, 73)
+
+[node name="smallnote" unique_id=223355110 instance=ExtResource("1_oh0uu")]
+item_id = "5"
+item_name = "便签纸"
+detail_image = ExtResource("2_n5ad3")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(1539.0001, 526.00006)
+rotation = 0.2512181
+scale = Vector2(16.00219, 1.1810887)
+shape = SubResource("RectangleShape2D_8gpqu")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+position = Vector2(960.00006, 540)
+texture = ExtResource("2_7qm0g")

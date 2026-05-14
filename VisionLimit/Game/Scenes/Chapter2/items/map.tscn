@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cjl71cimgvjyn"]
+[gd_scene format=3 uid="uid://c5ktso38cipw2"]
 
 [ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_87ffi"]
 [ext_resource type="Texture2D" uid="uid://pxn3yhqr87yf" path="res://Art/Scenes/Scene2/Elements/Map.png" id="2_20ws8"]

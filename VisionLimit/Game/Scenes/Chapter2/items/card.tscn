@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://6gcnyd60t0x0"]
+[gd_scene format=3 uid="uid://cf8t0f4rip3t"]
 
 [ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_mqupk"]
 [ext_resource type="Texture2D" uid="uid://c73u87fw88jye" path="res://Art/Scenes/Scene2/Elements/Card_back.png" id="2_5ruf5"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_r065e"]
 [ext_resource type="Texture2D" uid="uid://dh7i2fmkto4id" path="res://Art/Scenes/Scene2/Elements/Calender_back_1.png" id="2_r065e"]
-[ext_resource type="PackedScene" uid="uid://d0p7u2k0blcn2" path="res://Game/Scenes/Chapter2/items/calender.tscn" id="3_ri7vh"]
+[ext_resource type="PackedScene" path="res://Game/Scenes/Chapter2/items/calender.tscn" id="3_ri7vh"]
 
 [node name="Zoomview_paper" unique_id=198920514 instance=ExtResource("1_r065e")]
 

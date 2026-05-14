@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d0p7u2k0blcn2"]
+[gd_scene format=3 uid="uid://10fyaegydl5n"]
 
 [ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_282mk"]
 [ext_resource type="Texture2D" uid="uid://cv37tpfwabcku" path="res://Art/Scenes/Scene2/Elements/Calender.png" id="2_o7cql"]

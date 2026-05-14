@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://6gcnyd60t0x0"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_5jwlb"]
+[ext_resource type="Texture2D" uid="uid://c0afpqaf5lqkf" path="res://Art/Scenes/Scene3/Elements_1/pinknote.png" id="2_n053a"]
+[ext_resource type="Texture2D" uid="uid://b7n451m58ye21" path="res://Art/Scenes/Scene3/Elements_1/pinknote_back.png" id="3_ki3o0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbicw"]
+size = Vector2(10.031039, 22.167746)
+
+[node name="Card" unique_id=223355110 instance=ExtResource("1_5jwlb")]
+item_id = "2"
+item_name = "粉色便签纸"
+detail_image = ExtResource("2_n053a")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(311.75006, 266.5)
+scale = Vector2(15.202802, -5.007276)
+shape = SubResource("RectangleShape2D_dbicw")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+texture = ExtResource("3_ki3o0")

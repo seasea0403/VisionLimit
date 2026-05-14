@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://t3rrtc7fcgy2"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_ejqbc"]
+[ext_resource type="Texture2D" uid="uid://sg7ism1nnle8" path="res://Art/Scenes/Scene3/Zoomview_1/desk.png" id="2_nsweo"]
+[ext_resource type="PackedScene" uid="uid://cl8uyrp6bfud1" path="res://Game/Scenes/Chapter3/1/items/record.tscn" id="3_3pd7v"]
+
+[node name="Zoomview_desk" unique_id=198920514 instance=ExtResource("1_ejqbc")]
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+position = Vector2(960.00006, 540.00006)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_nsweo")
+
+[node name="record" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_3pd7v")]

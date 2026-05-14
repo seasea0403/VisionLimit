@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://tsn0fvwfqxx3"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_74hkt"]
+[ext_resource type="Texture2D" uid="uid://b01rsqrofyjy" path="res://Art/Scenes/Scene3/Elements_2/tag.png" id="2_74hkt"]
+[ext_resource type="Texture2D" uid="uid://c7erxjyea3q2c" path="res://Art/Scenes/Scene3/Elements_2/tag_back.png" id="3_8c46q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_by3t1"]
+size = Vector2(317.75, 202)
+
+[node name="paint" unique_id=223355110 instance=ExtResource("1_74hkt")]
+item_id = "3"
+item_name = "标签"
+detail_image = ExtResource("2_74hkt")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(562, 443)
+rotation = 0.031026319
+shape = SubResource("RectangleShape2D_by3t1")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+texture = ExtResource("3_8c46q")
