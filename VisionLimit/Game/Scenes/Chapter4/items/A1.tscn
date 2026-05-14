@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bk4j28iu0sxfn"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_rfg2r"]
+[ext_resource type="Texture2D" uid="uid://bgxi1n7phvn1l" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/A1.png" id="2_rfg2r"]
+[ext_resource type="Texture2D" uid="uid://kkg0d8ex2gcv" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/A1_back.png" id="3_jitno"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gpqu"]
+size = Vector2(22.291636, 220.34956)
+
+[node name="A1" unique_id=223355110 instance=ExtResource("1_rfg2r")]
+item_id = "7"
+item_name = "荣誉附件"
+detail_image = ExtResource("2_rfg2r")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(895.69, 502.78824)
+rotation = -0.013078177
+scale = Vector2(16.002182, 1.1810887)
+shape = SubResource("RectangleShape2D_8gpqu")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+position = Vector2(960.00006, 540)
+texture = ExtResource("3_jitno")

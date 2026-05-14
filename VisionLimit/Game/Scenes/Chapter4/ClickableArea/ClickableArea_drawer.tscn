@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dhogimy85xi54"]
+
+[ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Template/Scene/ClickableArea.tscn" id="1_iftvn"]
+[ext_resource type="PackedScene" uid="uid://cx7v88npg78yj" path="res://Game/Scenes/Chapter4/zoomview/zoomview_drawer.tscn" id="2_i8bgp"]
+[ext_resource type="PackedScene" uid="uid://csm6crbqcy82u" path="res://Game/Scenes/Chapter4/ClickableArea/ClickableArea_drawer_A1.tscn" id="3_i8bgp"]
+[ext_resource type="PackedScene" uid="uid://r2at8pjc551i" path="res://Game/Scenes/Chapter4/ClickableArea/ClickableArea_drawer_A2.tscn" id="4_3o7jj"]
+[ext_resource type="PackedScene" uid="uid://c4dujglopyw8t" path="res://Game/Scenes/Chapter4/ClickableArea/ClickableArea_drawer_B1.tscn" id="5_vdcm1"]
+[ext_resource type="PackedScene" uid="uid://dqcgoe6lwxiyq" path="res://Game/Scenes/Chapter4/ClickableArea/ClickableArea_drawer_B2.tscn" id="6_0mo1i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6c40"]
+size = Vector2(17.130173, 5.5663376)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwk8u"]
+size = Vector2(16.475895, 5.6410522)
+
+[node name="ClickableArea_drawer" unique_id=676050068 instance=ExtResource("1_iftvn")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=55883732]
+position = Vector2(301.00003, 682)
+scale = Vector2(16.812447, 53.536106)
+
+[node name="Zoomview_A1" parent="." index="1" unique_id=198920514 instance=ExtResource("2_i8bgp")]
+
+[node name="ClickableArea_drawer_A1" parent="Zoomview_A1" index="2" unique_id=1555496259 instance=ExtResource("3_i8bgp")]
+
+[node name="CollisionShape2D" parent="Zoomview_A1/ClickableArea_drawer_A1" index="0" unique_id=55883732]
+position = Vector2(889, 427)
+
+[node name="Zoomview_drawer_A1" parent="Zoomview_A1/ClickableArea_drawer_A1" index="1" unique_id=198920514]
+visible = false
+
+[node name="ClickableArea_drawer_A2" parent="Zoomview_A1" index="3" unique_id=1788399999 instance=ExtResource("4_3o7jj")]
+
+[node name="CollisionShape2D" parent="Zoomview_A1/ClickableArea_drawer_A2" index="0" unique_id=55883732]
+position = Vector2(891, 743.00006)
+
+[node name="Zoomview_drawer_A2" parent="Zoomview_A1/ClickableArea_drawer_A2" index="1" unique_id=198920514]
+visible = false
+
+[node name="ClickableArea_drawer_B1" parent="Zoomview_A1" index="4" unique_id=291334789 instance=ExtResource("5_vdcm1")]
+
+[node name="CollisionShape2D" parent="Zoomview_A1/ClickableArea_drawer_B1" index="0" unique_id=55883732]
+position = Vector2(1327, 419)
+shape = SubResource("RectangleShape2D_l6c40")
+
+[node name="Zoomview_drawer_B1" parent="Zoomview_A1/ClickableArea_drawer_B1" index="1" unique_id=198920514]
+visible = false
+
+[node name="ClickableArea_drawer_B2" parent="Zoomview_A1" index="5" unique_id=2013407887 instance=ExtResource("6_0mo1i")]
+
+[node name="CollisionShape2D" parent="Zoomview_A1/ClickableArea_drawer_B2" index="0" unique_id=55883732]
+position = Vector2(1334, 742)
+shape = SubResource("RectangleShape2D_jwk8u")
+
+[node name="Zoomview_drawer_B2" parent="Zoomview_A1/ClickableArea_drawer_B2" index="1" unique_id=198920514]
+visible = false
+
+[editable path="Zoomview_A1/ClickableArea_drawer_A1"]
+[editable path="Zoomview_A1/ClickableArea_drawer_A2"]
+[editable path="Zoomview_A1/ClickableArea_drawer_B1"]
+[editable path="Zoomview_A1/ClickableArea_drawer_B2"]

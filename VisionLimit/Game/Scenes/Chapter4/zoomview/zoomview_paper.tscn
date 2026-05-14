@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b7touymryh5n"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_st014"]
+[ext_resource type="Texture2D" uid="uid://bspkkc6orumnm" path="res://Art/Scenes/Scene4/Zoomview/zoomview_paper.png" id="2_80b4n"]
+[ext_resource type="PackedScene" uid="uid://boepjph37besj" path="res://Game/Scenes/Chapter4/items/proof.tscn" id="3_ryovw"]
+[ext_resource type="PackedScene" uid="uid://du0b03p565vvb" path="res://Game/Scenes/Chapter4/items/newspaper.tscn" id="4_5k3xc"]
+
+[node name="Zoomview_paper" unique_id=198920514 instance=ExtResource("1_st014")]
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_80b4n")
+
+[node name="proof" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_ryovw")]
+
+[node name="newspaper" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="1" unique_id=1469208200 instance=ExtResource("4_5k3xc")]

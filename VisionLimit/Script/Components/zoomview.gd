@@ -22,6 +22,10 @@ func open_view() -> void:
 func hide_view() -> void:
 	hide()
 	_restore_disabled_area_inputs()
+	# 通知 chapter 从栈中移除此面板
+	var chapter := _find_chapter()
+	if chapter and chapter.has_method("_unregister_panel"):
+		chapter._unregister_panel(self)
 
 
 # ==================== Back 按钮处理 ====================
@@ -35,12 +39,29 @@ func _disable_other_area_inputs() -> void:
 	var root := get_tree().current_scene
 	if not root:
 		return
-	_disable_area_inputs_recursive(root)
+	# 找到 ZoomViews 根节点或当前 zoomview 的父节点，只在其范围内禁用
+	var disable_root := _find_zoom_views_root()
+	if disable_root:
+		_disable_area_inputs_recursive(disable_root)
+
+
+func _find_zoom_views_root() -> Node:
+	"""找到 ZoomViews 根节点，如果找不到则返回当前节点的父节点"""
+	var current: Node = self
+	while current:
+		# 向上查找 ZoomViews 节点
+		if current.name == "ZoomViews":
+			return current
+		current = current.get_parent()
+	
+	# 如果找不到 ZoomViews，返回当前节点的父节点（即所属的 ClickableArea）
+	return get_parent()
 
 
 func _disable_area_inputs_recursive(node: Node) -> void:
 	if node is Area2D:
 		var area := node as Area2D
+		# 不禁用自己及其子节点的 Area2D
 		if not _is_descendant_of(area, self) and area.input_pickable:
 			area.input_pickable = false
 			_disabled_areas.append(area)
@@ -63,3 +84,13 @@ func _is_descendant_of(node: Node, ancestor: Node) -> bool:
 			return true
 		current = current.get_parent()
 	return false
+
+
+func _find_chapter() -> Node:
+	"""向上查找所属的 Chapter 节点"""
+	var current: Node = self
+	while current:
+		if current.has_method("register_panel_open"):
+			return current
+		current = current.get_parent()
+	return null

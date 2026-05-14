@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://du0b03p565vvb"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_3yq8e"]
+[ext_resource type="Texture2D" uid="uid://c56v7sgkdfvqy" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/newspaper.png" id="2_pcx05"]
+[ext_resource type="Texture2D" uid="uid://d0b1uermbv2f1" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/newspaper_back.png" id="3_hm25a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_by3t1"]
+size = Vector2(498.29456, 87.408035)
+
+[node name="newspaper" unique_id=223355110 instance=ExtResource("1_3yq8e")]
+item_id = "5"
+item_name = "剪报"
+detail_image = ExtResource("2_pcx05")
+can_record = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(1009.59326, 917.4952)
+rotation = 0.031026319
+shape = SubResource("RectangleShape2D_by3t1")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+texture = ExtResource("3_hm25a")

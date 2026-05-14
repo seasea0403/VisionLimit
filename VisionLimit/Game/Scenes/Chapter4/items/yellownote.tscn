@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ds2tuqw25syn1"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_t2sdl"]
+[ext_resource type="Texture2D" uid="uid://dqspwfrf0laob" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/yellownote.png" id="2_ir667"]
+[ext_resource type="Texture2D" uid="uid://bd0ekat4pre8f" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/yellownote_back.png" id="3_c7myv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb1hh"]
+size = Vector2(2.6305165, 23.628876)
+
+[node name="yellownote" unique_id=223355110 instance=ExtResource("1_t2sdl")]
+item_id = "2"
+item_name = "升级通知"
+detail_image = ExtResource("2_ir667")
+can_record = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(572.5, 768.75)
+scale = Vector2(33.07334, -3.9993448)
+shape = SubResource("RectangleShape2D_mb1hh")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+texture = ExtResource("3_c7myv")

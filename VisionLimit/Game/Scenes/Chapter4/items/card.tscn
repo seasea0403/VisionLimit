@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dj41i0o82b82r"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_u1sm6"]
+[ext_resource type="Texture2D" uid="uid://ot3vfyy8t0jt" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/card.png" id="2_u1sm6"]
+[ext_resource type="Texture2D" uid="uid://ct7i0ls5n04bm" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/card_back.png" id="3_6vaim"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(3.9247444, 4.41505)
+
+[node name="card" unique_id=223355110 instance=ExtResource("1_u1sm6")]
+item_id = "6"
+item_name = "工位牌"
+detail_image = ExtResource("2_u1sm6")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(442.98065, 943.96814)
+rotation = -0.0063883155
+scale = Vector2(32.109863, 23.993816)
+shape = SubResource("RectangleShape2D_rm26b")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+texture = ExtResource("3_6vaim")

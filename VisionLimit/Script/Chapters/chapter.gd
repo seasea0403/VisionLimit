@@ -8,8 +8,8 @@ extends Node2D
 @onready var hud_book_button = $UILayer/HudPanel/book/TextureButton
 
 var record_panel: Control
-# 记录当前显示的面板，back 按钮根据此值决定关闭谁
-var _current_panel: Node = null
+# 使用栈管理嵌套的面板，最上层的面板在栈顶
+var _panel_stack: Array[Node] = []
 
 
 func _ready():
@@ -40,26 +40,37 @@ func _ready():
 
 # ==================== 面板追踪 ====================
 func register_panel_open(panel: Node) -> void:
-	"""任意面板显示时调用此方法，让 back 知道关闭谁"""
-	_current_panel = panel
+	"""面板打开时调用此方法，将其加入栈"""
+	if panel and not panel in _panel_stack:
+		_panel_stack.append(panel)
+
+
+func _unregister_panel(panel: Node) -> void:
+	"""面板关闭时调用此方法，将其从栈中移除"""
+	if panel in _panel_stack:
+		_panel_stack.erase(panel)
 
 
 # ==================== HUD 按钮处理 ====================
 func _on_hud_back_pressed() -> void:
-	# 如果有追踪到的面板且仍可见，直接关闭它
-	if _current_panel and is_instance_valid(_current_panel) and _current_panel.visible:
-		if _current_panel.has_method("close_detail"):
-			_current_panel.close_detail()
-		elif _current_panel.has_method("hide_view"):
-			_current_panel.hide_view()
-		elif _current_panel.has_method("close_panel"):
-			_current_panel.close_panel()
-		else:
-			_current_panel.hide()
-		_current_panel = null
-		return
+	# 从栈顶开始，找第一个可见的面板并关闭它
+	while _panel_stack.size() > 0:
+		var panel: Node = _panel_stack.pop_back()
+		if not is_instance_valid(panel):
+			continue
+		
+		if panel.visible:
+			if panel.has_method("close_detail"):
+				panel.close_detail()
+			elif panel.has_method("hide_view"):
+				panel.hide_view()
+			elif panel.has_method("close_panel"):
+				panel.close_panel()
+			else:
+				panel.hide()
+			return
 
-	# 兜底：逐层查找可见面板
+	# 兜底：逐层查找可见面板（处理不在栈中的面板）
 	if item_detail and item_detail.visible:
 		item_detail.close_detail()
 		return
@@ -73,7 +84,7 @@ func _on_hud_back_pressed() -> void:
 func _on_hud_book_pressed() -> void:
 	if record_panel and record_panel.has_method("open_panel"):
 		record_panel.open_panel()
-		_current_panel = record_panel
+		register_panel_open(record_panel)
 
 
 func _setup_record_panel() -> void:

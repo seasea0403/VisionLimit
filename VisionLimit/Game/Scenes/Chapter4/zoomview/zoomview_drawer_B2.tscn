@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b8rssy43oobpy"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_5464u"]
+[ext_resource type="Texture2D" uid="uid://bq72bstf1ed23" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/drawer.png" id="2_du4s2"]
+[ext_resource type="PackedScene" uid="uid://0en5v5ejfch2" path="res://Game/Scenes/Chapter4/items/B2.tscn" id="3_5464u"]
+
+[node name="Zoomview_drawer_B2" unique_id=198920514 instance=ExtResource("1_5464u")]
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+position = Vector2(960.00006, 540)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_du4s2")
+
+[node name="B2" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_5464u")]

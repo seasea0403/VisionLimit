@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://brpg4pj2q8thh"]
+
+[ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Template/Scene/ClickableArea.tscn" id="1_iftkp"]
+[ext_resource type="PackedScene" uid="uid://b7touymryh5n" path="res://Game/Scenes/Chapter4/zoomview/zoomview_paper.tscn" id="2_iftkp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw1g1"]
+size = Vector2(13.020136, 11.684336)
+
+[node name="ClickableArea_paper" unique_id=676050068 instance=ExtResource("1_iftkp")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=55883732]
+position = Vector2(1212.5813, 418.10703)
+rotation = -0.011997527
+shape = SubResource("RectangleShape2D_kw1g1")
+
+[node name="Zoomview_paper" parent="." index="1" unique_id=198920514 instance=ExtResource("2_iftkp")]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dgdqjn2x4hc1r"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_1d57g"]
+[ext_resource type="Texture2D" uid="uid://bv1whbgpiejix" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/honor.png" id="2_r5tlp"]
+[ext_resource type="Texture2D" uid="uid://bkoleej6iriqr" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/honor_back.png" id="3_1d57g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1kq2"]
+size = Vector2(21.355091, 15.833026)
+
+[node name="honor" unique_id=223355110 instance=ExtResource("1_1d57g")]
+item_id = "4"
+item_name = "牌匾"
+detail_image = ExtResource("2_r5tlp")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(435.95264, 291.6586)
+rotation = -0.015034834
+scale = Vector2(25.202612, 22.288837)
+shape = SubResource("RectangleShape2D_x1kq2")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+position = Vector2(960.00006, 540)
+texture = ExtResource("3_1d57g")

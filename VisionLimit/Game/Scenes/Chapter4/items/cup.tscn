@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b27blv2xt81b3"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_mkvvb"]
+[ext_resource type="Texture2D" uid="uid://cvvut8n40ok0c" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/cup.png" id="2_vfepo"]
+[ext_resource type="Texture2D" uid="uid://7lf1g6flrfso" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/cup_back.png" id="3_5g4we"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbicw"]
+size = Vector2(7.670077, 22.851152)
+
+[node name="cup" unique_id=223355110 instance=ExtResource("1_mkvvb")]
+item_id = "3"
+item_name = "量杯"
+detail_image = ExtResource("2_vfepo")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(304.81253, 828.4468)
+rotation = 0.38472727
+scale = Vector2(15.202802, -5.0072765)
+shape = SubResource("RectangleShape2D_dbicw")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+position = Vector2(960.00006, 540)
+texture = ExtResource("3_5g4we")
