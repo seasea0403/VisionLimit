@@ -1,16 +1,15 @@
 [gd_scene format=3 uid="uid://chxs0ion330qx"]
 
 [ext_resource type="PackedScene" uid="uid://cjipdyax8bo6i" path="res://Template/UI/Level.tscn" id="1_oqxi3"]
-[ext_resource type="Texture2D" uid="uid://bpjvqu514k8bf" path="res://Art/UI/Choose_Level/Background2.png" id="2_2hhu4"]
 
 [node name="Level1" unique_id=321591673 instance=ExtResource("1_oqxi3")]
 
 [node name="Node2D2" parent="." index="0" unique_id=2126674177]
 rotation = 0.1511235
 
-[node name="TextureRect" parent="Node2D2" index="1" unique_id=289125975]
-scale = Vector2(0.14734712, 0.15339103)
-texture = ExtResource("2_2hhu4")
+[node name="TextureButton" parent="Node2D2/chooselevel" parent_id_path=PackedInt32Array(2074814427) index="0" unique_id=1367535632]
+scene_path = "res://Game/Scenes/Chapter2/Chapter2.tscn"
+chapter_index = 2
 
 [node name="pin" parent="Node2D2" index="2" unique_id=308585787]
 offset_left = 170.0
@@ -32,3 +31,5 @@ offset_right = 436.18182
 offset_bottom = 489.31113
 rotation = -0.33354312
 text = "2.访客"
+
+[editable path="Node2D2/chooselevel"]

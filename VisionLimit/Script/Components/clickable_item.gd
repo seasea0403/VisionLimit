@@ -34,6 +34,15 @@ extends Area2D
 ## 第二条记录册词条描述
 @export_multiline var record_entry_description_2: String = ""
 
+## 说话人角色形象（切换说话人时改变）
+@export var character_image: Texture2D
+
+## 说话人角色形象缩放（调整以避免畸变，Vector2.ONE = 保持原样）
+@export var character_scale: Vector2 = Vector2.ONE
+
+## 说话人角色形象偏移（微调位置，不影响缩放锚点）
+@export var character_offset: Vector2 = Vector2.ZERO
+
 var item_detail: CanvasLayer
 
 
@@ -72,7 +81,10 @@ func _on_input_event(_viewport, event, _shape_idx):
 				record_entry_title,
 				record_entry_description,
 				record_entry_title_2,
-				record_entry_description_2
+				record_entry_description_2,
+				character_image,
+				character_scale,
+				character_offset
 			)
 		else:
 			print("✗ 错误：找不到 ItemDetail!")

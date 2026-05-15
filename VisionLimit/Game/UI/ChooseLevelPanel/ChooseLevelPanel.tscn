@@ -29,50 +29,6 @@ offset_bottom = 1800.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_86ye0")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=236420664]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -9.0
-offset_bottom = 9.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_scroll_mode = 2
-vertical_scroll_mode = 0
-scroll_hint_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer" unique_id=1578751708]
-custom_minimum_size = Vector2(3800, 1080)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_stretch_ratio = 0.0
-theme_override_constants/separation = 527
-
-[node name="Level1" parent="ScrollContainer/HBoxContainer" unique_id=321591673 instance=ExtResource("2_qivea")]
-layout_mode = 2
-
-[node name="Level2" parent="ScrollContainer/HBoxContainer" unique_id=1907193623 instance=ExtResource("3_u2rt6")]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="Level3" parent="ScrollContainer/HBoxContainer" unique_id=298017184 instance=ExtResource("4_hd6s5")]
-layout_mode = 2
-
-[node name="Level4" parent="ScrollContainer/HBoxContainer" unique_id=1009315232 instance=ExtResource("5_igci7")]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="Level5" parent="ScrollContainer/HBoxContainer" unique_id=1829833666 instance=ExtResource("6_7bwrw")]
-layout_mode = 2
-
-[node name="Level6" parent="ScrollContainer/HBoxContainer" unique_id=1681701078 instance=ExtResource("7_di8lo")]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="Level7" parent="ScrollContainer/HBoxContainer" unique_id=38837439 instance=ExtResource("8_15fdg")]
-layout_mode = 2
-
 [node name="Control" type="Control" parent="." unique_id=709257161]
 layout_mode = 1
 anchors_preset = 15
@@ -148,10 +104,61 @@ rotation = -0.8696131
 scale = Vector2(0.4851187, 0.44779804)
 texture = ExtResource("10_hd6s5")
 
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=236420664]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+scroll_hint_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer" unique_id=1578751708]
+custom_minimum_size = Vector2(3800, 1080)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 527
+
+[node name="Level1" parent="ScrollContainer/HBoxContainer" unique_id=321591673 instance=ExtResource("2_qivea")]
+layout_mode = 2
+
+[node name="Level2" parent="ScrollContainer/HBoxContainer" unique_id=1907193623 instance=ExtResource("3_u2rt6")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Level3" parent="ScrollContainer/HBoxContainer" unique_id=298017184 instance=ExtResource("4_hd6s5")]
+layout_mode = 2
+
+[node name="Level4" parent="ScrollContainer/HBoxContainer" unique_id=1009315232 instance=ExtResource("5_igci7")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Level5" parent="ScrollContainer/HBoxContainer" unique_id=1829833666 instance=ExtResource("6_7bwrw")]
+layout_mode = 2
+
+[node name="Level6" parent="ScrollContainer/HBoxContainer" unique_id=1681701078 instance=ExtResource("7_di8lo")]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Level7" parent="ScrollContainer/HBoxContainer" unique_id=38837439 instance=ExtResource("8_15fdg")]
+layout_mode = 2
+
 [editable path="ScrollContainer/HBoxContainer/Level1"]
+[editable path="ScrollContainer/HBoxContainer/Level1/Node2D2/chooselevel"]
 [editable path="ScrollContainer/HBoxContainer/Level2"]
+[editable path="ScrollContainer/HBoxContainer/Level2/Node2D2/chooselevel"]
 [editable path="ScrollContainer/HBoxContainer/Level3"]
+[editable path="ScrollContainer/HBoxContainer/Level3/Node2D2/chooselevel"]
 [editable path="ScrollContainer/HBoxContainer/Level4"]
+[editable path="ScrollContainer/HBoxContainer/Level4/Node2D2/chooselevel"]
 [editable path="ScrollContainer/HBoxContainer/Level5"]
+[editable path="ScrollContainer/HBoxContainer/Level5/Node2D2/chooselevel"]
 [editable path="ScrollContainer/HBoxContainer/Level6"]
+[editable path="ScrollContainer/HBoxContainer/Level6/Node2D2/chooselevel"]
 [editable path="ScrollContainer/HBoxContainer/Level7"]
+[editable path="ScrollContainer/HBoxContainer/Level7/Node2D2/chooselevel"]

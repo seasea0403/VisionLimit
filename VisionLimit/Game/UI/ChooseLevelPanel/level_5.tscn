@@ -8,9 +8,10 @@
 [node name="Node2D2" parent="." index="0" unique_id=2126674177]
 rotation = 0.12752436
 
-[node name="TextureRect" parent="Node2D2" index="1" unique_id=289125975]
-scale = Vector2(0.14838353, 0.15606445)
-texture = ExtResource("2_xklwh")
+[node name="TextureButton" parent="Node2D2/chooselevel" parent_id_path=PackedInt32Array(2074814427) index="0" unique_id=1367535632]
+texture_normal = ExtResource("2_xklwh")
+scene_path = "res://Game/Scenes/Chapter5/chapter_5.tscn"
+chapter_index = 5
 
 [node name="pin" parent="Node2D2" index="2" unique_id=308585787]
 offset_left = 122.15976
@@ -25,3 +26,5 @@ scale = Vector2(0.97964764, 0.986914)
 
 [node name="title" parent="Node2D2/Node2D" index="1" unique_id=21943005]
 text = "5.执行"
+
+[editable path="Node2D2/chooselevel"]

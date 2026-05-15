@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://cn2nfjinw7sfg"]
 
 [ext_resource type="Script" uid="uid://c112ek75jh68r" path="res://Script/Components/clickable_item.gd" id="1_ykyii"]
+[ext_resource type="Texture2D" uid="uid://hl0dm7k4wthg" path="res://Art/Character/人物立绘/沈意.png" id="2_2ccdd"]
 
 [node name="ClickableItem" type="Area2D" unique_id=223355110]
 script = ExtResource("1_ykyii")
+character_image = ExtResource("2_2ccdd")
+character_offset = Vector2(-790, 0)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=398543410]

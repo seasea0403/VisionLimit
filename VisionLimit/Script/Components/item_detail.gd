@@ -6,12 +6,15 @@ extends CanvasLayer
 @onready var title_label = $Control/TitleLabel
 @onready var description_label = $Control/DescriptionLabel
 @onready var record_button = $Control/record/TextureButton
+@onready var character_display = $Control/Character  # ✨ 角色显示
 @onready var text_sfx = $click
 
 # ==================== 状态变量 ====================
 var current_item_id: String = ""
 var can_record: bool = false
 var _image_base_position: Vector2 = Vector2.ZERO
+var _character_base_position: Vector2 = Vector2.ZERO  # ✨ 保存角色原始位置
+var _character_base_scale: Vector2 = Vector2.ONE       # ✨ 保存角色原始缩放
 var current_title: String = ""
 var current_record_title: String = ""
 var current_record_description: String = ""
@@ -27,6 +30,13 @@ func _ready() -> void:
 	_configure_image_display()
 	if image_display:
 		_image_base_position = image_display.position
+	
+	# ✨ 保存角色原始状态，并把缩放锚点设置到节点中心
+	# 这样改变 scale 时视觉中心不会偏移
+	if character_display:
+		_character_base_position = character_display.position
+		_character_base_scale = character_display.scale
+		character_display.pivot_offset = character_display.size / 2.0
 
 	# 连接按钮信号
 	if dark_background:
@@ -48,7 +58,7 @@ func _configure_image_display() -> void:
 
 
 # ==================== 显示方法 ====================
-func show_detail(texture: Texture2D, description: String, title: String, can_record_flag: bool = false, item_id: String = "", image_scale = Vector2.ONE, image_offset = Vector2.ZERO, record_title = "", record_description = "", record_title_2 = "", record_description_2 = "") -> void:
+func show_detail(texture: Texture2D, description: String, title: String, can_record_flag: bool = false, item_id: String = "", image_scale = Vector2.ONE, image_offset = Vector2.ZERO, record_title = "", record_description = "", record_title_2 = "", record_description_2 = "", character_image: Texture2D = null, character_scale = Vector2.ONE, character_offset = Vector2.ZERO) -> void:
 	"""
 	显示物品详情
 	参数：
@@ -59,9 +69,38 @@ func show_detail(texture: Texture2D, description: String, title: String, can_rec
 	  - item_id: 物品ID
 	  - image_scale: 详情图缩放（兼容旧数据中的 Nil）
 	  - image_offset: 详情图位置偏移（兼容旧数据中的 Nil）
+	  - character_image: 说话人角色形象
+	  - character_scale: 角色形象缩放
 	"""
 	_configure_image_display()
 	image_display.texture = texture
+	
+	# ✨ 处理角色形象、缩放和偏移 - 如果传入了角色图片就显示，否则隐藏
+	if character_display:
+		if character_image:
+			character_display.texture = character_image
+			
+			# 安全处理 character_scale 参数（在原始缩放基础上乘以倍数）
+			var safe_character_scale: Vector2 = Vector2.ONE
+			if character_scale is Vector2:
+				safe_character_scale = character_scale
+			
+			# 安全处理 character_offset 参数
+			var safe_character_offset: Vector2 = Vector2.ZERO
+			if character_offset is Vector2:
+				safe_character_offset = character_offset
+			
+			# pivot_offset 已在 _ready() 设置到中心，缩放不会改变视觉中心位置
+			character_display.scale = _character_base_scale * safe_character_scale
+			# 在原始位置基础上加 offset
+			character_display.position = _character_base_position + safe_character_offset
+			character_display.visible = true
+			print("✓ 设置角色形象: ", character_image.resource_path)
+			print("  角色缩放: ", character_display.scale, "  偏移: ", safe_character_offset)
+		else:
+			character_display.texture = null
+			character_display.visible = false
+			print("✓ 隐藏角色形象")
 
 	var safe_scale: Vector2 = Vector2.ONE
 	if image_scale is Vector2:

@@ -1,15 +1,18 @@
 [gd_scene format=3 uid="uid://cjipdyax8bo6i"]
 
 [ext_resource type="Texture2D" uid="uid://dyk7cyhmk3cd2" path="res://Art/UI/Choose_Level/level1.png" id="1_l4yaf"]
-[ext_resource type="Texture2D" uid="uid://31lvel2imf1" path="res://Art/UI/Choose_Level/Background1.jpg" id="2_u8let"]
-[ext_resource type="Script" uid="uid://8mb27x2e0jub" path="res://Template/UI/texture_rect.gd" id="3_bddgu"]
+[ext_resource type="PackedScene" uid="uid://d4jm8p3wpte6q" path="res://Game/UI/ChooseLevelPanel/chooselevel.tscn" id="2_ub0ik"]
 [ext_resource type="FontFile" uid="uid://bjtrn41cebq4e" path="res://Font/CLFN 16x CN.ttf" id="3_jg0hn"]
+[ext_resource type="Texture2D" uid="uid://bpjvqu514k8bf" path="res://Art/UI/Choose_Level/Background2.png" id="3_jni2h"]
+[ext_resource type="Script" uid="uid://cap448fexodag" path="res://Template/UI/texture_button.gd" id="4_u8let"]
 [ext_resource type="Texture2D" uid="uid://bky7ytecoeu42" path="res://Art/UI/Choose_Level/level3.png" id="4_ub0ik"]
 [ext_resource type="Texture2D" uid="uid://c7ngoomq8sd52" path="res://Art/UI/Choose_Level/level2.png" id="5_jni2h"]
 
 [node name="Level" type="Control" unique_id=321591673]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 8.0
+offset_bottom = 8.0
 
 [node name="Node2D2" type="Node2D" parent="." unique_id=2126674177]
 
@@ -19,15 +22,17 @@ offset_bottom = 1008.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_l4yaf")
 
-[node name="TextureRect" type="TextureRect" parent="Node2D2" unique_id=289125975]
-offset_left = 88.99999
-offset_top = 101.0
-offset_right = 1689.0
-offset_bottom = 1001.0
-rotation = -0.17810039
-scale = Vector2(0.16617246, 0.31012282)
-texture = ExtResource("2_u8let")
-script = ExtResource("3_bddgu")
+[node name="chooselevel" parent="Node2D2" unique_id=2074814427 instance=ExtResource("2_ub0ik")]
+
+[node name="TextureButton" parent="Node2D2/chooselevel" index="0" unique_id=1367535632]
+offset_left = 93.00001
+offset_top = 102.000015
+offset_right = 1893.0
+offset_bottom = 1902.0
+rotation = -0.1863526
+scale = Vector2(0.14696372, 0.16042691)
+texture_normal = ExtResource("3_jni2h")
+script = ExtResource("4_u8let")
 
 [node name="pin" type="TextureRect" parent="Node2D2" unique_id=308585787]
 z_index = 5
@@ -60,3 +65,5 @@ theme_override_fonts/font = ExtResource("3_jg0hn")
 theme_override_font_sizes/font_size = 40
 text = "1.来信"
 horizontal_alignment = 1
+
+[editable path="Node2D2/chooselevel"]

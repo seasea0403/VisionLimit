@@ -10,9 +10,12 @@ offset_right = 189.0
 offset_bottom = -31.0
 rotation = 0.55380344
 
-[node name="TextureRect" parent="Node2D2" parent_id_path=PackedInt32Array(2126674177) index="1" unique_id=289125975]
-scale = Vector2(0.14790304, 0.15685815)
-texture = ExtResource("2_2urxx")
+[node name="TextureButton" parent="Node2D2/chooselevel" parent_id_path=PackedInt32Array(2074814427) index="0" unique_id=1367535632]
+texture_normal = ExtResource("2_2urxx")
+scene_path = "res://Game/Scenes/Chapter4/chapter_4.tscn"
+chapter_index = 4
 
 [node name="title" parent="Node2D2/Node2D" parent_id_path=PackedInt32Array(993991288) index="1" unique_id=21943005]
 text = "4.秘密"
+
+[editable path="Node2D2/chooselevel"]
