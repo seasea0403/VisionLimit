@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://bnm54c56m1gqs"]
+
+[ext_resource type="StyleBox" uid="uid://u7yvo4as8v1f" path="res://Style/Worklist_button.tres" id="1_wof3f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2cll"]
+bg_color = Color(0.6949329, 0.8527151, 0.9208927, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju58r"]
+bg_color = Color(0.29062137, 0.51678973, 0.60733086, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="FontFile" id="FontFile_6sul4"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wof3f"]
+bg_color = Color(0.38268816, 0.68603444, 0.33740035, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 10.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
+
+[node name="WorkOrderItem" type="Button" unique_id=2100810476]
+offset_right = 363.0
+offset_bottom = 112.0
+theme_override_styles/normal = ExtResource("1_wof3f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c2cll")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ju58r")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2098371512]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 17
+theme_override_constants/margin_right = 22
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1220658967]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=6329502]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="name" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1071746993]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_6sul4")
+theme_override_font_sizes/font_size = 25
+text = "患者编号：0471"
+
+[node name="catagory" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=309638576]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_6sul4")
+theme_override_font_sizes/font_size = 25
+text = "紊乱类型：轻度"
+
+[node name="state" type="Label" parent="MarginContainer/HBoxContainer" unique_id=190681928]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_6sul4")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_wof3f")
+text = "待分配"

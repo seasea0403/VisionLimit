@@ -1,5 +1,18 @@
 [gd_scene format=3 uid="uid://wr11vjhoeiph"]
 
 [ext_resource type="PackedScene" uid="uid://cjipdyax8bo6i" path="res://Template/UI/Level.tscn" id="1_e7rr8"]
+[ext_resource type="Texture2D" uid="uid://bbkd3ni6jsg8v" path="res://Art/UI/Choose_Level/Background4.png" id="2_2urxx"]
 
 [node name="Level1" unique_id=321591673 instance=ExtResource("1_e7rr8")]
+offset_left = 189.0
+offset_top = -31.0
+offset_right = 189.0
+offset_bottom = -31.0
+rotation = 0.55380344
+
+[node name="TextureRect" parent="Node2D2" parent_id_path=PackedInt32Array(2126674177) index="1" unique_id=289125975]
+scale = Vector2(0.14790304, 0.15685815)
+texture = ExtResource("2_2urxx")
+
+[node name="title" parent="Node2D2/Node2D" parent_id_path=PackedInt32Array(993991288) index="1" unique_id=21943005]
+text = "4.秘密"

@@ -1,5 +1,30 @@
 [gd_scene format=3 uid="uid://dogc6ux5hodr8"]
 
 [ext_resource type="PackedScene" uid="uid://cjipdyax8bo6i" path="res://Template/UI/Level.tscn" id="1_k72in"]
+[ext_resource type="Texture2D" uid="uid://b3comvxs8wu4q" path="res://Art/UI/Choose_Level/Background3_2.png" id="2_6mupw"]
 
 [node name="Level1" unique_id=321591673 instance=ExtResource("1_k72in")]
+
+[node name="TextureRect" parent="Node2D2" parent_id_path=PackedInt32Array(2126674177) index="1" unique_id=289125975]
+scale = Vector2(0.14923906, 0.16041683)
+texture = ExtResource("2_6mupw")
+
+[node name="pin" parent="Node2D2" parent_id_path=PackedInt32Array(2126674177) index="2" unique_id=308585787]
+offset_left = 363.00003
+offset_top = 349.0
+offset_right = 521.0
+offset_bottom = 507.0
+
+[node name="Node2D" parent="Node2D2" parent_id_path=PackedInt32Array(2126674177) index="3" unique_id=993991288]
+position = Vector2(8, -394)
+rotation = 0.45732942
+
+[node name="titleback" parent="Node2D2/Node2D" index="0" unique_id=1862467043]
+scale = Vector2(0.4148484, 0.4090869)
+
+[node name="title" parent="Node2D2/Node2D" index="1" unique_id=21943005]
+offset_left = 233.4652
+offset_top = 422.3115
+offset_right = 436.2473
+offset_bottom = 473.3115
+text = "3.苍屿"

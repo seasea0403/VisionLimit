@@ -39,7 +39,10 @@ visible = false
 position = Vector2(767, 392)
 shape = SubResource("RectangleShape2D_hcco1")
 
-[node name="Zoomview_information2" parent="ZoomViews/ClickableArea_Information2" index="1" unique_id=198920514]
+[node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Information2/Zoomview_information2/ClickableArea_Book" parent_id_path=PackedInt32Array(676050068, 1437686243) index="0" unique_id=55883732]
+position = Vector2(1846.1417, 506.57776)
+
+[node name="Zoomview" parent="ZoomViews/ClickableArea_Information2/Zoomview_information2/ClickableArea_Book" parent_id_path=PackedInt32Array(676050068, 1437686243) index="1" unique_id=198920514]
 visible = false
 
 [node name="ClickableArea_board" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=1752940588 instance=ExtResource("4_aq64q")]
@@ -86,6 +89,7 @@ autoplay = true
 [editable path="UILayer/ItemDetail"]
 [editable path="ZoomViews/ClickableArea_Information2"]
 [editable path="ZoomViews/ClickableArea_Information2/Zoomview_information2"]
+[editable path="ZoomViews/ClickableArea_Information2/Zoomview_information2/ClickableArea_Book"]
 [editable path="ZoomViews/ClickableArea_board"]
 [editable path="ZoomViews/ClickableArea_Declaration"]
 [editable path="ZoomViews/ClickableArea_Declaration/Zoomview_declaration"]

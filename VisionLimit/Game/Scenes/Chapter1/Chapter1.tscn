@@ -14,17 +14,12 @@ loop = true
 [node name="Chapter" unique_id=1917343286 instance=ExtResource("1_xnqfp")]
 
 [node name="RecordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="1" unique_id=1173323693 instance=ExtResource("2_geqti")]
+editor_preview_titles = PackedStringArray("记忆海", "苍屿症", "郑和平")
 
 [node name="ZoomViews" parent="." index="2" unique_id=395467288]
 visible = false
 
 [node name="ClickableArea_Table" parent="ZoomViews" index="0" unique_id=676050068 instance=ExtResource("2_xnqfp")]
-
-[node name="Certification" parent="ZoomViews/ClickableArea_Table/Zoomview_desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="1" unique_id=1689087515]
-record_entry_title = ""
-record_entry_description = ""
-record_entry_title_2 = ""
-record_entry_description_2 = ""
 
 [node name="ClickableArea" parent="ZoomViews" index="1" unique_id=1055747330 instance=ExtResource("6_uari3")]
 
@@ -33,8 +28,6 @@ record_entry_description_2 = ""
 [node name="bed" parent="items" index="0" unique_id=621484511 instance=ExtResource("4_f0je0")]
 
 [node name="dock" parent="items" index="1" unique_id=241473976 instance=ExtResource("5_5oj76")]
-record_entry_title = ""
-record_entry_description = ""
 
 [node name="SceneBgm" parent="." index="4" unique_id=996875468]
 stream = SubResource("AudioStreamMP3_xnqfp")
@@ -44,3 +37,4 @@ autoplay = true
 [editable path="ZoomViews/ClickableArea_Table"]
 [editable path="ZoomViews/ClickableArea_Table/Zoomview_desk"]
 [editable path="ZoomViews/ClickableArea"]
+[editable path="ZoomViews/ClickableArea/Zoomview"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://babjb3dqu3ovm"]
 
 [ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Template/Scene/ClickableArea.tscn" id="1_w7612"]
+[ext_resource type="PackedScene" uid="uid://b8qjrbed82ks4" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_book.tscn" id="3_knw70"]
 [ext_resource type="PackedScene" uid="uid://dygkpf5egqfwp" path="res://Game/Scenes/Chapter3/1/zoomview/zoomview_information2.tscn" id="3_w7612"]
 
 [node name="ClickableArea_Information2" unique_id=676050068 instance=ExtResource("1_w7612")]
@@ -10,5 +11,8 @@ position = Vector2(767, 373.5)
 scale = Vector2(16.812447, 53.536106)
 
 [node name="Zoomview_information2" parent="." index="1" unique_id=198920514 instance=ExtResource("3_w7612")]
+
+[node name="ClickableArea_Book" parent="Zoomview_information2" index="2" unique_id=1437686243 instance=ExtResource("3_knw70")]
+position = Vector2(-235, 6)
 
 [editable path="Zoomview_information2"]

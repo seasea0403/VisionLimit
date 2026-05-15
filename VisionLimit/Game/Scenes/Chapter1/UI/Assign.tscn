@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://lv7u5b2stnjl"]
+
+[ext_resource type="StyleBox" uid="uid://ddqkn71jydlv7" path="res://Style/assign.tres" id="1_8223e"]
+
+[sub_resource type="FontFile" id="FontFile_wu7sx"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugatl"]
+bg_color = Color(0.17596996, 0.46440178, 0.4780206, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x42il"]
+bg_color = Color(0.33214673, 0.7395834, 0.7562288, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Assign" type="Button" unique_id=1308676463]
+offset_right = 125.0
+offset_bottom = 52.0
+theme_override_fonts/font = SubResource("FontFile_wu7sx")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("1_8223e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ugatl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x42il")
+text = "分配"

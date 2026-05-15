@@ -9,10 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://cv7vl7tu0b26c" path="res://Game/UI/ChooseLevelPanel/level_5.tscn" id="6_7bwrw"]
 [ext_resource type="PackedScene" uid="uid://crhakl2uvrrjk" path="res://Game/UI/ChooseLevelPanel/level_6.tscn" id="7_di8lo"]
 [ext_resource type="PackedScene" uid="uid://55kpnr7lng7j" path="res://Game/UI/ChooseLevelPanel/level_7.tscn" id="8_15fdg"]
+[ext_resource type="Texture2D" uid="uid://dyt2ly8cgo8s6" path="res://Art/UI/Choose_Level/Line.png" id="10_hd6s5"]
+[ext_resource type="Script" uid="uid://cuhoq3jvtoov7" path="res://Game/UI/ChooseLevelPanel/control.gd" id="10_igci7"]
 
 [node name="ChooseLevelPanel" type="Control" unique_id=1388235762]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_u2rt6")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1695243419]
@@ -23,15 +30,22 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_86ye0")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=236420664]
-layout_mode = 0
-offset_right = 4259.0
-offset_bottom = 1081.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -9.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 2
 vertical_scroll_mode = 0
+scroll_hint_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer" unique_id=1578751708]
-custom_minimum_size = Vector2(1920, 1080)
+custom_minimum_size = Vector2(3800, 1080)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
 theme_override_constants/separation = 527
 
@@ -59,4 +73,85 @@ size_flags_vertical = 4
 [node name="Level7" parent="ScrollContainer/HBoxContainer" unique_id=38837439 instance=ExtResource("8_15fdg")]
 layout_mode = 2
 
-[node name="NavigationUI" type="Node2D" parent="." unique_id=121618411]
+[node name="Control" type="Control" parent="." unique_id=709257161]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_igci7")
+
+[node name="Line" type="TextureRect" parent="Control" unique_id=18555055 groups=["grid_lines"]]
+z_index = 1
+layout_mode = 0
+offset_left = 233.99998
+offset_top = 29.000004
+offset_right = 1380.0
+offset_bottom = 269.0329
+rotation = 0.7748203
+scale = Vector2(0.6880009, 0.43816248)
+texture = ExtResource("10_hd6s5")
+
+[node name="Line2" type="TextureRect" parent="Control" unique_id=709057488 groups=["grid_lines"]]
+z_index = 1
+layout_mode = 0
+offset_left = 701.00006
+offset_top = 614.0
+offset_right = 1847.0
+offset_bottom = 854.0329
+rotation = -0.3837701
+scale = Vector2(0.69646275, 0.40121597)
+texture = ExtResource("10_hd6s5")
+
+[node name="Line3" type="TextureRect" parent="Control" unique_id=192940926 groups=["grid_lines"]]
+z_index = 1
+layout_mode = 0
+offset_left = 1466.0
+offset_top = 354.99997
+offset_right = 2612.0
+offset_bottom = 595.0329
+rotation = 0.45698127
+scale = Vector2(0.36977354, 0.3651585)
+texture = ExtResource("10_hd6s5")
+
+[node name="Line4" type="TextureRect" parent="Control" unique_id=1335969851 groups=["grid_lines"]]
+z_index = 1
+layout_mode = 0
+offset_left = 1766.0
+offset_top = 572.0001
+offset_right = 3092.446
+offset_bottom = 812.0331
+rotation = -0.41893324
+scale = Vector2(0.36977354, 0.3651585)
+texture = ExtResource("10_hd6s5")
+
+[node name="Line5" type="TextureRect" parent="Control" unique_id=813464359 groups=["grid_lines"]]
+z_index = 1
+layout_mode = 0
+offset_left = 2215.0
+offset_top = 407.0
+offset_right = 3557.7378
+offset_bottom = 647.03296
+rotation = 0.14400046
+scale = Vector2(0.4851187, 0.44779804)
+texture = ExtResource("10_hd6s5")
+
+[node name="Line6" type="TextureRect" parent="Control" unique_id=1445541286 groups=["grid_lines"]]
+z_index = 1
+layout_mode = 0
+offset_left = 2813.0
+offset_top = 585.9998
+offset_right = 4434.048
+offset_bottom = 826.0328
+rotation = -0.8696131
+scale = Vector2(0.4851187, 0.44779804)
+texture = ExtResource("10_hd6s5")
+
+[editable path="ScrollContainer/HBoxContainer/Level1"]
+[editable path="ScrollContainer/HBoxContainer/Level2"]
+[editable path="ScrollContainer/HBoxContainer/Level3"]
+[editable path="ScrollContainer/HBoxContainer/Level4"]
+[editable path="ScrollContainer/HBoxContainer/Level5"]
+[editable path="ScrollContainer/HBoxContainer/Level6"]
+[editable path="ScrollContainer/HBoxContainer/Level7"]
