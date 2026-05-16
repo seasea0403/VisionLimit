@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cy7dv63px3ext" path="res://Art/Scenes/Scene5/Elements/cup_back.png" id="3_6bsux"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbicw"]
-size = Vector2(9.830829, 34.16484)
+size = Vector2(5.148419, 23.145306)
 
 [node name="cup" unique_id=223355110 instance=ExtResource("1_hr1tm")]
 item_id = "2"

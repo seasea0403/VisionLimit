@@ -67,6 +67,9 @@ position = Vector2(892.04736, 600.5)
 [node name="honor" parent="ZoomViews/ClickableArea_desk/Zoomview_desk/Items" parent_id_path=PackedInt32Array(1229629625, 198920514, 1759582505) index="0" unique_id=223355110]
 description = "这块荣誉是九年前留下的。那时苍屿的渔业还蒸蒸日上，可自 2043 年起便一落千丈，至今都没能回春。"
 
+[node name="bluenote" parent="ZoomViews/ClickableArea_desk/Zoomview_desk/Items" parent_id_path=PackedInt32Array(1229629625, 198920514, 1759582505) index="1" unique_id=1429109202]
+description = "临深集团？原来 2041 年他们还会配合检测，不知道如今这家在苍屿势力庞大、几乎一手遮天的大公司，还会不会把环保局放在眼里。"
+
 [node name="card" parent="ZoomViews/ClickableArea_desk/Zoomview_desk/Items" parent_id_path=PackedInt32Array(1229629625, 198920514, 1759582505) index="2" unique_id=1660416011]
 description = "陈...星河？看来他是这个工位的主人。但这个位置看起来很久没人使用过了。"
 
@@ -75,6 +78,9 @@ description = "用来外业勘测收集水样的器具。看着有些年头了�
 can_record = true
 record_entry_title = "外业勘测水质采样规程"
 record_entry_description = "外业勘测水质采样要求所用器具在下水前彻底清洁并专人管理，以确保数据可溯性、降低交叉污染风险。采样人员通常管理自用器具，器具归属信息与采样负责人直接挂钩。"
+
+[node name="yellownote" parent="ZoomViews/ClickableArea_desk/Zoomview_desk/Items" parent_id_path=PackedInt32Array(1229629625, 198920514, 1759582505) index="4" unique_id=677936577]
+description = "电脑系统的升级通知。可能是为了匹配数字化存档需求。"
 
 [node name="ClickableArea_drawer" parent="ZoomViews" index="2" unique_id=1415919454 instance=ExtResource("5_0r2fq")]
 
@@ -86,14 +92,26 @@ shape = SubResource("RectangleShape2D_sgmff")
 position = Vector2(1339.0474, 738.00006)
 shape = SubResource("RectangleShape2D_0r2fq")
 
+[node name="A1" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_A1/Zoomview_drawer_A1/Items" parent_id_path=PackedInt32Array(1415919454, 1555496259, 198920514, 1759582505) index="0" unique_id=223355110]
+description = "看得出环保局十分看重省级达标示范单位的名头，可眼下苍屿渔业萧条、水质持续变差，他们会出台怎样的应对措施？"
+
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_A2" parent_id_path=PackedInt32Array(1415919454, 1788399999) index="0" unique_id=55883732]
 position = Vector2(891.00006, 748)
+
+[node name="A2" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_A2/Zoomview_drawer_A2/Items" parent_id_path=PackedInt32Array(1415919454, 1788399999, 198920514, 1759582505) index="0" unique_id=223355110]
+description = "日志完成得很认真。这应该是个做事细致的人。"
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_B1" parent_id_path=PackedInt32Array(1415919454, 291334789) index="0" unique_id=55883732]
 position = Vector2(1334, 431)
 
+[node name="B1" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_B1/Zoomview_drawer_B1/Items" parent_id_path=PackedInt32Array(1415919454, 291334789, 198920514, 1759582505) index="0" unique_id=223355110]
+description = "这份报告的内容很漂亮，数据挑不出任何错。应该就是凭这份报告获得荣誉的吧。"
+
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_B2" parent_id_path=PackedInt32Array(1415919454, 2013407887) index="0" unique_id=55883732]
 position = Vector2(891.25, 426.00003)
+
+[node name="B2" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_B2/Zoomview_drawer_B2/Items" parent_id_path=PackedInt32Array(1415919454, 2013407887, 198920514, 1759582505) index="0" unique_id=223355110]
+description = "在柜中找不到2043年之后的勘测数据了，这应该就是原因吧。数字化存档方便储存，但也方便加密。这样做是为了便利还是遮掩？"
 
 [node name="SceneBgm" parent="." index="3" unique_id=996875468]
 stream = SubResource("AudioStreamMP3_qnvrk")

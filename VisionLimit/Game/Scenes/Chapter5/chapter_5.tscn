@@ -35,6 +35,15 @@ shape = SubResource("RectangleShape2D_fbfs3")
 [node name="Zoomview_Desk" parent="ZoomViews/ClickableArea_Desk" index="1" unique_id=198920514]
 visible = false
 
+[node name="Note" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="0" unique_id=223355110]
+description = "Ctrl和D按键磨损得十分厉害，这是我从前做托管师时留下的习惯。四年前处理郑和平那桩委托，是我最后一次使用这个键盘，如今再看到它都觉得有些陌生了。"
+
+[node name="Card" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="1" unique_id=1064052470]
+description = "挖掘自己的记忆海绝不是一件轻松的事。魏江应该也知道。否则他绝不会这般贴心地给我倒来一杯水。"
+
+[node name="hardcore" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="2" unique_id=2007174856]
+description = "“2046-03”，那是我从神经护理机构离职在家待业的日子，那之后不久我就收到了晴野基金会的委托，请求我为一位重度紊乱患者进行三级托管治疗。现在，我知道了那位患者就是郑和平。"
+
 [node name="ClickableArea_Block" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=1041883668 instance=ExtResource("4_fp6ag")]
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Block" index="0" unique_id=55883732]
@@ -44,12 +53,17 @@ shape = SubResource("RectangleShape2D_2k8s4")
 [node name="Zoomview_paper" parent="ZoomViews/ClickableArea_Block" index="1" unique_id=198920514]
 visible = false
 
+[node name="Calender" parent="ZoomViews/ClickableArea_Block/Zoomview_paper/Items" parent_id_path=PackedInt32Array(1041883668, 198920514, 1759582505) index="0" unique_id=223355110]
+description = "在潜入自己的记忆海时，为了避免外界干扰为操作者带来不可逆的影响，需要打开信号屏蔽装置。"
+
 [node name="SceneBgm" parent="." index="3" unique_id=996875468]
 stream = SubResource("AudioStreamMP3_2k8s4")
 volume_db = 4.502
 autoplay = true
 
 [editable path="UILayer/ItemDetail"]
+[editable path="UILayer/ItemDetail/Control/PrevButton"]
+[editable path="UILayer/ItemDetail/Control/LaterButton"]
 [editable path="ZoomViews/ClickableArea_Desk"]
 [editable path="ZoomViews/ClickableArea_Desk/Zoomview_Desk"]
 [editable path="ZoomViews/ClickableArea_Block"]
