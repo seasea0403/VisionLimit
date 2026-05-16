@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://e01nkni1ppob"]
+
+[ext_resource type="Script" uid="uid://bjc5t6hb1fkp1" path="res://Game/Scenes/Chapter1/UI/3.gd" id="0_3gd"]
+[ext_resource type="Texture2D" uid="uid://cwtixky47b7xw" path="res://Art/UI/loadpanel.png" id="2_2wvyx"]
+[ext_resource type="Texture2D" uid="uid://hl0dm7k4wthg" path="res://Art/Character/人物立绘/沈意.png" id="2_5070u"]
+[ext_resource type="VideoStream" uid="uid://bmb804de36i3o" path="res://Art/Animation/-bslj70ocgsginvjm.ogv" id="3_2wvyx"]
+[ext_resource type="Texture2D" uid="uid://r5pqdltqj1jb" path="res://Art/Scenes/Scene7/第六章全部 - 副本/computer.png" id="3_5070u"]
+[ext_resource type="PackedScene" uid="uid://dhutpd64top7i" path="res://Game/Scenes/Chapter1/UI/4.tscn" id="3_be1gc"]
+[ext_resource type="Texture2D" uid="uid://8dec8fa3d5qk" path="res://Art/Scenes/Scene7/第六章全部 - 副本/information.png" id="4_be1gc"]
+
+[sub_resource type="FontFile" id="FontFile_5070u"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frpvk"]
+bg_color = Color(0.07551011, 0.07551014, 0.07551006, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mfvr"]
+bg_color = Color(0.34, 0.34, 0.34, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shhhu"]
+bg_color = Color(0.4609949, 0.4609949, 0.46099472, 1)
+
+[node name="3" type="Control" unique_id=932565345]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("0_3gd")
+character_image = ExtResource("2_5070u")
+email_panel_scene = ExtResource("3_be1gc")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2047411853]
+layout_mode = 0
+offset_right = 3200.0
+offset_bottom = 1800.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_5070u")
+
+[node name="state" type="TextureRect" parent="TextureRect" unique_id=1880912333]
+layout_mode = 0
+offset_left = -16.666664
+offset_top = 531.6666
+offset_right = 3849.631
+offset_bottom = 2511.563
+scale = Vector2(0.82464755, 0.61146307)
+texture = ExtResource("4_be1gc")
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=1982134432]
+layout_mode = 0
+offset_left = 2549.9998
+offset_top = 1528.3334
+offset_right = 2753.9998
+offset_bottom = 1583.3334
+scale = Vector2(1.310783, 1.2893175)
+theme_override_colors/font_color = Color(0.0121183405, 0.0121183405, 0.0121183405, 1)
+theme_override_fonts/font = SubResource("FontFile_5070u")
+theme_override_font_sizes/font_size = 40
+text = "2050/03/07"
+
+[node name="content" type="TextureRect" parent="." unique_id=765624171]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 250.0
+offset_right = 2560.031
+offset_bottom = 1499.8357
+scale = Vector2(0.48435098, 0.47350594)
+texture = ExtResource("2_2wvyx")
+
+[node name="Button" type="Button" parent="content" unique_id=1588309094]
+layout_mode = 0
+offset_left = 1619.6652
+offset_top = 779.79675
+offset_right = 1627.6652
+offset_bottom = 787.79675
+scale = Vector2(19.145452, 7.2905393)
+theme_override_styles/normal = SubResource("StyleBoxFlat_frpvk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2mfvr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_shhhu")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1238742834]
+layout_mode = 0
+offset_right = 3200.0
+offset_bottom = 1800.0
+scale = Vector2(0.6, 0.6)
+stream = ExtResource("3_2wvyx")

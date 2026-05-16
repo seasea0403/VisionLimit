@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://xx7gjg1rhna4"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_jqgy0"]
+[ext_resource type="Texture2D" uid="uid://dh406q8dpsykm" path="res://Art/Scenes/Scene7/第六章全部 - 副本/zoomview_lock.png" id="2_buylb"]
+[ext_resource type="PackedScene" uid="uid://buom474gbxlue" path="res://Game/Scenes/Chapter7/1/items/block.tscn" id="3_yi6ou"]
+
+[node name="Zoomview_paper" unique_id=198920514 instance=ExtResource("1_jqgy0")]
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_buylb")
+
+[node name="Calender" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_yi6ou")]

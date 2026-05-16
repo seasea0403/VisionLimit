@@ -3,11 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_symjg"]
 [ext_resource type="Texture2D" uid="uid://ch5v2d5wmihbh" path="res://Art/Scenes/Scene3/Background/Background3_1.png" id="2_0j8q1"]
 [ext_resource type="AudioStream" uid="uid://g4v5eefltqnq" path="res://Audio/BGM/Scene3-1.mp3" id="3_0j8q1"]
+[ext_resource type="PackedScene" uid="uid://ccp5mfhfncfts" path="res://Game/UI/RecordPanel/RecordPanel.tscn" id="3_aq64q"]
 [ext_resource type="PackedScene" uid="uid://babjb3dqu3ovm" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_Information2.tscn" id="3_hcco1"]
 [ext_resource type="PackedScene" uid="uid://dmv5xjol2vcjn" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_Board.tscn" id="4_aq64q"]
 [ext_resource type="PackedScene" uid="uid://ccmf3iqls3df3" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_Declaration.tscn" id="5_u0bx5"]
 [ext_resource type="PackedScene" uid="uid://wkc7okqmt3h4" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_Desk.tscn" id="6_dhn8c"]
 [ext_resource type="PackedScene" uid="uid://bf1jp4la0lmc2" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_Information1.tscn" id="7_r3dcq"]
+[ext_resource type="PackedScene" uid="uid://dcwiq0v3lug8k" path="res://Game/Scenes/Chapter1/ClickableArea/clickable_video.tscn" id="10_dhn8c"]
+[ext_resource type="VideoStream" uid="uid://cvf1epdfye043" path="res://Art/Animation/hospital.ogv" id="11_r3dcq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcco1"]
 size = Vector2(10.052077, 2.8392053)
@@ -33,7 +36,14 @@ texture = ExtResource("2_0j8q1")
 [node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="0" unique_id=552734023]
 visible = false
 
-[node name="ClickableArea_Information2" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("3_hcco1")]
+[node name="RecordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1173323693 instance=ExtResource("3_aq64q")]
+visible = false
+editor_preview_titles = PackedStringArray("记忆海", "苍屿症", "郑和平")
+
+[node name="ZoomViews" parent="." index="2" unique_id=395467288]
+visible = false
+
+[node name="ClickableArea_Information2" parent="ZoomViews" index="0" unique_id=676050068 instance=ExtResource("3_hcco1")]
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Information2" index="0" unique_id=55883732]
 position = Vector2(767, 392)
@@ -44,35 +54,44 @@ position = Vector2(1846.1417, 506.57776)
 
 [node name="Zoomview" parent="ZoomViews/ClickableArea_Information2/Zoomview_information2/ClickableArea_Book" parent_id_path=PackedInt32Array(676050068, 1437686243) index="1" unique_id=198920514]
 visible = false
+show_detail_on_open = true
+detail_title = "苍屿症"
+detail_description = "苍屿症从前几年出现至今，一直没有很好的对策。近几年医院神经护理区除了重度记忆紊乱患者外，就是苍屿症患者了。该病的起因至今仍不明朗，大家都觉得这是与渔业环境有关的地域性疑难杂病......"
 
-[node name="ClickableArea_board" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=1752940588 instance=ExtResource("4_aq64q")]
+[node name="smallnote" parent="ZoomViews/ClickableArea_Information2/Zoomview_information2/ClickableArea_Book/Zoomview/Items" parent_id_path=PackedInt32Array(676050068, 1437686243, 198920514, 1759582505) index="0" unique_id=223355110]
+description = "就诊计划频繁调整，究竟是就诊资源紧张，还是存在其他因素?"
+can_record = true
+record_entry_title = "苍屿症"
+record_entry_description = "苍屿症为非官方命名，指苍屿县群体中持续出现的以神经发育迟滞、感知觉异常及海芯写入障碍为主要表征的一类病例集合。由于现有病例未被统一归档至同一诊断类别，各级卫生主管部门迄今未就此开具正式病名或启动系统性流行病学调查。症状首次集中出现于2043年，发病分布与苍屿旧码头附近渔业作业人员家属高度重叠。"
+
+[node name="ClickableArea_board" parent="ZoomViews" index="1" unique_id=1752940588 instance=ExtResource("4_aq64q")]
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_board" index="0" unique_id=55883732]
 position = Vector2(1110.0001, 449.00003)
 shape = SubResource("RectangleShape2D_aq64q")
 
-[node name="Zoomview" parent="ZoomViews/ClickableArea_board" index="1" unique_id=198920514]
-visible = false
+[node name="Card" parent="ZoomViews/ClickableArea_board/Zoomview/Items" parent_id_path=PackedInt32Array(1752940588, 198920514, 1759582505) index="0" unique_id=223355110]
+description = "神经护理区的预约人数这么多，可现场排队的人却寥寥无几，有点奇怪......"
 
-[node name="ClickableArea_Declaration" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="2" unique_id=859149586 instance=ExtResource("5_u0bx5")]
+[node name="ClickableArea_Declaration" parent="ZoomViews" index="2" unique_id=859149586 instance=ExtResource("5_u0bx5")]
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Declaration" index="0" unique_id=55883732]
 position = Vector2(563, 428)
 shape = SubResource("RectangleShape2D_u0bx5")
 
-[node name="Zoomview_declaration" parent="ZoomViews/ClickableArea_Declaration" index="1" unique_id=198920514]
-visible = false
+[node name="Map" parent="ZoomViews/ClickableArea_Declaration/Zoomview_declaration/Items" parent_id_path=PackedInt32Array(859149586, 198920514, 1759582505) index="0" unique_id=223355110]
+description = "神经护理区的病房分布图。据说一位难求。"
 
-[node name="ClickableArea_Desk_2" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="3" unique_id=1209793296 instance=ExtResource("6_dhn8c")]
+[node name="ClickableArea_Desk_2" parent="ZoomViews" index="3" unique_id=1209793296 instance=ExtResource("6_dhn8c")]
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Desk_2" index="0" unique_id=55883732]
 position = Vector2(229.86267, 690.00006)
 shape = SubResource("RectangleShape2D_dhn8c")
 
-[node name="Zoomview_desk" parent="ZoomViews/ClickableArea_Desk_2" index="1" unique_id=198920514]
-visible = false
+[node name="record" parent="ZoomViews/ClickableArea_Desk_2/Zoomview_desk/Items" parent_id_path=PackedInt32Array(1209793296, 198920514, 1759582505) index="0" unique_id=223355110]
+description = "“已处理” 具体指代何种状态，是完成正常就诊，还是仅完成了就诊时间变更?"
 
-[node name="ClickableArea_Information1" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="4" unique_id=1493515065 instance=ExtResource("7_r3dcq")]
+[node name="ClickableArea_Information1" parent="ZoomViews" index="4" unique_id=1493515065 instance=ExtResource("7_r3dcq")]
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Information1" index="0" unique_id=55883732]
 position = Vector2(765, 516)
@@ -80,17 +99,38 @@ rotation = -0.0024833237
 shape = SubResource("RectangleShape2D_r3dcq")
 
 [node name="Zoomview_information1" parent="ZoomViews/ClickableArea_Information1" index="1" unique_id=198920514]
-visible = false
+show_detail_on_open = true
+detail_title = "感谢信"
+detail_description = "我做托管师那几年去过不少医院。通常感谢信会越来越新，贴满整面墙，但这里最新的一封是2044年。已经很久没有新的感谢信了。"
+
+[node name="paint" parent="ZoomViews/ClickableArea_Information1/Zoomview_information1/Items" parent_id_path=PackedInt32Array(1493515065, 198920514, 1759582505) index="0" unique_id=223355110]
+description = "小孩的画吗.....好奇怪的配色，白色的鱼和灰色的大海?"
 
 [node name="SceneBgm" parent="." index="3" unique_id=996875468]
 stream = ExtResource("3_0j8q1")
 autoplay = true
 
+[node name="ClickableVideo" parent="." index="4" unique_id=663052762 instance=ExtResource("10_dhn8c")]
+
+[node name="CollisionShape2D" parent="ClickableVideo" index="0" unique_id=1222527770]
+position = Vector2(1701, 444.99997)
+
+[node name="ColorRect" parent="ClickableVideo/VideoPanel" parent_id_path=PackedInt32Array(663052762, 1234567890) index="0" unique_id=262814154]
+visible = false
+
+[node name="VideoPlayer" parent="ClickableVideo/VideoPanel" parent_id_path=PackedInt32Array(663052762, 1234567890) index="1" unique_id=2012176287]
+stream = ExtResource("11_r3dcq")
+
+[node name="CloseButton" parent="ClickableVideo/VideoPanel" parent_id_path=PackedInt32Array(663052762, 1234567890) index="2" unique_id=1818603872]
+visible = false
+
 [editable path="UILayer/ItemDetail"]
 [editable path="ZoomViews/ClickableArea_Information2"]
 [editable path="ZoomViews/ClickableArea_Information2/Zoomview_information2"]
 [editable path="ZoomViews/ClickableArea_Information2/Zoomview_information2/ClickableArea_Book"]
+[editable path="ZoomViews/ClickableArea_Information2/Zoomview_information2/ClickableArea_Book/Zoomview"]
 [editable path="ZoomViews/ClickableArea_board"]
+[editable path="ZoomViews/ClickableArea_board/Zoomview"]
 [editable path="ZoomViews/ClickableArea_Declaration"]
 [editable path="ZoomViews/ClickableArea_Declaration/Zoomview_declaration"]
 [editable path="ZoomViews/ClickableArea_Declaration/Zoomview_declaration/Items/Map"]
@@ -98,3 +138,5 @@ autoplay = true
 [editable path="ZoomViews/ClickableArea_Desk_2/Zoomview_desk"]
 [editable path="ZoomViews/ClickableArea_Information1"]
 [editable path="ZoomViews/ClickableArea_Information1/Zoomview_information1"]
+[editable path="ClickableVideo"]
+[editable path="ClickableVideo/VideoPanel"]

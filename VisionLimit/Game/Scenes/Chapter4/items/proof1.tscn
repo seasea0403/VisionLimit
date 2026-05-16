@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cglfrdwrknfgq"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_mly8n"]
+[ext_resource type="Texture2D" uid="uid://dw0taqjg787ql" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/proof2.png" id="2_mly8n"]
+[ext_resource type="Texture2D" uid="uid://b4qgywdvl0ng3" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/proof_back.png" id="3_yqunt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(3.9298997, 5.856588)
+
+[node name="proof" unique_id=223355110 instance=ExtResource("1_mly8n")]
+item_id = "7"
+item_name = "工商注册信息"
+detail_image = ExtResource("2_mly8n")
+description = "成立两个月后就收到第一笔钱。像是专门为了应对环境检测而临时成立的机构。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(549.189, 420.16983)
+rotation = 0.14187256
+scale = Vector2(64.11247, 22.457018)
+shape = SubResource("RectangleShape2D_rm26b")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+position = Vector2(960.00006, 540)
+texture = ExtResource("3_yqunt")

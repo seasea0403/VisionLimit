@@ -1,20 +1,8 @@
 [gd_scene format=3 uid="uid://jf4g7pk2o0sd"]
 
 [ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_hhixx"]
-[ext_resource type="Texture2D" uid="uid://ddtc416i3udqj" path="res://Art/Scenes/Scene7/Background7_2.png" id="2_w4sqj"]
-[ext_resource type="PackedScene" uid="uid://882pevqkitdd" path="res://Game/Scenes/Chapter7/2/ClickableArea/ClickableArea_Box.tscn" id="3_6tk22"]
-[ext_resource type="PackedScene" uid="uid://bgvru3nywinq1" path="res://Game/Scenes/Chapter7/2/ClickableArea/ClickableArea_Cylinder.tscn" id="4_a04fu"]
-[ext_resource type="PackedScene" uid="uid://bls1cbncxufuy" path="res://Game/Scenes/Chapter7/2/ClickableArea/ClickableArea_PriceBoard.tscn" id="5_uayba"]
+[ext_resource type="Texture2D" uid="uid://dej1gqv35j86x" path="res://Art/Scenes/Scene7/Background7_2.png" id="2_w4sqj"]
 [ext_resource type="AudioStream" uid="uid://l64eo4rttyoq" path="res://Audio/BGM/Scene7-2.mp3" id="6_w4sqj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_473h4"]
-size = Vector2(11.368799, 4.1038446)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktcxn"]
-size = Vector2(5.577693, 4.225258)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lh24"]
-size = Vector2(6.804695, 5.3758917)
 
 [node name="Chapter7-2" unique_id=1917343286 instance=ExtResource("1_hhixx")]
 
@@ -25,41 +13,9 @@ texture = ExtResource("2_w4sqj")
 [node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="0" unique_id=552734023]
 visible = false
 
-[node name="ClickableArea_Box" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("3_6tk22")]
-
-[node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Box" index="0" unique_id=55883732]
-position = Vector2(801, 804.8519)
-shape = SubResource("RectangleShape2D_473h4")
-
-[node name="Zoomview_box" parent="ZoomViews/ClickableArea_Box" index="1" unique_id=198920514]
-visible = false
-
-[node name="ClickableArea_Cylinder" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=808617709 instance=ExtResource("4_a04fu")]
-
-[node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Cylinder" index="0" unique_id=55883732]
-position = Vector2(608.88727, 912.10187)
-shape = SubResource("RectangleShape2D_ktcxn")
-
-[node name="Zoomview_cylinder" parent="ZoomViews/ClickableArea_Cylinder" index="1" unique_id=198920514]
-visible = false
-
-[node name="ClickableArea_priceboard" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="2" unique_id=1327683716 instance=ExtResource("5_uayba")]
-
-[node name="CollisionShape2D" parent="ZoomViews/ClickableArea_priceboard" index="0" unique_id=55883732]
-position = Vector2(1464.1348, 500.87405)
-rotation = 1.5747497
-scale = Vector2(28.680008, 28.680008)
-shape = SubResource("RectangleShape2D_0lh24")
-
-[node name="Zoomview_priceboard" parent="ZoomViews/ClickableArea_priceboard" index="1" unique_id=198920514]
-visible = false
-
 [node name="SceneBgm" parent="." index="3" unique_id=996875468]
 stream = ExtResource("6_w4sqj")
 volume_db = 1.351
 autoplay = true
 
 [editable path="UILayer/ItemDetail"]
-[editable path="ZoomViews/ClickableArea_Box"]
-[editable path="ZoomViews/ClickableArea_Cylinder"]
-[editable path="ZoomViews/ClickableArea_priceboard"]

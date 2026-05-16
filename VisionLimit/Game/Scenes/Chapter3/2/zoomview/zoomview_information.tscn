@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://de14qyq0rchyx"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_tjaag"]
+[ext_resource type="Texture2D" uid="uid://casw1lk7r0406" path="res://Art/Scenes/Scene3/Zoomview_2/information.png" id="2_tjaag"]
+
+[node name="Zoomview_information" unique_id=198920514 instance=ExtResource("1_tjaag")]
+show_detail_on_open = true
+detail_title = "码泊位告示牌"
+detail_description = "泊位状态统计，每天更新，字迹工整，格式规范。是个认真的人在维护它。也是这个人写下了CY-0887明日返港。"
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+position = Vector2(960.00006, 540.00006)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_tjaag")

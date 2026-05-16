@@ -17,11 +17,12 @@ func _on_input_event(_viewport, event, _shape_idx):
 func _show_zoom_view() -> void:
 	for child in get_children():
 		if child.has_method("show_view"):
-			child.show_view()
-			# 通知 chapter 追踪当前打开的面板
+			# 先注册 ZoomView，再 show_view（show_view 内部可能注册 ItemDetail）
+			# 保证 ItemDetail 在栈顶，back 按钮优先关闭它
 			var chapter := _find_chapter()
 			if chapter and chapter.has_method("register_panel_open"):
 				chapter.register_panel_open(child)
+			child.show_view()
 			return
 	print("✗ 错误：找不到有效的 ZoomView 子节点")
 

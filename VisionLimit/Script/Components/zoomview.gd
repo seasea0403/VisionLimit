@@ -1,6 +1,19 @@
-extends Node2D
+﻿extends Node2D
 
 var _disabled_areas: Array[Area2D] = []
+
+## 进入 ZoomView 时是否弹出 ItemDetail
+@export var show_detail_on_open: bool = false
+## ItemDetail 标题
+@export var detail_title: String = ""
+## ItemDetail 描述文字
+@export_multiline var detail_description: String = ""
+## 说话人角色图片
+@export var detail_character_image: Texture2D = null
+## 说话人角色缩放
+@export var detail_character_scale: Vector2 = Vector2.ONE
+## 说话人角色位置偏移
+@export var detail_character_offset: Vector2 = Vector2.ZERO
 
 
 # ==================== 初始化 ====================
@@ -12,6 +25,8 @@ func _ready() -> void:
 func show_view() -> void:
 	show()
 	_disable_other_area_inputs()
+	if show_detail_on_open:
+		_show_entry_detail()
 
 
 func open_view() -> void:
@@ -34,34 +49,19 @@ func close_view() -> void:
 	hide_view()
 
 
+# ==================== 禁用/恢复背景点击 ====================
 func _disable_other_area_inputs() -> void:
 	_disabled_areas.clear()
+	# 从整个场景根节点遍历，禁用所有不属于本 ZoomView 的 Area2D
 	var root := get_tree().current_scene
-	if not root:
-		return
-	# 找到 ZoomViews 根节点或当前 zoomview 的父节点，只在其范围内禁用
-	var disable_root := _find_zoom_views_root()
-	if disable_root:
-		_disable_area_inputs_recursive(disable_root)
-
-
-func _find_zoom_views_root() -> Node:
-	"""找到 ZoomViews 根节点，如果找不到则返回当前节点的父节点"""
-	var current: Node = self
-	while current:
-		# 向上查找 ZoomViews 节点
-		if current.name == "ZoomViews":
-			return current
-		current = current.get_parent()
-	
-	# 如果找不到 ZoomViews，返回当前节点的父节点（即所属的 ClickableArea）
-	return get_parent()
+	if root:
+		_disable_area_inputs_recursive(root)
 
 
 func _disable_area_inputs_recursive(node: Node) -> void:
 	if node is Area2D:
 		var area := node as Area2D
-		# 不禁用自己及其子节点的 Area2D
+		# 不禁用本 ZoomView 自身及其子孙节点内的 Area2D
 		if not _is_descendant_of(area, self) and area.input_pickable:
 			area.input_pickable = false
 			_disabled_areas.append(area)
@@ -84,6 +84,32 @@ func _is_descendant_of(node: Node, ancestor: Node) -> bool:
 			return true
 		current = current.get_parent()
 	return false
+
+
+# ==================== 进入时弹出 ItemDetail ====================
+func _show_entry_detail() -> void:
+	"""进入 ZoomView 时弹出 ItemDetail（可配置）"""
+	var chapter := _find_chapter()
+	if not chapter:
+		return
+	var item_detail = chapter.get("item_detail")
+	if not item_detail or not item_detail is CanvasLayer:
+		return
+	if not item_detail.has_method("show_detail"):
+		return
+	item_detail.show_detail(
+		null,
+		detail_description,
+		detail_title,
+		false, "", Vector2.ONE, Vector2.ZERO,
+		"", "", "", "",
+		detail_character_image,
+		detail_character_scale,
+		detail_character_offset
+	)
+	# 隐藏暗色背景（ZoomView 场景下背景已是 ZoomView 本身，不需要遮罩）
+	if item_detail.has_method("set_dark_background_visible"):
+		item_detail.set_dark_background_visible(false)
 
 
 func _find_chapter() -> Node:

@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kw1g1"]
 size = Vector2(12.517642, 7.1053433)
 
-[node name="ClickableArea_priceboard" unique_id=676050068 instance=ExtResource("1_4hbsk")]
+[node name="ClickableArea_board" unique_id=676050068 instance=ExtResource("1_4hbsk")]
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=55883732]
 position = Vector2(1212.5813, 418.10703)
@@ -14,3 +14,12 @@ rotation = -0.011997527
 shape = SubResource("RectangleShape2D_kw1g1")
 
 [node name="Zoomview_priceboard" parent="." index="1" unique_id=198920514 instance=ExtResource("2_wlikb")]
+show_detail_on_open = true
+detail_title = "1. 实时电子价牌"
+detail_description = "数字本身不会撒谎。但挑选哪些数字展示、以什么顺序展示，从来都是人在决定的。"
+
+[node name="note" parent="Zoomview_priceboard/Items" parent_id_path=PackedInt32Array(198920514, 1759582505) index="0" unique_id=223355110]
+record_entry_title = "C-03海域"
+record_entry_description = "C-03为苍屿近岸渔业规划区划分的第三类作业海域，位于苍屿县西北方向约14海里，毗邻县域精炼厂排海管控区外缘。该区域捕捞作业不受配额限制，准入门槛低于A、B类海域，长期由小型独立渔船承包经营。自2039年起，C-03海域渔获在苍屿旧码头市场的流通量持续上升，同期定价呈下行趋势。"
+
+[editable path="Zoomview_priceboard"]

@@ -15,6 +15,9 @@ var work_orders: Array[Dictionary] = [
 ## 当前选中工单索引，-1 表示未选中
 var current_order_index: int = -1
 
+## 已成功完成分配的工单数量
+var completed_orders: int = 0
+
 ## 三位托管师固定等级：一级/二级/三级
 var guardian_grades: Array[int] = [1, 2, 3]
 
@@ -33,6 +36,9 @@ var guardian_grades: Array[int] = [1, 2, 3]
 
 ## 自定义错误弹窗预制体（拖入 ErrorPopup.tscn）
 @export var error_popup_scene: PackedScene
+
+## 章节完成后弹出的面板（拖入 3.tscn）
+@export var chapter_complete_panel_scene: PackedScene
 
 # ==================== 节点引用 ====================
 @onready var work_order_items: Array = [
@@ -103,6 +109,12 @@ func _on_assign_pressed(guardian_index: int) -> void:
 		# ✅ 匹配成功
 		work_order_items[current_order_index].mark_assigned()
 		_add_log(order, guardian_lvl)
+
+		# 检查是否所有工单都已完成
+		completed_orders += 1
+		if completed_orders >= work_order_items.size():
+			await get_tree().create_timer(0.8).timeout
+			_trigger_chapter_complete()
 	else:
 		# ❌ 等级不足
 		var msg := error_message.replace("{required}", str(required)).replace("{actual}", str(guardian_lvl))
@@ -155,3 +167,14 @@ func _show_error(message: String) -> void:
 func _timestamp() -> String:
 	var t := Time.get_time_dict_from_system()
 	return "%02d:%02d:%02d" % [t["hour"], t["minute"], t["second"]]
+
+
+# ==================== 章节完成触发 ====================
+## 所有工单分配完成后，弹出 3.tscn 流程面板
+func _trigger_chapter_complete() -> void:
+	if chapter_complete_panel_scene:
+		var panel: Control = chapter_complete_panel_scene.instantiate()
+		get_tree().get_root().add_child(panel)
+		queue_free()
+	else:
+		push_warning("[2.gd] chapter_complete_panel_scene 未设置，请在 Inspector 中拖入 3.tscn")

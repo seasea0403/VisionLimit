@@ -9,8 +9,13 @@ size = Vector2(3.9298997, 5.856588)
 
 [node name="proof" unique_id=223355110 instance=ExtResource("1_pge60")]
 item_id = "7"
-item_name = "魏江的资料"
+item_name = "转账记录"
 detail_image = ExtResource("2_pge60")
+description = "六万八千元，半年缴纳一次，一共三期。这不是一次性结清的费用，而是持续性维护开销。以定期转账的方式，为这份缄默持续续费，维系事态长久沉寂。"
+can_record = true
+record_entry_title = "晴野生态保护基金会"
+record_entry_description = "晴野生态保护基金会为注册于广东省的非公募基金会，对外宣称资助沿海生态监测与渔业可持续发展项目。依规定，基金会年度报告须公示对外付款情况，但具体付款用途描述不受强制披露约束。财务记录显示，晴野生态保护基金会自2043年起以「环境检测服务委托」为由向正源环境检测技术有限公司定期拨款；正源环境检测成立于2043年7月，法定代表人与临深集团相关运营实体存在关联关系，具体资金去向待溯查。"
+linked_items = Array[NodePath]([NodePath(""), NodePath("")])
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
 position = Vector2(549.189, 420.16983)

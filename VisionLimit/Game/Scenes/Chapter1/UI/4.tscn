@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://dhutpd64top7i"]
+
+[ext_resource type="Script" uid="uid://bng6r2nqt00j4" path="res://Game/Scenes/Chapter1/UI/4.gd" id="0_4gd"]
+[ext_resource type="Texture2D" uid="uid://cdp3571eh5mln" path="res://Art/UI/emailpanel.png" id="1_4qoo2"]
+[ext_resource type="Texture2D" uid="uid://r5pqdltqj1jb" path="res://Art/Scenes/Scene7/第六章全部 - 副本/computer.png" id="2_icoar"]
+[ext_resource type="Texture2D" uid="uid://hl0dm7k4wthg" path="res://Art/Character/人物立绘/沈意.png" id="2_kpijd"]
+[ext_resource type="Texture2D" uid="uid://8dec8fa3d5qk" path="res://Art/Scenes/Scene7/第六章全部 - 副本/information.png" id="3_gwikv"]
+[ext_resource type="StyleBox" uid="uid://cbagne1a0b20q" path="res://Style/password.tres" id="5_gwikv"]
+
+[sub_resource type="FontFile" id="FontFile_kpijd"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_i48lh"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ielw0"]
+bg_color = Color(0.43544102, 0.6368085, 0.8562522, 1)
+border_color = Color(0.14901961, 0.3019608, 0.44705883, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwikv"]
+bg_color = Color(0.15997529, 0.31515023, 0.48256153, 1)
+border_color = Color(0.14901961, 0.3019608, 0.44705883, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[node name="4" type="Control" unique_id=1241793161]
+z_index = 4
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("0_4gd")
+dialogue_text_2 = ""
+character_image_2 = ExtResource("2_kpijd")
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=858687257]
+layout_mode = 0
+offset_right = 3200.0
+offset_bottom = 1800.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_icoar")
+
+[node name="state" type="TextureRect" parent="TextureRect2" unique_id=1149464461]
+layout_mode = 0
+offset_left = -16.666664
+offset_top = 531.6666
+offset_right = 3849.631
+offset_bottom = 2511.563
+scale = Vector2(0.82464755, 0.61146307)
+texture = ExtResource("3_gwikv")
+
+[node name="Label" type="Label" parent="TextureRect2" unique_id=963376722]
+layout_mode = 0
+offset_left = 2549.9998
+offset_top = 1528.3334
+offset_right = 2753.9998
+offset_bottom = 1583.3334
+scale = Vector2(1.310783, 1.2893175)
+theme_override_colors/font_color = Color(0.0121183405, 0.0121183405, 0.0121183405, 1)
+theme_override_fonts/font = SubResource("FontFile_kpijd")
+theme_override_font_sizes/font_size = 40
+text = "2050/03/07"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=61452739]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 112.0
+offset_right = 2165.9578
+offset_bottom = 1256.816
+scale = Vector2(0.78407323, 0.69967574)
+texture = ExtResource("1_4qoo2")
+
+[node name="CloseButton" type="Button" parent="." unique_id=300100001]
+layout_mode = 0
+offset_left = 861.0
+offset_top = 914.0
+offset_right = 1101.0
+offset_bottom = 974.0
+theme_override_fonts/font = SubResource("FontFile_i48lh")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_gwikv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ielw0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gwikv")
+text = "同意"

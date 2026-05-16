@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cw81ycd357yqb"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_iojmp"]
+[ext_resource type="Texture2D" uid="uid://d3ajlvpvonxth" path="res://Art/Scenes/Scene5/Elements/keyboard.png" id="2_m7q1v"]
+[ext_resource type="Texture2D" uid="uid://dsmrvhatvjwiv" path="res://Art/Scenes/Scene5/Elements/keyboard_back.png" id="3_w0e2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_by3t1"]
+size = Vector2(755.75, 122)
+
+[node name="Note" unique_id=223355110 instance=ExtResource("1_iojmp")]
+item_id = "4"
+item_name = "键盘"
+detail_image = ExtResource("2_m7q1v")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(910.125, 870)
+shape = SubResource("RectangleShape2D_by3t1")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+texture = ExtResource("3_w0e2m")

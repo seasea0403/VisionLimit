@@ -1,14 +1,15 @@
-[gd_scene format=3 uid="uid://m4hc5wce8kf6"]
+[gd_scene format=3 uid="uid://cpgen82wnpklq"]
 
-[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_pf6qa"]
-[ext_resource type="Texture2D" uid="uid://sg7ism1nnle8" path="res://Art/Scenes/Scene3/Zoomview_1/desk.png" id="2_an5ha"]
-[ext_resource type="PackedScene" uid="uid://dpq1ywk80wypy" path="res://Game/Scenes/Chapter7/1/items/record.tscn" id="3_d0vkd"]
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_bipkn"]
+[ext_resource type="Texture2D" uid="uid://cqwog1g8jfu0k" path="res://Art/Scenes/Scene7/第六章全部 - 副本/zoomview_computer.png" id="2_pf6qa"]
+[ext_resource type="PackedScene" uid="uid://b7xkjdcf21j3r" path="res://Game/Scenes/Chapter7/1/items/cup.tscn" id="4_t3u4i"]
 
-[node name="Zoomview_desk" unique_id=198920514 instance=ExtResource("1_pf6qa")]
+[node name="Zoomview_Desk" unique_id=198920514 instance=ExtResource("1_bipkn")]
 
 [node name="Background" parent="." index="0" unique_id=698713652]
-position = Vector2(960.00006, 540.00006)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_an5ha")
+texture = ExtResource("2_pf6qa")
 
-[node name="record" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_d0vkd")]
+[node name="Card" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=1064052470 instance=ExtResource("4_t3u4i")]
+position = Vector2(-595.00006, -448)
+scale = Vector2(1.6640075, 1.6116834)

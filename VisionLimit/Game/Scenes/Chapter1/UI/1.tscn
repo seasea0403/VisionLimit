@@ -3,7 +3,31 @@
 [ext_resource type="Script" uid="uid://3vxtjolakkn3" path="res://Game/Scenes/Chapter1/UI/1.gd" id="1_ocnge"]
 [ext_resource type="Texture2D" uid="uid://ohru54j5ildq" path="res://Art/Character/沈意证件照.jpg" id="1_preul"]
 [ext_resource type="PackedScene" uid="uid://b55jdfoulgfa6" path="res://Game/UI/PasswordPanel/PasswordPanel.tscn" id="2_hvu2y"]
+[ext_resource type="Texture2D" uid="uid://r5pqdltqj1jb" path="res://Art/Scenes/Scene7/第六章全部 - 副本/computer.png" id="2_twlcs"]
+[ext_resource type="Texture2D" uid="uid://8dec8fa3d5qk" path="res://Art/Scenes/Scene7/第六章全部 - 副本/information.png" id="3_5uabm"]
 [ext_resource type="Script" uid="uid://btwfab8ieyhox" path="res://Game/Scenes/Chapter1/UI/password_1.gd" id="3_ap4gv"]
+[ext_resource type="PackedScene" uid="uid://1mvmebi7cmv3" path="res://Game/Scenes/Chapter1/UI/2.tscn" id="3_ocnge"]
+
+[sub_resource type="FontFile" id="FontFile_3qs17"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rw60"]
 
@@ -158,6 +182,28 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_twlcs")
+
+[node name="state" type="TextureRect" parent="TextureRect" unique_id=736300967]
+layout_mode = 0
+offset_left = -16.666664
+offset_top = 531.6666
+offset_right = 3849.631
+offset_bottom = 2511.563
+scale = Vector2(0.82464755, 0.61146307)
+texture = ExtResource("3_5uabm")
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=90862024]
+layout_mode = 0
+offset_left = 2549.9998
+offset_top = 1528.3334
+offset_right = 2753.9998
+offset_bottom = 1583.3334
+scale = Vector2(1.310783, 1.2893175)
+theme_override_colors/font_color = Color(0.0121183405, 0.0121183405, 0.0121183405, 1)
+theme_override_fonts/font = SubResource("FontFile_3qs17")
+theme_override_font_sizes/font_size = 40
+text = "2050/03/07"
 
 [node name="password_1" type="Panel" parent="." unique_id=511807059]
 self_modulate = Color(0.256, 0.70026666, 0.8, 1)
@@ -173,6 +219,7 @@ grow_horizontal = 0
 scale = Vector2(0.8, 0.8)
 theme_override_styles/panel = SubResource("StyleBoxTexture_0rw60")
 script = ExtResource("3_ap4gv")
+terminal_scene = ExtResource("3_ocnge")
 
 [node name="ColorRect" type="ColorRect" parent="password_1" unique_id=1651170059]
 layout_mode = 0

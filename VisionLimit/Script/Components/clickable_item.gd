@@ -43,6 +43,9 @@ extends Area2D
 ## 说话人角色形象偏移（微调位置，不影响缩放锚点）
 @export var character_offset: Vector2 = Vector2.ZERO
 
+## 同组的其他物品（用于多页左右切换，留空则单页显示）
+@export var linked_items: Array[NodePath] = []
+
 var item_detail: CanvasLayer
 
 
@@ -69,26 +72,73 @@ func _on_input_event(_viewport, event, _shape_idx):
 			item_detail = _resolve_item_detail()
 		
 		if item_detail:
-			print("✓ 找到 ItemDetail，正在显示...\n")
-			item_detail.show_detail(
-				detail_image,
-				description,
-				item_name,
-				can_record,
-				item_id,
-				detail_image_scale,
-				detail_image_offset,
-				record_entry_title,
-				record_entry_description,
-				record_entry_title_2,
-				record_entry_description_2,
-				character_image,
-				character_scale,
-				character_offset
-			)
+			if linked_items.is_empty():
+				# 单页显示
+				item_detail.show_detail(
+					detail_image, description, item_name, can_record, item_id,
+					detail_image_scale, detail_image_offset,
+					record_entry_title, record_entry_description,
+					record_entry_title_2, record_entry_description_2,
+					character_image, character_scale, character_offset
+				)
+			else:
+				# 多页显示：先收集自身，再收集关联物品
+				item_detail.show_detail_group(_build_pages())
 		else:
 			print("✗ 错误：找不到 ItemDetail!")
 			print("  原因: 未在父节点链中找到 Chapter1.item_detail 或 UILayer/ItemDetail\n")
+
+
+
+# ==================== 多页辅助 ====================
+func _build_pages() -> Array[Dictionary]:
+	"""收集自身与 linked_items 的数据，组成多页列表"""
+	var pages: Array[Dictionary] = []
+	pages.append(_self_to_page_dict())
+	for path in linked_items:
+		var node := get_node_or_null(path)
+		if node:
+			pages.append(_item_to_page_dict(node))
+	return pages
+
+
+func _self_to_page_dict() -> Dictionary:
+	return {
+		"texture": detail_image,
+		"description": description,
+		"title": item_name,
+		"can_record": can_record,
+		"item_id": item_id,
+		"image_scale": detail_image_scale,
+		"image_offset": detail_image_offset,
+		"record_title": record_entry_title,
+		"record_description": record_entry_description,
+		"record_title_2": record_entry_title_2,
+		"record_description_2": record_entry_description_2,
+		"character_image": character_image,
+		"character_scale": character_scale,
+		"character_offset": character_offset,
+	}
+
+
+func _item_to_page_dict(item: Node) -> Dictionary:
+	"""从另一个 ClickableItem 节点读取属性，打包成页字典"""
+	return {
+		"texture": item.get("detail_image"),
+		"description": item.get("description") if item.get("description") != null else "",
+		"title": item.get("item_name") if item.get("item_name") != null else "",
+		"can_record": item.get("can_record") if item.get("can_record") != null else false,
+		"item_id": item.get("item_id") if item.get("item_id") != null else "",
+		"image_scale": item.get("detail_image_scale") if item.get("detail_image_scale") != null else Vector2.ONE,
+		"image_offset": item.get("detail_image_offset") if item.get("detail_image_offset") != null else Vector2.ZERO,
+		"record_title": item.get("record_entry_title") if item.get("record_entry_title") != null else "",
+		"record_description": item.get("record_entry_description") if item.get("record_entry_description") != null else "",
+		"record_title_2": item.get("record_entry_title_2") if item.get("record_entry_title_2") != null else "",
+		"record_description_2": item.get("record_entry_description_2") if item.get("record_entry_description_2") != null else "",
+		"character_image": item.get("character_image"),
+		"character_scale": item.get("character_scale") if item.get("character_scale") != null else Vector2.ONE,
+		"character_offset": item.get("character_offset") if item.get("character_offset") != null else Vector2.ZERO,
+	}
 
 
 func _resolve_item_detail() -> CanvasLayer:

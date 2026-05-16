@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://c6fjnaypcpj1t"]
 
 [ext_resource type="Script" uid="uid://cu07srmobwlt3" path="res://Script/Components/zoomview.gd" id="1_11726"]
+[ext_resource type="Texture2D" uid="uid://hl0dm7k4wthg" path="res://Art/Character/人物立绘/沈意.png" id="2_udujg"]
 
 [node name="Zoomview" type="Node2D" unique_id=198920514]
 script = ExtResource("1_11726")
+detail_character_image = ExtResource("2_udujg")
+detail_character_offset = Vector2(-790, 0)
 
 [node name="Background" type="Sprite2D" parent="." unique_id=698713652]
 position = Vector2(960, 540)

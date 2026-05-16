@@ -6,23 +6,31 @@ extends CanvasLayer
 @onready var title_label = $Control/TitleLabel
 @onready var description_label = $Control/DescriptionLabel
 @onready var record_button = $Control/record/TextureButton
-@onready var character_display = $Control/Character  # ✨ 角色显示
+@onready var character_display = $Control/Character
 @onready var text_sfx = $click
+@onready var prev_button = $Control/PrevButton/TextureButton
+@onready var next_button = $Control/LaterButton/TextureButton
+@onready var page_indicator = $Control/PageIndicator
 
 # ==================== 状态变量 ====================
 var current_item_id: String = ""
 var can_record: bool = false
 var _image_base_position: Vector2 = Vector2.ZERO
-var _character_base_position: Vector2 = Vector2.ZERO  # ✨ 保存角色原始位置
-var _character_base_scale: Vector2 = Vector2.ONE       # ✨ 保存角色原始缩放
+var _character_base_position: Vector2 = Vector2.ZERO
+var _character_base_scale: Vector2 = Vector2.ONE
 var current_title: String = ""
 var current_record_title: String = ""
 var current_record_description: String = ""
 var current_record_title_2: String = ""
 var current_record_description_2: String = ""
 
+# ==================== 多页状态 ====================
+var _pages: Array[Dictionary] = []
+var _current_page: int = 0
+
 # ==================== 信号 ====================
 signal item_recorded(item_id: String, entry_title: String, entry_description: String, entry_title_2: String, entry_description_2: String)
+signal panel_closed
 
 
 # ==================== 初始化 ====================
@@ -43,9 +51,15 @@ func _ready() -> void:
 		dark_background.gui_input.connect(_on_background_clicked)
 	if record_button:
 		record_button.pressed.connect(_on_record_button_pressed)
+	if prev_button:
+		prev_button.pressed.connect(_on_prev_pressed)
+	if next_button:
+		next_button.pressed.connect(_on_next_pressed)
 	
 	# 初始化时隐藏
 	hide()
+	# 注册到分组，便于其他节点动态查找
+	add_to_group("item_detail")
 
 
 func _configure_image_display() -> void:
@@ -59,67 +73,78 @@ func _configure_image_display() -> void:
 
 # ==================== 显示方法 ====================
 func show_detail(texture: Texture2D, description: String, title: String, can_record_flag: bool = false, item_id: String = "", image_scale = Vector2.ONE, image_offset = Vector2.ZERO, record_title = "", record_description = "", record_title_2 = "", record_description_2 = "", character_image: Texture2D = null, character_scale = Vector2.ONE, character_offset = Vector2.ZERO) -> void:
-	"""
-	显示物品详情
-	参数：
-	  - texture: 物品图片
-	  - description: 物品描述
-	  - title: 物品名称
-	  - can_record_flag: 是否可以记录
-	  - item_id: 物品ID
-	  - image_scale: 详情图缩放（兼容旧数据中的 Nil）
-	  - image_offset: 详情图位置偏移（兼容旧数据中的 Nil）
-	  - character_image: 说话人角色形象
-	  - character_scale: 角色形象缩放
-	"""
+	"""单页快捷方式，内部转为单元素列表交给多页系统处理"""
+	show_detail_group([{
+		"texture": texture,
+		"description": description,
+		"title": title,
+		"can_record": can_record_flag,
+		"item_id": item_id,
+		"image_scale": image_scale,
+		"image_offset": image_offset,
+		"record_title": record_title,
+		"record_description": record_description,
+		"record_title_2": record_title_2,
+		"record_description_2": record_description_2,
+		"character_image": character_image,
+		"character_scale": character_scale,
+		"character_offset": character_offset,
+	}])
+
+
+func show_detail_group(pages: Array[Dictionary]) -> void:
+	"""显示多页物品详情，pages 中每个 Dictionary 对应一页内容"""
+	if pages.is_empty():
+		return
+	_pages = pages
+	_apply_page(0)
+	show()
+	text_sfx.play()
+	var chapter := _find_chapter()
+	if chapter and chapter.has_method("register_panel_open"):
+		chapter.register_panel_open(self)
+
+
+func _apply_page(idx: int) -> void:
+	"""将第 idx 页的数据渲染到界面"""
+	if _pages.is_empty() or idx < 0 or idx >= _pages.size():
+		return
+	_current_page = idx
+	var p: Dictionary = _pages[idx]
+
+	var texture = p.get("texture", null)
+	var description: String = p.get("description", "")
+	var title: String = p.get("title", "")
+	var can_record_flag: bool = p.get("can_record", false)
+	var item_id: String = p.get("item_id", "")
+	var image_scale = p.get("image_scale", Vector2.ONE)
+	var image_offset = p.get("image_offset", Vector2.ZERO)
+	var record_title = p.get("record_title", "")
+	var record_description = p.get("record_description", "")
+	var record_title_2 = p.get("record_title_2", "")
+	var record_description_2 = p.get("record_description_2", "")
+	var character_image = p.get("character_image", null)
+	var character_scale = p.get("character_scale", Vector2.ONE)
+	var character_offset = p.get("character_offset", Vector2.ZERO)
+
 	_configure_image_display()
 	image_display.texture = texture
-	
-	# ✨ 处理角色形象、缩放和偏移 - 如果传入了角色图片就显示，否则隐藏
+
 	if character_display:
 		if character_image:
 			character_display.texture = character_image
-			
-			# 安全处理 character_scale 参数（在原始缩放基础上乘以倍数）
-			var safe_character_scale: Vector2 = Vector2.ONE
-			if character_scale is Vector2:
-				safe_character_scale = character_scale
-			
-			# 安全处理 character_offset 参数
-			var safe_character_offset: Vector2 = Vector2.ZERO
-			if character_offset is Vector2:
-				safe_character_offset = character_offset
-			
-			# pivot_offset 已在 _ready() 设置到中心，缩放不会改变视觉中心位置
-			character_display.scale = _character_base_scale * safe_character_scale
-			# 在原始位置基础上加 offset
-			character_display.position = _character_base_position + safe_character_offset
+			var safe_cs: Vector2 = character_scale if character_scale is Vector2 else Vector2.ONE
+			var safe_co: Vector2 = character_offset if character_offset is Vector2 else Vector2.ZERO
+			character_display.scale = _character_base_scale * safe_cs
+			character_display.position = _character_base_position + safe_co
 			character_display.visible = true
-			print("✓ 设置角色形象: ", character_image.resource_path)
-			print("  角色缩放: ", character_display.scale, "  偏移: ", safe_character_offset)
 		else:
 			character_display.texture = null
 			character_display.visible = false
-			print("✓ 隐藏角色形象")
 
-	var safe_scale: Vector2 = Vector2.ONE
-	if image_scale is Vector2:
-		safe_scale = image_scale
-	
-	var safe_offset: Vector2 = Vector2.ZERO
-	if image_offset is Vector2:
-		safe_offset = image_offset
-	
-	print("显示物品: ", title)
-	print("  接收缩放参数: ", image_scale)
-	print("  接收位移参数: ", image_offset)
-	print("  最终应用缩放: ", safe_scale)
-	print("  最终应用位移: ", safe_offset)
-	
-	image_display.scale = Vector2(
-		maxf(safe_scale.x, 0.01),
-		maxf(safe_scale.y, 0.01)
-	)
+	var safe_scale: Vector2 = image_scale if image_scale is Vector2 else Vector2.ONE
+	var safe_offset: Vector2 = image_offset if image_offset is Vector2 else Vector2.ZERO
+	image_display.scale = Vector2(maxf(safe_scale.x, 0.01), maxf(safe_scale.y, 0.01))
 	image_display.position = _image_base_position + safe_offset
 
 	description_label.text = description
@@ -128,33 +153,32 @@ func show_detail(texture: Texture2D, description: String, title: String, can_rec
 	current_title = title
 	can_record = can_record_flag
 
-	current_record_title = ""
-	if record_title is String:
-		current_record_title = record_title.strip_edges()
+	current_record_title = record_title.strip_edges() if record_title is String else ""
 	if current_record_title.is_empty():
 		current_record_title = title
-
-	current_record_description = ""
-	if record_description is String:
-		current_record_description = record_description.strip_edges()
+	current_record_description = record_description.strip_edges() if record_description is String else ""
 	if current_record_description.is_empty():
 		current_record_description = description
+	current_record_title_2 = record_title_2.strip_edges() if record_title_2 is String else ""
+	current_record_description_2 = record_description_2.strip_edges() if record_description_2 is String else ""
 
-	current_record_title_2 = ""
-	if record_title_2 is String:
-		current_record_title_2 = record_title_2.strip_edges()
-
-	current_record_description_2 = ""
-	if record_description_2 is String:
-		current_record_description_2 = record_description_2.strip_edges()
-	
-	# 如果不可记录，隐藏记录按钮
 	record_button.visible = can_record_flag
-	show()
-	text_sfx.play()	# 通知 chapter 追踪当前打开的面板
-	var chapter := _find_chapter()
-	if chapter and chapter.has_method("register_panel_open"):
-		chapter.register_panel_open(self)
+	_update_nav_buttons()
+
+
+func _update_nav_buttons() -> void:
+	"""根据页数更新翻页按钮和页码指示器的可见性与状态"""
+	var multi: bool = _pages.size() > 1
+	if prev_button:
+		prev_button.visible = multi
+		prev_button.disabled = (_current_page == 0)
+	if next_button:
+		next_button.visible = multi
+		next_button.disabled = (_current_page == _pages.size() - 1)
+	if page_indicator:
+		page_indicator.visible = multi
+		if multi:
+			page_indicator.text = "%d / %d" % [_current_page + 1, _pages.size()]
 
 
 func _find_chapter() -> Node:
@@ -171,13 +195,24 @@ func open_detail() -> void:
 	show()
 
 
+func set_dark_background_visible(value: bool) -> void:
+	"""控制暗色背景显示（ZoomView 唤出时可隐藏）"""
+	if dark_background:
+		dark_background.visible = value
+
+
 func close_detail() -> void:
-	"""
-	隐藏物品详情面板，清理状态
-	"""
+	# 恢复暗色背景（下次正常打开时确保可见）
+	if dark_background:
+		dark_background.visible = true
 	# 隐藏面板本身
 	hide()
-	
+
+	# 清理多页状态
+	_pages.clear()
+	_current_page = 0
+	_update_nav_buttons()
+
 	# 清理状态
 	current_item_id = ""
 	current_title = ""
@@ -186,11 +221,25 @@ func close_detail() -> void:
 	current_record_description = ""
 	current_record_title_2 = ""
 	current_record_description_2 = ""
-	
+
 	# 重置图片显示到默认状态
 	if image_display:
 		image_display.scale = Vector2.ONE
 		image_display.position = _image_base_position
+
+	# 通知监听者面板已关闭
+	panel_closed.emit()
+
+
+# ==================== 翻页处理 ====================
+func _on_prev_pressed() -> void:
+	if _current_page > 0:
+		_apply_page(_current_page - 1)
+
+
+func _on_next_pressed() -> void:
+	if _current_page < _pages.size() - 1:
+		_apply_page(_current_page + 1)
 
 
 # ==================== 事件处理 ====================

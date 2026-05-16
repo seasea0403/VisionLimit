@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_82wsi"]
 [ext_resource type="Texture2D" uid="uid://dlh01n04p20kx" path="res://Art/Scenes/Scene2/Background/Background2.png" id="2_cnicp"]
 [ext_resource type="PackedScene" uid="uid://dophknobhb3t2" path="res://Game/Scenes/Chapter2/ClickableArea/ClickableArea_Paper.tscn" id="3_1aq8v"]
+[ext_resource type="PackedScene" uid="uid://ccp5mfhfncfts" path="res://Game/UI/RecordPanel/RecordPanel.tscn" id="5_72ndw"]
 [ext_resource type="PackedScene" uid="uid://ba3yili7tv48i" path="res://Game/Scenes/Chapter2/ClickableArea/ClickableArea_Desk.tscn" id="5_o75tl"]
 [ext_resource type="PackedScene" path="res://Game/Scenes/Chapter2/items/map.tscn" id="5_t8q1s"]
 [ext_resource type="Texture2D" uid="uid://dn7ykqxyfpnvd" path="res://Art/Character/人物立绘/魏江.png" id="6_kx07f"]
@@ -37,11 +38,10 @@ offset_right = 1493.0
 offset_bottom = 837.0
 
 [node name="Character" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="2" unique_id=984582437]
-offset_left = 610.0
-offset_top = 97.0
-offset_right = 1371.0
-offset_bottom = 1860.0
 scale = Vector2(-0.95817983, 1.1239936)
+
+[node name="RecordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1173323693 instance=ExtResource("5_72ndw")]
+editor_preview_titles = PackedStringArray("记忆海", "苍屿症", "郑和平")
 
 [node name="ClickableArea_Paper" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("3_1aq8v")]
 
