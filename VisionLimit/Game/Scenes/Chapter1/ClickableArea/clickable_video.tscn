@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dcwiq0v3lug8k"]
+
+[ext_resource type="PackedScene" uid="uid://nobwyewip6i" path="res://Game/UI/PasswordPanel/ClickableVideo.tscn" id="1_4boeo"]
+[ext_resource type="PackedScene" uid="uid://bk5dyhrmwbc82" path="res://Game/UI/VideoPanel/VideoPanel.tscn" id="2_clw5x"]
+
+[node name="ClickableVideo" unique_id=663052762 instance=ExtResource("1_4boeo")]
+video_path = "res://Art/Animation/-bslj70ocgsginvjm.ogv"
+
+[node name="VideoPanel" parent="." index="1" unique_id=1234567890 instance=ExtResource("2_clw5x")]
+
+[editable path="VideoPanel"]

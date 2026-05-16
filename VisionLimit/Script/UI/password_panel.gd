@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Container
 
 # ==================== 配置参数 ====================
 ## 正确密码（在编辑器中设置）
@@ -7,9 +7,15 @@ extends CanvasLayer
 ## 最大位数
 @export var max_digits: int = 4
 
+## 悬浮音效
+@export var hover_sound: AudioStream
+
+## 点击音效
+@export var click_sound: AudioStream
+
 # ==================== 子节点引用 ====================
-@onready var display_label   = $PanelContainer/VBoxContainer/Label
-@onready var status_label    = $PanelContainer/VBoxContainer/Label2
+@onready var display_label   = $VBoxContainer/Label
+@onready var status_label    = $VBoxContainer/Label2
 @onready var dark_background = $ColorRect
 
 # ==================== 信号 ====================
@@ -30,6 +36,9 @@ func _ready() -> void:
 	
 	if dark_background:
 		dark_background.gui_input.connect(_on_background_clicked)
+	
+	# 为所有按键连接音效信号
+	_connect_button_sounds()
 
 
 # ==================== 公开接口 ====================
@@ -188,3 +197,42 @@ func _unhandled_key_input(event: InputEvent) -> void:
 func _on_background_clicked(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		close()
+
+
+# ==================== 音效处理 ====================
+func _connect_button_sounds() -> void:
+	"""为所有按键连接鼠标和点击音效"""
+	var grid_container = $VBoxContainer/GridContainer
+	if not grid_container:
+		return
+	
+	# 遍历 GridContainer 中的所有按钮，连接信号
+	for button in grid_container.get_children():
+		if button is Button:
+			button.mouse_entered.connect(_on_button_hovered)
+			button.pressed.connect(_on_button_clicked)
+
+
+func _on_button_hovered() -> void:
+	"""播放悬浮音效"""
+	if hover_sound:
+		_play_sound(hover_sound)
+
+
+func _on_button_clicked() -> void:
+	"""播放点击音效"""
+	if click_sound:
+		_play_sound(click_sound)
+
+
+func _play_sound(audio_stream: AudioStream) -> void:
+	"""播放音效"""
+	var audio_player = AudioStreamPlayer.new()
+	audio_player.stream = audio_stream
+	audio_player.volume_db = 0
+	add_child(audio_player)
+	audio_player.play()
+	
+	# 播放完毕后删除节点
+	await audio_player.finished
+	audio_player.queue_free()

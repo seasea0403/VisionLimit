@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bk5dyhrmwbc82"]
+
+[ext_resource type="Script" uid="uid://ctd32c5j1btqn" path="res://Script/UI/video_panel.gd" id="1_abc12"]
+[ext_resource type="VideoStream" uid="uid://bmb804de36i3o" path="res://Art/Animation/-bslj70ocgsginvjm.ogv" id="2_wwnam"]
+
+[node name="VideoPanel" type="CanvasLayer" unique_id=1234567890]
+script = ExtResource("1_abc12")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=262814154]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="VideoPlayer" type="VideoStreamPlayer" parent="." unique_id=2012176287]
+offset_right = 3200.0
+offset_bottom = 1800.0
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(0.6, 0)
+stream = ExtResource("2_wwnam")
+speed_scale = 0.493
+autoplay = true
+
+[node name="CloseButton" type="Button" parent="." unique_id=1818603872]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 50.0
+grow_horizontal = 0
+text = "✕ 关闭"

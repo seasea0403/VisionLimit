@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://nobwyewip6i"]
+
+[ext_resource type="Script" uid="uid://dlyalt2hwd5c2" path="res://Script/Components/clickable_video.gd" id="1_m44to"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjrx3"]
+size = Vector2(82.19643, 52.873238)
+
+[node name="ClickableVideo" type="Area2D" unique_id=663052762]
+script = ExtResource("1_m44to")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1222527770]
+position = Vector2(1516.0001, 498)
+scale = Vector2(5.090909, 3.4466019)
+shape = SubResource("RectangleShape2D_gjrx3")

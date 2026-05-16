@@ -42,11 +42,11 @@ texture = ExtResource("3_plblx")
 
 [node name="Character" type="TextureRect" parent="Control" unique_id=984582437]
 layout_mode = 0
-offset_left = 794.0
-offset_top = 113.0
-offset_right = 1555.0
-offset_bottom = 1876.0
-scale = Vector2(-1.2607629, 1.1239936)
+offset_left = 610.0
+offset_top = 97.0
+offset_right = 1371.0
+offset_bottom = 1860.0
+scale = Vector2(-0.9, 1.12)
 texture = ExtResource("4_d66gi")
 
 [node name="TitleLabel" type="Label" parent="Control" unique_id=1811732885]

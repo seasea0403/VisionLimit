@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://canc401gl5807"]
 
+[ext_resource type="Script" uid="uid://3vxtjolakkn3" path="res://Game/Scenes/Chapter1/UI/1.gd" id="1_ocnge"]
 [ext_resource type="Texture2D" uid="uid://ohru54j5ildq" path="res://Art/Character/沈意证件照.jpg" id="1_preul"]
-[ext_resource type="FontFile" uid="uid://bjtrn41cebq4e" path="res://Font/CLFN 16x CN.ttf" id="2_hvu2y"]
+[ext_resource type="Texture2D" uid="uid://bqtvt60xf5wp0" path="res://Art/Scenes/Scene7/第六章全部 - 副本/1101d625695e291a65f7c3f26eea4d0d.png" id="1_w5uf3"]
+[ext_resource type="PackedScene" uid="uid://b55jdfoulgfa6" path="res://Game/UI/PasswordPanel/PasswordPanel.tscn" id="2_hvu2y"]
+[ext_resource type="Script" uid="uid://btwfab8ieyhox" path="res://Game/Scenes/Chapter1/UI/password_1.gd" id="3_ap4gv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rw60"]
 
 [sub_resource type="FontFile" id="FontFile_hvu2y"]
 cache/0/variation_coordinates = {}
@@ -147,8 +152,16 @@ cache/0/36/0/scale = 1.0
 [node name="1" type="Control" unique_id=1869578665]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_ocnge")
 
-[node name="Control" type="Panel" parent="." unique_id=511807059]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1312666129]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_w5uf3")
+
+[node name="password_1" type="Panel" parent="." unique_id=511807059]
 self_modulate = Color(0.256, 0.70026666, 0.8, 1)
 layout_mode = 1
 anchors_preset = 1
@@ -160,18 +173,29 @@ offset_right = 2121.0
 offset_bottom = 1194.0
 grow_horizontal = 0
 scale = Vector2(0.8, 0.8)
+theme_override_styles/panel = SubResource("StyleBoxTexture_0rw60")
+script = ExtResource("3_ap4gv")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=2117990325]
+[node name="ColorRect" type="ColorRect" parent="password_1" unique_id=1651170059]
+layout_mode = 0
+offset_left = -49.999985
+offset_top = -11.250015
+offset_right = 1532.0
+offset_bottom = 877.75
+scale = Vector2(1.2621422, 1.2561849)
+color = Color(0.25492576, 0.36227685, 0.68671525, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="password_1" unique_id=2117990325]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 theme_override_constants/separation = 7
 
-[node name="Control" type="Control" parent="Control/VBoxContainer" unique_id=1964301057]
-custom_minimum_size = Vector2(0, 250)
+[node name="Control" type="Control" parent="password_1/VBoxContainer" unique_id=1964301057]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer" unique_id=1279251837]
+[node name="TextureRect" type="TextureRect" parent="password_1/VBoxContainer" unique_id=1279251837]
 custom_minimum_size = Vector2(300, 270)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -181,27 +205,23 @@ texture = ExtResource("1_preul")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Control/VBoxContainer" unique_id=1977529479]
+[node name="Label" type="Label" parent="password_1/VBoxContainer" unique_id=1977529479]
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_hvu2y")
 theme_override_font_sizes/font_size = 50
 text = "SHEN YI"
 horizontal_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="Control/VBoxContainer" unique_id=1541726902]
-custom_minimum_size = Vector2(200, 70)
+[node name="PasswordPanel" parent="password_1/VBoxContainer" unique_id=1904747298 instance=ExtResource("2_hvu2y")]
+custom_minimum_size = Vector2(800, 700)
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("2_hvu2y")
-theme_override_font_sizes/font_size = 30
-alignment = 1
-max_length = 4
-virtual_keyboard_type = 2
+correct_password = "0202"
 
-[node name="Label2" type="Label" parent="Control/VBoxContainer" unique_id=1658677821]
-layout_mode = 2
-theme_override_fonts/font = SubResource("FontFile_hvu2y")
-theme_override_font_sizes/font_size = 36
+[node name="VBoxContainer" parent="password_1/VBoxContainer/PasswordPanel" index="1" unique_id=1592428207]
+theme_override_constants/separation = 24
+
+[node name="Label2" parent="password_1/VBoxContainer/PasswordPanel/VBoxContainer" index="1" unique_id=1722708654]
 text = "工作凭证"
-horizontal_alignment = 1
+
+[editable path="password_1/VBoxContainer/PasswordPanel"]

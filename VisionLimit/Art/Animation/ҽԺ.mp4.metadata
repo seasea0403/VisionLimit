@@ -1,0 +1,10 @@
+;FFMETADATA1
+major_brand=isom
+minor_version=512
+compatible_brands=isomiso2mp41
+te_is_reencode=1
+Hw=1
+bitrate=10200000
+com.apple.quicktime.artwork={"data":{"editType":"default","edittime":1218,"infoStickerId":"","is_ai_lyric":0,"is_aimusic_mv":0,"is_use_ai_image_generation":0,"is_use_ai_video_generation":0,"is_use_aimusic_bgm":0,"is_use_aimusic_vocal":0,"is_use_graph_chart":0,"is_use_jichuang_mode_in_ai_writer":0,"is_use_relight":0,"is_use_vc_sing_clone":1,"is_use_voice_clone":"0","motion_blur_cnt":0,"musicId":"","os":"windows","product":"lv","stickerId":"","videoEffectId":"7399494077831466280","videoId":"c9320f7d-b214-482a-bcca-92428361ed66","videoParams":{"be":0,"ef":1,"ft":0,"ma":0,"me":0,"mu":0,"re":0,"sp":1,"st":0,"te":0,"tx":0,"v":0,"vs":0}},"source_type":"douyin_beauty_me"}
+maxrate=0
+encoder=Lavf58.76.100
