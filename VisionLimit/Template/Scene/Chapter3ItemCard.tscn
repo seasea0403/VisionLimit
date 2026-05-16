@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d5qv7h1m8gk3"]
+
+[ext_resource type="Script" path="res://Script/Components/chapter3_item_card.gd" id="1_card"]
+[ext_resource type="FontFile" uid="uid://bjtrn41cebq4e" path="res://Font/CLFN 16x CN.ttf" id="2_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.160784, 0.184314, 0.239216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.27451, 0.317647, 0.376471, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Chapter3ItemCard" type="PanelContainer"]
+custom_minimum_size = Vector2(620, 112)
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+script = ExtResource("1_card")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 24
+text = "词条"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
