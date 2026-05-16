@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://rs1miavq07xl"]
+
+[ext_resource type="Script" path="res://Script/Components/reasoning_slot.gd" id="1_rslot"]
+
+[node name="ReasoningSlot" type="Panel"]
+custom_minimum_size = Vector2(180, 100)
+script = ExtResource("1_rslot")
+
+[node name="HintLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "拖入线索"
+horizontal_alignment = 1
+vertical_alignment = 1
+modulate = Color(0.7, 0.7, 0.7, 1)
+
+[node name="ContentLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+visible = false

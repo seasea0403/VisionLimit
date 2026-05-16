@@ -1,0 +1,219 @@
+[gd_scene format=3 uid="uid://k0nq76mbrol3"]
+
+[ext_resource type="Script" uid="uid://btg8auytmd70q" path="res://Game/Scenes/Chapter2/UI/1.gd" id="1_a5df6"]
+[ext_resource type="PackedScene" uid="uid://cp3xgf2ql8nm" path="res://Template/Scene/CluePanel.tscn" id="2_cpanel"]
+[ext_resource type="PackedScene" path="res://Template/Scene/ReasoningSlot.tscn" id="2_rslot"]
+[ext_resource type="Texture2D" uid="uid://bas5s6fnj82c1" path="res://Art/UI/UI2/微信图片_20260515114501_3090_2323.png" id="3_6kpfn"]
+[ext_resource type="Texture2D" uid="uid://cjmcu3j4s8ew4" path="res://Art/UI/UI2/微信图片_20260515115216_3100_2323.png" id="3_ldjfr"]
+[ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="4_8kxm2"]
+[ext_resource type="Texture2D" uid="uid://dw4das0ey32ts" path="res://Art/popback.png" id="5_bcaa7"]
+[ext_resource type="FontFile" uid="uid://bjtrn41cebq4e" path="res://Font/CLFN 16x CN.ttf" id="7_d3iap"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r27lo"]
+texture = ExtResource("3_ldjfr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8kxm2"]
+texture = ExtResource("3_ldjfr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d3iap"]
+texture = ExtResource("3_ldjfr")
+
+[node name="1" type="Control" unique_id=1987393323]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a5df6")
+question_log_title_text = "结果记录"
+question_log_title_font = ExtResource("7_d3iap")
+question_log_title_font_size = 50
+question_log_title_color = Color(0, 0, 0, 1)
+question_log_entry_font = ExtResource("7_d3iap")
+question_log_entry_font_size = 45
+question_log_entry_min_size = Vector2(0, 48)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1004938640]
+layout_mode = 0
+offset_left = -51.000008
+offset_top = -12.000002
+offset_right = 3149.0
+offset_bottom = 1788.0
+scale = Vector2(0.6624047, 0.62112594)
+texture = ExtResource("3_6kpfn")
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=1999553212]
+layout_mode = 0
+offset_left = 1323.964
+offset_top = 310.726
+offset_right = 1863.964
+offset_bottom = 371.726
+scale = Vector2(1.192149, 1.7220038)
+theme_override_colors/font_color = Color(0.029506557, 0.029506557, 0.029506557, 1)
+theme_override_fonts/font = ExtResource("7_d3iap")
+theme_override_font_sizes/font_size = 60
+text = "组合线索，完成推理"
+
+[node name="CluePool" type="HFlowContainer" parent="." unique_id=255571330]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 297.0
+offset_right = 3098.0
+offset_bottom = 1495.0
+scale = Vector2(0.34762636, 0.34762636)
+
+[node name="Clue1" parent="CluePool" unique_id=1959144558 instance=ExtResource("2_cpanel")]
+layout_mode = 2
+clue_id = "clue_1"
+clue_text = "联络人断联
+(2046.03.08)"
+panel_size = Vector2(300, 80)
+
+[node name="Clue2" parent="CluePool" unique_id=751651582 instance=ExtResource("2_cpanel")]
+layout_mode = 2
+clue_id = "clue_2"
+clue_text = "稿件发布
+(2046.03.11)"
+panel_size = Vector2(300, 80)
+
+[node name="Clue3" parent="CluePool" unique_id=1625977429 instance=ExtResource("2_cpanel")]
+layout_mode = 2
+clue_id = "clue_3"
+clue_text = "稿件被撤回
+(2046.03.12)"
+panel_size = Vector2(300, 80)
+
+[node name="Clue4" parent="CluePool" unique_id=977363073 instance=ExtResource("2_cpanel")]
+layout_mode = 2
+clue_id = "clue_4"
+clue_text = "郑和平
+最后采样日期
+(2046.08.04)"
+panel_size = Vector2(300, 95)
+
+[node name="Clue5" parent="CluePool" unique_id=2014968396 instance=ExtResource("2_cpanel")]
+layout_mode = 2
+clue_id = "clue_5"
+clue_text = "沈意
+最后访视郑和平
+(2046.12.17)"
+panel_size = Vector2(300, 95)
+
+[node name="Clue6" parent="CluePool" unique_id=122455486 instance=ExtResource("2_cpanel")]
+layout_mode = 2
+clue_id = "clue_6"
+clue_text = "郑和平
+失联时间
+(2046.08)"
+reusable = true
+panel_size = Vector2(300, 90)
+
+[node name="WorkArea" type="Control" parent="." unique_id=-2094967294]
+anchors_preset = 0
+offset_left = 387.0
+offset_top = 765.00006
+offset_right = 1287.0
+offset_bottom = 881.38776
+scale = Vector2(1.4692276, 1.4692276)
+
+[node name="SlotA" parent="WorkArea" unique_id=-2094967293 instance=ExtResource("2_rslot")]
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_r27lo")
+
+[node name="HintLabel" parent="WorkArea/SlotA" index="0"]
+theme_override_fonts/font = ExtResource("7_d3iap")
+
+[node name="ContentLabel" parent="WorkArea/SlotA" index="1"]
+theme_override_fonts/font = ExtResource("7_d3iap")
+
+[node name="PlusLabel" type="Label" parent="WorkArea" unique_id=-2094967292]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 32.0
+offset_right = 222.0
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("7_d3iap")
+theme_override_font_sizes/font_size = 28
+text = "+"
+
+[node name="SlotB" parent="WorkArea" unique_id=-2094967291 instance=ExtResource("2_rslot")]
+layout_mode = 0
+offset_left = 234.0
+offset_right = 414.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_8kxm2")
+
+[node name="HintLabel" parent="WorkArea/SlotB" index="0"]
+theme_override_fonts/font = ExtResource("7_d3iap")
+
+[node name="ContentLabel" parent="WorkArea/SlotB" index="1"]
+theme_override_fonts/font = ExtResource("7_d3iap")
+
+[node name="EqualsLabel" type="Label" parent="WorkArea" unique_id=-2094967290]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 32.0
+offset_right = 456.0
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("7_d3iap")
+theme_override_font_sizes/font_size = 28
+text = "="
+
+[node name="ResultPreview" type="PanelContainer" parent="WorkArea" unique_id=-2094967289]
+layout_mode = 0
+offset_left = 468.0
+offset_right = 648.0
+offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_d3iap")
+
+[node name="Label" type="Label" parent="WorkArea/ResultPreview" unique_id=-2094967288]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_d3iap")
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="UIbutton" parent="WorkArea" unique_id=2074814427 instance=ExtResource("4_8kxm2")]
+position = Vector2(642.51447, -75.54992)
+scale = Vector2(0.67266774, 0.67266774)
+
+[node name="TextureButton" parent="WorkArea/UIbutton" index="0" unique_id=1367535632]
+offset_left = 84.994255
+offset_top = 108.266464
+offset_right = 1899.9943
+offset_bottom = 1358.2665
+scale = Vector2(0.11371822, 0.11371822)
+texture_normal = ExtResource("5_bcaa7")
+
+[node name="Label" parent="WorkArea/UIbutton/TextureButton" index="0" unique_id=1029178860]
+offset_left = 168.69412
+offset_top = 456.33655
+offset_right = 448.69412
+offset_bottom = 527.33655
+scale = Vector2(5.100321, 5.100321)
+text = "推理"
+horizontal_alignment = 1
+
+[node name="QuestionLog" type="VBoxContainer" parent="." unique_id=-2094967286]
+layout_mode = 0
+offset_left = 1310.0
+offset_top = 313.0
+offset_right = 1970.6826
+offset_bottom = 1090.2736
+scale = Vector2(0.48888832, 0.48888832)
+
+[node name="LogTitle" type="Label" parent="QuestionLog" unique_id=-2094967285]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_d3iap")
+theme_override_font_sizes/font_size = 40
+text = "问题记录"
+horizontal_alignment = 1
+
+[editable path="CluePool/Clue1"]
+[editable path="WorkArea/SlotA"]
+[editable path="WorkArea/SlotB"]
+[editable path="WorkArea/UIbutton"]

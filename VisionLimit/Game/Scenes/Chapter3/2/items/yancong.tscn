@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://hmjmbulogsnl"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_anjay"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(18.387077, 25.294561)
+
+[node name="book" unique_id=223355110 instance=ExtResource("1_anjay")]
+item_id = "1"
+item_name = "精炼厂本"
+description = "晴日里从码头向东北眺望，便能望见此精炼厂的烟囱。这座精炼厂建成以来，为苍屿县提供了大量就业岗位，近年渔业行情低迷，厂内的年轻人数目越来越多了。"
+can_record = true
+record_entry_title = "海洋精炼作业区"
+record_entry_description = "苍屿县东南方向约20海里处建有一处海上精炼作业平台，隶属于跨境工业联合开发区，不在苍屿县行政管辖范围内。该平台自2039年投入运营，苍屿渔民协会曾于2043年、2044年两次就近海水质异常向县级环保部门提出申诉，均以「超出本级管辖权限」为由转报上级，结果待查。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(872, 640)
+rotation = 0.2906434
+scale = Vector2(32.109863, 23.993809)
+shape = SubResource("RectangleShape2D_rm26b")
