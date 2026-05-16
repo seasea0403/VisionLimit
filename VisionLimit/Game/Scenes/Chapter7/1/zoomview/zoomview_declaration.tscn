@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ct5u8cp7v12bl"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_m8u0q"]
+[ext_resource type="Texture2D" uid="uid://cw3w727g2cqiq" path="res://Art/Scenes/Scene3/Zoomview_1/declaration.png" id="2_ovjvb"]
+[ext_resource type="PackedScene" uid="uid://djxy7drxidbiy" path="res://Game/Scenes/Chapter7/1/items/map.tscn" id="3_lvd2h"]
+
+[node name="Zoomview_declaration" unique_id=198920514 instance=ExtResource("1_m8u0q")]
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+scale = Vector2(0.288, 0.288)
+texture = ExtResource("2_ovjvb")
+
+[node name="Map" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_lvd2h")]

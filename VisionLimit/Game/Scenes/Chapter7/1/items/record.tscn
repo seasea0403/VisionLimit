@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dpq1ywk80wypy"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_eulpq"]
+[ext_resource type="Texture2D" uid="uid://dk8itb60qpwn3" path="res://Art/Scenes/Scene3/Elements_1/record.png" id="2_cg0s3"]
+[ext_resource type="Texture2D" uid="uid://dj2hxmrx480fw" path="res://Art/Scenes/Scene3/Elements_1/record_back.png" id="3_8q7ui"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1kq2"]
+size = Vector2(14.760583, 24.396416)
+
+[node name="record" unique_id=223355110 instance=ExtResource("1_eulpq")]
+item_id = "4"
+item_name = "预约记录"
+detail_image = ExtResource("2_cg0s3")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(1244.045, 558.27875)
+rotation = 0.10313232
+scale = Vector2(25.202612, 22.288837)
+shape = SubResource("RectangleShape2D_x1kq2")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+texture = ExtResource("3_8q7ui")

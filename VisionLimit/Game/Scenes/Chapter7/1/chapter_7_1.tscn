@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://dgb8ib5amwcqv"]
+
+[ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_1ur8k"]
+[ext_resource type="Texture2D" uid="uid://bkho3oqqpmw80" path="res://Art/Scenes/Scene7/第六章全部 - 副本/Background7_1.png" id="2_7i2j8"]
+[ext_resource type="PackedScene" uid="uid://b2gpgayofvn1b" path="res://Game/Scenes/Chapter7/1/ClickableArea/ClickableArea_Information2.tscn" id="3_7yjpk"]
+[ext_resource type="PackedScene" uid="uid://bnikxyxx52mau" path="res://Game/Scenes/Chapter7/1/ClickableArea/ClickableArea_Board.tscn" id="4_wnpn1"]
+[ext_resource type="PackedScene" uid="uid://codntdondtg0g" path="res://Game/Scenes/Chapter7/1/ClickableArea/ClickableArea_Declaration.tscn" id="5_eil2a"]
+[ext_resource type="PackedScene" uid="uid://b2xd14u5w0j5r" path="res://Game/Scenes/Chapter7/1/ClickableArea/ClickableArea_Desk.tscn" id="6_i1vd3"]
+[ext_resource type="PackedScene" uid="uid://bp7o7crwulodm" path="res://Game/Scenes/Chapter7/1/ClickableArea/ClickableArea_Information1.tscn" id="7_wdekr"]
+[ext_resource type="AudioStream" uid="uid://dfmcpdmjnpa30" path="res://Audio/BGM/Scene7-1.mp3" id="8_ivb6b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcco1"]
+size = Vector2(10.052077, 2.8392053)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aq64q"]
+size = Vector2(5.9730325, 10.634865)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0bx5"]
+size = Vector2(8.446124, 4.1840916)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhn8c"]
+size = Vector2(27.377016, 4.430725)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3dcq"]
+size = Vector2(9.876855, 1.4631333)
+
+[node name="Chapter7-1" unique_id=1917343286 instance=ExtResource("1_1ur8k")]
+
+[node name="Background" parent="." index="0" unique_id=2106778844]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_7i2j8")
+
+[node name="UILayer" parent="." index="1" unique_id=577909593]
+visible = false
+
+[node name="ItemDetail" parent="UILayer" index="0" unique_id=552734023]
+visible = false
+
+[node name="ZoomViews" parent="." index="2" unique_id=395467288]
+visible = false
+
+[node name="ClickableArea_Information2" parent="ZoomViews" index="0" unique_id=676050068 instance=ExtResource("3_7yjpk")]
+
+[node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Information2" index="0" unique_id=55883732]
+position = Vector2(767, 392)
+shape = SubResource("RectangleShape2D_hcco1")
+
+[node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Information2/Zoomview_information2/ClickableArea_Book" parent_id_path=PackedInt32Array(676050068, 1437686243) index="0" unique_id=55883732]
+position = Vector2(1846.1417, 506.57776)
+
+[node name="Zoomview" parent="ZoomViews/ClickableArea_Information2/Zoomview_information2/ClickableArea_Book" parent_id_path=PackedInt32Array(676050068, 1437686243) index="1" unique_id=198920514]
+visible = false
+
+[node name="ClickableArea_board" parent="ZoomViews" index="1" unique_id=1752940588 instance=ExtResource("4_wnpn1")]
+
+[node name="CollisionShape2D" parent="ZoomViews/ClickableArea_board" index="0" unique_id=55883732]
+position = Vector2(1110.0001, 449.00003)
+shape = SubResource("RectangleShape2D_aq64q")
+
+[node name="Zoomview" parent="ZoomViews/ClickableArea_board" index="1" unique_id=198920514]
+visible = false
+
+[node name="ClickableArea_Declaration" parent="ZoomViews" index="2" unique_id=859149586 instance=ExtResource("5_eil2a")]
+
+[node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Declaration" index="0" unique_id=55883732]
+position = Vector2(563, 428)
+shape = SubResource("RectangleShape2D_u0bx5")
+
+[node name="Zoomview_declaration" parent="ZoomViews/ClickableArea_Declaration" index="1" unique_id=198920514]
+visible = false
+
+[node name="ClickableArea_Desk_2" parent="ZoomViews" index="3" unique_id=1209793296 instance=ExtResource("6_i1vd3")]
+
+[node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Desk_2" index="0" unique_id=55883732]
+position = Vector2(229.86267, 690.00006)
+shape = SubResource("RectangleShape2D_dhn8c")
+
+[node name="Zoomview_desk" parent="ZoomViews/ClickableArea_Desk_2" index="1" unique_id=198920514]
+visible = false
+
+[node name="ClickableArea_Information1" parent="ZoomViews" index="4" unique_id=1493515065 instance=ExtResource("7_wdekr")]
+
+[node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Information1" index="0" unique_id=55883732]
+position = Vector2(765, 516)
+rotation = -0.0024833237
+shape = SubResource("RectangleShape2D_r3dcq")
+
+[node name="Zoomview_information1" parent="ZoomViews/ClickableArea_Information1" index="1" unique_id=198920514]
+visible = false
+
+[node name="SceneBgm" parent="." index="3" unique_id=996875468]
+stream = ExtResource("8_ivb6b")
+autoplay = true
+
+[editable path="UILayer/ItemDetail"]
+[editable path="ZoomViews/ClickableArea_Information2"]
+[editable path="ZoomViews/ClickableArea_Information2/Zoomview_information2"]
+[editable path="ZoomViews/ClickableArea_Information2/Zoomview_information2/ClickableArea_Book"]
+[editable path="ZoomViews/ClickableArea_board"]
+[editable path="ZoomViews/ClickableArea_Declaration"]
+[editable path="ZoomViews/ClickableArea_Declaration/Zoomview_declaration"]
+[editable path="ZoomViews/ClickableArea_Declaration/Zoomview_declaration/Items/Map"]
+[editable path="ZoomViews/ClickableArea_Desk_2"]
+[editable path="ZoomViews/ClickableArea_Desk_2/Zoomview_desk"]
+[editable path="ZoomViews/ClickableArea_Information1"]
+[editable path="ZoomViews/ClickableArea_Information1/Zoomview_information1"]

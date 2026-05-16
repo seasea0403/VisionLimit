@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b767a12vn8tw1"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_8epsy"]
+[ext_resource type="Texture2D" uid="uid://dn1ypx0dxugus" path="res://Art/Scenes/Scene5/Zoomview/zoomview_block.png" id="2_4jw3t"]
+[ext_resource type="PackedScene" uid="uid://bwl7s2xyfebxs" path="res://Game/Scenes/Chapter6/items/block.tscn" id="3_cfwp1"]
+
+[node name="Zoomview_paper" unique_id=198920514 instance=ExtResource("1_8epsy")]
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_4jw3t")
+
+[node name="Calender" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_cfwp1")]

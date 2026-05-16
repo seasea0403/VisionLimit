@@ -1,9 +1,28 @@
 [gd_scene format=3 uid="uid://1mvmebi7cmv3"]
 
+[ext_resource type="Script" uid="uid://cne8upoh3kb61" path="res://Game/Scenes/Chapter1/UI/2.gd" id="1_2gd"]
 [ext_resource type="Texture2D" uid="uid://dsyymq0w724yh" path="res://Art/UI/下载.png" id="1_bfap6"]
 [ext_resource type="PackedScene" uid="uid://bnm54c56m1gqs" path="res://Game/Scenes/Chapter1/UI/WorkOrderItem.tscn" id="2_pc51f"]
-[ext_resource type="Texture2D" uid="uid://ohru54j5ildq" path="res://Art/Character/沈意证件照.jpg" id="3_pc51f"]
+[ext_resource type="PackedScene" uid="uid://wds6nrhbi5aa" path="res://Game/UI/ErrorPopup/ErrorPopup.tscn" id="2_t2p7r"]
+[ext_resource type="Texture2D" uid="uid://co5plywe0rqrg" path="res://Art/Character/屏幕截图 2026-05-15 190900.png" id="4_64ypp"]
 [ext_resource type="PackedScene" uid="uid://lv7u5b2stnjl" path="res://Game/Scenes/Chapter1/UI/Assign.tscn" id="4_ojjf8"]
+[ext_resource type="FontFile" uid="uid://bvl8ulxuys0rb" path="res://Font/华文隶书.TTF" id="4_xxrbi"]
+
+[sub_resource type="FontFile" id="FontFile_f6pl5"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
 
 [sub_resource type="FontFile" id="FontFile_ojjf8"]
 cache/0/variation_coordinates = {}
@@ -80,10 +99,20 @@ cache/0/30/0/descent = 0.0
 cache/0/30/0/underline_position = 0.0
 cache/0/30/0/underline_thickness = 0.0
 cache/0/30/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/35/0/ascent = 0.0
+cache/0/35/0/descent = 0.0
+cache/0/35/0/underline_position = 0.0
+cache/0/35/0/underline_thickness = 0.0
+cache/0/35/0/scale = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojjf8"]
 content_margin_left = 12.0
-content_margin_top = 25.0
+content_margin_top = 5.0
 content_margin_right = 38.0
 bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 12
@@ -93,6 +122,27 @@ corner_radius_bottom_left = 12
 expand_margin_left = 17.0
 expand_margin_top = 17.0
 expand_margin_bottom = 31.0
+
+[sub_resource type="FontFile" id="FontFile_t2p7r"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
 
 [sub_resource type="FontFile" id="FontFile_64ypp"]
 cache/0/variation_coordinates = {}
@@ -115,6 +165,17 @@ cache/0/24/0/underline_position = 0.0
 cache/0/24/0/underline_thickness = 0.0
 cache/0/24/0/scale = 1.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxrbi"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+expand_margin_left = 19.0
+expand_margin_top = 17.0
+expand_margin_right = 35.0
+expand_margin_bottom = 31.0
+
 [node name="2" type="Control" unique_id=856559050]
 layout_mode = 3
 anchors_preset = 15
@@ -122,6 +183,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(1144, 1226)
+script = ExtResource("1_2gd")
+log_font = SubResource("FontFile_f6pl5")
+log_font_size = 24
+error_popup_scene = ExtResource("2_t2p7r")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1567596504]
 layout_mode = 1
@@ -215,9 +281,9 @@ theme_override_constants/separation = 21
 [node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Left/VBoxContainer" unique_id=1139592268]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.80304134, 0.10272751, 0.10264454, 1)
 theme_override_fonts/font = SubResource("FontFile_xxrbi")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "工单列表"
 
 [node name="WorkOrderItem" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Left/VBoxContainer" unique_id=2100810476 instance=ExtResource("2_pc51f")]
@@ -260,15 +326,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2" unique_id=444173089]
+[node name="title" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2" unique_id=444173089]
 custom_minimum_size = Vector2(670, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.80304134, 0.10272751, 0.10264454, 1)
 theme_override_fonts/font = SubResource("FontFile_xxrbi")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "工单详情"
 
-[node name="Label2" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2" unique_id=1053112683]
+[node name="number" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2" unique_id=1053112683]
 custom_minimum_size = Vector2(670, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -276,7 +342,7 @@ theme_override_fonts/font = SubResource("FontFile_xxrbi")
 theme_override_font_sizes/font_size = 30
 text = "患者编号："
 
-[node name="Label3" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2" unique_id=146260983]
+[node name="grade" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2" unique_id=146260983]
 custom_minimum_size = Vector2(670, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -284,11 +350,20 @@ theme_override_fonts/font = SubResource("FontFile_xxrbi")
 theme_override_font_sizes/font_size = 30
 text = "记忆紊乱等级"
 
-[node name="Label4" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2" unique_id=7082398]
+[node name="LabelDesc" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2" unique_id=3330001]
 custom_minimum_size = Vector2(670, 0)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontFile_xxrbi")
+theme_override_fonts/font = SubResource("FontFile_t2p7r")
+theme_override_font_sizes/font_size = 30
+text = "患者自述："
+autowrap_mode = 3
+
+[node name="note" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2" unique_id=7082398]
+custom_minimum_size = Vector2(670, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_xxrbi")
 theme_override_font_sizes/font_size = 30
 text = "接入等级参考                            
 轻度紊乱 → 一级或以上执照可处理 
@@ -307,17 +382,17 @@ text = "候选托管师："
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2" unique_id=1969980027]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer" unique_id=458290936]
+[node name="first" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer" unique_id=458290936]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=1631695604]
-custom_minimum_size = Vector2(50, 200)
+[node name="TextureRect" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/first" unique_id=1631695604]
+custom_minimum_size = Vector2(50, 220)
 layout_mode = 2
-texture = ExtResource("3_pc51f")
+texture = ExtResource("4_64ypp")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=1642465100]
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/first" unique_id=1642465100]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_64ypp")
@@ -325,65 +400,77 @@ theme_override_font_sizes/font_size = 24
 text = "一级托管师"
 horizontal_alignment = 1
 
-[node name="Assign" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/VBoxContainer" unique_id=1308676463 instance=ExtResource("4_ojjf8")]
+[node name="Assign" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/first" unique_id=1308676463 instance=ExtResource("4_ojjf8")]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer" unique_id=202950241]
+[node name="second" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer" unique_id=202950241]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect2" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/VBoxContainer2" unique_id=517448790]
-custom_minimum_size = Vector2(50, 200)
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/second" unique_id=517448790]
+custom_minimum_size = Vector2(50, 220)
 layout_mode = 2
-texture = ExtResource("3_pc51f")
+texture = ExtResource("4_64ypp")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/VBoxContainer2" unique_id=696761901]
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/second" unique_id=696761901]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_64ypp")
 theme_override_font_sizes/font_size = 24
-text = "一级托管师"
+text = "二级托管师"
 horizontal_alignment = 1
 
-[node name="Assign" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/VBoxContainer2" unique_id=979062200 instance=ExtResource("4_ojjf8")]
+[node name="Assign" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/second" unique_id=979062200 instance=ExtResource("4_ojjf8")]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer" unique_id=825644594]
+[node name="third" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer" unique_id=825644594]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect2" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/VBoxContainer3" unique_id=1841118262]
-custom_minimum_size = Vector2(50, 200)
+[node name="TextureRect2" type="TextureRect" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/third" unique_id=1841118262]
+custom_minimum_size = Vector2(50, 220)
 layout_mode = 2
-texture = ExtResource("3_pc51f")
+texture = ExtResource("4_64ypp")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/VBoxContainer3" unique_id=382886738]
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/third" unique_id=382886738]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontFile_64ypp")
 theme_override_font_sizes/font_size = 24
-text = "一级托管师"
+text = "三级托管师"
 horizontal_alignment = 1
 
-[node name="Assign" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/VBoxContainer3" unique_id=281447340 instance=ExtResource("4_ojjf8")]
+[node name="Assign" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Middle/VBoxContainer2/HBoxContainer/third" unique_id=281447340 instance=ExtResource("4_ojjf8")]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Right" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer" unique_id=1650395873]
+[node name="Right" type="PanelContainer" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer" unique_id=1650395873]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_xxrbi")
 
-[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Right" unique_id=545294545]
+[node name="RightInner" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Right" unique_id=1650395874]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Right/RightInner" unique_id=545294545]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.80304134, 0.10272751, 0.10264454, 1)
 theme_override_fonts/font = SubResource("FontFile_xxrbi")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 35
 text = "系统日志"
+
+[node name="LogContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Right/RightInner" unique_id=1650395875]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8

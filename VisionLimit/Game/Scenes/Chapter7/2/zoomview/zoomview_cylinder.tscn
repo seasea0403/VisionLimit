@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bxpgmg8epp57l"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_hnwmk"]
+[ext_resource type="Texture2D" uid="uid://ceb0l8flttfu6" path="res://Art/Scenes/Scene3/Zoomview_2/cylinder.png" id="2_ik8xh"]
+[ext_resource type="PackedScene" uid="uid://b5dgyxwacbfgc" path="res://Game/Scenes/Chapter7/2/items/book.tscn" id="3_pdfqs"]
+
+[node name="Zoomview_cylinder" unique_id=198920514 instance=ExtResource("1_hnwmk")]
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_ik8xh")
+
+[node name="book" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_pdfqs")]

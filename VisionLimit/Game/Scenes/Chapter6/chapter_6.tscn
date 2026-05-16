@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://djixxpsq3152l"]
+
+[ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_ndh8s"]
+[ext_resource type="Texture2D" uid="uid://bw3icdet3llso" path="res://Art/Scenes/Scene6/Elements/Background6.png" id="2_ylfvo"]
+[ext_resource type="PackedScene" uid="uid://y1f5j38uxyxe" path="res://Game/Scenes/Chapter6/ClickableArea/ClickableArea_Desk.tscn" id="3_rd817"]
+[ext_resource type="PackedScene" uid="uid://bstcqgsihpaur" path="res://Game/Scenes/Chapter6/ClickableArea/ClickableArea_Block.tscn" id="4_f66ng"]
+[ext_resource type="AudioStream" uid="uid://brkawqc2q6igp" path="res://Audio/BGM/Scene6.mp3" id="5_3c8dh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fbfs3"]
+size = Vector2(27.655869, 18.700935)
+
+[node name="Chapter6" unique_id=1917343286 instance=ExtResource("1_ndh8s")]
+
+[node name="Background" parent="." index="0" unique_id=2106778844]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_ylfvo")
+
+[node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="0" unique_id=552734023]
+visible = false
+
+[node name="ClickableArea_Desk" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("3_rd817")]
+
+[node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Desk" index="0" unique_id=55883732]
+position = Vector2(1061.7855, 500.25107)
+rotation = -0.0483929
+scale = Vector2(28.680006, 28.680006)
+shape = SubResource("RectangleShape2D_fbfs3")
+
+[node name="Zoomview_Desk" parent="ZoomViews/ClickableArea_Desk" index="1" unique_id=198920514]
+visible = false
+
+[node name="ClickableArea_Block" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=1041883668 instance=ExtResource("4_f66ng")]
+
+[node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Block" index="0" unique_id=55883732]
+position = Vector2(174.09584, 484.5)
+
+[node name="Zoomview_paper" parent="ZoomViews/ClickableArea_Block" index="1" unique_id=198920514]
+visible = false
+
+[node name="SceneBgm" parent="." index="3" unique_id=996875468]
+stream = ExtResource("5_3c8dh")
+volume_db = 4.502
+autoplay = true
+
+[editable path="UILayer/ItemDetail"]
+[editable path="ZoomViews/ClickableArea_Desk"]
+[editable path="ZoomViews/ClickableArea_Desk/Zoomview_Desk"]
+[editable path="ZoomViews/ClickableArea_Block"]
+[editable path="ZoomViews/ClickableArea_Block/Zoomview_paper"]

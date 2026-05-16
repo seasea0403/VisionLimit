@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://djxy7drxidbiy"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_04py0"]
+[ext_resource type="Texture2D" uid="uid://bhnmd6b1u3m0n" path="res://Art/Scenes/Scene3/Elements_1/map.png" id="2_fbo4l"]
+[ext_resource type="Texture2D" uid="uid://dh62gycn8pj7h" path="res://Art/Scenes/Scene3/Elements_1/map_back.png" id="3_wld5a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb1hh"]
+size = Vector2(20.687088, 228.2927)
+
+[node name="Map" unique_id=223355110 instance=ExtResource("1_04py0")]
+item_id = "3"
+item_name = "病房分布图"
+detail_image = ExtResource("2_fbo4l")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(1559, 615.4893)
+scale = Vector2(33.07334, -3.9993448)
+shape = SubResource("RectangleShape2D_mb1hh")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+texture = ExtResource("3_wld5a")

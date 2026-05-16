@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bnm54c56m1gqs"]
 
+[ext_resource type="Script" uid="uid://d25m8ubdb47sn" path="res://Script/UI/work_order_item.gd" id="1_script"]
 [ext_resource type="StyleBox" uid="uid://u7yvo4as8v1f" path="res://Style/Worklist_button.tres" id="1_wof3f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2cll"]
@@ -65,6 +66,7 @@ expand_margin_bottom = 5.0
 offset_right = 363.0
 offset_bottom = 112.0
 theme_override_styles/normal = ExtResource("1_wof3f")
+script = ExtResource("1_script")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_c2cll")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ju58r")
 

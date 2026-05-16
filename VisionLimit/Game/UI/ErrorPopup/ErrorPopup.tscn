@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://wds6nrhbi5aa"]
+
+[ext_resource type="Script" uid="uid://dwiixrn4oskg4" path="res://Script/UI/error_popup.gd" id="1_epscr"]
+[ext_resource type="Texture2D" uid="uid://cb8rewvqet1n0" path="res://Art/Scenes/Scene7/第六章全部 - 副本/poppanel.png" id="2_veh3o"]
+
+[sub_resource type="FontFile" id="FontFile_veh3o"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_q3mvd"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q3mvd"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_veh3o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lpx5a"]
+
+[node name="ErrorPopup" type="CanvasLayer" unique_id=2120591365]
+script = ExtResource("1_epscr")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1919537795]
+position = Vector2(-477, -211.00002)
+scale = Vector2(1.4722458, 1.4392877)
+
+[node name="TextureRect" type="TextureRect" parent="Node2D" unique_id=355461541]
+offset_left = 373.0
+offset_top = 193.0
+offset_right = 3573.0
+offset_bottom = 1993.0
+scale = Vector2(0.367305, 0.3821228)
+texture = ExtResource("2_veh3o")
+
+[node name="Title" type="Label" parent="Node2D" unique_id=1365154461]
+offset_left = 760.0
+offset_top = 420.0
+offset_right = 1160.0
+offset_bottom = 459.0
+theme_override_colors/font_color = Color(1, 0.01999998, 0.01999998, 1)
+theme_override_fonts/font = SubResource("FontFile_veh3o")
+theme_override_font_sizes/font_size = 28
+text = "系统提示"
+horizontal_alignment = 1
+
+[node name="Content" type="Label" parent="Node2D" unique_id=1191781913]
+offset_left = 744.0
+offset_top = 466.0
+offset_right = 1188.0
+offset_bottom = 604.2814
+scale = Vector2(1, 1.2799993)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_q3mvd")
+theme_override_font_sizes/font_size = 22
+text = "哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ConfirmButton" type="Button" parent="Node2D" unique_id=1250580756]
+custom_minimum_size = Vector2(120, 40)
+offset_left = 1185.0
+offset_top = 370.0
+offset_right = 1305.0
+offset_bottom = 410.0
+scale = Vector2(0.23432909, 0.69337314)
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxTexture_q3mvd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_veh3o")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lpx5a")

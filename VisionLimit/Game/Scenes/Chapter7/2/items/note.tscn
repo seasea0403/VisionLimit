@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://brcx82bouoawx"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_yklfk"]
+[ext_resource type="Texture2D" uid="uid://7nt2ff1l1v2" path="res://Art/Scenes/Scene3/Elements_2/note.png" id="2_d2dvk"]
+[ext_resource type="Texture2D" uid="uid://dht84u8gmnqph" path="res://Art/Scenes/Scene3/Elements_2/note_back.png" id="3_iprt7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb1hh"]
+size = Vector2(3.205, 29.754852)
+
+[node name="Map" unique_id=223355110 instance=ExtResource("1_yklfk")]
+item_id = "2"
+item_name = "黄色便签纸"
+detail_image = ExtResource("2_d2dvk")
+can_record = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(1427, 577)
+scale = Vector2(33.07334, -3.9993448)
+shape = SubResource("RectangleShape2D_mb1hh")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+texture = ExtResource("3_iprt7")

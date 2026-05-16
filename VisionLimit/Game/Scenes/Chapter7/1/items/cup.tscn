@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://wue8wop38fbb"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_o5hwb"]
+[ext_resource type="Texture2D" uid="uid://boanoihuyqa70" path="res://Art/Scenes/Scene7/第六章全部 - 副本/cup.png" id="2_kuh03"]
+[ext_resource type="Texture2D" uid="uid://cbid7mrauv02e" path="res://Art/Scenes/Scene7/第六章全部 - 副本/cup_back.png" id="3_h5dw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_by3t1"]
+size = Vector2(139, 156)
+
+[node name="paint" unique_id=223355110 instance=ExtResource("1_o5hwb")]
+item_id = "1"
+item_name = "空了的水杯"
+detail_image = ExtResource("2_kuh03")
+description = "水杯已经空了。用的时间比我想象中要久。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(1453.5, 777)
+shape = SubResource("RectangleShape2D_by3t1")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+texture = ExtResource("3_h5dw2")
