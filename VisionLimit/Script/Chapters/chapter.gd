@@ -10,6 +10,7 @@ extends Node2D
 var record_panel: Control
 # 使用栈管理嵌套的面板，最上层的面板在栈顶
 var _panel_stack: Array[Node] = []
+var stop_panel: Node = null
 
 
 func _ready():
@@ -22,6 +23,7 @@ func _ready():
 
 	item_detail.hide()
 	_setup_record_panel()
+	_setup_stop_panel()
 
 	if item_detail and item_detail.has_signal("item_recorded"):
 		if not item_detail.item_recorded.is_connected(_on_item_recorded):
@@ -80,11 +82,28 @@ func _on_hud_back_pressed() -> void:
 				child.hide_view()
 				return
 
+	# 兜底2：没有任何面板可关闭，切换暂停菜单状态
+	if stop_panel:
+		if stop_panel.visible:
+			stop_panel.call("close_panel")
+		else:
+			stop_panel.call("open_panel")
+
 
 func _on_hud_book_pressed() -> void:
 	if record_panel and record_panel.has_method("open_panel"):
 		record_panel.open_panel()
 		register_panel_open(record_panel)
+
+
+func _setup_stop_panel() -> void:
+	stop_panel = find_child("StopPanel", true, false)
+	if not stop_panel:
+		var scene: PackedScene = load("res://Game/UI/StopPanel.tscn")
+		if scene:
+			stop_panel = scene.instantiate()
+			stop_panel.name = "StopPanel"
+			add_child(stop_panel)
 
 
 func _setup_record_panel() -> void:

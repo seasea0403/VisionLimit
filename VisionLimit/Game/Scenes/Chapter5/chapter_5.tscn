@@ -3,7 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_umqn5"]
 [ext_resource type="Texture2D" uid="uid://iap7kj6sxrpj" path="res://Art/Scenes/Scene5/Background/Background5.png" id="2_2k8s4"]
 [ext_resource type="PackedScene" uid="uid://b0ng4fnjbekia" path="res://Game/Scenes/Chapter5/ClickableArea/ClickableArea_Desk.tscn" id="3_0tw87"]
+[ext_resource type="Texture2D" uid="uid://on8d41rdugy0" path="res://Art/Character/沈意骄傲.png" id="4_fbfs3"]
 [ext_resource type="PackedScene" uid="uid://dfug80gvcpggs" path="res://Game/Scenes/Chapter5/ClickableArea/ClickableArea_Block.tscn" id="4_fp6ag"]
+[ext_resource type="Texture2D" uid="uid://kitay7qiyqao" path="res://Art/Character/沈意叹气.png" id="5_nqh41"]
+[ext_resource type="Texture2D" uid="uid://n57qn72imbot" path="res://Art/Character/魏江张手.png" id="7_w4bja"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbfs3"]
 size = Vector2(27.655869, 18.700935)
@@ -24,6 +27,9 @@ texture = ExtResource("2_2k8s4")
 [node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="0" unique_id=552734023]
 visible = false
 
+[node name="click" parent="UILayer/ItemDetail" index="2" unique_id=1359093598]
+bus = &"Master"
+
 [node name="ClickableArea_Desk" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("3_0tw87")]
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Desk" index="0" unique_id=55883732]
@@ -36,13 +42,13 @@ shape = SubResource("RectangleShape2D_fbfs3")
 visible = false
 
 [node name="Note" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="0" unique_id=223355110]
-description = "Ctrl和D按键磨损得十分厉害，这是我从前做托管师时留下的习惯。四年前处理郑和平那桩委托，是我最后一次使用这个键盘，如今再看到它都觉得有些陌生了。"
+character_image = ExtResource("4_fbfs3")
+character_scale = Vector2(1.2, 1)
 
 [node name="Card" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="1" unique_id=1064052470]
-description = "挖掘自己的记忆海绝不是一件轻松的事。魏江应该也知道。否则他绝不会这般贴心地给我倒来一杯水。"
-
-[node name="hardcore" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="2" unique_id=2007174856]
-description = "“2046-03”，那是我从神经护理机构离职在家待业的日子，那之后不久我就收到了晴野基金会的委托，请求我为一位重度紊乱患者进行三级托管治疗。现在，我知道了那位患者就是郑和平。"
+character_image = ExtResource("5_nqh41")
+character_scale = Vector2(1.2, 1)
+character_offset = Vector2(-790, 40)
 
 [node name="ClickableArea_Block" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=1041883668 instance=ExtResource("4_fp6ag")]
 
@@ -55,11 +61,15 @@ visible = false
 
 [node name="Calender" parent="ZoomViews/ClickableArea_Block/Zoomview_paper/Items" parent_id_path=PackedInt32Array(1041883668, 198920514, 1759582505) index="0" unique_id=223355110]
 description = "在潜入自己的记忆海时，为了避免外界干扰为操作者带来不可逆的影响，需要打开信号屏蔽装置。"
+character_image = ExtResource("7_w4bja")
+character_scale = Vector2(1.1, 1)
+character_offset = Vector2(-700, -40)
 
 [node name="SceneBgm" parent="." index="3" unique_id=996875468]
 stream = SubResource("AudioStreamMP3_2k8s4")
 volume_db = 4.502
 autoplay = true
+bus = &"Master"
 
 [editable path="UILayer/ItemDetail"]
 [editable path="UILayer/ItemDetail/Control/PrevButton"]

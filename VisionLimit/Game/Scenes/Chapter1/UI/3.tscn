@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://8dec8fa3d5qk" path="res://Art/Scenes/Scene7/第六章全部 - 副本/information.png" id="4_be1gc"]
 
 [sub_resource type="FontFile" id="FontFile_5070u"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -47,7 +50,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("0_3gd")
+dialogue_text = "海风，模糊的人影，这些是什么？郑和平是谁，为什么我会有一阵诡异的熟悉感？"
 character_image = ExtResource("2_5070u")
+character_offset = Vector2(-790, 0)
 email_panel_scene = ExtResource("3_be1gc")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2047411853]

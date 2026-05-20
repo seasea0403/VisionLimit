@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="VisionLimit"
-run/main_scene="uid://cl5a74euhmg35"
+run/main_scene="uid://c0olsgh6hsiqb"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 run/custom_font=""

@@ -11,6 +11,7 @@ size = Vector2(9.830829, 34.16484)
 item_id = "2"
 item_name = "水杯"
 detail_image = ExtResource("2_0tkn2")
+description = "挖掘自己的记忆海绝不是一件轻松的事。魏江应该也知道。否则他绝不会这般贴心地给我倒来一杯水。"
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
 position = Vector2(1451.2288, 773.28687)

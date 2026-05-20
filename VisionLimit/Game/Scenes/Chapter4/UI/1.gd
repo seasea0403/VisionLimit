@@ -7,17 +7,17 @@ signal timeline_completed
 @export var completion_desc_text: String = "四份档案已经按年份归位，真正被移动的是证据的顺序。"
 
 const MATERIAL_META: Dictionary = {
-    "A": {"year": "2040", "slot": "A1", "title": "水质年度监测报告", "detail": "苍屿近海 / 公开比对标准"},
-    "B": {"year": "2041", "slot": "A2", "title": "荣誉附件", "detail": "临深集团配合检测情况说明"},
-    "C": {"year": "2042", "slot": "B1", "title": "外业勘测日志", "detail": "陈星河签名痕迹"},
-    "D": {"year": "2044", "slot": "B2", "title": "数字化存档白纸", "detail": "实体文件依规销毁"},
+	"A": {"year": "2039", "title": "苍屿精炼有限公司", "detail": "临深集团旗下，竣工投产"},
+	"B": {"year": "2041", "title": "荣誉附件", "detail": "临深集团配合检测情况说明"},
+	"C": {"year": "2042", "title": "外业勘测日志", "detail": "陈星河签名痕迹"},
+	"D": {"year": "2043", "title": "正源环境检测有限公司", "detail": "挂牌成立，承接检测服务"},
 }
 
 const SLOT_META: Dictionary = {
-    "A1": {"year": "2040", "title": "A1"},
-    "A2": {"year": "2041", "title": "A2"},
-    "B1": {"year": "2042", "title": "B1"},
-    "B2": {"year": "2044", "title": "B2"},
+	"A": {"year": "2042"},
+	"B": {"year": "2039"},
+	"C": {"year": "2043"},
+	"D": {"year": "2041"},
 }
 
 @onready var title_label: Label = $Center/PhonePanel/Margin/MainVBox/Header/HeaderMargin/HeaderRow/TitleStack/TitleLabel
@@ -56,10 +56,10 @@ func _ready() -> void:
 		"D": material_d,
 	}
 	_slot_buttons = {
-		"A1": slot_a1,
-		"A2": slot_a2,
-		"B1": slot_b1,
-		"B2": slot_b2,
+		"A": slot_a1,
+		"B": slot_a2,
+		"C": slot_b1,
+		"D": slot_b2,
 	}
 
 	title_label.text = "时间轴归档"
@@ -120,7 +120,7 @@ func _on_slot_pressed(slot_id: String) -> void:
 		return
 
 	var material_id: String = _selected_material_id
-	var expected_slot: String = str(MATERIAL_META[material_id]["slot"])
+	var expected_slot: String = _get_correct_slot(material_id)
 	if slot_id != expected_slot:
 		_set_status("%s 不属于 %s" % [str(MATERIAL_META[material_id]["title"]), str(SLOT_META[slot_id]["year"])])
 		_flash_slot(slot_id, Color(0.96, 0.54, 0.54, 1.0))
@@ -128,7 +128,7 @@ func _on_slot_pressed(slot_id: String) -> void:
 
 	_place_material(material_id, slot_id)
 	_selected_material_id = ""
-	_set_status("%s 已归入 %s" % [str(MATERIAL_META[material_id]["title"]), str(SLOT_META[slot_id]["title"])])
+	_set_status("%s 已归入 %s" % [str(MATERIAL_META[material_id]["title"]), str(SLOT_META[slot_id]["year"])])
 	_refresh_ui()
 	_check_completion()
 
@@ -192,7 +192,7 @@ func _check_completion() -> void:
 		return
 
 	for material_id in MATERIAL_META.keys():
-		if str(_material_to_slot.get(material_id, "")) != str(MATERIAL_META[material_id]["slot"]):
+		if str(_material_to_slot.get(material_id, "")) != _get_correct_slot(material_id):
 			return
 
 	_completed = true
@@ -203,6 +203,14 @@ func _check_completion() -> void:
 	timeline_completed.emit()
 	if has_node("/root/GameStateManager"):
 		GameStateManager.complete_chapter(completion_chapter_index)
+
+
+func _get_correct_slot(material_id: String) -> String:
+	var material_year: String = str(MATERIAL_META[material_id]["year"])
+	for slot_id in SLOT_META.keys():
+		if str(SLOT_META[slot_id]["year"]) == material_year:
+			return slot_id
+	return ""
 
 
 func _on_reset_pressed() -> void:

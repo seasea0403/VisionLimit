@@ -9,6 +9,8 @@ extends Control
 
 ## 角色立绘纹理（可在 Inspector 拖入）
 @export var character_image: Texture2D
+@export var character_scale: Vector2 = Vector2.ONE
+@export var character_offset: Vector2 = Vector2.ZERO
 
 ## 邮件面板场景（在 Inspector 中拖入 4.tscn）
 @export var email_panel_scene: PackedScene
@@ -50,7 +52,7 @@ func _on_video_finished() -> void:
 		_item_detail.show_detail(
 			null, dialogue_text, dialogue_title, false, "",
 			Vector2.ONE, Vector2.ZERO, "", "", "", "",
-			character_image
+			character_image, character_scale, character_offset
 		)
 	else:
 		push_warning("[3.gd] 找不到 ItemDetail，直接跳到邮件面板")

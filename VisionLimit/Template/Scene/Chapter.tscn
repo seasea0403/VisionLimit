@@ -32,5 +32,6 @@ z_index = 5
 [node name="ZoomViews" type="Node2D" parent="." unique_id=395467288]
 
 [node name="SceneBgm" type="AudioStreamPlayer2D" parent="." unique_id=996875468]
+bus = &"BGM"
 
 [editable path="UILayer/ItemDetail"]

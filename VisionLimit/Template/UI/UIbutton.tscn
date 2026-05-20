@@ -34,7 +34,9 @@ text = "选择关卡"
 [node name="hover" type="AudioStreamPlayer2D" parent="." unique_id=2003038747]
 stream = ExtResource("4_y51m4")
 volume_db = 11.368
+bus = &"SFX"
 
 [node name="click" type="AudioStreamPlayer2D" parent="." unique_id=2041742026]
 stream = ExtResource("4_jdlfd")
 volume_db = 11.655
+bus = &"SFX"

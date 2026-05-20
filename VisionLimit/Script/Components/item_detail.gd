@@ -10,6 +10,7 @@ extends CanvasLayer
 @onready var text_sfx = $click
 @onready var prev_button = $Control/PrevButton/TextureButton
 @onready var next_button = $Control/LaterButton/TextureButton
+@onready var next_button_label = $Control/LaterButton/TextureButton/Label
 @onready var page_indicator = $Control/PageIndicator
 
 # ==================== 状态变量 ====================
@@ -28,9 +29,17 @@ var current_record_description_2: String = ""
 var _pages: Array[Dictionary] = []
 var _current_page: int = 0
 
+# ==================== 动作按钮（尝试键）====================
+## 设置为 true 时，LaterButton 显示为「动作按钮」而非翻页按钮
+var _action_mode: bool = false
+
 # ==================== 信号 ====================
 signal item_recorded(item_id: String, entry_title: String, entry_description: String, entry_title_2: String, entry_description_2: String)
 signal panel_closed
+## 详情面板打开时发出，携带当前 item_id
+signal detail_opened(item_id: String)
+## 动作按钮（尝试键）被按下时发出
+signal action_pressed
 
 
 # ==================== 初始化 ====================
@@ -48,7 +57,9 @@ func _ready() -> void:
 
 	# 连接按钮信号
 	if dark_background:
-		dark_background.gui_input.connect(_on_background_clicked)
+		# 设置为 IGNORE，使背景不消耗鼠标事件，避免遮挡 HUD 返回按钮。
+		# 点击背景关闭改由 _unhandled_input 处理。
+		dark_background.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	if record_button:
 		record_button.pressed.connect(_on_record_button_pressed)
 	if prev_button:
@@ -103,6 +114,8 @@ func show_detail_group(pages: Array[Dictionary]) -> void:
 	var chapter := _find_chapter()
 	if chapter and chapter.has_method("register_panel_open"):
 		chapter.register_panel_open(self)
+	# 通知监听者面板已打开（用于按需显示动作按钮等）
+	detail_opened.emit(current_item_id)
 
 
 func _apply_page(idx: int) -> void:
@@ -166,8 +179,27 @@ func _apply_page(idx: int) -> void:
 	_update_nav_buttons()
 
 
+func set_action_button(show: bool, label_text: String = "尝试") -> void:
+	"""显示或隐藏动作按钮（复用 LaterButton），用于特定物品的交互（如录音笔「尝试」键）"""
+	_action_mode = show
+	if next_button_label:
+		next_button_label.text = label_text if show else ""
+	_update_nav_buttons()
+
+
 func _update_nav_buttons() -> void:
 	"""根据页数更新翻页按钮和页码指示器的可见性与状态"""
+	if _action_mode:
+		# 动作模式：LaterButton 作为「尝试」按钮，始终可见且可用；PrevButton 和页码隐藏
+		if prev_button:
+			prev_button.visible = false
+		if next_button:
+			next_button.visible = true
+			next_button.disabled = false
+		if page_indicator:
+			page_indicator.visible = false
+		return
+
 	var multi: bool = _pages.size() > 1
 	if prev_button:
 		prev_button.visible = multi
@@ -208,6 +240,9 @@ func close_detail() -> void:
 	# 隐藏面板本身
 	hide()
 
+	# 重置动作按钮模式
+	_action_mode = false
+
 	# 清理多页状态
 	_pages.clear()
 	_current_page = 0
@@ -238,11 +273,27 @@ func _on_prev_pressed() -> void:
 
 
 func _on_next_pressed() -> void:
+	if _action_mode:
+		# 动作模式：发出「尝试」信号而非翻页
+		action_pressed.emit()
+		return
 	if _current_page < _pages.size() - 1:
 		_apply_page(_current_page + 1)
 
 
-# ==================== 事件处理 ====================
+# ==================== 输入处理 ====================
+func _unhandled_input(event: InputEvent) -> void:
+	"""ItemDetail 可见时，点击内容区域外部则关闭面板（取代 DarkBackground 的 gui_input）"""
+	if not visible:
+		return
+	if event is InputEventMouseButton and event.pressed:
+		var content_panel := get_node_or_null("Control")
+		if content_panel and content_panel.visible:
+			if not content_panel.get_global_rect().has_point(event.position):
+				get_viewport().set_input_as_handled()
+				close_detail()
+
+
 func _on_background_clicked(event: InputEvent) -> void:
 	"""
 	点击黑色背景关闭

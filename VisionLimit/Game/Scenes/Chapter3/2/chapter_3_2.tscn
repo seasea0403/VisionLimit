@@ -4,11 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://bwu7fy36n2utc" path="res://Art/Scenes/Scene3/Background/Background3-2.png" id="2_rhku6"]
 [ext_resource type="PackedScene" uid="uid://c44a1x1pvt15y" path="res://Game/Scenes/Chapter3/2/ClickableArea/ClickableArea_Box.tscn" id="3_0qacq"]
 [ext_resource type="PackedScene" uid="uid://ccp5mfhfncfts" path="res://Game/UI/RecordPanel/RecordPanel.tscn" id="3_dbqq3"]
+[ext_resource type="PackedScene" uid="uid://bmbblbqlhqwlt" path="res://Game/Scenes/Chapter3/UI/2.tscn" id="4_4uax0"]
 [ext_resource type="PackedScene" uid="uid://cl30wb1tyjc4m" path="res://Game/Scenes/Chapter3/2/ClickableArea/ClickableArea_Cylinder.tscn" id="4_q5k2v"]
 [ext_resource type="PackedScene" uid="uid://xahd66ggwcuj" path="res://Game/Scenes/Chapter3/2/ClickableArea/ClickableArea_PriceBoard.tscn" id="5_xkr2t"]
+[ext_resource type="Texture2D" uid="uid://kitay7qiyqao" path="res://Art/Character/沈意叹气.png" id="6_38jul"]
 [ext_resource type="PackedScene" uid="uid://bnypflcovaqcf" path="res://Game/Scenes/Chapter3/2/ClickableArea/ClickableArea_Board.tscn" id="6_dbqq3"]
 [ext_resource type="PackedScene" uid="uid://dbjf7bbgaso6l" path="res://Game/Scenes/Chapter3/2/ClickableArea/ClickableArea_information.tscn" id="7_4h13x"]
+[ext_resource type="Texture2D" uid="uid://ca3kcyesg7wga" path="res://Art/Character/魏江抱胸思考.png" id="8_4uax0"]
 [ext_resource type="PackedScene" uid="uid://hmjmbulogsnl" path="res://Game/Scenes/Chapter3/2/items/yancong.tscn" id="9_4h13x"]
+[ext_resource type="Texture2D" uid="uid://c2e2st2dfigg0" path="res://Art/Character/沈意生气.png" id="10_76e6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_473h4"]
 size = Vector2(11.368799, 4.1038446)
@@ -38,8 +42,12 @@ texture = ExtResource("2_rhku6")
 [node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="0" unique_id=552734023]
 visible = false
 
+[node name="click" parent="UILayer/ItemDetail" index="2" unique_id=1359093598]
+bus = &"Master"
+
 [node name="RecordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1173323693 instance=ExtResource("3_dbqq3")]
-editor_preview_titles = PackedStringArray("记忆海", "苍屿症", "郑和平")
+
+[node name="2" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="3" unique_id=180244854 instance=ExtResource("4_4uax0")]
 
 [node name="ClickableArea_Box" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=1094917011 instance=ExtResource("3_0qacq")]
 
@@ -68,6 +76,9 @@ visible = false
 detail_image_scale = Vector2(1.5, 1.5)
 detail_image_offset = Vector2(-100, -200)
 description = "他的问号画得很用力，纸背面都有压痕。我能感受到他的心情。"
+character_image = ExtResource("6_38jul")
+character_scale = Vector2(1.2, 1)
+character_offset = Vector2(-750, 40)
 
 [node name="ClickableArea_priceboard" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="2" unique_id=1327683716 instance=ExtResource("5_xkr2t")]
 
@@ -79,6 +90,9 @@ shape = SubResource("RectangleShape2D_0lh24")
 
 [node name="Zoomview_priceboard" parent="ZoomViews/ClickableArea_priceboard" index="1" unique_id=198920514]
 detail_title = ""
+detail_character_image = ExtResource("8_4uax0")
+detail_character_scale = Vector2(1.2, 1)
+detail_character_offset = Vector2(-700, -40)
 
 [node name="note" parent="ZoomViews/ClickableArea_priceboard/Zoomview_priceboard/Items" parent_id_path=PackedInt32Array(1327683716, 198920514, 1759582505) index="0" unique_id=223355110]
 description = "对C-03海域的鱼产有额外描述。"
@@ -91,6 +105,9 @@ shape = SubResource("RectangleShape2D_rhku6")
 
 [node name="Zoomview_board" parent="ZoomViews/ClickableArea_information" index="1" unique_id=198920514]
 detail_title = ""
+detail_character_image = ExtResource("10_76e6x")
+detail_character_scale = Vector2(1.22, 1)
+detail_character_offset = Vector2(-700, 0)
 
 [node name="ClickableArea_priceboard2" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="4" unique_id=676050068 instance=ExtResource("7_4h13x")]
 
@@ -100,6 +117,11 @@ shape = SubResource("RectangleShape2D_pbne3")
 
 [node name="Zoomview_information" parent="ZoomViews/ClickableArea_priceboard2" index="1" unique_id=198920514]
 visible = false
+detail_title = "码头泊位告示牌"
+detail_description = "泊位状态统计，每天更新，字迹工整，格式规范。是个认真的人在维护它。但也是这个人写下了CY-0887明日返港。"
+detail_character_image = ExtResource("10_76e6x")
+detail_character_scale = Vector2(1.2, 1)
+detail_character_offset = Vector2(-700, 0)
 
 [node name="items" type="Node2D" parent="." index="3" unique_id=48806528]
 
@@ -117,6 +139,7 @@ rotation = 0.25272432
 stream = SubResource("AudioStreamMP3_g7dl3")
 volume_db = 1.351
 autoplay = true
+bus = &"Master"
 
 [editable path="UILayer/ItemDetail"]
 [editable path="UILayer/ItemDetail/Control/PrevButton"]

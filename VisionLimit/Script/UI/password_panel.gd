@@ -230,6 +230,7 @@ func _play_sound(audio_stream: AudioStream) -> void:
 	var audio_player = AudioStreamPlayer.new()
 	audio_player.stream = audio_stream
 	audio_player.volume_db = 0
+	audio_player.bus = "SFX"
 	add_child(audio_player)
 	audio_player.play()
 	

@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://bmbblbqlhqwlt"]
+
+[ext_resource type="Script" uid="uid://rfbm17f3p687" path="res://Game/Scenes/Chapter3/UI/2.gd" id="1_xbeqx"]
+[ext_resource type="Texture2D" uid="uid://dw4das0ey32ts" path="res://Art/popback.png" id="2_5f2u3"]
+[ext_resource type="FontFile" uid="uid://bjtrn41cebq4e" path="res://Font/CLFN 16x CN.ttf" id="3_0vt03"]
+[ext_resource type="PackedScene" uid="uid://d4dilrlae4nxt" path="res://Template/Scene/Chapter3ItemCard.tscn" id="4_xiff5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_704sf"]
+texture = ExtResource("2_5f2u3")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_section"]
+bg_color = Color(0.08319999, 0.0988, 0.13, 0.3764706)
+border_color = Color(0.192157, 0.227451, 0.270588, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
+bg_color = Color(0.37958094, 0.48516864, 0.41893786, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.27451, 0.317647, 0.376471, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_overlay"]
+bg_color = Color(0.0627451, 0.0784314, 0.105882, 0.88)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_complete"]
+bg_color = Color(0.101961, 0.129412, 0.172549, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.376471, 0.458824, 0.52549, 1)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+
+[node name="2" type="Control" unique_id=180244854]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xbeqx")
+title_text = "线索整理"
+completion_title_text = "线索整理已完成"
+completion_desc_text = "四组对应全部正确，可以继续推进。"
+
+[node name="Center" type="CenterContainer" parent="." unique_id=47758223]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PhonePanel" type="PanelContainer" parent="Center" unique_id=1659956146]
+custom_minimum_size = Vector2(1640, 940)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_704sf")
+
+[node name="Margin" type="MarginContainer" parent="Center/PhonePanel" unique_id=1441848047]
+layout_mode = 2
+theme_override_constants/margin_left = 158
+theme_override_constants/margin_top = 172
+theme_override_constants/margin_right = 149
+theme_override_constants/margin_bottom = 104
+
+[node name="MainVBox" type="VBoxContainer" parent="Center/PhonePanel/Margin" unique_id=2079330417]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Header" type="PanelContainer" parent="Center/PhonePanel/Margin/MainVBox" unique_id=1536653047]
+custom_minimum_size = Vector2(0, 112)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_section")
+
+[node name="HeaderPad" type="MarginContainer" parent="Center/PhonePanel/Margin/MainVBox/Header" unique_id=2006766640]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 14
+
+[node name="HeaderRow" type="HBoxContainer" parent="Center/PhonePanel/Margin/MainVBox/Header/HeaderPad" unique_id=2129615332]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleStack" type="VBoxContainer" parent="Center/PhonePanel/Margin/MainVBox/Header/HeaderPad/HeaderRow" unique_id=1030280105]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="TitleLabel" type="Label" parent="Center/PhonePanel/Margin/MainVBox/Header/HeaderPad/HeaderRow/TitleStack" unique_id=52459202]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0vt03")
+theme_override_font_sizes/font_size = 34
+text = "沈意 · 拍照记录"
+
+[node name="SubtitleLabel" type="Label" parent="Center/PhonePanel/Margin/MainVBox/Header/HeaderPad/HeaderRow/TitleStack" unique_id=555107635]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0vt03")
+theme_override_font_sizes/font_size = 20
+text = "点击左侧物证，再点右侧观察项连线"
+
+[node name="HeaderSpacer" type="Control" parent="Center/PhonePanel/Margin/MainVBox/Header/HeaderPad/HeaderRow" unique_id=589538145]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProgressLabel" type="Label" parent="Center/PhonePanel/Margin/MainVBox/Header/HeaderPad/HeaderRow" unique_id=85417480]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0vt03")
+theme_override_font_sizes/font_size = 28
+text = "0 / 4"
+vertical_alignment = 1
+
+[node name="Board" type="PanelContainer" parent="Center/PhonePanel/Margin/MainVBox" unique_id=2016826831]
+custom_minimum_size = Vector2(0, 570)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_section")
+
+[node name="BoardPad" type="MarginContainer" parent="Center/PhonePanel/Margin/MainVBox/Board" unique_id=1120963730]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 22
+
+[node name="BoardRoot" type="Control" parent="Center/PhonePanel/Margin/MainVBox/Board/BoardPad" unique_id=1371056403]
+layout_mode = 2
+
+[node name="ColumnsRow" type="HBoxContainer" parent="Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot" unique_id=2028879190]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="LeftColumn" type="VBoxContainer" parent="Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow" unique_id=1499109041]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 18
+
+[node name="ItemA" parent="Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/LeftColumn" unique_id=226838700 instance=ExtResource("4_xiff5")]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+item_id = "A"
+item_text = "A  价牌旁手写便签——「供应稳定，请放心选购。」"
+
+[node name="ItemB" parent="Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/LeftColumn" unique_id=1915693928 instance=ExtResource("4_xiff5")]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+item_id = "B"
+item_text = " B  冷库门口告示——「货品损耗属正常海运波动范围，品质经相关部门核验。」"
+
+[node name="ItemC" parent="Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/LeftColumn" unique_id=545595190 instance=ExtResource("4_xiff5")]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+item_id = "C"
+item_text = "  C  渔获筐标签——来源CY-0887，捕捞日期2050.03.07，入库时间09:30"
+
+[node name="ItemD" parent="Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/LeftColumn" unique_id=306204180 instance=ExtResource("4_xiff5")]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+item_id = "D"
+item_text = "  D  电子价牌——C-03区·黄鱼中条·今日价11元/斤"
+
+[node name="CenterGap" type="Control" parent="Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow" unique_id=325943166]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+
+[node name="RightColumn" type="VBoxContainer" parent="Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow" unique_id=1910290271]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 18
+
+[node name="Item1" parent="Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/RightColumn" unique_id=1044254499 instance=ExtResource("4_xiff5")]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+item_id = "1"
+item_side = 1
+item_text = "  1  电子价牌同栏：差价约75%，非季节性波动"
+
+[node name="Item2" parent="Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/RightColumn" unique_id=17450832 instance=ExtResource("4_xiff5")]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+item_id = "2"
+item_side = 1
+item_text = "  2  码头泊位告示牌：03号泊位·CY-0887·作业中，预计明日返港（船不在港，入库无从发生）"
+
+[node name="Item3" parent="Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/RightColumn" unique_id=1399153733 instance=ExtResource("4_xiff5")]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+item_id = "3"
+item_side = 1
+item_text = " 3  冷库外墙公示栏：渔民受访表示「我们自己不吃那边的鱼」,民众对品质不信任"
+
+[node name="Item4" parent="Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/RightColumn" unique_id=692363272 instance=ExtResource("4_xiff5")]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_styles/panel = SubResource("StyleBoxFlat_card")
+item_id = "4"
+item_side = 1
+item_text = "  4  现场实况：C-03区货筐单独堆放，与主道货物有明显间距"
+
+[node name="ConnectionLayer" type="Control" parent="Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot" unique_id=828979715]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CompleteOverlay" type="PanelContainer" parent="." unique_id=2093865718]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_overlay")
+
+[node name="Center" type="CenterContainer" parent="CompleteOverlay" unique_id=429490626]
+layout_mode = 2
+
+[node name="CompleteCard" type="PanelContainer" parent="CompleteOverlay/Center" unique_id=1673023740]
+custom_minimum_size = Vector2(760, 320)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_complete")
+
+[node name="CompletePad" type="MarginContainer" parent="CompleteOverlay/Center/CompleteCard" unique_id=385134520]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 22
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 22
+
+[node name="CompleteStack" type="VBoxContainer" parent="CompleteOverlay/Center/CompleteCard/CompletePad" unique_id=1008523567]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="CompleteTitleLabel" type="Label" parent="CompleteOverlay/Center/CompleteCard/CompletePad/CompleteStack" unique_id=411468096]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0vt03")
+theme_override_font_sizes/font_size = 34
+text = "线索整理已完成"
+horizontal_alignment = 1
+
+[node name="CompleteDescLabel" type="Label" parent="CompleteOverlay/Center/CompleteCard/CompletePad/CompleteStack" unique_id=310656770]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0vt03")
+theme_override_font_sizes/font_size = 24
+text = "四组对应全部正确，可以继续推进第三章。"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ContinueButton" type="Button" parent="CompleteOverlay/Center/CompleteCard/CompletePad/CompleteStack" unique_id=1781373225]
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0vt03")
+theme_override_font_sizes/font_size = 24
+text = "完成"

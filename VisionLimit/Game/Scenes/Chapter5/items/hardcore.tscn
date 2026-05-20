@@ -11,6 +11,7 @@ size = Vector2(9.232634, 111.20796)
 item_id = "3"
 item_name = "硬盘"
 detail_image = ExtResource("2_lejsi")
+description = "“2046-03”，那是我从神经护理机构离职在家待业的日子，那之后不久我就收到了晴野基金会的委托，请求我为一位重度紊乱患者进行三级托管治疗。现在，我知道了那位患者就是郑和平。"
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
 position = Vector2(1536, 875)

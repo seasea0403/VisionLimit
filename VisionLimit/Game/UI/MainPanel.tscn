@@ -47,6 +47,7 @@ grow_vertical = 2
 scale = Vector2(0.6, 0.6)
 stream = SubResource("AudioStreamMP3_emnnm")
 autoplay = true
+bus = &"BGM"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1041554935]
 layout_mode = 0

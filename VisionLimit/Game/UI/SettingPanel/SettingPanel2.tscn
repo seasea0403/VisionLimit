@@ -1,0 +1,252 @@
+[gd_scene format=3 uid="uid://dhh3v6jax3qd3"]
+
+[ext_resource type="Script" uid="uid://ocw20benbf24" path="res://Game/UI/SettingPanel/SettingPanel.gd" id="1_n84v3"]
+[ext_resource type="Texture2D" uid="uid://bwobghd2qjej3" path="res://Art/UI/Document/Setting/微信图片_20260515231051_3231_2323.png" id="2_n84v3"]
+[ext_resource type="Texture2D" uid="uid://ca2xjhpi5dmfp" path="res://Art/UI/Document/Setting/微信图片_20260515231033_3230_2323.png" id="3_xl4rd"]
+[ext_resource type="Texture2D" uid="uid://cycxqevvjrp2l" path="res://Art/UI/Document/Setting/Back.png" id="4_5hm2t"]
+[ext_resource type="FontFile" uid="uid://bjtrn41cebq4e" path="res://Font/CLFN 16x CN.ttf" id="5_i7e3j"]
+[ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="6_c546w"]
+[ext_resource type="Texture2D" uid="uid://ydf38q1uxcta" path="res://Art/UI/Document/Setting/屏幕截图 2026-05-16 055657.png" id="7_kcrm7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uis0w"]
+texture = ExtResource("4_5hm2t")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2mgqt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vqecu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2d2w"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="SettingPanel2" type="Control" unique_id=924061256]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n84v3")
+
+[node name="ImageWrap" type="Control" parent="." unique_id=690491334]
+anchors_preset = 0
+offset_left = 502.0
+offset_top = 392.0
+offset_right = 1436.0
+offset_bottom = 392.0
+size_flags_vertical = 0
+
+[node name="icon" type="TextureRect" parent="ImageWrap" unique_id=1364793017]
+z_index = 5
+layout_mode = 0
+offset_left = 35.0
+offset_top = 198.0
+offset_right = 525.0
+offset_bottom = 946.0
+scale = Vector2(0.2567544, 0.15328732)
+texture = ExtResource("2_n84v3")
+
+[node name="icon2" type="TextureRect" parent="ImageWrap" unique_id=1389169481]
+z_index = 5
+layout_mode = 0
+offset_left = 34.0
+offset_top = 7.9999995
+offset_right = 524.0
+offset_bottom = 756.0
+scale = Vector2(0.2977737, 0.17365168)
+texture = ExtResource("3_xl4rd")
+
+[node name="Center" type="CenterContainer" parent="." unique_id=75295186]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center" unique_id=1034712000]
+custom_minimum_size = Vector2(1260, 760)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_uis0w")
+
+[node name="Margin" type="MarginContainer" parent="Center/Panel" unique_id=2132605784]
+layout_mode = 2
+theme_override_constants/margin_left = 234
+theme_override_constants/margin_top = 105
+theme_override_constants/margin_right = 198
+theme_override_constants/margin_bottom = 101
+
+[node name="MainVBox" type="VBoxContainer" parent="Center/Panel/Margin" unique_id=150601672]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Header" type="PanelContainer" parent="Center/Panel/Margin/MainVBox" unique_id=517605385]
+custom_minimum_size = Vector2(0, 116)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2mgqt")
+
+[node name="HeaderMargin" type="MarginContainer" parent="Center/Panel/Margin/MainVBox/Header" unique_id=1287615488]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 14
+
+[node name="HeaderRow" type="HBoxContainer" parent="Center/Panel/Margin/MainVBox/Header/HeaderMargin" unique_id=1371375264]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TitleStack" type="VBoxContainer" parent="Center/Panel/Margin/MainVBox/Header/HeaderMargin/HeaderRow" unique_id=709771567]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="TitleLabel" type="Label" parent="Center/Panel/Margin/MainVBox/Header/HeaderMargin/HeaderRow/TitleStack" unique_id=604216084]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_i7e3j")
+theme_override_font_sizes/font_size = 56
+text = "设置"
+horizontal_alignment = 1
+
+[node name="Content" type="VBoxContainer" parent="Center/Panel/Margin/MainVBox" unique_id=1803739102]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="BgmSection" type="PanelContainer" parent="Center/Panel/Margin/MainVBox/Content" unique_id=1235034023]
+custom_minimum_size = Vector2(0, 168)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vqecu")
+
+[node name="BgmMargin" type="MarginContainer" parent="Center/Panel/Margin/MainVBox/Content/BgmSection" unique_id=1827761632]
+layout_mode = 2
+theme_override_constants/margin_left = 143
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 14
+
+[node name="BgmStack" type="VBoxContainer" parent="Center/Panel/Margin/MainVBox/Content/BgmSection/BgmMargin" unique_id=432647395]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="BgmTitle" type="Label" parent="Center/Panel/Margin/MainVBox/Content/BgmSection/BgmMargin/BgmStack" unique_id=1731796252]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_i7e3j")
+theme_override_font_sizes/font_size = 35
+text = "BGM音量"
+
+[node name="BgmDesc" type="Label" parent="Center/Panel/Margin/MainVBox/Content/BgmSection/BgmMargin/BgmStack" unique_id=1133889418]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_i7e3j")
+theme_override_font_sizes/font_size = 22
+text = "背景音乐，包括章节音乐、菜单音乐"
+
+[node name="ValueRow" type="HBoxContainer" parent="Center/Panel/Margin/MainVBox/Content/BgmSection/BgmMargin/BgmStack" unique_id=127269269]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="BgmSlider" type="HSlider" parent="Center/Panel/Margin/MainVBox/Content/BgmSection/BgmMargin/BgmStack/ValueRow" unique_id=1804186567]
+custom_minimum_size = Vector2(700, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 60.0
+
+[node name="SfxSection" type="PanelContainer" parent="Center/Panel/Margin/MainVBox/Content" unique_id=1159660198]
+custom_minimum_size = Vector2(0, 168)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p2d2w")
+
+[node name="SfxMargin" type="MarginContainer" parent="Center/Panel/Margin/MainVBox/Content/SfxSection" unique_id=779988902]
+layout_mode = 2
+theme_override_constants/margin_left = 135
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 14
+
+[node name="SfxStack" type="VBoxContainer" parent="Center/Panel/Margin/MainVBox/Content/SfxSection/SfxMargin" unique_id=1792196494]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SfxTitle" type="Label" parent="Center/Panel/Margin/MainVBox/Content/SfxSection/SfxMargin/SfxStack" unique_id=661193809]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_i7e3j")
+theme_override_font_sizes/font_size = 35
+text = "音效音量"
+
+[node name="SfxDesc" type="Label" parent="Center/Panel/Margin/MainVBox/Content/SfxSection/SfxMargin/SfxStack" unique_id=1540358961]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_i7e3j")
+theme_override_font_sizes/font_size = 22
+text = "点击、悬浮、解锁、提示等短音效"
+
+[node name="ValueRow" type="HBoxContainer" parent="Center/Panel/Margin/MainVBox/Content/SfxSection/SfxMargin/SfxStack" unique_id=209898641]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="SfxSlider" type="HSlider" parent="Center/Panel/Margin/MainVBox/Content/SfxSection/SfxMargin/SfxStack/ValueRow" unique_id=1628781779]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+value = 60.0
+
+[node name="FooterRow" type="HBoxContainer" parent="Center/Panel/Margin/MainVBox" unique_id=1598391801]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="StatusLabel" type="Label" parent="Center/Panel/Margin/MainVBox/FooterRow" unique_id=1371831704]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_i7e3j")
+theme_override_font_sizes/font_size = 20
+
+[node name="ResetButton2" parent="Center/Panel/Margin/MainVBox/FooterRow" unique_id=2074814427 instance=ExtResource("6_c546w")]
+position = Vector2(-4, -2)
+
+[node name="TextureButton" parent="Center/Panel/Margin/MainVBox/FooterRow/ResetButton2" index="0" unique_id=1367535632]
+offset_left = 514.0
+offset_top = -13.999996
+offset_right = 711.0
+offset_bottom = 85.0
+scale = Vector2(0.861479, 0.5164151)
+texture_normal = ExtResource("7_kcrm7")
+
+[node name="Label" parent="Center/Panel/Margin/MainVBox/FooterRow/ResetButton2/TextureButton" index="0" unique_id=1029178860]
+offset_left = 24.376633
+offset_top = 25.173508
+offset_right = 304.37665
+offset_bottom = 96.17351
+scale = Vector2(0.5043794, 0.71473247)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "恢复默认"
+horizontal_alignment = 1
+
+[node name="CloseButton2" parent="Center/Panel/Margin/MainVBox/FooterRow" unique_id=1310883494 instance=ExtResource("6_c546w")]
+position = Vector2(146, -18)
+
+[node name="TextureButton" parent="Center/Panel/Margin/MainVBox/FooterRow/CloseButton2" index="0" unique_id=1367535632]
+offset_left = 567.0
+offset_top = 3.8146973e-06
+offset_right = 764.0
+offset_bottom = 99.0
+scale = Vector2(0.861479, 0.5164151)
+texture_normal = ExtResource("7_kcrm7")
+
+[node name="Label" parent="Center/Panel/Margin/MainVBox/FooterRow/CloseButton2/TextureButton" index="0" unique_id=1029178860]
+offset_left = 24.376633
+offset_top = 25.173508
+offset_right = 304.37665
+offset_bottom = 96.17351
+scale = Vector2(0.5043794, 0.71473247)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "关闭"
+horizontal_alignment = 1
+
+[editable path="Center/Panel/Margin/MainVBox/FooterRow/ResetButton2"]
+[editable path="Center/Panel/Margin/MainVBox/FooterRow/CloseButton2"]

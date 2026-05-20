@@ -3,8 +3,6 @@ extends Control
 @onready var title_label: Label = $Center/PhonePanel/Margin/MainVBox/Header/HeaderPad/HeaderRow/TitleStack/TitleLabel
 @onready var subtitle_label: Label = $Center/PhonePanel/Margin/MainVBox/Header/HeaderPad/HeaderRow/TitleStack/SubtitleLabel
 @onready var progress_label: Label = $Center/PhonePanel/Margin/MainVBox/Header/HeaderPad/HeaderRow/ProgressLabel
-@onready var status_label: Label = $Center/PhonePanel/Margin/MainVBox/Footer/FooterPad/FooterRow/StatusLabel
-@onready var hint_label: Label = $Center/PhonePanel/Margin/MainVBox/Footer/FooterPad/FooterRow/HintLabel
 @onready var board_root: Control = $Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot
 @onready var columns_row: HBoxContainer = $Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow
 @onready var connection_layer: Control = $Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ConnectionLayer
@@ -23,7 +21,6 @@ extends Control
 
 @export var title_text: String = "沈意 · 拍照记录"
 @export var subtitle_text: String = "点击左侧物证，再点右侧观察项连线；连线可直接点击撤销"
-@export var footer_hint_text: String = "左侧物证 → 右侧观察。点选左侧后再点右侧即可连线。"
 @export var completion_title_text: String = "拍照记录已完成"
 @export var completion_desc_text: String = "四组对应全部正确，可以继续推进第三章。"
 @export var completion_chapter_index: int = 3
@@ -62,10 +59,9 @@ func _ready() -> void:
 	title_label.text = title_text
 	subtitle_label.text = subtitle_text
 	progress_label.text = "0 / %d" % expected_pairs.size()
-	status_label.text = ""
-	hint_label.text = footer_hint_text
 	complete_desc_label.text = completion_desc_text
 	complete_overlay.visible = false
+	complete_overlay.z_index = 10
 	connection_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	for card in _all_cards:
@@ -250,7 +246,6 @@ func _check_completion() -> void:
 			return
 
 	_completed = true
-	status_label.text = completion_title_text
 	complete_desc_label.text = completion_desc_text
 	complete_overlay.visible = true
 	if has_node("/root/GameStateManager"):
@@ -275,5 +270,5 @@ func _is_pair_correct(left_id: String, right_id: String) -> bool:
 	return false
 
 
-func _set_status(text: String) -> void:
-	status_label.text = text
+func _set_status(_text: String) -> void:
+	pass

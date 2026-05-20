@@ -13,7 +13,11 @@ extends Node2D
 @onready var hud_book_button = $UILayer/HudPanel/book/TextureButton
 
 var record_panel: Control
+var open_panels: Array[Control] = []
 
+func register_panel_open(panel: Control) -> void:
+	if panel not in open_panels:
+		open_panels.append(panel)
 
 func _ready():
 	# 可点击区域必须可见，否则 input_event 不会触发
@@ -57,6 +61,14 @@ func _setup_record_panel() -> void:
 
 # ==================== HUD 按钮处理 ====================
 func _on_hud_back_pressed() -> void:
+	# 优先级0：关闭已注册的自定义面板
+	for i in range(open_panels.size() - 1, -1, -1):
+		var panel = open_panels[i]
+		if is_instance_valid(panel) and panel.visible:
+			panel.hide()
+			open_panels.remove_at(i)
+			return
+
 	# 优先级1：关闭物品详情
 	if item_detail and item_detail.visible:
 		item_detail.close_detail()

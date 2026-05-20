@@ -9,6 +9,8 @@ extends Control
 
 ## 第二个 ItemDetail 的角色立绘（可在 Inspector 拖入）
 @export var character_image_2: Texture2D
+@export var character_scale_2: Vector2 = Vector2.ONE
+@export var character_offset_2: Vector2 = Vector2.ZERO
 
 # ==================== 节点引用 ====================
 @onready var close_button: Button = $CloseButton
@@ -34,7 +36,7 @@ func _on_close_pressed() -> void:
 		_item_detail.show_detail(
 			null, dialogue_text_2, dialogue_title_2, false, "",
 			Vector2.ONE, Vector2.ZERO, "", "", "", "",
-			character_image_2
+			character_image_2, character_scale_2, character_offset_2
 		)
 	else:
 		push_warning("[4.gd] 找不到 ItemDetail，直接结束章节")
@@ -49,4 +51,5 @@ func _on_second_item_detail_closed() -> void:
 
 func _finish_chapter() -> void:
 	GameStateManager.complete_chapter(1)
+	queue_free()  # 先移除自身，避免 4.tscn 在切换场景后残留
 	get_tree().change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")

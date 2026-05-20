@@ -7,6 +7,7 @@ var total_chapters: int = 7
 func _ready():
     # 添加为 Autoload，这样全局都能访问
     name = "GameStateManager"
+    load_progress()  # 恢复上次保存的解锁进度
 
 # 解锁下一章
 func unlock_next_chapter() -> void:
@@ -16,8 +17,9 @@ func unlock_next_chapter() -> void:
         save_progress()
 
 # 检查某章是否解锁
-func is_chapter_unlocked(chapter_index: int) -> bool:
-    return chapter_index <= current_unlocked_chapter
+func is_chapter_unlocked(_chapter_index: int) -> bool:
+    # 试玩版本：所有章节默认解锁
+    return true
 
 # 进入章节（完成后调用这个来解锁下一章）
 func complete_chapter(chapter_index: int) -> void:

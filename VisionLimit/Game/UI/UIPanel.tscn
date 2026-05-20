@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c0olsgh6hsiqb"]
+
+[ext_resource type="PackedScene" uid="uid://c2vn8toauv6ri" path="res://Game/UI/MainPanel.tscn" id="1_edrjw"]
+[ext_resource type="Script" uid="uid://dt2sk875wyslt" path="res://Game/UI/UIPanel.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://4ofvf6rdn6pg" path="res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn" id="2_4hc2j"]
+[ext_resource type="PackedScene" uid="uid://dhh3v6jax3qd3" path="res://Game/UI/SettingPanel/SettingPanel2.tscn" id="4_ybhlp"]
+
+[node name="UiPanel" type="Control" unique_id=950572267]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_main")
+
+[node name="MainPanel" parent="." unique_id=1774375941 instance=ExtResource("1_edrjw")]
+layout_mode = 1
+
+[node name="ChooseLevelPanel" parent="." unique_id=1388235762 instance=ExtResource("2_4hc2j")]
+layout_mode = 1
+offset_top = -5.0
+offset_bottom = -5.0
+
+[node name="SettingPanel" parent="." unique_id=924061256 instance=ExtResource("4_ybhlp")]
+layout_mode = 1
+
+[editable path="ChooseLevelPanel"]
+[editable path="ChooseLevelPanel/ScrollContainer/HBoxContainer/Level1"]
+[editable path="ChooseLevelPanel/ScrollContainer/HBoxContainer/Level1/Node2D2/chooselevel"]
+[editable path="ChooseLevelPanel/ScrollContainer/HBoxContainer/Level2"]
+[editable path="ChooseLevelPanel/ScrollContainer/HBoxContainer/Level2/Node2D2/chooselevel"]
+[editable path="ChooseLevelPanel/ScrollContainer/HBoxContainer/Level3"]
+[editable path="ChooseLevelPanel/ScrollContainer/HBoxContainer/Level3/Node2D2/chooselevel"]
+[editable path="ChooseLevelPanel/ScrollContainer/HBoxContainer/Level4"]
+[editable path="ChooseLevelPanel/ScrollContainer/HBoxContainer/Level4/Node2D2/chooselevel"]
+[editable path="ChooseLevelPanel/ScrollContainer/HBoxContainer/Level5"]
+[editable path="ChooseLevelPanel/ScrollContainer/HBoxContainer/Level5/Node2D2/chooselevel"]
+[editable path="ChooseLevelPanel/ScrollContainer/HBoxContainer/Level6"]
+[editable path="ChooseLevelPanel/ScrollContainer/HBoxContainer/Level6/Node2D2/chooselevel"]
+[editable path="ChooseLevelPanel/ScrollContainer/HBoxContainer/Level7"]
+[editable path="ChooseLevelPanel/ScrollContainer/HBoxContainer/Level7/Node2D2/chooselevel"]

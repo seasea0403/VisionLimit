@@ -119,6 +119,7 @@ text = ""
 [node name="click" type="AudioStreamPlayer2D" parent="." unique_id=1359093598]
 stream = SubResource("AudioStreamMP3_nsavy")
 volume_db = 18.0
+bus = &"SFX"
 
 [editable path="Control/PrevButton"]
 [editable path="Control/LaterButton"]

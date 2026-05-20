@@ -45,15 +45,15 @@ texture = ExtResource("3_6kpfn")
 
 [node name="Label" type="Label" parent="TextureRect" unique_id=1999553212]
 layout_mode = 0
-offset_left = 1323.964
-offset_top = 310.726
-offset_right = 1863.964
-offset_bottom = 371.726
+offset_left = 1302.8289
+offset_top = 310.72604
+offset_right = 1962.8289
+offset_bottom = 371.72604
 scale = Vector2(1.192149, 1.7220038)
 theme_override_colors/font_color = Color(0.029506557, 0.029506557, 0.029506557, 1)
 theme_override_fonts/font = ExtResource("7_d3iap")
 theme_override_font_sizes/font_size = 60
-text = "组合线索，完成推理"
+text = "拖动组合线索，完成推理"
 
 [node name="CluePool" type="HFlowContainer" parent="." unique_id=255571330]
 layout_mode = 0

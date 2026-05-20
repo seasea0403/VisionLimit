@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://d2fksn0gfp2fw"]
+
+[ext_resource type="FontFile" uid="uid://ccubhek2ht0u5" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-Medium.ttf" id="1_65of6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqjqi"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="LeadingPanel" type="Control" unique_id=1166542545]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Panel" type="Panel" parent="." unique_id=2117468472]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bqjqi")
+
+[node name="Label" type="RichTextLabel" parent="Panel" unique_id=785343054]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 363.0
+offset_right = 1852.0
+offset_bottom = 964.0
+theme_override_constants/line_separation = 13
+theme_override_constants/paragraph_separation = 29
+theme_override_fonts/normal_font = ExtResource("1_65of6")
+theme_override_font_sizes/normal_font_size = 50
+text = "二十一世纪中叶，人类完成了\"记忆数字化\"技术的商用化。
+这项技术的核心是一枚植入颅内的微型神经芯片，商品名海芯。海芯的功能是在大脑海马体旁侧开辟一片可读写的神经扩展区域，俗称记忆海。
+持有海芯的人，可以将任意外部数据以写入自己的记忆海，随时提取，永不退化。
+海芯的普及速度超过了所有人的预期。到2050年，全球海芯持有率在发达城市已超过70%。它改变了教育、医疗、法律、工程，几乎每一个需要记忆和调用信息的行业都被重构。"
+scroll_active = false

@@ -43,3 +43,5 @@ scale = Vector2(1.2254158, 1.2542483)
 
 [node name="BackButton" parent="." unique_id=1659967677 instance=ExtResource("8_back")]
 position = Vector2(8, -10)
+
+[editable path="button/UI2"]

@@ -7,4 +7,7 @@
 [node name="TextureButton" parent="Node2D2/chooselevel" parent_id_path=PackedInt32Array(2074814427) index="0" unique_id=1367535632]
 chapter_index = 6
 
+[node name="title" parent="Node2D2/Node2D" parent_id_path=PackedInt32Array(993991288) index="1" unique_id=21943005]
+text = "7.抉择"
+
 [editable path="Node2D2/chooselevel"]

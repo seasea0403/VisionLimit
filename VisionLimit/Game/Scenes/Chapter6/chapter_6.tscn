@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bpp8v187shnyo" path="res://Art/Scenes/Scene6/Elements/back.png" id="5_paoyu"]
 [ext_resource type="Texture2D" uid="uid://blt3360v674vp" path="res://Art/Scenes/Scene6/Elements/map.png" id="6_i5lbi"]
 [ext_resource type="PackedScene" uid="uid://bfsmdyaqcd2ws" path="res://Game/Scenes/Chapter6/items/keyboard.tscn" id="6_i22gp"]
+[ext_resource type="Texture2D" uid="uid://kitay7qiyqao" path="res://Art/Character/沈意叹气.png" id="7_5ebmf"]
 [ext_resource type="PackedScene" uid="uid://dngdv8nbhgmfa" path="res://Game/Scenes/Chapter6/items/cup.tscn" id="8_dnamj"]
 [ext_resource type="PackedScene" uid="uid://51pbtbvgrs3s" path="res://Game/Scenes/Chapter6/items/hardcore.tscn" id="10_e5o1m"]
 
@@ -24,10 +25,14 @@ texture = ExtResource("2_ylfvo")
 [node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="0" unique_id=552734023]
 visible = false
 
+[node name="click" parent="UILayer/ItemDetail" index="2" unique_id=1359093598]
+bus = &"Master"
+
 [node name="SceneBgm" parent="." index="3" unique_id=996875468]
 stream = SubResource("AudioStreamMP3_15vni")
 volume_db = 4.502
 autoplay = true
+bus = &"Master"
 
 [node name="items" type="Node2D" parent="." index="4" unique_id=1835867741]
 
@@ -46,6 +51,8 @@ texture = null
 item_name = "化验报告"
 detail_image = ExtResource("4_3c8dh")
 description = "这份 C-03 海域汞含量超标的检测结果，是郑和平写进记忆海中的固化记忆，这或许就是该片区鱼类价格大幅下跌的缘由。"
+character_image = ExtResource("7_5ebmf")
+character_offset = Vector2(-750, 40)
 
 [node name="CollisionShape2D" parent="items/Note" index="0" unique_id=398543410]
 position = Vector2(1560.5625, 563.5)

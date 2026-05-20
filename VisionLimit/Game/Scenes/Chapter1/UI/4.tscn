@@ -8,6 +8,9 @@
 [ext_resource type="StyleBox" uid="uid://cbagne1a0b20q" path="res://Style/password.tres" id="5_gwikv"]
 
 [sub_resource type="FontFile" id="FontFile_kpijd"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -29,6 +32,9 @@ cache/0/40/0/underline_thickness = 0.0
 cache/0/40/0/scale = 1.0
 
 [sub_resource type="FontFile" id="FontFile_i48lh"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -74,8 +80,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("0_4gd")
-dialogue_text_2 = ""
+dialogue_text_2 = "郑和平...又是郑和平...也许我该去看看到底是怎么回事。"
+dialogue_title_2 = ""
 character_image_2 = ExtResource("2_kpijd")
+character_offset_2 = Vector2(-790, 0)
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=858687257]
 layout_mode = 0

@@ -4,41 +4,23 @@ extends TextureButton
 @export var chapter_index: int = 1
 
 func _ready():
-	print("✓ TextureButton ready!")
-	print("  scene_path: %s" % scene_path)
-	print("  chapter_index: %d" % chapter_index)
-	print("  GameStateManager exists: %s" % (GameStateManager != null))
-	
 	pressed.connect(_on_pressed)
 	update_button_state()
 
 func update_button_state():
 	if GameStateManager == null:
-		print("✗ GameStateManager is NULL!")
-		disabled = false  # 暂时启用按钮以便测试跳转
-		modulate = Color.WHITE
+		disabled = false
 		return
-	
+
 	var is_unlocked = GameStateManager.is_chapter_unlocked(chapter_index)
-	print("✓ Chapter %d unlocked: %s" % [chapter_index, is_unlocked])
-	
 	disabled = !is_unlocked
-	modulate = Color.WHITE if is_unlocked else Color(0.035, 0.035, 0.035, 1.0)
+	# 通过 Node2D2（包含所有视觉元素）统一控制整张卡片的外观，
+	# 避免与 UIbutton.gd 对 TextureButton.modulate 的管理冲突
+	var visual_root = get_parent().get_parent()  # Node2D2
+	if visual_root:
+		visual_root.modulate = Color.WHITE if is_unlocked else Color(0.5, 0.5, 0.5, 1.0)
 
 func _on_pressed():
-	print("━━━ BUTTON PRESSED ━━━")
-	print("scene_path: '%s'" % scene_path)
-	print("disabled: %s" % disabled)
-	print("scene_path empty: %s" % (scene_path == ""))
-	
-	if scene_path == "":
-		print("✗ ERROR: scene_path is empty!")
+	if scene_path == "" or disabled:
 		return
-	
-	if disabled:
-		print("✗ Button is disabled")
-		return
-	
-	print("✓ Attempting to change scene to: %s" % scene_path)
-	var error = get_tree().change_scene_to_file(scene_path)
-	print("Scene change result: %d (0 = OK)" % error)
+	get_tree().change_scene_to_file(scene_path)
