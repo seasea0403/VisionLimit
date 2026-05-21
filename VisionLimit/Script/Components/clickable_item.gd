@@ -56,6 +56,9 @@ func _ready() -> void:
 # ==================== 信号处理 ====================
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		# 对话激活时屏蔽穿透点击（Area2D 不会被 UI 层拦截）
+		if DialogueManager.is_active:
+			return
 		get_viewport().set_input_as_handled()
 		print("\n=== ClickableItem 被点击 ===")
 		print("物品名称: ", item_name)

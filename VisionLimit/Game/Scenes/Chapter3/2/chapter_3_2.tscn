@@ -3,8 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_1e2qu"]
 [ext_resource type="Texture2D" uid="uid://bwu7fy36n2utc" path="res://Art/Scenes/Scene3/Background/Background3-2.png" id="2_rhku6"]
 [ext_resource type="PackedScene" uid="uid://c44a1x1pvt15y" path="res://Game/Scenes/Chapter3/2/ClickableArea/ClickableArea_Box.tscn" id="3_0qacq"]
+[ext_resource type="PackedScene" uid="uid://drqdemmbxx0ti" path="res://Game/Scenes/Chapter2/items/魏江.tscn" id="3_76e6x"]
 [ext_resource type="PackedScene" uid="uid://ccp5mfhfncfts" path="res://Game/UI/RecordPanel/RecordPanel.tscn" id="3_dbqq3"]
-[ext_resource type="PackedScene" uid="uid://bmbblbqlhqwlt" path="res://Game/Scenes/Chapter3/UI/2.tscn" id="4_4uax0"]
+[ext_resource type="Texture2D" uid="uid://djecu5okialbk" path="res://Art/Character/魏江.png" id="4_bkwby"]
 [ext_resource type="PackedScene" uid="uid://cl30wb1tyjc4m" path="res://Game/Scenes/Chapter3/2/ClickableArea/ClickableArea_Cylinder.tscn" id="4_q5k2v"]
 [ext_resource type="PackedScene" uid="uid://xahd66ggwcuj" path="res://Game/Scenes/Chapter3/2/ClickableArea/ClickableArea_PriceBoard.tscn" id="5_xkr2t"]
 [ext_resource type="Texture2D" uid="uid://kitay7qiyqao" path="res://Art/Character/沈意叹气.png" id="6_38jul"]
@@ -13,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ca3kcyesg7wga" path="res://Art/Character/魏江抱胸思考.png" id="8_4uax0"]
 [ext_resource type="PackedScene" uid="uid://hmjmbulogsnl" path="res://Game/Scenes/Chapter3/2/items/yancong.tscn" id="9_4h13x"]
 [ext_resource type="Texture2D" uid="uid://c2e2st2dfigg0" path="res://Art/Character/沈意生气.png" id="10_76e6x"]
+[ext_resource type="Script" uid="uid://bk17pjhwpgyy" path="res://Script/Chapters/chapter_3_2.gd" id="99_ch32s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_473h4"]
 size = Vector2(11.368799, 4.1038446)
@@ -34,22 +36,41 @@ data = PackedByteArray("//vQRAAABSJ8OkUlAAKoTSdmpjAAWOonDzmKAANQQaMzMwAABgAAAhWj
 loop = true
 
 [node name="Chapter3-2" unique_id=1917343286 instance=ExtResource("1_1e2qu")]
+script = ExtResource("99_ch32s")
 
 [node name="Background" parent="." index="0" unique_id=2106778844]
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_rhku6")
 
+[node name="魏江" parent="Background" index="0" unique_id=223355110 instance=ExtResource("3_76e6x")]
+position = Vector2(1461.6666, -413.3333)
+rotation = 3.141988
+scale = Vector2(1.0948095, -0.9199659)
+item_id = "1"
+item_name = ""
+detail_image = null
+description = "苍屿症的患者大多集中在码头一带，我怀疑和海域污染有关，四处搜寻一下，看看能否找到有用的线索。"
+character_image = ExtResource("4_bkwby")
+
 [node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="0" unique_id=552734023]
 visible = false
+
+[node name="DarkBackground" parent="UILayer/ItemDetail" index="0" unique_id=1174300489]
+layout_mode = 0
+
+[node name="Control" parent="UILayer/ItemDetail" index="1" unique_id=327138164]
+layout_mode = 0
 
 [node name="click" parent="UILayer/ItemDetail" index="2" unique_id=1359093598]
 bus = &"Master"
 
 [node name="RecordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1173323693 instance=ExtResource("3_dbqq3")]
+visible = false
 
-[node name="2" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="3" unique_id=180244854 instance=ExtResource("4_4uax0")]
+[node name="ZoomViews" parent="." index="2" unique_id=395467288]
+visible = false
 
-[node name="ClickableArea_Box" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=1094917011 instance=ExtResource("3_0qacq")]
+[node name="ClickableArea_Box" parent="ZoomViews" index="0" unique_id=1094917011 instance=ExtResource("3_0qacq")]
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Box" index="0" unique_id=55883732]
 position = Vector2(801, 804.8519)
@@ -63,7 +84,7 @@ record_entry_description = "苍屿渔业管理局于2020年推行渔获溯源标
 record_entry_title_2 = "出入港公示制度"
 record_entry_description_2 = "根据苍屿县港口管理条例，所有在册渔船须在返港前6小时通过海事信息平台提交归港申报，码头管理处据此更新泊位状态公示。公示信息具有一定法律效力，可作为渔船作业时段的参考依据。泊位公示与溯源标签之间的时间差异，理论上不应超过归港申报的合理误差范围。"
 
-[node name="ClickableArea_Cylinder" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=808617709 instance=ExtResource("4_q5k2v")]
+[node name="ClickableArea_Cylinder" parent="ZoomViews" index="1" unique_id=808617709 instance=ExtResource("4_q5k2v")]
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Cylinder" index="0" unique_id=55883732]
 position = Vector2(608.88727, 912.10187)
@@ -73,12 +94,13 @@ shape = SubResource("RectangleShape2D_ktcxn")
 visible = false
 
 [node name="book" parent="ZoomViews/ClickableArea_Cylinder/Zoomview_cylinder/Items" parent_id_path=PackedInt32Array(808617709, 198920514, 1759582505) index="0" unique_id=223355110]
+item_id = "6"
 detail_image_scale = Vector2(1.5, 1.5)
 detail_image_offset = Vector2(-100, -200)
 description = "他的问号画得很用力，纸背面都有压痕。我能感受到他的心情。"
 character_image = ExtResource("6_38jul")
 
-[node name="ClickableArea_priceboard" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="2" unique_id=1327683716 instance=ExtResource("5_xkr2t")]
+[node name="ClickableArea_priceboard" parent="ZoomViews" index="2" unique_id=1327683716 instance=ExtResource("5_xkr2t")]
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_priceboard" index="0" unique_id=55883732]
 position = Vector2(1464.1348, 500.87405)
@@ -93,7 +115,7 @@ detail_character_image = ExtResource("8_4uax0")
 [node name="note" parent="ZoomViews/ClickableArea_priceboard/Zoomview_priceboard/Items" parent_id_path=PackedInt32Array(1327683716, 198920514, 1759582505) index="0" unique_id=223355110]
 description = "对C-03海域的鱼产有额外描述。"
 
-[node name="ClickableArea_information" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="3" unique_id=824796188 instance=ExtResource("6_dbqq3")]
+[node name="ClickableArea_information" parent="ZoomViews" index="3" unique_id=824796188 instance=ExtResource("6_dbqq3")]
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_information" index="0" unique_id=55883732]
 position = Vector2(1850.8955, 525.47125)
@@ -103,7 +125,7 @@ shape = SubResource("RectangleShape2D_rhku6")
 detail_title = ""
 detail_character_image = ExtResource("10_76e6x")
 
-[node name="ClickableArea_priceboard2" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="4" unique_id=676050068 instance=ExtResource("7_4h13x")]
+[node name="ClickableArea_priceboard2" parent="ZoomViews" index="4" unique_id=676050068 instance=ExtResource("7_4h13x")]
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_priceboard2" index="0" unique_id=55883732]
 position = Vector2(897.7996, 645.13116)

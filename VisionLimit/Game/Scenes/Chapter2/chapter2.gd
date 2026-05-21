@@ -93,11 +93,13 @@ func _on_exit_dialogue_finished() -> void:
 # ==================== 拼图完成 ====================
 func _on_puzzle_solved_handler() -> void:
 	_state = State.ENDING
+	# 合成面板保持两秒后再关闭
+	await get_tree().create_timer(2.0).timeout
 	_puzzle_ui.hide()
 	DialogueManager.dialogue_finished.connect(_on_ending_finished, CONNECT_ONE_SHOT)
 	DialogueManager.start_dialogue(Ch2Ending.DATA, "start")
 
-# ==================== 结局：进入第三章 ====================
+# ==================== 结局：解锁第三章并返回关卡选择 ====================
 func _on_ending_finished() -> void:
 	GameStateManager.complete_chapter(2)
-	get_tree().change_scene_to_file("res://Game/Scenes/Chapter3/1/chapter_3_1.tscn")
+	get_tree().change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")

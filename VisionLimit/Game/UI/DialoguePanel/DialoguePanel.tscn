@@ -18,10 +18,10 @@ layer = 10
 script = ExtResource("1_dp")
 
 [node name="Background" type="TextureRect" parent="." unique_id=53100359]
-offset_left = -3.0
-offset_top = 711.0
+offset_left = -3.0000002
+offset_top = 725.0
 offset_right = 3303.6921
-offset_bottom = 1149.9304
+offset_bottom = 1163.9304
 scale = Vector2(0.60271716, 0.8237867)
 texture = ExtResource("2_k2pvo")
 
@@ -32,31 +32,6 @@ offset_top = 778.1141
 offset_right = 1316.1229
 offset_bottom = 830.1141
 theme_override_font_sizes/font_size = 32
-
-[node name="DialogueText" type="RichTextLabel" parent="Background" unique_id=2003764996]
-layout_mode = 0
-offset_left = 715.095
-offset_top = 126.24628
-offset_right = 2264.433
-offset_bottom = 415.13202
-scale = Vector2(1.34074, 0.9034365)
-theme_override_colors/default_color = Color(0.0023445897, 0.00234459, 0.00234459, 1)
-theme_override_font_sizes/normal_font_size = 55
-text = "靠靠靠靠靠靠靠靠靠靠靠靠靠靠靠靠靠靠靠"
-scroll_active = false
-
-[node name="ContinueButton" type="Button" parent="Background" unique_id=762432066]
-layout_mode = 0
-offset_left = -16.591532
-offset_top = 49.770203
-offset_right = 5883.357
-offset_bottom = 706.49365
-theme_override_colors/font_color = Color(0.3830202, 0, 0.036927573, 1)
-theme_override_font_sizes/font_size = 55
-theme_override_styles/normal = SubResource("StyleBoxFlat_k2pvo")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_v8f45")
-theme_override_styles/hover = SubResource("StyleBoxFlat_vblxp")
-text = "继续 ▶"
 
 [node name="ChoicesContainer" type="VBoxContainer" parent="Background" unique_id=899369198]
 layout_mode = 0
@@ -75,3 +50,26 @@ offset_bottom = 1812.0
 scale = Vector2(-1.1552582, 1.1109084)
 texture = ExtResource("3_k2pvo")
 stretch_mode = 5
+
+[node name="DialogueText" type="RichTextLabel" parent="." unique_id=2003764996]
+offset_left = 438.0
+offset_top = 832.0
+offset_right = 1954.2734
+offset_bottom = 1120.8857
+scale = Vector2(0.9107856, 0.81617427)
+theme_override_colors/default_color = Color(0.0023445897, 0.00234459, 0.00234459, 1)
+theme_override_font_sizes/normal_font_size = 55
+text = "靠靠靠靠靠靠靠靠靠靠靠靠靠靠靠靠靠靠靠"
+scroll_active = false
+
+[node name="ContinueButton" type="Button" parent="." unique_id=762432066]
+offset_left = 419.0
+offset_top = 734.0
+offset_right = 2950.0
+offset_bottom = 1342.7234
+theme_override_colors/font_color = Color(0.3830202, 0, 0.036927573, 1)
+theme_override_font_sizes/font_size = 55
+theme_override_styles/normal = SubResource("StyleBoxFlat_k2pvo")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v8f45")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vblxp")
+text = "继续 ▶"

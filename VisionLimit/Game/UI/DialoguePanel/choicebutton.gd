@@ -29,6 +29,10 @@ func _ready() -> void:
 	_sync_button_textures()
 	_connect_button_signals()
 	_update_button_visual()
+	# 若 disabled 在 add_child 之前被设置，此时 @onready 尚未就绪导致 setter 失效，
+	# 在 _ready 末尾重新同步一次，确保 TextureButton 真正被禁用
+	if disabled:
+		texture_button.disabled = true
 
 
 func setup(btn_text: String) -> void:

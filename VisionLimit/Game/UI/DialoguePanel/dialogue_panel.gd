@@ -4,8 +4,8 @@ extends CanvasLayer
 signal advance_requested(next_id: String, record_key: String, record_value: String)
 
 @onready var speaker_name: Label = $Background/SpeakerName
-@onready var dialogue_text: RichTextLabel = $Background/DialogueText
-@onready var continue_button: Button = $Background/ContinueButton
+@onready var dialogue_text: RichTextLabel = $DialogueText
+@onready var continue_button: Button = $ContinueButton
 @onready var choices_container: VBoxContainer = $Background/ChoicesContainer
 @onready var portrait_rect: TextureRect = $PortraitRect
 

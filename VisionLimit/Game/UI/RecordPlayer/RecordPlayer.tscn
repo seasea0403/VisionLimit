@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b6cvk48j5ld3w"]
 
-[ext_resource type="Script" path="res://Game/UI/RecordPlayer/record_player.gd" id="1_rp"]
+[ext_resource type="Script" uid="uid://0e0yueeev487" path="res://Game/UI/RecordPlayer/record_player.gd" id="1_rp"]
 [ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="2_back"]
 [ext_resource type="FontFile" uid="uid://bjtrn41cebq4e" path="res://Font/CLFN 16x CN.ttf" id="3_font"]
 
-[node name="RecordPlayer" type="Control"]
+[node name="RecordPlayer" type="Control" unique_id=45803539]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,41 +13,41 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rp")
 
-[node name="DarkBG" type="ColorRect" parent="."]
-layout_mode = 3
+[node name="DarkBG" type="ColorRect" parent="." unique_id=944637692]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0.78)
-mouse_filter = 0
 
-[node name="Panel" type="Control" parent="."]
-layout_mode = 0
+[node name="Panel" type="Control" parent="." unique_id=531028693]
+anchors_preset = 0
 offset_left = 480.0
 offset_top = 270.0
 offset_right = 1440.0
 offset_bottom = 810.0
 
-[node name="TitleLabel" type="Label" parent="Panel"]
+[node name="TitleLabel" type="Label" parent="Panel" unique_id=901239397]
 layout_mode = 0
-offset_left = 0.0
 offset_top = 20.0
 offset_right = 960.0
 offset_bottom = 72.0
 theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 38
-horizontal_alignment = 1
 text = "[ 录  音 ]"
+horizontal_alignment = 1
 
-[node name="BarsContainer" type="Control" parent="Panel"]
-layout_mode = 0
-offset_left = 174.0
-offset_top = 95.0
-offset_right = 786.0
-offset_bottom = 215.0
+[node name="BarsContainer" type="Control" parent="Panel" unique_id=719408591]
 custom_minimum_size = Vector2(0, 120)
+anchors_preset = 0
+offset_left = 287.0
+offset_top = 91.0
+offset_right = 899.0
+offset_bottom = 211.0
 
-[node name="SubtitleLabel" type="Label" parent="Panel"]
+[node name="SubtitleLabel" type="Label" parent="Panel" unique_id=596719305]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 235.0
@@ -57,7 +57,6 @@ theme_override_fonts/font = ExtResource("3_font")
 theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
 autowrap_mode = 3
-text = ""
 
-[node name="back" parent="Panel" instance=ExtResource("2_back")]
-position = Vector2(820.0, 395.0)
+[node name="back" parent="Panel" unique_id=1147381430 instance=ExtResource("2_back")]
+position = Vector2(-471, -267)

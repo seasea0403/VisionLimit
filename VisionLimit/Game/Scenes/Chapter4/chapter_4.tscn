@@ -2,11 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_ohnbs"]
 [ext_resource type="Texture2D" uid="uid://ngrh0r28isy0" path="res://Art/Scenes/Scene4/Background/Background4.png" id="2_lqic1"]
+[ext_resource type="PackedScene" uid="uid://drqdemmbxx0ti" path="res://Game/Scenes/Chapter2/items/魏江.tscn" id="3_q3pv0"]
 [ext_resource type="PackedScene" uid="uid://brpg4pj2q8thh" path="res://Game/Scenes/Chapter4/ClickableArea/ClickableArea_paper.tscn" id="3_qnvrk"]
 [ext_resource type="PackedScene" uid="uid://xctyue1xc2e6" path="res://Game/Scenes/Chapter4/ClickableArea/ClickableArea_desk.tscn" id="4_0r2fq"]
+[ext_resource type="Texture2D" uid="uid://djecu5okialbk" path="res://Art/Character/魏江.png" id="4_jvqod"]
 [ext_resource type="PackedScene" uid="uid://cglfrdwrknfgq" path="res://Game/Scenes/Chapter4/items/proof1.tscn" id="4_lhu06"]
 [ext_resource type="PackedScene" uid="uid://dhogimy85xi54" path="res://Game/Scenes/Chapter4/ClickableArea/ClickableArea_drawer.tscn" id="5_0r2fq"]
 [ext_resource type="PackedScene" uid="uid://bvypp8ptqxojt" path="res://Game/Scenes/Chapter4/items/proof2.tscn" id="5_whla1"]
+[ext_resource type="Script" path="res://Script/Chapters/chapter_4.gd" id="6_ch4sc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgmff"]
 size = Vector2(24.267735, 7.536969)
@@ -19,22 +22,39 @@ data = PackedByteArray("//vQRAAH9TZ9NYDJNgKmj8awGEagVnXy4qSZM4qivtyAYyc5x2IZvu4Q
 loop = true
 
 [node name="Chapter4" unique_id=1917343286 instance=ExtResource("1_ohnbs")]
+script = ExtResource("6_ch4sc")
 
 [node name="Background" parent="." index="0" unique_id=2106778844]
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_lqic1")
 
-[node name="PageIndicator" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="6" unique_id=111222335]
+[node name="魏江" parent="Background" index="0" unique_id=223355110 instance=ExtResource("3_q3pv0")]
+position = Vector2(-818.3333, -418.3333)
+rotation = 3.141988
+scale = Vector2(-1.3821031, -1.218466)
+item_id = "1"
+item_name = ""
+detail_image = null
+description = "苍屿县环境保护局主要负责苍屿海域与森林的环境监测，统筹资源开发及污水治理工作，这里是海域分管人员的办公室。时间紧迫，我们尽快完成信息搜集。"
+character_image = ExtResource("4_jvqod")
+
+[node name="DarkBackground" parent="UILayer/ItemDetail" parent_id_path=PackedInt32Array(552734023) index="0" unique_id=1174300489]
+layout_mode = 0
+
+[node name="Control" parent="UILayer/ItemDetail" parent_id_path=PackedInt32Array(552734023) index="1" unique_id=327138164]
+layout_mode = 0
+
+[node name="PageIndicator" parent="UILayer/ItemDetail/Control" index="6" unique_id=111222335]
 visible = true
 offset_left = 823.0
 offset_top = 35.0
 offset_right = 1103.0
 offset_bottom = 77.0
 
-[node name="PrevButton" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="7" unique_id=1215963410]
+[node name="PrevButton" parent="UILayer/ItemDetail/Control" index="7" unique_id=1215963410]
 position = Vector2(97, 0)
 
-[node name="LaterButton" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="8" unique_id=1536310642]
+[node name="LaterButton" parent="UILayer/ItemDetail/Control" index="8" unique_id=1536310642]
 position = Vector2(1070, 0)
 
 [node name="ZoomViews" parent="." index="2" unique_id=395467288]

@@ -8,6 +8,10 @@ const PANEL_SCENE_PATH := "res://Game/UI/DialoguePanel/DialoguePanel.tscn"
 var _panel: Node = null
 var _dialogue_nodes: Dictionary = {}
 
+## 当前是否有对话框正在显示（供 ClickableArea/Item/Video 屏蔽穿透点击用）
+var is_active: bool:
+	get: return is_instance_valid(_panel) and _panel.visible
+
 
 func start_dialogue(dialogue_data: Dictionary, start_id: String = "start") -> void:
 	"""从任意脚本调用，传入对话数据字典和起始节点 ID"""
@@ -27,6 +31,12 @@ func advance(next_id: String, record_key: String = "", record_value: String = ""
 	"""由 DialoguePanel 内部按钮调用，推进到下一个节点"""
 	if record_key != "":
 		GameStateManager.set_record(record_key, record_value)
+
+	# "__exit__" 表示玩家选择退出对话继续探索，仅关闭面板，不发 dialogue_finished 信号
+	if next_id == "__exit__":
+		if is_instance_valid(_panel):
+			_panel.hide()
+		return
 
 	if next_id == "" or not _dialogue_nodes.has(next_id):
 		_end_dialogue()

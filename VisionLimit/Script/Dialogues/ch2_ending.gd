@@ -23,19 +23,25 @@ const DATA: Dictionary = {
 		"text": "我们要去苍屿实地看一趟。出发之前，我想先问你一件事。\n\n如果有一天郑和平醒过来，发现是你删掉了她攒了四年的那些东西，你觉得她会怎么看你？",
 		"choices": [
 			{
-				"text": "矛盾：她会理解，但她不会原谅我。这两件事可以同时成立。",
+				"text": "矛盾",
+				"response": "她会理解，但她不会原谅我。这两件事可以同时成立。",
+				"response_portrait": "res://Art/Character/沈意叹气.png",
 				"record_key": "ch2_shenyi_choice",
 				"record_value": "A",
 				"next": "",
 			},
 			{
-				"text": "回避：我没办法替她回答这个问题。",
+				"text": "回避",
+				"response": "我没办法替她回答这个问题。",
+				"response_portrait": "res://Art/Character/沈意叹气.png",
 				"record_key": "ch2_shenyi_choice",
 				"record_value": "B",
 				"next": "",
 			},
 			{
-				"text": "重点：这不重要了。重要的是我们现在还能做什么。",
+				"text": "重点",
+				"response": "这不重要了。重要的是我们现在还能做什么。",
+				"response_portrait": "res://Art/Character/沈意常规.png",
 				"record_key": "ch2_shenyi_choice",
 				"record_value": "C",
 				"next": "",

@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_rh8gv"]
+[ext_resource type="Texture2D" uid="uid://d22r6v5tthnwx" path="res://Art/Scenes/Scene2/Elements/Voice.png" id="2_uicdf"]
+[ext_resource type="Texture2D" uid="uid://dn7ykqxyfpnvd" path="res://Art/Character/人物立绘/魏江.png" id="3_h4h6u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_er5vu"]
+size = Vector2(105.78665, 47.91004)
+
+[node name="Voice" unique_id=223355110 instance=ExtResource("1_rh8gv")]
+item_name = "录音笔"
+detail_image = ExtResource("2_uicdf")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(932.05646, 570.82166)
+rotation = 1.5591042
+scale = Vector2(9.562998, -7.22137)
+shape = SubResource("RectangleShape2D_er5vu")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+texture = ExtResource("3_h4h6u")

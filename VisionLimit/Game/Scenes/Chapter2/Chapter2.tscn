@@ -72,6 +72,7 @@ correct_password = "0804"
 
 [node name="RecordAudio" type="AudioStreamPlayer2D" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="5" unique_id=1972076221]
 stream = ExtResource("8_68ddi")
+volume_db = 23.637
 
 [node name="ClickableArea_Paper" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("3_1aq8v")]
 
