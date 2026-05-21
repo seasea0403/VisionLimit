@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://ca3kcyesg7wga" path="res://Art/Character/魏江抱胸思考.png" id="7_h3pkn"]
 [ext_resource type="PackedScene" uid="uid://drqdemmbxx0ti" path="res://Game/Scenes/Chapter2/items/魏江.tscn" id="7_mchdh"]
 [ext_resource type="AudioStream" uid="uid://bymr026y04kps" path="res://Audio/录音.mp3" id="8_68ddi"]
+[ext_resource type="Script" uid="uid://be0rryr333e51" path="res://Game/Scenes/Chapter2/chapter2.gd" id="9_ch2gd"]
 [ext_resource type="Texture2D" uid="uid://n57qn72imbot" path="res://Art/Character/魏江张手.png" id="9_d3jqh"]
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_mchdh"]
@@ -20,6 +21,7 @@ data = PackedByteArray("//vURAAABDxxqcniRzKLzbUmJGnkVBHQ3PTEgAK1OhrmnpAAAAAI2FOx
 loop = true
 
 [node name="Chapter2" unique_id=1917343286 instance=ExtResource("1_82wsi")]
+script = ExtResource("9_ch2gd")
 
 [node name="Background" parent="." index="0" unique_id=2106778844]
 scale = Vector2(0.6, 0.6)
@@ -66,7 +68,7 @@ offset_top = 138.0
 offset_right = 505.0
 offset_bottom = 228.0
 scale = Vector2(1.1771045, 1.1771045)
-correct_password = "0807"
+correct_password = "0804"
 
 [node name="RecordAudio" type="AudioStreamPlayer2D" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="5" unique_id=1972076221]
 stream = ExtResource("8_68ddi")

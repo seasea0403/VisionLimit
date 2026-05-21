@@ -1,5 +1,8 @@
 extends Control
 
+## 所有线索组合完成时发出，由 chapter2.gd 监听以触发最终对话
+signal puzzle_solved
+
 # ==================== 节点引用 ====================
 @onready var clue_pool: Control = $CluePool
 @onready var slot_a: Panel = $WorkArea/SlotA
@@ -185,5 +188,4 @@ func _record_question(question: String) -> void:
 
 # ==================== 通关 ====================
 func _on_puzzle_solved() -> void:
-	# TODO: 连接游戏进度系统，如 GameStateManager.unlock_chapter(3)
-	print("[Chapter2] 所有推理完成，谜题解决！")
+	puzzle_solved.emit()
