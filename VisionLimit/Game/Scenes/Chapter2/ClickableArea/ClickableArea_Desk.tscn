@@ -2,6 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Template/Scene/ClickableArea.tscn" id="1_qams2"]
 [ext_resource type="PackedScene" uid="uid://da0wfbu0i4wx0" path="res://Game/Scenes/Chapter2/zoomview/zoomview_desk.tscn" id="2_0ri17"]
+[ext_resource type="PackedScene" uid="uid://dvmc8et1c5qnh" path="res://Game/Scenes/Chapter2/ClickableArea/ClickableArea_Computer.tscn" id="3_rs8gp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yu5qc"]
+size = Vector2(26.6039, 18.235703)
 
 [node name="ClickableArea_Desk" unique_id=676050068 instance=ExtResource("1_qams2")]
 
@@ -10,4 +14,14 @@ position = Vector2(987.49994, 605.5)
 
 [node name="Zoomview_Desk" parent="." index="1" unique_id=198920514 instance=ExtResource("2_0ri17")]
 
+[node name="ClickableArea_Computer" parent="Zoomview_Desk" index="2" unique_id=714400689 instance=ExtResource("3_rs8gp")]
+
+[node name="CollisionShape2D" parent="Zoomview_Desk/ClickableArea_Computer" index="0" unique_id=55883732]
+position = Vector2(393, 261.00003)
+shape = SubResource("RectangleShape2D_yu5qc")
+
+[node name="Zoomview_Computer" parent="Zoomview_Desk/ClickableArea_Computer" index="1" unique_id=198920514]
+visible = false
+
 [editable path="Zoomview_Desk"]
+[editable path="Zoomview_Desk/ClickableArea_Computer"]

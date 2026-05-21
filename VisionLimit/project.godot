@@ -19,6 +19,7 @@ run/custom_font=""
 [autoload]
 
 GameStateManager="*uid://dxarl5klv6pxj"
+DialogueManager="*res://Script/Autoloads/DialogueManager.gd"
 
 [display]
 

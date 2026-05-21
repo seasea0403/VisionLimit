@@ -41,3 +41,27 @@ func load_progress() -> void:
     if error == OK:
         current_unlocked_chapter = config.get_value("progress", "unlocked_chapter", 1)
         print("加载进度：已解锁第 %d 章" % current_unlocked_chapter)
+
+
+# ==================== 线索收集 ====================
+var _collected_clues: Dictionary = {}
+
+func set_clue(clue_id: String) -> void:
+    """标记某条线索已被收集，用于解锁对话中的条件选项"""
+    _collected_clues[clue_id] = true
+
+func has_clue(clue_id: String) -> bool:
+    """检查某条线索是否已被收集"""
+    return _collected_clues.get(clue_id, false)
+
+
+# ==================== 剧情选择记录 ====================
+var _story_records: Dictionary = {}
+
+func set_record(record_key: String, record_value: String) -> void:
+    """记录玩家在对话中做出的选择"""
+    _story_records[record_key] = record_value
+
+func get_record(record_key: String, default_value: String = "") -> String:
+    """读取某个剧情选择的结果"""
+    return _story_records.get(record_key, default_value)

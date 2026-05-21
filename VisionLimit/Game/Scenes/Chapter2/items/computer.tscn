@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://fo3kyxp8cbeo"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_3ksg2"]
+[ext_resource type="Texture2D" uid="uid://cv37tpfwabcku" path="res://Art/Scenes/Scene2/Elements/Calender.png" id="2_h1q1h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(20, 35.135082)
+
+[node name="Calender" unique_id=223355110 instance=ExtResource("1_3ksg2")]
+item_name = "被撕掉的日历"
+detail_image = ExtResource("2_h1q1h")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(824.99994, 548.00006)
+rotation = -0.3871058
+scale = Vector2(16.66317, 13.6)
+shape = SubResource("RectangleShape2D_rm26b")

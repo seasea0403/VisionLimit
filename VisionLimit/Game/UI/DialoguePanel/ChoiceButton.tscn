@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://nplntp8cwjyq"]
+
+[ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="1_td1ul"]
+[ext_resource type="Texture2D" uid="uid://dln008h5ik4r4" path="res://Art/UI/choice.png" id="2_4l83q"]
+[ext_resource type="Script" uid="uid://v3ixh5bkxcbe" path="res://Game/UI/DialoguePanel/choicebutton.gd" id="2_riy8h"]
+
+[node name="choicebutton2" unique_id=2074814427 instance=ExtResource("1_td1ul")]
+script = ExtResource("2_riy8h")
+hover_tint = Color(0.88, 0.88, 0.88, 1)
+pressed_tint = Color(0.72, 0.72, 0.72, 1)
+button_height = 70.0
+
+[node name="TextureButton" parent="." index="0" unique_id=1367535632]
+offset_left = 6.0
+offset_top = 2.0
+offset_right = 1922.0
+offset_bottom = 587.0
+scale = Vector2(0.68973935, 0.5818605)
+texture_normal = ExtResource("2_4l83q")
+
+[node name="Label" parent="TextureButton" index="0" unique_id=1029178860]
+offset_left = 190.00003
+offset_top = 94.0
+offset_right = 1395.7078
+offset_bottom = 165.0
+scale = Vector2(1.3010079, 1.64)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+horizontal_alignment = 1

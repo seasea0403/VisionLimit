@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://blo67kdd2dutn"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_mwil0"]
+[ext_resource type="Texture2D" uid="uid://r5pqdltqj1jb" path="res://Art/Scenes/Scene7/第六章全部 - 副本/computer.png" id="2_sbktp"]
+[ext_resource type="Texture2D" uid="uid://bjhstg4xltp88" path="res://Art/Scenes/Scene2/UI/visitrecord.png" id="3_tmsgf"]
+
+[node name="Zoomview_Computer" unique_id=198920514 instance=ExtResource("1_mwil0")]
+show_detail_on_open = true
+detail_title = "魏江的电脑"
+detail_description = "十一次。三个月。——我在她的记忆海里待了整整三个月。
+四年前我刚被前一家公司清退。晴野基金会找上门的时候很客气，价钱也客气得过分。我几乎没有拒绝的理由。于是我接受了这单奇怪的记忆紊乱治疗委托。
+治疗完成后我接受了空前严苛的记忆清洗，我以为一切都结束了。"
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_sbktp")
+
+[node name="Content" type="TextureRect" parent="Background" index="0" unique_id=1493545820]
+offset_left = -964.99994
+offset_top = -520.0
+offset_right = 971.66656
+offset_bottom = 531.6666
+texture = ExtResource("3_tmsgf")
