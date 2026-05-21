@@ -27,11 +27,13 @@ signal password_wrong()
 # ==================== 状态变量 ====================
 var current_input: String = ""
 var _is_checking: bool = false  # 防止动画期间重复输入
+var _default_status_text: String = ""  # 保存 status_label 的原始标题文本
 
 
 # ==================== 初始化 ====================
 func _ready() -> void:
 	#hide()
+	_default_status_text = status_label.text if status_label else ""
 	_update_display()
 	
 	if dark_background:
@@ -47,7 +49,8 @@ func open() -> void:
 	current_input = ""
 	_is_checking = false
 	if status_label:
-		status_label.text = ""
+		status_label.text = _default_status_text
+		status_label.modulate = Color.WHITE
 	_update_display()
 	show()
 
@@ -122,7 +125,7 @@ func _check_password() -> void:
 		current_input = ""
 		_is_checking = false
 		if status_label:
-			status_label.text = ""
+			status_label.text = _default_status_text
 			status_label.modulate = Color.WHITE
 		_update_display()
 

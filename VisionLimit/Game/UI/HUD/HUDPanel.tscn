@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="2_sdnxa"]
 
 [node name="HudPanel" type="Control" unique_id=1624742861]
+z_index = 5
 layout_mode = 3
 anchors_preset = 0
 

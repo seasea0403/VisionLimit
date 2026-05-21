@@ -7,8 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://8dec8fa3d5qk" path="res://Art/Scenes/Scene7/第六章全部 - 副本/information.png" id="3_5uabm"]
 [ext_resource type="Script" uid="uid://btwfab8ieyhox" path="res://Game/Scenes/Chapter1/UI/password_1.gd" id="3_ap4gv"]
 [ext_resource type="PackedScene" uid="uid://1mvmebi7cmv3" path="res://Game/Scenes/Chapter1/UI/2.tscn" id="3_ocnge"]
+[ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="8_5uabm"]
 
 [sub_resource type="FontFile" id="FontFile_3qs17"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -32,6 +36,9 @@ cache/0/40/0/scale = 1.0
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rw60"]
 
 [sub_resource type="FontFile" id="FontFile_hvu2y"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -173,6 +180,7 @@ cache/0/36/0/underline_thickness = 0.0
 cache/0/36/0/scale = 1.0
 
 [node name="1" type="Control" unique_id=1869578665]
+z_index = -1
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ocnge")
@@ -269,4 +277,7 @@ theme_override_constants/separation = 24
 [node name="Label2" parent="password_1/VBoxContainer/PasswordPanel/VBoxContainer" index="1" unique_id=1722708654]
 text = "工作凭证"
 
+[node name="back" parent="." unique_id=2074814427 instance=ExtResource("8_5uabm")]
+
 [editable path="password_1/VBoxContainer/PasswordPanel"]
+[editable path="back"]

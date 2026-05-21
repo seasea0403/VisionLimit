@@ -6,7 +6,6 @@
 [node name="Zoomview" type="Node2D" unique_id=198920514]
 script = ExtResource("1_11726")
 detail_character_image = ExtResource("2_udujg")
-detail_character_offset = Vector2(-790, 0)
 
 [node name="Background" type="Sprite2D" parent="." unique_id=698713652]
 position = Vector2(960, 540)

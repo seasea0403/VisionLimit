@@ -1,7 +1,7 @@
 extends Control
 
 # 每秒显示的字符数
-const CHARS_PER_SECOND: float = 10
+const CHARS_PER_SECOND: float = 30
 
 @onready var label: RichTextLabel = $Panel/Label
 @onready var audio_player: AudioStreamPlayer2D = $Panel/Label/AudioStreamPlayer2D
@@ -13,12 +13,26 @@ var _typing_done: bool = false
 
 
 func _ready() -> void:
+	# HudPanel 在树中排在 LeadingPanel 后面会遮挡它，开始时先隐藏 HudPanel
+	var hud := get_parent().get_node_or_null("HudPanel") if get_parent() else null
+	if hud:
+		hud.hide()
+
 	_total_chars = label.get_total_character_count()
 	label.visible_characters = 0
 	button.hide()
+	button.pressed.connect(_on_button_pressed)
 
 	audio_player.pitch_scale = 0.8
 	audio_player.play()
+
+
+func _on_button_pressed() -> void:
+	# 恢复 HudPanel 显示，然后隐藏自身
+	var hud := get_parent().get_node_or_null("HudPanel") if get_parent() else null
+	if hud:
+		hud.show()
+	hide()
 
 
 func _process(delta: float) -> void:

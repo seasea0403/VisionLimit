@@ -9,8 +9,6 @@ extends Control
 
 ## 角色立绘纹理（可在 Inspector 拖入）
 @export var character_image: Texture2D
-@export var character_scale: Vector2 = Vector2.ONE
-@export var character_offset: Vector2 = Vector2.ZERO
 
 ## 邮件面板场景（在 Inspector 中拖入 4.tscn）
 @export var email_panel_scene: PackedScene
@@ -18,8 +16,9 @@ extends Control
 # ==================== 节点引用 ====================
 @onready var video_player: VideoStreamPlayer = $VideoStreamPlayer
 @onready var trigger_button: Button = $content/Button
+@onready var back_button: TextureButton = $back/TextureButton
 
-var _item_detail: CanvasLayer = null
+var _item_detail: Control = null
 
 
 # ==================== 初始化 ====================
@@ -33,6 +32,27 @@ func _ready() -> void:
 
 	trigger_button.pressed.connect(_on_trigger_button_pressed)
 	video_player.finished.connect(_on_video_finished)
+	back_button.pressed.connect(_on_back_pressed)
+
+
+func _on_back_pressed() -> void:
+	hide()
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_VISIBILITY_CHANGED:
+		var hud := _get_hud_panel()
+		if hud:
+			if visible:
+				hud.hide()
+			else:
+				hud.show()
+
+
+func _get_hud_panel() -> Node:
+	if not is_inside_tree():
+		return null
+	return get_tree().get_root().find_child("HudPanel", true, false)
 
 
 # ==================== 事件处理 ====================
@@ -52,7 +72,7 @@ func _on_video_finished() -> void:
 		_item_detail.show_detail(
 			null, dialogue_text, dialogue_title, false, "",
 			Vector2.ONE, Vector2.ZERO, "", "", "", "",
-			character_image, character_scale, character_offset
+			character_image
 		)
 	else:
 		push_warning("[3.gd] 找不到 ItemDetail，直接跳到邮件面板")

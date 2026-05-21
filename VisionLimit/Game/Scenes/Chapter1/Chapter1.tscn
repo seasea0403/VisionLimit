@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccp5mfhfncfts" path="res://Game/UI/RecordPanel/RecordPanel.tscn" id="2_geqti"]
 [ext_resource type="PackedScene" uid="uid://j0xbvmq5qgge" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_Table.tscn" id="2_xnqfp"]
 [ext_resource type="PackedScene" uid="uid://canc401gl5807" path="res://Game/Scenes/Chapter1/UI/1.tscn" id="3_uari3"]
+[ext_resource type="PackedScene" uid="uid://d2fksn0gfp2fw" path="res://Game/UI/LeadingPanel/LeadingPanel.tscn" id="4_06b1o"]
 [ext_resource type="PackedScene" uid="uid://bhd38bbkdsotp" path="res://Game/Scenes/Chapter1/items/bed.tscn" id="4_f0je0"]
 [ext_resource type="PackedScene" uid="uid://ceft3bne41ye8" path="res://Game/Scenes/Chapter1/items/dock.tscn" id="5_5oj76"]
 [ext_resource type="Script" uid="uid://ddmi68bkrli6g" path="res://Game/Scenes/Chapter1/computer_trigger.gd" id="5_6oq13"]
@@ -20,7 +21,13 @@ loop = true
 
 [node name="Chapter" unique_id=1917343286 instance=ExtResource("1_xnqfp")]
 
-[node name="DescriptionLabel" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="4" unique_id=1691985772]
+[node name="DarkBackground" parent="UILayer/ItemDetail" parent_id_path=PackedInt32Array(552734023) index="0" unique_id=1174300489]
+layout_mode = 0
+
+[node name="Control" parent="UILayer/ItemDetail" parent_id_path=PackedInt32Array(552734023) index="1" unique_id=327138164]
+layout_mode = 0
+
+[node name="DescriptionLabel" parent="UILayer/ItemDetail/Control" index="4" unique_id=1691985772]
 offset_left = 400.0
 offset_top = 882.00006
 offset_right = 1781.5194
@@ -29,12 +36,12 @@ offset_bottom = 1046.0001
 [node name="click" parent="UILayer/ItemDetail" parent_id_path=PackedInt32Array(552734023) index="2" unique_id=1359093598]
 bus = &"Master"
 
-[node name="RecordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="1" unique_id=1173323693 instance=ExtResource("2_geqti")]
-visible = false
-editor_preview_titles = PackedStringArray("记忆海", "苍屿症", "郑和平")
+[node name="LeadingPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="1" unique_id=1166542545 instance=ExtResource("4_06b1o")]
 
-[node name="HudPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1624742861]
-z_index = 100
+[node name="RecordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1173323693 instance=ExtResource("2_geqti")]
+
+[node name="HudPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="3" unique_id=1624742861]
+z_index = 10
 
 [node name="book" parent="UILayer/HudPanel" index="0" unique_id=2074814427]
 z_index = 100
@@ -42,14 +49,13 @@ z_index = 100
 [node name="back" parent="UILayer/HudPanel" index="1" unique_id=116801208]
 z_index = 100
 
-[node name="1" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="3" unique_id=1869578665 instance=ExtResource("3_uari3")]
+[node name="1" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="4" unique_id=1869578665 instance=ExtResource("3_uari3")]
 visible = false
 
 [node name="ClickableArea_Table" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("2_xnqfp")]
 
 [node name="foodbox" parent="ZoomViews/ClickableArea_Table/Zoomview_desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="2" unique_id=223355110]
 character_image = ExtResource("8_8f3k6")
-character_scale = Vector2(1.3, 1)
 
 [node name="Area2D" type="Area2D" parent="ZoomViews/ClickableArea_Table/Zoomview_desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="3" unique_id=1825456821 node_paths=PackedStringArray("terminal_panel")]
 script = ExtResource("5_6oq13")
@@ -64,18 +70,14 @@ shape = SubResource("RectangleShape2D_2hbde")
 
 [node name="Zoomview" parent="ZoomViews/ClickableArea" index="1" unique_id=198920514]
 detail_character_image = null
-detail_character_offset = Vector2(0, 0)
 
 [node name="patent" parent="ZoomViews/ClickableArea/Zoomview/Items" parent_id_path=PackedInt32Array(1055747330, 198920514, 1759582505) index="0" unique_id=223355110]
 character_image = ExtResource("8_06b1o")
-character_scale = Vector2(1.2, 1)
-character_offset = Vector2(-700, 0)
 
 [node name="items" type="Node2D" parent="." index="3" unique_id=1824441566]
 
 [node name="bed" parent="items" index="0" unique_id=621484511 instance=ExtResource("4_f0je0")]
 character_image = ExtResource("8_8f3k6")
-character_scale = Vector2(1.3, 1)
 
 [node name="dock" parent="items" index="1" unique_id=241473976 instance=ExtResource("5_5oj76")]
 record_entry_description = "苍屿本不算穷，却在一天天走向凋敝。这座世代以渔业为生的小城，渔获出口量却连年断崖式下滑。缘由众说纷纭：有人归咎于海域环境恶化，也有人感慨渔获口感大不如前。为谋生计，越来越多苍屿人转而进入本地精炼加工厂务工，传统渔业也随之愈发萧条。"
@@ -91,6 +93,7 @@ bus = &"Master"
 [editable path="UILayer/HudPanel"]
 [editable path="UILayer/1"]
 [editable path="UILayer/1/password_1/VBoxContainer/PasswordPanel"]
+[editable path="UILayer/1/back"]
 [editable path="ZoomViews/ClickableArea_Table"]
 [editable path="ZoomViews/ClickableArea_Table/Zoomview_desk"]
 [editable path="ZoomViews/ClickableArea"]

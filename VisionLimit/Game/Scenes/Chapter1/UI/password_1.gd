@@ -16,6 +16,13 @@ func _ready() -> void:
 		push_error("找不到 PasswordPanel 节点")
 
 
+# 每次整个 UI/1 重新变为可见时，重置并重新展示密码面板
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_VISIBILITY_CHANGED and visible:
+		if password_panel:
+			password_panel.open()
+
+
 # ==================== 信号处理 ====================
 func _on_password_correct() -> void:
 	"""密码输入正确 → 隐藏整个 1 节点（含背景），打开工单终端"""

@@ -106,3 +106,5 @@ autowrap_mode = 3
 
 [node name="BackButton" parent="Panel" unique_id=1559498093 instance=ExtResource("4_back")]
 position = Vector2(84.971, 29.682104)
+
+[editable path="Panel/BackButton"]

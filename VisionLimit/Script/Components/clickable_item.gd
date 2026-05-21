@@ -37,16 +37,11 @@ extends Area2D
 ## 说话人角色形象（切换说话人时改变）
 @export var character_image: Texture2D
 
-## 说话人角色形象缩放（调整以避免畸变，Vector2.ONE = 保持原样）
-@export var character_scale: Vector2 = Vector2.ONE
-
-## 说话人角色形象偏移（微调位置，不影响缩放锚点）
-@export var character_offset: Vector2 = Vector2.ZERO
 
 ## 同组的其他物品（用于多页左右切换，留空则单页显示）
 @export var linked_items: Array[NodePath] = []
 
-var item_detail: CanvasLayer
+var item_detail: Control
 
 
 # ==================== 初始化 ====================
@@ -79,7 +74,7 @@ func _on_input_event(_viewport, event, _shape_idx):
 					detail_image_scale, detail_image_offset,
 					record_entry_title, record_entry_description,
 					record_entry_title_2, record_entry_description_2,
-					character_image, character_scale, character_offset
+					character_image
 				)
 			else:
 				# 多页显示：先收集自身，再收集关联物品
@@ -116,8 +111,6 @@ func _self_to_page_dict() -> Dictionary:
 		"record_title_2": record_entry_title_2,
 		"record_description_2": record_entry_description_2,
 		"character_image": character_image,
-		"character_scale": character_scale,
-		"character_offset": character_offset,
 	}
 
 
@@ -136,22 +129,20 @@ func _item_to_page_dict(item: Node) -> Dictionary:
 		"record_title_2": item.get("record_entry_title_2") if item.get("record_entry_title_2") != null else "",
 		"record_description_2": item.get("record_entry_description_2") if item.get("record_entry_description_2") != null else "",
 		"character_image": item.get("character_image"),
-		"character_scale": item.get("character_scale") if item.get("character_scale") != null else Vector2.ONE,
-		"character_offset": item.get("character_offset") if item.get("character_offset") != null else Vector2.ZERO,
 	}
 
 
-func _resolve_item_detail() -> CanvasLayer:
+func _resolve_item_detail() -> Control:
 	var current: Node = self
 	while current:
 		# 优先读取 Chapter1 脚本中暴露的 item_detail 变量
 		var detail_from_var = current.get("item_detail")
-		if detail_from_var is CanvasLayer:
+		if detail_from_var is Control and detail_from_var.has_method("show_detail"):
 			return detail_from_var
 
 		# 兼容未挂脚本变量时，直接按节点结构查找
 		var detail_from_path = current.get_node_or_null("UILayer/ItemDetail")
-		if detail_from_path is CanvasLayer:
+		if detail_from_path is Control and detail_from_path.has_method("show_detail"):
 			return detail_from_path
 
 		current = current.get_parent()
@@ -160,5 +151,5 @@ func _resolve_item_detail() -> CanvasLayer:
 
 
 ## 动态设置 ItemDetail 的方法（ZoomView 调用）
-func set_item_detail(detail: CanvasLayer) -> void:
+func set_item_detail(detail: Control) -> void:
 	item_detail = detail

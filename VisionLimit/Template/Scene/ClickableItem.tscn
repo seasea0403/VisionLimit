@@ -6,7 +6,6 @@
 [node name="ClickableItem" type="Area2D" unique_id=223355110]
 script = ExtResource("1_ykyii")
 character_image = ExtResource("2_2ccdd")
-character_offset = Vector2(-790, 0)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=398543410]

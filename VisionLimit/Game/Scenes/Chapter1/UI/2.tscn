@@ -9,8 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://co5plywe0rqrg" path="res://Art/Character/屏幕截图 2026-05-15 190900.png" id="4_64ypp"]
 [ext_resource type="PackedScene" uid="uid://lv7u5b2stnjl" path="res://Game/Scenes/Chapter1/UI/Assign.tscn" id="4_ojjf8"]
 [ext_resource type="FontFile" uid="uid://bvl8ulxuys0rb" path="res://Font/华文隶书.TTF" id="4_xxrbi"]
+[ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="10_nrh5m"]
 
 [sub_resource type="FontFile" id="FontFile_f6pl5"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -27,6 +31,9 @@ cache/0/16/0/underline_thickness = 0.0
 cache/0/16/0/scale = 1.0
 
 [sub_resource type="FontFile" id="FontFile_6mute"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -48,6 +55,9 @@ cache/0/40/0/underline_thickness = 0.0
 cache/0/40/0/scale = 1.0
 
 [sub_resource type="FontFile" id="FontFile_ojjf8"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -98,6 +108,9 @@ expand_margin_right = 17.0
 expand_margin_bottom = 29.0
 
 [sub_resource type="FontFile" id="FontFile_xxrbi"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -147,6 +160,9 @@ expand_margin_top = 17.0
 expand_margin_bottom = 31.0
 
 [sub_resource type="FontFile" id="FontFile_t2p7r"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -168,6 +184,9 @@ cache/0/30/0/underline_thickness = 0.0
 cache/0/30/0/scale = 1.0
 
 [sub_resource type="FontFile" id="FontFile_64ypp"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -518,3 +537,5 @@ text = "系统日志"
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 8
+
+[node name="back" parent="." unique_id=2074814427 instance=ExtResource("10_nrh5m")]

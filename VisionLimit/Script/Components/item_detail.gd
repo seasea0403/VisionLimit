@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Control
 
 # ==================== 子节点引用 ====================
 @onready var dark_background = $DarkBackground
@@ -42,18 +42,20 @@ signal detail_opened(item_id: String)
 signal action_pressed
 
 
+# ==================== 角色立绘按图覆盖表（可在 Inspector 中配置）====================
+## 在 Inspector 中加条目，每个 CharacterOverride 可拖入一张立绘并指定对应的 scale / offset。
+## 未出现在表中的图都会使用 Character 节点原本的位置与缩放。
+@export var character_overrides: Array[CharacterOverride] = []
+
+
 # ==================== 初始化 ====================
 func _ready() -> void:
 	_configure_image_display()
 	if image_display:
 		_image_base_position = image_display.position
-	
-	# ✨ 保存角色原始状态，并把缩放锚点设置到节点中心
-	# 这样改变 scale 时视觉中心不会偏移
 	if character_display:
 		_character_base_position = character_display.position
 		_character_base_scale = character_display.scale
-		character_display.pivot_offset = character_display.size / 2.0
 
 	# 连接按钮信号
 	if dark_background:
@@ -82,8 +84,25 @@ func _configure_image_display() -> void:
 		image_display.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 
 
+func _apply_character_overrides(tex: Texture2D) -> void:
+	"""根据传入的角色图，在 character_overrides 数组中查找差异参数；
+	找不到就把 Character 节点恢复到场景里原始的 position 与 scale。"""
+	if not character_display:
+		return
+	var scale_mul: Vector2 = Vector2.ONE
+	var offset: Vector2 = Vector2.ZERO
+	if tex:
+		for entry in character_overrides:
+			if entry and entry.texture == tex:
+				scale_mul = entry.scale
+				offset = entry.offset
+				break
+	character_display.scale = _character_base_scale * scale_mul
+	character_display.position = _character_base_position + offset
+
+
 # ==================== 显示方法 ====================
-func show_detail(texture: Texture2D, description: String, title: String, can_record_flag: bool = false, item_id: String = "", image_scale = Vector2.ONE, image_offset = Vector2.ZERO, record_title = "", record_description = "", record_title_2 = "", record_description_2 = "", character_image: Texture2D = null, character_scale = Vector2.ONE, character_offset = Vector2.ZERO) -> void:
+func show_detail(texture: Texture2D, description: String, title: String, can_record_flag: bool = false, item_id: String = "", image_scale = Vector2.ONE, image_offset = Vector2.ZERO, record_title = "", record_description = "", record_title_2 = "", record_description_2 = "", character_image: Texture2D = null) -> void:
 	"""单页快捷方式，内部转为单元素列表交给多页系统处理"""
 	show_detail_group([{
 		"texture": texture,
@@ -98,8 +117,6 @@ func show_detail(texture: Texture2D, description: String, title: String, can_rec
 		"record_title_2": record_title_2,
 		"record_description_2": record_description_2,
 		"character_image": character_image,
-		"character_scale": character_scale,
-		"character_offset": character_offset,
 	}])
 
 
@@ -137,8 +154,6 @@ func _apply_page(idx: int) -> void:
 	var record_title_2 = p.get("record_title_2", "")
 	var record_description_2 = p.get("record_description_2", "")
 	var character_image = p.get("character_image", null)
-	var character_scale = p.get("character_scale", Vector2.ONE)
-	var character_offset = p.get("character_offset", Vector2.ZERO)
 
 	_configure_image_display()
 	image_display.texture = texture
@@ -146,10 +161,7 @@ func _apply_page(idx: int) -> void:
 	if character_display:
 		if character_image:
 			character_display.texture = character_image
-			var safe_cs: Vector2 = character_scale if character_scale is Vector2 else Vector2.ONE
-			var safe_co: Vector2 = character_offset if character_offset is Vector2 else Vector2.ZERO
-			character_display.scale = _character_base_scale * safe_cs
-			character_display.position = _character_base_position + safe_co
+			_apply_character_overrides(character_image)
 			character_display.visible = true
 		else:
 			character_display.texture = null
@@ -179,11 +191,11 @@ func _apply_page(idx: int) -> void:
 	_update_nav_buttons()
 
 
-func set_action_button(show: bool, label_text: String = "尝试") -> void:
+func set_action_button(visible_state: bool, label_text: String = "尝试") -> void:
 	"""显示或隐藏动作按钮（复用 LaterButton），用于特定物品的交互（如录音笔「尝试」键）"""
-	_action_mode = show
+	_action_mode = visible_state
 	if next_button_label:
-		next_button_label.text = label_text if show else ""
+		next_button_label.text = label_text if visible_state else ""
 	_update_nav_buttons()
 
 

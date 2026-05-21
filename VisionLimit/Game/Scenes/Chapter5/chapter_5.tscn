@@ -43,12 +43,9 @@ visible = false
 
 [node name="Note" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="0" unique_id=223355110]
 character_image = ExtResource("4_fbfs3")
-character_scale = Vector2(1.2, 1)
 
 [node name="Card" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="1" unique_id=1064052470]
 character_image = ExtResource("5_nqh41")
-character_scale = Vector2(1.2, 1)
-character_offset = Vector2(-790, 40)
 
 [node name="ClickableArea_Block" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=1041883668 instance=ExtResource("4_fp6ag")]
 
@@ -62,8 +59,6 @@ visible = false
 [node name="Calender" parent="ZoomViews/ClickableArea_Block/Zoomview_paper/Items" parent_id_path=PackedInt32Array(1041883668, 198920514, 1759582505) index="0" unique_id=223355110]
 description = "在潜入自己的记忆海时，为了避免外界干扰为操作者带来不可逆的影响，需要打开信号屏蔽装置。"
 character_image = ExtResource("7_w4bja")
-character_scale = Vector2(1.1, 1)
-character_offset = Vector2(-700, -40)
 
 [node name="SceneBgm" parent="." index="3" unique_id=996875468]
 stream = SubResource("AudioStreamMP3_2k8s4")

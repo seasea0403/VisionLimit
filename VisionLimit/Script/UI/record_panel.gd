@@ -82,7 +82,7 @@ var _editor_preview_selected_index: int = 0
 @onready var panel: Panel = $Panel
 @onready var entry_list: VBoxContainer = $Panel/Layout/LeftPage/Scroll/EntryList
 @onready var detail_label: Label = $Panel/Layout/RightPage/DetailDescription
-@onready var back_button = $Panel/BackButton
+@onready var back_button = $Panel/BackButton/TextureButton
 
 
 func _ready() -> void:

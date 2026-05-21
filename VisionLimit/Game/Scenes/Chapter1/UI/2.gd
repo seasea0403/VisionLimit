@@ -41,6 +41,7 @@ var guardian_grades: Array[int] = [1, 2, 3]
 @export var chapter_complete_panel_scene: PackedScene
 
 # ==================== 节点引用 ====================
+@onready var back_button: TextureButton = $back/TextureButton
 @onready var work_order_items: Array = [
 	$ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Left/VBoxContainer/WorkOrderItem,
 	$ColorRect/MarginContainer/VBoxContainer/content/HBoxContainer/Left/VBoxContainer/WorkOrderItem2,
@@ -71,6 +72,7 @@ var guardian_grades: Array[int] = [1, 2, 3]
 
 # ==================== 初始化 ====================
 func _ready() -> void:
+	back_button.pressed.connect(_on_back_pressed)
 	# 初始化工单列表
 	for i in work_order_items.size():
 		work_order_items[i].setup(i, work_orders[i]["number"], work_orders[i]["grade"])
@@ -80,6 +82,40 @@ func _ready() -> void:
 	for i in assign_buttons.size():
 		var idx := i
 		assign_buttons[i].pressed.connect(func(): _on_assign_pressed(idx))
+
+
+func _on_back_pressed() -> void:
+	hide()
+
+
+# 当本面板可见性变化时：展示则隐藏 HudPanel，隐藏则恢复 HudPanel；展示时还要注册到 chapter 的面板栈
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_VISIBILITY_CHANGED:
+		var hud := _get_hud_panel()
+		if hud:
+			if visible:
+				hud.hide()
+			else:
+				hud.show()
+		if visible:
+			var ch := _find_chapter()
+			if ch:
+				ch.register_panel_open(self)
+
+
+func _find_chapter() -> Node:
+	var node := get_parent()
+	while node:
+		if node.has_method("register_panel_open"):
+			return node
+		node = node.get_parent()
+	return null
+
+
+func _get_hud_panel() -> Node:
+	if not is_inside_tree():
+		return null
+	return get_tree().get_root().find_child("HudPanel", true, false)
 
 
 # ==================== 工单点击 ====================

@@ -52,7 +52,6 @@ item_name = "化验报告"
 detail_image = ExtResource("4_3c8dh")
 description = "这份 C-03 海域汞含量超标的检测结果，是郑和平写进记忆海中的固化记忆，这或许就是该片区鱼类价格大幅下跌的缘由。"
 character_image = ExtResource("7_5ebmf")
-character_offset = Vector2(-750, 40)
 
 [node name="CollisionShape2D" parent="items/Note" index="0" unique_id=398543410]
 position = Vector2(1560.5625, 563.5)

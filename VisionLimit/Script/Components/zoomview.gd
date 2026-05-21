@@ -10,10 +10,6 @@ var _disabled_areas: Array[Area2D] = []
 @export_multiline var detail_description: String = ""
 ## 说话人角色图片
 @export var detail_character_image: Texture2D = null
-## 说话人角色缩放
-@export var detail_character_scale: Vector2 = Vector2.ONE
-## 说话人角色位置偏移
-@export var detail_character_offset: Vector2 = Vector2.ZERO
 
 
 # ==================== 初始化 ====================
@@ -93,9 +89,7 @@ func _show_entry_detail() -> void:
 	if not chapter:
 		return
 	var item_detail = chapter.get("item_detail")
-	if not item_detail or not item_detail is CanvasLayer:
-		return
-	if not item_detail.has_method("show_detail"):
+	if not item_detail or not item_detail.has_method("show_detail"):
 		return
 	item_detail.show_detail(
 		null,
@@ -103,9 +97,7 @@ func _show_entry_detail() -> void:
 		detail_title,
 		false, "", Vector2.ONE, Vector2.ZERO,
 		"", "", "", "",
-		detail_character_image,
-		detail_character_scale,
-		detail_character_offset
+		detail_character_image
 	)
 	# 隐藏暗色背景（ZoomView 场景下背景已是 ZoomView 本身，不需要遮罩）
 	if item_detail.has_method("set_dark_background_visible"):

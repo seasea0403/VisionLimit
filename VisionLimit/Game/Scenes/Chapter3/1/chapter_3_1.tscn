@@ -70,8 +70,6 @@ show_detail_on_open = true
 detail_title = "苍屿症"
 detail_description = "苍屿症从前几年出现至今，一直没有很好的对策。近几年医院神经护理区除了重度记忆紊乱患者外，就是苍屿症患者了。该病的起因至今仍不明朗，大家都觉得这是与渔业环境有关的地域性疑难杂病......"
 detail_character_image = ExtResource("5_bbl1v")
-detail_character_scale = Vector2(1.1, 1)
-detail_character_offset = Vector2(-750, 40)
 
 [node name="smallnote" parent="ZoomViews/ClickableArea_Information2/Zoomview_information2/ClickableArea_Book/Zoomview/Items" parent_id_path=PackedInt32Array(676050068, 1437686243, 198920514, 1759582505) index="0" unique_id=223355110]
 description = "就诊计划频繁调整，究竟是就诊资源紧张，还是存在其他因素?"
@@ -79,8 +77,6 @@ can_record = true
 record_entry_title = "苍屿症"
 record_entry_description = "苍屿症为非官方命名，指苍屿县群体中持续出现的以神经发育迟滞、感知觉异常及海芯写入障碍为主要表征的一类病例集合。由于现有病例未被统一归档至同一诊断类别，各级卫生主管部门迄今未就此开具正式病名或启动系统性流行病学调查。症状首次集中出现于2043年，发病分布与苍屿旧码头附近渔业作业人员家属高度重叠。"
 character_image = ExtResource("5_r3dcq")
-character_scale = Vector2(1.2, 1)
-character_offset = Vector2(-700, -40)
 
 [node name="ClickableArea_board" parent="ZoomViews" index="1" unique_id=1752940588 instance=ExtResource("4_aq64q")]
 
@@ -91,8 +87,6 @@ shape = SubResource("RectangleShape2D_aq64q")
 [node name="Card" parent="ZoomViews/ClickableArea_board/Zoomview/Items" parent_id_path=PackedInt32Array(1752940588, 198920514, 1759582505) index="0" unique_id=223355110]
 description = "神经护理区的预约人数这么多，可现场排队的人却寥寥无几，有点奇怪......"
 character_image = ExtResource("10_bbl1v")
-character_scale = Vector2(1.2, 1)
-character_offset = Vector2(-700, 0)
 
 [node name="ClickableArea_Declaration" parent="ZoomViews" index="2" unique_id=859149586 instance=ExtResource("5_u0bx5")]
 
@@ -103,8 +97,6 @@ shape = SubResource("RectangleShape2D_u0bx5")
 [node name="Map" parent="ZoomViews/ClickableArea_Declaration/Zoomview_declaration/Items" parent_id_path=PackedInt32Array(859149586, 198920514, 1759582505) index="0" unique_id=223355110]
 description = "神经护理区的病房分布图。据说一位难求。"
 character_image = ExtResource("5_bbl1v")
-character_scale = Vector2(1.2, 1)
-character_offset = Vector2(-790, 40)
 
 [node name="ClickableArea_Desk_2" parent="ZoomViews" index="3" unique_id=1209793296 instance=ExtResource("6_dhn8c")]
 
@@ -117,8 +109,6 @@ detail_image_scale = Vector2(1.2, 1.2)
 detail_image_offset = Vector2(-100, 0)
 description = "“已处理” 具体指代何种状态，是完成正常就诊，还是仅完成了就诊时间变更?"
 character_image = ExtResource("5_r3dcq")
-character_scale = Vector2(1.2, 1)
-character_offset = Vector2(-700, -40)
 
 [node name="ClickableArea_Information1" parent="ZoomViews" index="4" unique_id=1493515065 instance=ExtResource("7_r3dcq")]
 
@@ -132,8 +122,6 @@ show_detail_on_open = true
 detail_title = "感谢信"
 detail_description = "我做托管师那几年去过不少医院。通常感谢信会越来越新，贴满整面墙，但这里最新的一封是2044年。已经很久没有新的感谢信了。"
 detail_character_image = ExtResource("10_bbl1v")
-detail_character_scale = Vector2(1.2, 1)
-detail_character_offset = Vector2(-700, 0)
 
 [node name="paint" parent="ZoomViews/ClickableArea_Information1/Zoomview_information1/Items" parent_id_path=PackedInt32Array(1493515065, 198920514, 1759582505) index="0" unique_id=223355110]
 description = "小孩的画吗.....好奇怪的配色，白色的鱼和灰色的大海?"

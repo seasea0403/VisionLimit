@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://hl0dm7k4wthg" path="res://Art/Character/人物立绘/沈意.png" id="2_kpijd"]
 [ext_resource type="Texture2D" uid="uid://8dec8fa3d5qk" path="res://Art/Scenes/Scene7/第六章全部 - 副本/information.png" id="3_gwikv"]
 [ext_resource type="StyleBox" uid="uid://cbagne1a0b20q" path="res://Style/password.tres" id="5_gwikv"]
+[ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="7_i48lh"]
 
 [sub_resource type="FontFile" id="FontFile_kpijd"]
 subpixel_positioning = 0
@@ -83,7 +84,6 @@ script = ExtResource("0_4gd")
 dialogue_text_2 = "郑和平...又是郑和平...也许我该去看看到底是怎么回事。"
 dialogue_title_2 = ""
 character_image_2 = ExtResource("2_kpijd")
-character_offset_2 = Vector2(-790, 0)
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=858687257]
 layout_mode = 0
@@ -134,3 +134,5 @@ theme_override_styles/normal = ExtResource("5_gwikv")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ielw0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_gwikv")
 text = "同意"
+
+[node name="back" parent="." unique_id=2074814427 instance=ExtResource("7_i48lh")]

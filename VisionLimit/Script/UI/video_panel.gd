@@ -5,6 +5,16 @@ extends CanvasLayer
 @onready var close_button: Button = $CloseButton
 @onready var dark_background: ColorRect = $ColorRect
 
+# ==================== 视频结束后显示 ItemDetail ====================
+## 是否在视频播放完毕后自动显示 ItemDetail
+@export var show_detail_after_video: bool = false
+## ItemDetail 标题
+@export var detail_title: String = ""
+## ItemDetail 正文（对话内容）
+@export_multiline var detail_description: String = ""
+## 角色立绘（同 ClickableItem 的 character_image 用法一致）
+@export var detail_character_image: Texture2D = null
+
 # ==================== 初始化 ====================
 func _ready() -> void:
 	close_button.pressed.connect(_on_close_pressed)
@@ -42,6 +52,17 @@ func _on_video_finished() -> void:
 	print("✓ 视频播放完毕")
 	await get_tree().create_timer(0.3).timeout
 	hide()
+	if show_detail_after_video:
+		var item_detail = get_tree().get_first_node_in_group("item_detail")
+		if item_detail:
+			item_detail.show_detail(
+				null, detail_description, detail_title,
+				false, "", Vector2.ONE, Vector2.ZERO,
+				"", "", "", "",
+				detail_character_image
+			)
+		else:
+			push_warning("[VideoPanel] 未找到 item_detail 分组节点")
 
 
 func _on_background_clicked(event: InputEvent) -> void:

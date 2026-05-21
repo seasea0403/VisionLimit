@@ -1,52 +1,46 @@
 extends Control
 
-# ==================== 可配置项 ====================
-## 关闭邮件后弹出的第二个 ItemDetail 对话（可在 Inspector 中修改）
-@export_multiline var dialogue_text_2: String = "邮件已读。\n\n……\n\n是江院长发来的。\n内容是关于「近视管控系数」调整的通知。\n\n就这样。\n什么都没有多说。"
-
-## 第二个 ItemDetail 的标题（可在 Inspector 修改）
-@export var dialogue_title_2: String = "系统提示"
-
-## 第二个 ItemDetail 的角色立绘（可在 Inspector 拖入）
-@export var character_image_2: Texture2D
-@export var character_scale_2: Vector2 = Vector2.ONE
-@export var character_offset_2: Vector2 = Vector2.ZERO
+const Ch1Email = preload("res://Script/Dialogues/ch1_email.gd")
 
 # ==================== 节点引用 ====================
 @onready var close_button: Button = $CloseButton
-
-var _item_detail: CanvasLayer = null
+@onready var back_button: TextureButton = $back/TextureButton
 
 
 # ==================== 初始化 ====================
 func _ready() -> void:
-	_item_detail = get_tree().get_first_node_in_group("item_detail")
-	if not _item_detail:
-		push_warning("[4.gd] 未找到 item_detail 分组节点")
 	close_button.pressed.connect(_on_close_pressed)
+	back_button.pressed.connect(_on_back_pressed)
+
+
+func _on_back_pressed() -> void:
+	hide()
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_VISIBILITY_CHANGED:
+		var hud := _get_hud_panel()
+		if hud:
+			if visible:
+				hud.hide()
+			else:
+				hud.show()
+
+
+func _get_hud_panel() -> Node:
+	if not is_inside_tree():
+		return null
+	return get_tree().get_root().find_child("HudPanel", true, false)
 
 
 # ==================== 事件处理 ====================
 
-## 点击关闭按钮 → 弹出第二个 ItemDetail
+## 点击关闭按钮 → 启动沈意对话
 func _on_close_pressed() -> void:
 	close_button.visible = false
-	if _item_detail:
-		_item_detail.panel_closed.connect(_on_second_item_detail_closed, CONNECT_ONE_SHOT)
-		_item_detail.show_detail(
-			null, dialogue_text_2, dialogue_title_2, false, "",
-			Vector2.ONE, Vector2.ZERO, "", "", "", "",
-			character_image_2, character_scale_2, character_offset_2
-		)
-	else:
-		push_warning("[4.gd] 找不到 ItemDetail，直接结束章节")
-		_finish_chapter()
-
-
-## 第二个 ItemDetail 关闭 → 等待 2 秒 → 解锁下一章 → 返回关卡选择
-func _on_second_item_detail_closed() -> void:
-	await get_tree().create_timer(2.0).timeout
-	_finish_chapter()
+	back_button.visible = false
+	DialogueManager.dialogue_finished.connect(_finish_chapter, CONNECT_ONE_SHOT)
+	DialogueManager.start_dialogue(Ch1Email.DATA, "start")
 
 
 func _finish_chapter() -> void:

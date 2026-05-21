@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_82wsi"]
 [ext_resource type="Texture2D" uid="uid://dlh01n04p20kx" path="res://Art/Scenes/Scene2/Background/Background2.png" id="2_cnicp"]
 [ext_resource type="PackedScene" uid="uid://dophknobhb3t2" path="res://Game/Scenes/Chapter2/ClickableArea/ClickableArea_Paper.tscn" id="3_1aq8v"]
+[ext_resource type="Texture2D" uid="uid://djecu5okialbk" path="res://Art/Character/魏江.png" id="4_2rb57"]
 [ext_resource type="PackedScene" uid="uid://ccp5mfhfncfts" path="res://Game/UI/RecordPanel/RecordPanel.tscn" id="5_72ndw"]
 [ext_resource type="PackedScene" uid="uid://ba3yili7tv48i" path="res://Game/Scenes/Chapter2/ClickableArea/ClickableArea_Desk.tscn" id="5_o75tl"]
 [ext_resource type="PackedScene" path="res://Game/Scenes/Chapter2/items/map.tscn" id="5_t8q1s"]
 [ext_resource type="PackedScene" uid="uid://k0nq76mbrol3" path="res://Game/Scenes/Chapter2/UI/1.tscn" id="6_d3jqh"]
-[ext_resource type="Texture2D" uid="uid://dn7ykqxyfpnvd" path="res://Art/Character/人物立绘/魏江.png" id="6_kx07f"]
 [ext_resource type="PackedScene" path="res://Game/Scenes/Chapter2/items/note.tscn" id="6_mchdh"]
 [ext_resource type="PackedScene" uid="uid://b55jdfoulgfa6" path="res://Game/UI/PasswordPanel/PasswordPanel.tscn" id="7_2rb57"]
 [ext_resource type="Texture2D" uid="uid://ca3kcyesg7wga" path="res://Art/Character/魏江抱胸思考.png" id="7_h3pkn"]
@@ -33,8 +33,7 @@ item_id = "1"
 item_name = ""
 detail_image = null
 description = "感谢你抽空过来。先自我介绍一下，我是独立记者魏江。我知道你是沈意，这次约你，是因为你是最后一个近距离接触过郑和平的人。我有很重要的事想跟你谈。你可以先翻看一下工作室的相关资料，有任何不清楚的地方，随时问我。"
-character_image = ExtResource("6_kx07f")
-character_offset = Vector2(-790, -40)
+character_image = ExtResource("4_2rb57")
 
 [node name="ImageDisplay" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="0" unique_id=491325269]
 offset_left = 502.0
@@ -42,8 +41,8 @@ offset_top = 176.0
 offset_right = 1493.0
 offset_bottom = 837.0
 
-[node name="Character" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="2" unique_id=984582437]
-scale = Vector2(-0.95817983, 1.1239936)
+[node name="Character" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="2" unique_id=622851963]
+texture = ExtResource("7_h3pkn")
 
 [node name="click" parent="UILayer/ItemDetail" parent_id_path=PackedInt32Array(552734023) index="2" unique_id=1359093598]
 bus = &"Master"
@@ -72,16 +71,13 @@ stream = ExtResource("8_68ddi")
 item_id = "2"
 description = "3月11日……我永远忘不了那一天。我本以为自己终于能掀开秘密的一角，到头来却只是撞上了冰山的一角，被迫沉船了。"
 character_image = ExtResource("7_h3pkn")
-character_scale = Vector2(1.2, 1)
-character_offset = Vector2(-700, -40)
 
 [node name="ClickableArea_Desk" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=1165186953 instance=ExtResource("5_o75tl")]
 
 [node name="Voice" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(1165186953, 198920514, 1759582505) index="0" unique_id=223355110]
 item_id = "3"
 description = "这支录音笔是郑和平留给我的，里面的内容我已经听过了，你也打开听听吧。"
-character_image = ExtResource("6_kx07f")
-character_offset = Vector2(-790, -40)
+character_image = ExtResource("4_2rb57")
 
 [node name="Card" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(1165186953, 198920514, 1759582505) index="1" unique_id=1292738154]
 item_id = "4"
@@ -92,14 +88,11 @@ can_record = true
 record_entry_title = "魏江"
 record_entry_description = "独立记者，曾在海岸时讯做调查记者，后因一篇涉及神经数据行业监管漏洞的报道被撤稿后离职，此后独立运作。"
 character_image = ExtResource("9_d3jqh")
-character_scale = Vector2(1.2, 1)
-character_offset = Vector2(-700, -40)
 
 [node name="Photo" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(1165186953, 198920514, 1759582505) index="2" unique_id=1745684966]
 item_id = "5"
 description = "这是我之前在对苍屿症患者展开采访时拍摄的图片。"
-character_image = ExtResource("6_kx07f")
-character_offset = Vector2(-790, -40)
+character_image = ExtResource("4_2rb57")
 
 [node name="Items" type="Node2D" parent="." index="3" unique_id=1563513548]
 
@@ -110,15 +103,12 @@ description = "我在46年曾和郑和平见过面，这张地图就是她当时
 can_record = true
 record_entry_title = "郑和平"
 record_entry_description = "水文地质研究员，曾任某国家级地质研究所研究员，2042年以独立研究者身份接受苍屿县环保部门的委托项目，任务是评估近海地质变化."
-character_image = ExtResource("6_kx07f")
-character_offset = Vector2(-790, -40)
+character_image = ExtResource("4_2rb57")
 
 [node name="Note" parent="Items" index="1" unique_id=3154882 instance=ExtResource("6_mchdh")]
 item_id = "6"
 description = "这是我目前梳理出的一些推理，但还缺少关键的中间佐证，没法完全坐实。"
 character_image = ExtResource("7_h3pkn")
-character_scale = Vector2(1.2, 1)
-character_offset = Vector2(-700, -40)
 
 [node name="SceneBgm" parent="." index="4" unique_id=996875468]
 stream = SubResource("AudioStreamMP3_mchdh")
@@ -133,3 +123,4 @@ bus = &"Master"
 [editable path="ZoomViews/ClickableArea_Paper/Zoomview_paper"]
 [editable path="ZoomViews/ClickableArea_Desk"]
 [editable path="ZoomViews/ClickableArea_Desk/Zoomview_Desk"]
+[editable path="ZoomViews/ClickableArea_Desk/Zoomview_Desk/ClickableArea_Computer"]

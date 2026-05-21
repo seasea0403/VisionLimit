@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dg2aibxrefbbf" path="res://Game/UI/DialoguePanel/dialogue_panel.gd" id="1_dp"]
 [ext_resource type="Texture2D" uid="uid://c4luyc4441l5w" path="res://Art/UI/Content.png" id="2_k2pvo"]
-[ext_resource type="Texture2D" uid="uid://ca3kcyesg7wga" path="res://Art/Character/魏江抱胸思考.png" id="3_k2pvo"]
+[ext_resource type="Texture2D" uid="uid://c2e2st2dfigg0" path="res://Art/Character/沈意生气.png" id="3_k2pvo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2pvo"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
