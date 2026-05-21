@@ -12,6 +12,7 @@ extends Control
 @onready var next_button = $Control/LaterButton/TextureButton
 @onready var next_button_label = $Control/LaterButton/TextureButton/Label
 @onready var page_indicator = $Control/PageIndicator
+@onready var back_button = $Control/back/TextureButton
 
 # ==================== 状态变量 ====================
 var current_item_id: String = ""
@@ -68,6 +69,8 @@ func _ready() -> void:
 		prev_button.pressed.connect(_on_prev_pressed)
 	if next_button:
 		next_button.pressed.connect(_on_next_pressed)
+	if back_button:
+		back_button.pressed.connect(close_detail)
 	
 	# 初始化时隐藏
 	hide()

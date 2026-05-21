@@ -35,13 +35,19 @@ detail_image = null
 description = "感谢你抽空过来。先自我介绍一下，我是独立记者魏江。我知道你是沈意，这次约你，是因为你是最后一个近距离接触过郑和平的人。我有很重要的事想跟你谈。你可以先翻看一下工作室的相关资料，有任何不清楚的地方，随时问我。"
 character_image = ExtResource("4_2rb57")
 
-[node name="ImageDisplay" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="0" unique_id=491325269]
+[node name="DarkBackground" parent="UILayer/ItemDetail" parent_id_path=PackedInt32Array(552734023) index="0" unique_id=1174300489]
+layout_mode = 0
+
+[node name="Control" parent="UILayer/ItemDetail" parent_id_path=PackedInt32Array(552734023) index="1" unique_id=327138164]
+layout_mode = 0
+
+[node name="ImageDisplay" parent="UILayer/ItemDetail/Control" index="0" unique_id=491325269]
 offset_left = 502.0
 offset_top = 176.0
 offset_right = 1493.0
 offset_bottom = 837.0
 
-[node name="Character" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="2" unique_id=622851963]
+[node name="Character" parent="UILayer/ItemDetail/Control" index="2" unique_id=622851963]
 texture = ExtResource("7_h3pkn")
 
 [node name="click" parent="UILayer/ItemDetail" parent_id_path=PackedInt32Array(552734023) index="2" unique_id=1359093598]
@@ -62,7 +68,7 @@ offset_bottom = 228.0
 scale = Vector2(1.1771045, 1.1771045)
 correct_password = "0807"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="5" unique_id=1972076221]
+[node name="RecordAudio" type="AudioStreamPlayer2D" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="5" unique_id=1972076221]
 stream = ExtResource("8_68ddi")
 
 [node name="ClickableArea_Paper" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("3_1aq8v")]

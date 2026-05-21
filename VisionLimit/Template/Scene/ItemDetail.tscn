@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="7_nqt45"]
 [ext_resource type="Texture2D" uid="uid://cc8tattg8fkk3" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/shiftbutton - 副本.png" id="8_plblx"]
 [ext_resource type="Texture2D" uid="uid://bt81gby40os7o" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/shiftbutton.png" id="9_d66gi"]
+[ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="16_7wkgq"]
 
 [sub_resource type="Resource" id="Resource_8fwmm"]
 script = ExtResource("2_6tvfy")
@@ -159,6 +160,8 @@ texture_normal = ExtResource("9_d66gi")
 
 [node name="Label" parent="Control/LaterButton/TextureButton" index="0" unique_id=1029178860]
 text = ""
+
+[node name="back" parent="Control" unique_id=1191060789 instance=ExtResource("16_7wkgq")]
 
 [node name="click" type="AudioStreamPlayer2D" parent="." unique_id=1359093598]
 stream = SubResource("AudioStreamMP3_nsavy")

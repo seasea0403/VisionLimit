@@ -90,8 +90,9 @@ func _ready() -> void:
 		_queue_preview_refresh()
 		return
 
-	if back_button and back_button.has_node("TextureButton"):
-		back_button.get_node("TextureButton").pressed.connect(hide)
+	# back_button 已经是 TextureButton 本身，直接连接 pressed 信号
+	if back_button:
+		back_button.pressed.connect(close_panel)
 	_seed_default_entries()
 	hide()
 

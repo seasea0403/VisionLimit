@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://canc401gl5807" path="res://Game/Scenes/Chapter1/UI/1.tscn" id="3_uari3"]
 [ext_resource type="PackedScene" uid="uid://d2fksn0gfp2fw" path="res://Game/UI/LeadingPanel/LeadingPanel.tscn" id="4_06b1o"]
 [ext_resource type="PackedScene" uid="uid://bhd38bbkdsotp" path="res://Game/Scenes/Chapter1/items/bed.tscn" id="4_f0je0"]
+[ext_resource type="FontFile" uid="uid://dcgl7v66v21mk" path="res://Font/源云明体/GenWanMinJP-SemiBold（源云明体）.ttf" id="4_il3tr"]
 [ext_resource type="PackedScene" uid="uid://ceft3bne41ye8" path="res://Game/Scenes/Chapter1/items/dock.tscn" id="5_5oj76"]
 [ext_resource type="Script" uid="uid://ddmi68bkrli6g" path="res://Game/Scenes/Chapter1/computer_trigger.gd" id="5_6oq13"]
+[ext_resource type="FontFile" uid="uid://la0l8uxuohw3" path="res://Font/源云明体/GenWanMinJP-Regular（源云明体）.ttf" id="5_cfqdq"]
 [ext_resource type="PackedScene" uid="uid://e5g0f23rifgx" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_Board.tscn" id="6_uari3"]
 [ext_resource type="Texture2D" uid="uid://c2e2st2dfigg0" path="res://Art/Character/沈意生气.png" id="8_06b1o"]
 [ext_resource type="Texture2D" uid="uid://on8d41rdugy0" path="res://Art/Character/沈意骄傲.png" id="8_8f3k6"]
@@ -39,6 +41,10 @@ bus = &"Master"
 [node name="LeadingPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="1" unique_id=1166542545 instance=ExtResource("4_06b1o")]
 
 [node name="RecordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1173323693 instance=ExtResource("2_geqti")]
+entry_button_font_size = 26
+entry_button_font = ExtResource("4_il3tr")
+entry_button_selected_font = ExtResource("5_cfqdq")
+editor_preview_enabled = true
 
 [node name="HudPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="3" unique_id=1624742861]
 z_index = 10
