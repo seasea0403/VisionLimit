@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bybn5iu606ljv"]
+
+[ext_resource type="PackedScene" uid="uid://nobwyewip6i" path="res://Game/UI/PasswordPanel/ClickableVideo.tscn" id="1_kujcx"]
+[ext_resource type="PackedScene" uid="uid://bk5dyhrmwbc82" path="res://Game/UI/VideoPanel/VideoPanel.tscn" id="2_4yopb"]
+[ext_resource type="Texture2D" uid="uid://hl0dm7k4wthg" path="res://Art/Character/人物立绘/沈意.png" id="3_4yopb"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_1q67u"]
+
+[node name="ClickableVideo" unique_id=663052762 instance=ExtResource("1_kujcx")]
+video_path = "res://Art/Animation/-3 (1).ogv"
+
+[node name="VideoPanel" parent="." index="1" unique_id=1234567890 instance=ExtResource("2_4yopb")]
+show_detail_after_video = true
+detail_title = "采访回忆"
+detail_description = "是郑和平的采访记忆片段。她走过码头，走过医院，走过每一户失去孩子的人家。她为了收集资料，付出了莫大的努力。
+"
+detail_character_image = ExtResource("3_4yopb")
+
+[node name="VideoPlayer" parent="VideoPanel" index="1" unique_id=2012176287]
+stream = SubResource("VideoStreamTheora_1q67u")
+
+[editable path="VideoPanel"]

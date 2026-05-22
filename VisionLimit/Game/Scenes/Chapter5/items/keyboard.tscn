@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://qjngngsndtwa"]
 
 [ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_rd04a"]
-[ext_resource type="Texture2D" uid="uid://d3ajlvpvonxth" path="res://Art/Scenes/Scene5/Elements/keyboard.png" id="2_ghcqj"]
 [ext_resource type="Texture2D" uid="uid://dsmrvhatvjwiv" path="res://Art/Scenes/Scene5/Elements/keyboard_back.png" id="3_kqwlq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_by3t1"]
@@ -9,9 +8,8 @@ size = Vector2(755.75, 122)
 
 [node name="Note" unique_id=223355110 instance=ExtResource("1_rd04a")]
 item_id = "4"
-item_name = "键盘"
-detail_image = ExtResource("2_ghcqj")
-description = "Ctrl和D按键磨损得十分厉害，这是我从前做托管师时留下的习惯。四年前处理郑和平那桩委托，是我最后一次使用这个键盘，如今再看到它都觉得有些陌生了。"
+item_name = "电脑"
+description = ""
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
 position = Vector2(910.125, 870)

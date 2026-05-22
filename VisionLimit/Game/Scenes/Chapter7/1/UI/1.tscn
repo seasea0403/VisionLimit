@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bno8pg3s1qj0e"]
+
+[ext_resource type="Texture2D" uid="uid://r5pqdltqj1jb" path="res://Art/Scenes/Scene7/第六章全部 - 副本/computer.png" id="1_y4uxs"]
+[ext_resource type="Texture2D" uid="uid://ctnjrp7m6b6d6" path="res://Art/Character/苏临.png" id="2_v8k5u"]
+
+[node name="1" type="Control" unique_id=970620197]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Background" type="TextureRect" parent="." unique_id=2090611330]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_y4uxs")
+
+[node name="sulin" type="TextureRect" parent="." unique_id=679874715]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 180.99998
+offset_right = 3498.0
+offset_bottom = 1981.0
+scale = Vector2(0.81527716, 0.81527716)
+texture = ExtResource("2_v8k5u")

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_1ur8k"]
 [ext_resource type="Texture2D" uid="uid://bkho3oqqpmw80" path="res://Art/Scenes/Scene7/第六章全部 - 副本/Background7_1.png" id="2_7i2j8"]
 [ext_resource type="PackedScene" uid="uid://bl8uifwcqdeeg" path="res://Game/Scenes/Chapter7/1/ClickableArea/ClickableArea_Block.tscn" id="4_g4jir"]
+[ext_resource type="Texture2D" uid="uid://boanoihuyqa70" path="res://Art/Scenes/Scene7/第六章全部 - 副本/cup.png" id="4_qmnyq"]
 [ext_resource type="PackedScene" uid="uid://bj7415akje8lp" path="res://Game/Scenes/Chapter7/1/ClickableArea/ClickableArea_Desk.tscn" id="6_i1vd3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbfs3"]
@@ -24,6 +25,12 @@ texture = ExtResource("2_7i2j8")
 [node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="0" unique_id=552734023]
 visible = false
 
+[node name="DarkBackground" parent="UILayer/ItemDetail" index="0" unique_id=1174300489]
+layout_mode = 0
+
+[node name="Control" parent="UILayer/ItemDetail" index="1" unique_id=327138164]
+layout_mode = 0
+
 [node name="click" parent="UILayer/ItemDetail" index="2" unique_id=1359093598]
 bus = &"Master"
 
@@ -35,6 +42,10 @@ rotation = -0.0483929
 scale = Vector2(28.680006, 28.680006)
 shape = SubResource("RectangleShape2D_fbfs3")
 
+[node name="Card" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="0" unique_id=1064052470]
+detail_image = ExtResource("4_qmnyq")
+description = "时间居然已经过去这么久了......"
+
 [node name="ClickableArea_Block" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=1041883668 instance=ExtResource("4_g4jir")]
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Block" index="0" unique_id=55883732]
@@ -43,6 +54,9 @@ shape = SubResource("RectangleShape2D_2k8s4")
 
 [node name="Zoomview_paper" parent="ZoomViews/ClickableArea_Block" index="1" unique_id=198920514]
 visible = false
+
+[node name="Calender" parent="ZoomViews/ClickableArea_Block/Zoomview_paper/Items" parent_id_path=PackedInt32Array(1041883668, 198920514, 1759582505) index="0" unique_id=223355110]
+description = "记忆海挖掘已经完成，信号屏蔽仪已经完成了它的使命。"
 
 [node name="SceneBgm" parent="." index="3" unique_id=996875468]
 stream = SubResource("AudioStreamMP3_yb4b2")

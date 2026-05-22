@@ -2,16 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_umqn5"]
 [ext_resource type="Texture2D" uid="uid://iap7kj6sxrpj" path="res://Art/Scenes/Scene5/Background/Background5.png" id="2_2k8s4"]
+[ext_resource type="Script" uid="uid://dqwva1ct7tlxd" path="res://Script/Chapters/chapter_5.gd" id="2_neg8u"]
 [ext_resource type="PackedScene" uid="uid://b0ng4fnjbekia" path="res://Game/Scenes/Chapter5/ClickableArea/ClickableArea_Desk.tscn" id="3_0tw87"]
 [ext_resource type="PackedScene" uid="uid://drqdemmbxx0ti" path="res://Game/Scenes/Chapter2/items/魏江.tscn" id="3_w4bja"]
 [ext_resource type="Texture2D" uid="uid://on8d41rdugy0" path="res://Art/Character/沈意骄傲.png" id="4_fbfs3"]
 [ext_resource type="PackedScene" uid="uid://dfug80gvcpggs" path="res://Game/Scenes/Chapter5/ClickableArea/ClickableArea_Block.tscn" id="4_fp6ag"]
 [ext_resource type="Texture2D" uid="uid://djecu5okialbk" path="res://Art/Character/魏江.png" id="4_neg8u"]
 [ext_resource type="Texture2D" uid="uid://kitay7qiyqao" path="res://Art/Character/沈意叹气.png" id="5_nqh41"]
+[ext_resource type="Texture2D" uid="uid://d3ajlvpvonxth" path="res://Art/Scenes/Scene5/Elements/keyboard.png" id="7_cu6p6"]
 [ext_resource type="Texture2D" uid="uid://n57qn72imbot" path="res://Art/Character/魏江张手.png" id="7_w4bja"]
+[ext_resource type="PackedScene" uid="uid://detnxptpgnhtx" path="res://Game/Scenes/Chapter5/items/computer.tscn" id="9_xxd6n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbfs3"]
 size = Vector2(27.655869, 18.700935)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu6p6"]
+size = Vector2(1298.875, 406)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2k8s4"]
 size = Vector2(10.564852, 8.804044)
@@ -21,6 +27,7 @@ data = PackedByteArray("//vQRAAPxRpkKQHsHtKfqjUhYSPyGR2E2BWXgAsVNFuOsPAA1HgSwpn+
 loop = true
 
 [node name="Chapter5" unique_id=1917343286 instance=ExtResource("1_umqn5")]
+script = ExtResource("2_neg8u")
 
 [node name="Background" parent="." index="0" unique_id=2106778844]
 scale = Vector2(0.6, 0.6)
@@ -33,7 +40,7 @@ scale = Vector2(1.7509407, -1.418467)
 item_id = "1"
 item_name = ""
 detail_image = null
-description = "苍屿症的患者大多集中在码头一带，我怀疑和海域污染有关，四处搜寻一下，看看能否找到有用的线索。"
+description = "郑和平的记忆很可能以某种不可抹杀的形式留在了你的记忆海中。所以你会对她经历过的一切有共感。真是奇妙，四年前你删除了她记忆海中的数据，四年后又要从你的记忆海中把数据挖掘出来。但谢谢你愿意这么做，更感谢你愿意冒着风险这样做。"
 character_image = ExtResource("4_neg8u")
 
 [node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="0" unique_id=552734023]
@@ -56,14 +63,21 @@ rotation = -0.0483929
 scale = Vector2(28.680006, 28.680006)
 shape = SubResource("RectangleShape2D_fbfs3")
 
-[node name="Zoomview_Desk" parent="ZoomViews/ClickableArea_Desk" index="1" unique_id=198920514]
-visible = false
-
 [node name="Note" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="0" unique_id=223355110]
+item_name = "键盘"
+detail_image = ExtResource("7_cu6p6")
+description = "Ctrl和D按键磨损得十分厉害，这是我从前做托管师时留下的习惯。四年前处理郑和平那桩委托，是我最后一次使用这个键盘，如今再看到它都觉得有些陌生了。"
 character_image = ExtResource("4_fbfs3")
 
 [node name="Card" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="1" unique_id=1064052470]
 character_image = ExtResource("5_nqh41")
+
+[node name="computer" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="3" unique_id=64157657 instance=ExtResource("9_xxd6n")]
+item_id = "7"
+
+[node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items/computer" index="0" unique_id=398543410]
+position = Vector2(881.4375, 439)
+shape = SubResource("RectangleShape2D_cu6p6")
 
 [node name="ClickableArea_Block" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=1041883668 instance=ExtResource("4_fp6ag")]
 
@@ -89,5 +103,6 @@ bus = &"Master"
 [editable path="UILayer/ItemDetail/Control/LaterButton"]
 [editable path="ZoomViews/ClickableArea_Desk"]
 [editable path="ZoomViews/ClickableArea_Desk/Zoomview_Desk"]
+[editable path="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items/computer"]
 [editable path="ZoomViews/ClickableArea_Block"]
 [editable path="ZoomViews/ClickableArea_Block/Zoomview_paper"]

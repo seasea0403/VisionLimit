@@ -11,6 +11,7 @@ size = Vector2(755.75, 122)
 item_id = "4"
 item_name = "键盘"
 detail_image = ExtResource("2_m7q1v")
+description = "Ctrl和D按键磨损得十分厉害，这是我从前做托管师时留下的习惯。四年前处理郑和平那桩委托，是我最后一次使用这个键盘，如今再看到它都觉得有些陌生了。"
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
 position = Vector2(910.125, 870)

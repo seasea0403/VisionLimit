@@ -1,0 +1,140 @@
+[gd_scene format=3 uid="uid://cbqqw8j6hsop"]
+
+[ext_resource type="Script" uid="uid://dwiixrn4oskg4" path="res://Script/UI/error_popup.gd" id="1_cnts7"]
+[ext_resource type="Texture2D" uid="uid://cb8rewvqet1n0" path="res://Art/Scenes/Scene7/第六章全部 - 副本/poppanel.png" id="2_jbqbx"]
+[ext_resource type="Texture2D" uid="uid://r5pqdltqj1jb" path="res://Art/Scenes/Scene7/第六章全部 - 副本/computer.png" id="2_wagyj"]
+[ext_resource type="StyleBox" uid="uid://dnr35iovhqjpr" path="res://Style/red_button.tres" id="3_wagyj"]
+
+[sub_resource type="FontFile" id="FontFile_veh3o"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_q3mvd"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_ic42e"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kh3n"]
+bg_color = Color(0.7084564, 0.16403797, 0.117562525, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45pjq"]
+bg_color = Color(0.96228665, 0.39719883, 0.32748142, 1)
+
+[node name="ConfirmPanel" type="CanvasLayer" unique_id=2120591365]
+script = ExtResource("1_cnts7")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1919537795]
+position = Vector2(-477, -211.00002)
+scale = Vector2(1.4722458, 1.4392877)
+
+[node name="TextureRect2" type="TextureRect" parent="Node2D" unique_id=1152635773]
+offset_left = 373.0
+offset_top = 193.00002
+offset_right = 3573.0
+offset_bottom = 1993.0
+scale = Vector2(0.367305, 0.3821228)
+texture = ExtResource("2_wagyj")
+
+[node name="TextureRect" type="TextureRect" parent="Node2D" unique_id=355461541]
+offset_left = 373.0
+offset_top = 193.0
+offset_right = 3573.0
+offset_bottom = 1993.0
+scale = Vector2(0.367305, 0.3821228)
+texture = ExtResource("2_jbqbx")
+
+[node name="Title" type="Label" parent="Node2D" unique_id=1365154461]
+offset_left = 760.0
+offset_top = 420.0
+offset_right = 1160.0
+offset_bottom = 459.0
+theme_override_colors/font_color = Color(1, 0.01999998, 0.01999998, 1)
+theme_override_fonts/font = SubResource("FontFile_veh3o")
+theme_override_font_sizes/font_size = 28
+text = "系统提示"
+horizontal_alignment = 1
+
+[node name="Content" type="Label" parent="Node2D" unique_id=1191781913]
+offset_left = 747.8371
+offset_top = 466.2028
+offset_right = 1191.8372
+offset_bottom = 576.20276
+scale = Vector2(1, 1.2799993)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/paragraph_spacing = 14
+theme_override_fonts/font = SubResource("FontFile_q3mvd")
+theme_override_font_sizes/font_size = 22
+text = "是否确认进行记忆扫描？
+警告：此过程将以患者神经模板形式重启你自身的接入路径，存在不可逆风险。"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="ConfirmButton" type="Button" parent="Node2D" unique_id=1050277967]
+custom_minimum_size = Vector2(120, 40)
+offset_left = 919.0042
+offset_top = 623.9198
+offset_right = 1039.0044
+offset_bottom = 663.9198
+scale = Vector2(0.71282005, 0.7537633)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontFile_ic42e")
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = ExtResource("3_wagyj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3kh3n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_45pjq")
+text = "确认"
