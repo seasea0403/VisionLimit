@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b5dgyxwacbfgc"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_3ig1a"]
+[ext_resource type="Texture2D" uid="uid://cgv6abyog3534" path="res://Art/Scenes/Scene7/interview.png" id="2_y5l8n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(18.942345, 32.041733)
+
+[node name="interview" unique_id=223355110 instance=ExtResource("1_3ig1a")]
+item_id = "1"
+item_name = "采访邀约"
+detail_image = ExtResource("2_y5l8n")
+description = "苍屿症的报道引起了很大的关注。虽然我不是爱出风头的人，但魏江建议我为了扩大影响力最好还是接受邀约......"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(872, 640)
+rotation = 0.2906434
+scale = Vector2(32.109863, 23.993809)
+shape = SubResource("RectangleShape2D_rm26b")

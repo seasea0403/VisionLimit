@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://brcx82bouoawx"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_tgiql"]
+[ext_resource type="Texture2D" uid="uid://cyx4eiq4xrlfm" path="res://Art/Scenes/Scene7/播放器.png" id="2_15ptq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb1hh"]
+size = Vector2(3.205, 29.754852)
+
+[node name="RecordPlayer" unique_id=223355110 instance=ExtResource("1_tgiql")]
+item_id = "2"
+item_name = "播放器"
+detail_image = ExtResource("2_15ptq")
+description = "无论如何，新生活都要开始了。放首歌庆祝一下我的新生吧。"
+can_record = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(1427, 577)
+scale = Vector2(33.07334, -3.9993448)
+shape = SubResource("RectangleShape2D_mb1hh")

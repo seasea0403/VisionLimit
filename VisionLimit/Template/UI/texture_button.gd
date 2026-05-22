@@ -23,4 +23,4 @@ func update_button_state():
 func _on_pressed():
 	if scene_path == "" or disabled:
 		return
-	get_tree().change_scene_to_file(scene_path)
+	SceneTransitionManager.change_scene_to_file(scene_path)

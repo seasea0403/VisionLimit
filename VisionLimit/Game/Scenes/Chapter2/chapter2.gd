@@ -16,6 +16,7 @@ var _state := State.EXPLORE
 @onready var _record_audio: AudioStreamPlayer2D = $UILayer/RecordAudio
 @onready var _puzzle_ui       = $"UILayer/1"
 @onready var _hud_panel       = $UILayer/HudPanel
+@onready var _open_record_btn: Node = $"UILayer/ItemDetail/Control/OpenRecordButton"
 
 # ==================== 对话数据 ====================
 const Ch2WeijianExit = preload("res://Script/Dialogues/ch2_weijian_exit.gd")
@@ -36,20 +37,27 @@ func _ready() -> void:
 	# 密码面板：连接正确信号
 	_password_panel.password_correct.connect(_on_password_correct)
 
+	# 仅 Chapter2 显示密码面板的返回按钮
+	var _back_btn = _password_panel.get_node_or_null("VBoxContainer/BackButton")
+	if _back_btn:
+		_back_btn.visible = true
+
 	# 拼图 UI：连接完成信号（字符串形式，避免静态类型检查警告）
 	_puzzle_ui.connect("puzzle_solved", _on_puzzle_solved_handler)
 
 	# ItemDetail 信号
 	item_detail.detail_opened.connect(_on_detail_opened)
-	item_detail.action_pressed.connect(_on_action_pressed)
+	_open_record_btn.get_node("TextureButton").pressed.connect(_on_open_record_pressed)
+	item_detail.panel_closed.connect(_on_item_detail_closed)
 
 # ==================== ItemDetail 拦截 ====================
 func _on_detail_opened(item_id: String) -> void:
+	_open_record_btn.visible = false
 	match item_id:
 		"3":
-			# 录音笔：EXPLORE 阶段显示"打开录音"动作按钮
+			# 录音笔：EXPLORE 阶段显示「打开录音」按钮
 			if _state == State.EXPLORE:
-				item_detail.set_action_button(true, "打开录音")
+				_open_record_btn.visible = true
 		"1":
 			# 魏江：录音播放完后拦截 ItemDetail，直接触发对话
 			if _state == State.TRANSCRIPT_DONE or _state == State.PUZZLE:
@@ -58,11 +66,13 @@ func _on_detail_opened(item_id: String) -> void:
 				_state = State.TRANSCRIPT_DONE
 				_show_exit_dialogue()
 
-# ==================== 动作按钮（录音笔"打开录音"）====================
-func _on_action_pressed() -> void:
-	if item_detail.current_item_id == "3" and _state == State.EXPLORE:
-		item_detail.close_detail()
-		_password_panel.open()
+func _on_item_detail_closed() -> void:
+	_open_record_btn.visible = false
+
+# ==================== 本地按钮：录音笔「打开录音」====================
+func _on_open_record_pressed() -> void:
+	item_detail.close_detail()
+	_password_panel.open()
 
 # ==================== 密码解锁 → 播放录音 ====================
 func _on_password_correct() -> void:
@@ -102,4 +112,4 @@ func _on_puzzle_solved_handler() -> void:
 # ==================== 结局：解锁第三章并返回关卡选择 ====================
 func _on_ending_finished() -> void:
 	GameStateManager.complete_chapter(2)
-	get_tree().change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")
+	SceneTransitionManager.change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")

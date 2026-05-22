@@ -70,4 +70,4 @@ func _on_dock_dialogue_finished() -> void:
 	# complete_chapter(3) 在 chapter_3_1 中已调用过（幂等），此处再调一次无害；
 	# 同时解锁第四章（confirm chapter index matches GameStateManager logic）
 	GameStateManager.complete_chapter(3)
-	get_tree().change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")
+	SceneTransitionManager.change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")

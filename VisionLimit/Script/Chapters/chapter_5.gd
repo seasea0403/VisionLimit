@@ -30,7 +30,7 @@ func _on_detail_opened(item_id: String) -> void:
 
 func _on_memory_dive_confirmed() -> void:
 	# 确认后进入记忆海场景（第六章）
-	get_tree().change_scene_to_file("res://Game/Scenes/Chapter6/chapter_6.tscn")
+	SceneTransitionManager.change_scene_to_file("res://Game/Scenes/Chapter6/chapter_6.tscn")
 
 func _play_end_dialogue() -> void:
 	if not DialogueManager.dialogue_finished.is_connected(_on_end_dialogue_finished):
@@ -40,4 +40,4 @@ func _play_end_dialogue() -> void:
 
 func _on_end_dialogue_finished() -> void:
 	GameStateManager.complete_chapter(5)
-	get_tree().change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")
+	SceneTransitionManager.change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")

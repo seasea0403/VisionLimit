@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_hnwmk"]
 [ext_resource type="Texture2D" uid="uid://ceb0l8flttfu6" path="res://Art/Scenes/Scene3/Zoomview_2/cylinder.png" id="2_ik8xh"]
-[ext_resource type="PackedScene" uid="uid://b5dgyxwacbfgc" path="res://Game/Scenes/Chapter7/2/items/book.tscn" id="3_pdfqs"]
+[ext_resource type="PackedScene" uid="uid://b5dgyxwacbfgc" path="res://Game/Scenes/Chapter7/2/items/interview.tscn" id="3_pdfqs"]
 
 [node name="Zoomview_cylinder" unique_id=198920514 instance=ExtResource("1_hnwmk")]
 

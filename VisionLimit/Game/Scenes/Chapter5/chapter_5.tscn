@@ -34,9 +34,9 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_2k8s4")
 
 [node name="魏江" parent="Background" index="0" unique_id=223355110 instance=ExtResource("3_w4bja")]
-position = Vector2(849.99994, -619.99994)
+position = Vector2(763.33325, -798.3333)
 rotation = 3.141988
-scale = Vector2(1.7509407, -1.418467)
+scale = Vector2(1.7006806, -1.5676773)
 item_id = "1"
 item_name = ""
 detail_image = null
@@ -62,6 +62,9 @@ position = Vector2(1061.7855, 500.25107)
 rotation = -0.0483929
 scale = Vector2(28.680006, 28.680006)
 shape = SubResource("RectangleShape2D_fbfs3")
+
+[node name="Zoomview_Desk" parent="ZoomViews/ClickableArea_Desk" index="1" unique_id=198920514]
+visible = false
 
 [node name="Note" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="0" unique_id=223355110]
 item_name = "键盘"

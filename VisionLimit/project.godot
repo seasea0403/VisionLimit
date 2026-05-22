@@ -20,6 +20,7 @@ run/custom_font=""
 
 GameStateManager="*uid://dxarl5klv6pxj"
 DialogueManager="*res://Script/Autoloads/DialogueManager.gd"
+SceneTransitionManager="*res://Script/Autoloads/SceneTransitionManager.gd"
 
 [display]
 

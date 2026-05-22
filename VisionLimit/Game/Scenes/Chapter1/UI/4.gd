@@ -46,4 +46,4 @@ func _on_close_pressed() -> void:
 func _finish_chapter() -> void:
 	GameStateManager.complete_chapter(1)
 	queue_free()  # 先移除自身，避免 4.tscn 在切换场景后残留
-	get_tree().change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")
+	SceneTransitionManager.change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")

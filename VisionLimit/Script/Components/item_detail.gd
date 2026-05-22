@@ -30,17 +30,11 @@ var current_record_description_2: String = ""
 var _pages: Array[Dictionary] = []
 var _current_page: int = 0
 
-# ==================== 动作按钮（尝试键）====================
-## 设置为 true 时，LaterButton 显示为「动作按钮」而非翻页按钮
-var _action_mode: bool = false
-
 # ==================== 信号 ====================
 signal item_recorded(item_id: String, entry_title: String, entry_description: String, entry_title_2: String, entry_description_2: String)
 signal panel_closed
 ## 详情面板打开时发出，携带当前 item_id
 signal detail_opened(item_id: String)
-## 动作按钮（尝试键）被按下时发出
-signal action_pressed
 
 
 # ==================== 角色立绘按图覆盖表（可在 Inspector 中配置）====================
@@ -195,8 +189,7 @@ func _apply_page(idx: int) -> void:
 
 
 func set_action_button(visible_state: bool, label_text: String = "尝试") -> void:
-	"""显示或隐藏动作按钮（复用 LaterButton），用于特定物品的交互（如录音笔「尝试」键）"""
-	_action_mode = visible_state
+	"""显示或隐藏 LaterButton 的动作模式（历史兼容接口）"""
 	if next_button_label:
 		next_button_label.text = label_text if visible_state else ""
 	_update_nav_buttons()
@@ -204,17 +197,6 @@ func set_action_button(visible_state: bool, label_text: String = "尝试") -> vo
 
 func _update_nav_buttons() -> void:
 	"""根据页数更新翻页按钮和页码指示器的可见性与状态"""
-	if _action_mode:
-		# 动作模式：LaterButton 作为「尝试」按钮，始终可见且可用；PrevButton 和页码隐藏
-		if prev_button:
-			prev_button.visible = false
-		if next_button:
-			next_button.visible = true
-			next_button.disabled = false
-		if page_indicator:
-			page_indicator.visible = false
-		return
-
 	var multi: bool = _pages.size() > 1
 	if prev_button:
 		prev_button.visible = multi
@@ -255,9 +237,6 @@ func close_detail() -> void:
 	# 隐藏面板本身
 	hide()
 
-	# 重置动作按钮模式
-	_action_mode = false
-
 	# 清理多页状态
 	_pages.clear()
 	_current_page = 0
@@ -288,10 +267,6 @@ func _on_prev_pressed() -> void:
 
 
 func _on_next_pressed() -> void:
-	if _action_mode:
-		# 动作模式：发出「尝试」信号而非翻页
-		action_pressed.emit()
-		return
 	if _current_page < _pages.size() - 1:
 		_apply_page(_current_page + 1)
 

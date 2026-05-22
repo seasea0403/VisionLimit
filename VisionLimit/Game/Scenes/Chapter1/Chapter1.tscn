@@ -60,9 +60,6 @@ z_index = 100
 [node name="1" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="4" unique_id=1869578665 instance=ExtResource("3_uari3")]
 visible = false
 
-[node name="password_1" parent="UILayer/1" index="1" unique_id=511807059]
-visible = false
-
 [node name="ClickableArea_Table" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("2_xnqfp")]
 
 [node name="foodbox" parent="ZoomViews/ClickableArea_Table/Zoomview_desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="2" unique_id=223355110]

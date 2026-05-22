@@ -18,6 +18,12 @@ func _ready() -> void:
 	if setting_panel:
 		setting_panel.hide()
 
+	# 结局音乐激活时，屏蔽 MainPanel 自带的自动播放背景音乐
+	if GameStateManager.is_ending_music_active:
+		var panel_audio: AudioStreamPlayer2D = main_panel.get_node_or_null("AudioStreamPlayer2D")
+		if panel_audio:
+			panel_audio.stop()
+
 
 func _on_start_pressed() -> void:
 	if choose_level_panel:

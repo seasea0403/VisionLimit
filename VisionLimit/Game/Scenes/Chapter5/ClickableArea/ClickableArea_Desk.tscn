@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Template/Scene/ClickableArea.tscn" id="1_dms1t"]
 [ext_resource type="PackedScene" uid="uid://drsytc0ou5b12" path="res://Game/Scenes/Chapter5/zoomview/zoomview_desk.tscn" id="2_p8l5o"]
+[ext_resource type="Texture2D" uid="uid://d3ajlvpvonxth" path="res://Art/Scenes/Scene5/Elements/keyboard.png" id="3_p8l5o"]
 
 [node name="ClickableArea_Desk" unique_id=676050068 instance=ExtResource("1_dms1t")]
 
@@ -9,5 +10,10 @@
 position = Vector2(987.49994, 605.5)
 
 [node name="Zoomview_Desk" parent="." index="1" unique_id=198920514 instance=ExtResource("2_p8l5o")]
+
+[node name="Note" parent="Zoomview_Desk/Items" parent_id_path=PackedInt32Array(198920514, 1759582505) index="0" unique_id=223355110]
+item_name = "键盘"
+detail_image = ExtResource("3_p8l5o")
+description = "Ctrl和D按键磨损得十分厉害，这是我从前做托管师时留下的习惯。四年前处理郑和平那桩委托，是我最后一次使用这个键盘，如今再看到它都觉得有些陌生了。"
 
 [editable path="Zoomview_Desk"]

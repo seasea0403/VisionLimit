@@ -1,0 +1,333 @@
+[gd_scene format=3 uid="uid://beemwvxpogg4a"]
+
+[ext_resource type="Script" uid="uid://bn0rkhwukrkq4" path="res://Game/Scenes/Chapter7/UI/proofpanel.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dw4das0ey32ts" path="res://Art/popback.png" id="2_1mfll"]
+[ext_resource type="PackedScene" path="res://Template/Scene/ReasoningSlot.tscn" id="3_slot"]
+[ext_resource type="FontFile" uid="uid://bjtrn41cebq4e" path="res://Font/CLFN 16x CN.ttf" id="4_font"]
+[ext_resource type="Texture2D" uid="uid://cjmcu3j4s8ew4" path="res://Art/UI/UI2/微信图片_20260515115216_3100_2323.png" id="5_qm5y1"]
+[ext_resource type="PackedScene" uid="uid://cp3xgf2ql8nm" path="res://Template/Scene/CluePanel.tscn" id="6_clue"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1mfll"]
+texture = ExtResource("5_qm5y1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8wrrx"]
+texture = ExtResource("5_qm5y1")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e4oyy"]
+texture = ExtResource("5_qm5y1")
+
+[node name="ProofPanel" type="Control" unique_id=1031929057]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1612125854]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0000076
+offset_top = -7.000002
+offset_right = 187.79932
+offset_bottom = 245.18176
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0028778026
+scale = Vector2(0.9086122, 0.814436)
+texture = ExtResource("2_1mfll")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TitleLabel" type="Label" parent="." unique_id=926003216]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -1.0
+offset_top = 124.0
+offset_right = -1.0
+offset_bottom = 194.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.05, 0.05, 0.05, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 40
+text = "证据板·最后整理"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Columns" type="HBoxContainer" parent="." unique_id=1607440645]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1000.0
+offset_top = 254.0
+offset_right = -170.0
+offset_bottom = 854.0
+grow_horizontal = 2
+scale = Vector2(1.0226655, 1.0226655)
+theme_override_constants/separation = -12
+alignment = 1
+
+[node name="Col0" type="VBoxContainer" parent="Columns" unique_id=29097112]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="Columns/Col0" unique_id=762939142]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.15, 0.15, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 30
+text = "「污染来源」"
+
+[node name="Slots" type="VBoxContainer" parent="Columns/Col0" unique_id=1268866728]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Slot1" parent="Columns/Col0/Slots" unique_id=1972870548 instance=ExtResource("3_slot")]
+custom_minimum_size = Vector2(200, 180)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1mfll")
+
+[node name="Slot2" parent="Columns/Col0/Slots" unique_id=1843440973 instance=ExtResource("3_slot")]
+custom_minimum_size = Vector2(200, 180)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8wrrx")
+
+[node name="Slot3" parent="Columns/Col0/Slots" unique_id=2020317771 instance=ExtResource("3_slot")]
+custom_minimum_size = Vector2(200, 180)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_e4oyy")
+
+[node name="Col1" type="VBoxContainer" parent="Columns" unique_id=1925591008]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="Columns/Col1" unique_id=826865469]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.15, 0.3, 0.6, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 30
+text = "「疾病关联」"
+
+[node name="Slots" type="VBoxContainer" parent="Columns/Col1" unique_id=1351792619]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Slot1" parent="Columns/Col1/Slots" unique_id=216365912 instance=ExtResource("3_slot")]
+custom_minimum_size = Vector2(200, 180)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1mfll")
+
+[node name="Slot2" parent="Columns/Col1/Slots" unique_id=503062215 instance=ExtResource("3_slot")]
+custom_minimum_size = Vector2(200, 180)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8wrrx")
+
+[node name="Slot3" parent="Columns/Col1/Slots" unique_id=1047830321 instance=ExtResource("3_slot")]
+custom_minimum_size = Vector2(200, 180)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_e4oyy")
+
+[node name="Col2" type="VBoxContainer" parent="Columns" unique_id=140647712]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="Columns/Col2" unique_id=305638464]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45, 0.2, 0.55, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 30
+text = "「权力结构」"
+
+[node name="Slots" type="VBoxContainer" parent="Columns/Col2" unique_id=393545447]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Slot1" parent="Columns/Col2/Slots" unique_id=1020845744 instance=ExtResource("3_slot")]
+custom_minimum_size = Vector2(200, 180)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1mfll")
+
+[node name="Slot2" parent="Columns/Col2/Slots" unique_id=392836208 instance=ExtResource("3_slot")]
+custom_minimum_size = Vector2(200, 180)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_8wrrx")
+
+[node name="Slot3" parent="Columns/Col2/Slots" unique_id=1667305027 instance=ExtResource("3_slot")]
+custom_minimum_size = Vector2(200, 180)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_e4oyy")
+
+[node name="CluePoolLabel" type="Label" parent="." unique_id=1916129271]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 167.0
+offset_top = 251.0
+offset_right = -1445.0
+offset_bottom = 286.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.05, 0.05, 0.05, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 25
+text = "将线索拖入对应栏目中"
+
+[node name="CluePool" type="HFlowContainer" parent="." unique_id=1539867265]
+custom_minimum_size = Vector2(2800, 2000)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 132.0
+offset_top = -784.0
+offset_right = 1012.0
+offset_bottom = 1216.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.31905112, 0.31905112)
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+
+[node name="Clue_p1" parent="CluePool" unique_id=540492866 instance=ExtResource("6_clue")]
+layout_mode = 2
+clue_id = "clue_p1"
+clue_text = "C-03汞超标
+检测报告"
+panel_size = Vector2(50, 30)
+
+[node name="Clue_p2" parent="CluePool" unique_id=1854298573 instance=ExtResource("6_clue")]
+layout_mode = 2
+clue_id = "clue_p2"
+clue_text = "精炼厂
+排污时间线"
+panel_size = Vector2(50, 30)
+
+[node name="Clue_p3" parent="CluePool" unique_id=1336825552 instance=ExtResource("6_clue")]
+layout_mode = 2
+clue_id = "clue_p3"
+clue_text = "正源环境
+检测造假链"
+panel_size = Vector2(50, 30)
+
+[node name="Clue_d1" parent="CluePool" unique_id=950308973 instance=ExtResource("6_clue")]
+layout_mode = 2
+clue_id = "clue_d1"
+clue_text = "苍屿症
+流行病学数据"
+panel_size = Vector2(50, 30)
+
+[node name="Clue_d2" parent="CluePool" unique_id=103294485 instance=ExtResource("6_clue")]
+layout_mode = 2
+clue_id = "clue_d2"
+clue_text = "郑和平采样
+坐标与记录"
+panel_size = Vector2(50, 30)
+
+[node name="Clue_d3" parent="CluePool" unique_id=273628356 instance=ExtResource("6_clue")]
+layout_mode = 2
+clue_id = "clue_d3"
+clue_text = "儿童病例
+集中分布"
+panel_size = Vector2(50, 30)
+
+[node name="Clue_s1" parent="CluePool" unique_id=793604706 instance=ExtResource("6_clue")]
+layout_mode = 2
+clue_id = "clue_s1"
+clue_text = "晴野基金会
+资金流向"
+panel_size = Vector2(50, 30)
+
+[node name="Clue_s2" parent="CluePool" unique_id=1273822038 instance=ExtResource("6_clue")]
+layout_mode = 2
+clue_id = "clue_s2"
+clue_text = "临深集团
+关联关系图谱"
+panel_size = Vector2(50, 30)
+
+[node name="Clue_s3" parent="CluePool" unique_id=1834449450 instance=ExtResource("6_clue")]
+layout_mode = 2
+clue_id = "clue_s3"
+clue_text = "环保局档案
+删除节点"
+panel_size = Vector2(50, 30)
+
+[node name="ResultArea" type="VBoxContainer" parent="." unique_id=1529151543]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -417.0
+offset_top = -216.0
+offset_right = 423.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="InfoLabel" type="Label" parent="ResultArea" unique_id=43734183]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.05, 0.05, 0.05, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ActionBox" type="HBoxContainer" parent="ResultArea" unique_id=98024206]
+layout_mode = 2
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="BtnSend" type="Button" parent="ResultArea/ActionBox" unique_id=1101327887]
+custom_minimum_size = Vector2(220, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 26
+text = "发送证据"
+
+[node name="BtnSeal" type="Button" parent="ResultArea/ActionBox" unique_id=2029095259]
+custom_minimum_size = Vector2(220, 60)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 26
+text = "封存证据"
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=1533684197]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Label" type="Label" parent="Overlay" unique_id=458664711]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -40.0
+offset_right = 400.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 34
+horizontal_alignment = 1
+vertical_alignment = 1

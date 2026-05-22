@@ -58,4 +58,4 @@ func _start_hospital_dialogue() -> void:
 
 func _on_hospital_dialogue_finished() -> void:
 	GameStateManager.complete_chapter(3)
-	get_tree().change_scene_to_file("res://Game/Scenes/Chapter3/2/chapter_3_2.tscn")
+	SceneTransitionManager.change_scene_to_file("res://Game/Scenes/Chapter3/2/chapter_3_2.tscn")

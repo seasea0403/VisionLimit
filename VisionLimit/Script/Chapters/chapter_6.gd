@@ -85,4 +85,4 @@ func _on_memory_dialogue_finished() -> void:
 	# 设置第五章已收集过记忆的标志
 	GameStateManager.set_record("ch5_memory_completed", "1")
 	# 返回第五章
-	get_tree().change_scene_to_file("res://Game/Scenes/Chapter5/chapter_5.tscn")
+	SceneTransitionManager.change_scene_to_file("res://Game/Scenes/Chapter5/chapter_5.tscn")

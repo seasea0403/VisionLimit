@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d3k5dwkf5f7bv"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_trdhb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_by3t1"]
+size = Vector2(755.75, 122)
+
+[node name="Note" unique_id=223355110 instance=ExtResource("1_trdhb")]
+item_id = "4"
+item_name = "电脑"
+description = ""
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(910.125, 870)
+shape = SubResource("RectangleShape2D_by3t1")

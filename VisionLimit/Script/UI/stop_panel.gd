@@ -88,7 +88,7 @@ func _on_choose_level_button_pressed() -> void:
 
 func _on_home_button_pressed() -> void:
 	# 返回主界面：直接切换场景（场景切换会自动销毁当前树）
-	get_tree().change_scene_to_file(MAIN_SCENE_PATH)
+	SceneTransitionManager.change_scene_to_file(MAIN_SCENE_PATH)
 
 
 func _on_setting_button_pressed() -> void:

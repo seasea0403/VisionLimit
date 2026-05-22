@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_qek80"]
 [ext_resource type="Texture2D" uid="uid://b2xxr57lbn0xb" path="res://Art/Scenes/Scene3/Zoomview_2/price_board.png" id="2_i8x37"]
-[ext_resource type="PackedScene" uid="uid://brcx82bouoawx" path="res://Game/Scenes/Chapter7/2/items/note.tscn" id="3_5hada"]
+[ext_resource type="PackedScene" uid="uid://brcx82bouoawx" path="res://Game/Scenes/Chapter7/2/items/recordplayer.tscn" id="3_5hada"]
 
 [node name="Zoomview_priceboard" unique_id=198920514 instance=ExtResource("1_qek80")]
 

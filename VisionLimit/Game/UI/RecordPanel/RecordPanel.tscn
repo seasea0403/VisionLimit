@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ccp5mfhfncfts"]
 
 [ext_resource type="Script" uid="uid://b564cpjrv3he1" path="res://Script/UI/record_panel.gd" id="1_lx6s2"]
-[ext_resource type="FontFile" uid="uid://c3mexkpdyf8ag" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-Bold.ttf" id="2_8q246"]
+[ext_resource type="FontFile" uid="uid://ccubhek2ht0u5" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-Medium.ttf" id="2_8q246"]
 [ext_resource type="FontFile" uid="uid://d21n4mvl5jeb" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-SemiBold.ttf" id="2_lcdoj"]
-[ext_resource type="FontFile" uid="uid://cwjfcn0dqtqs0" path="res://Font/源云明体/GenWanMinJP-Medium（源云明体）.ttf" id="3_b7vo3"]
+[ext_resource type="FontFile" uid="uid://bnsrpukraxd3g" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-Regular.ttf" id="3_b7vo3"]
 [ext_resource type="Texture2D" uid="uid://w27dwij336vo" path="res://Art/UI/Elements/微信图片_20260507000457_281_2323.png" id="3_s0i24"]
 [ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="4_back"]
 

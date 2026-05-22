@@ -2,8 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_1ur8k"]
 [ext_resource type="Texture2D" uid="uid://bkho3oqqpmw80" path="res://Art/Scenes/Scene7/第六章全部 - 副本/Background7_1.png" id="2_7i2j8"]
+[ext_resource type="Script" uid="uid://dnbeie77qa7yu" path="res://Script/Chapters/chapter_7_1.gd" id="2_ddshb"]
 [ext_resource type="PackedScene" uid="uid://bl8uifwcqdeeg" path="res://Game/Scenes/Chapter7/1/ClickableArea/ClickableArea_Block.tscn" id="4_g4jir"]
 [ext_resource type="Texture2D" uid="uid://boanoihuyqa70" path="res://Art/Scenes/Scene7/第六章全部 - 副本/cup.png" id="4_qmnyq"]
+[ext_resource type="PackedScene" uid="uid://d3k5dwkf5f7bv" path="res://Game/Scenes/Chapter7/1/items/computer.tscn" id="5_qmnyq"]
 [ext_resource type="PackedScene" uid="uid://bj7415akje8lp" path="res://Game/Scenes/Chapter7/1/ClickableArea/ClickableArea_Desk.tscn" id="6_i1vd3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbfs3"]
@@ -17,6 +19,7 @@ data = PackedByteArray("//vQRAAPhNNdKoNMHHKZzHWGZSZsV2m0yg4808MONJmJxhp4NqcOsEPH
 loop = true
 
 [node name="Chapter7-1" unique_id=1917343286 instance=ExtResource("1_1ur8k")]
+script = ExtResource("2_ddshb")
 
 [node name="Background" parent="." index="0" unique_id=2106778844]
 scale = Vector2(0.6, 0.6)
@@ -46,6 +49,13 @@ shape = SubResource("RectangleShape2D_fbfs3")
 detail_image = ExtResource("4_qmnyq")
 description = "时间居然已经过去这么久了......"
 
+[node name="Note" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="1" unique_id=223355110 instance=ExtResource("5_qmnyq")]
+position = Vector2(3, -13)
+item_id = "7"
+
+[node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items/Note" index="0" unique_id=398543410]
+position = Vector2(979, 361.5)
+
 [node name="ClickableArea_Block" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=1041883668 instance=ExtResource("4_g4jir")]
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Block" index="0" unique_id=55883732]
@@ -69,5 +79,6 @@ bus = &"Master"
 [editable path="UILayer/ItemDetail/Control/LaterButton"]
 [editable path="ZoomViews/ClickableArea_Desk"]
 [editable path="ZoomViews/ClickableArea_Desk/Zoomview_Desk"]
+[editable path="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items/Note"]
 [editable path="ZoomViews/ClickableArea_Block"]
 [editable path="ZoomViews/ClickableArea_Block/Zoomview_paper"]

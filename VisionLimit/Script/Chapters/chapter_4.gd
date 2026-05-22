@@ -58,4 +58,4 @@ func _start_lab_dialogue() -> void:
 
 func _on_lab_dialogue_finished() -> void:
 	GameStateManager.complete_chapter(4)
-	get_tree().change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")
+	SceneTransitionManager.change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")
