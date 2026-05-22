@@ -17,9 +17,8 @@ func unlock_next_chapter() -> void:
         save_progress()
 
 # 检查某章是否解锁
-func is_chapter_unlocked(_chapter_index: int) -> bool:
-    # 试玩版本：所有章节默认解锁
-    return true
+func is_chapter_unlocked(chapter_index: int) -> bool:
+    return chapter_index <= current_unlocked_chapter
 
 # 进入章节（完成后调用这个来解锁下一章）
 func complete_chapter(chapter_index: int) -> void:

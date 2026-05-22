@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cv7vl7tu0b26c"]
 
 [ext_resource type="PackedScene" uid="uid://cjipdyax8bo6i" path="res://Template/UI/Level.tscn" id="1_irtln"]
-[ext_resource type="Texture2D" uid="uid://bri7ui1eqaeew" path="res://Art/UI/Choose_Level/Background5.png" id="2_xklwh"]
+[ext_resource type="Texture2D" uid="uid://cbki1ikn8ah3c" path="res://Art/UI/Choose_Level/Background6.png" id="2_xklwh"]
 
 [node name="Level1" unique_id=321591673 instance=ExtResource("1_irtln")]
 

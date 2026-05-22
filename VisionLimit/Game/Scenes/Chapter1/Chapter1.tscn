@@ -41,12 +41,14 @@ bus = &"Master"
 [node name="LeadingPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="1" unique_id=1166542545 instance=ExtResource("4_06b1o")]
 
 [node name="RecordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1173323693 instance=ExtResource("2_geqti")]
+visible = false
 entry_button_font_size = 26
 entry_button_font = ExtResource("4_il3tr")
 entry_button_selected_font = ExtResource("5_cfqdq")
 editor_preview_enabled = true
 
 [node name="HudPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="3" unique_id=1624742861]
+visible = false
 z_index = 10
 
 [node name="book" parent="UILayer/HudPanel" index="0" unique_id=2074814427]
@@ -56,6 +58,9 @@ z_index = 100
 z_index = 100
 
 [node name="1" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="4" unique_id=1869578665 instance=ExtResource("3_uari3")]
+visible = false
+
+[node name="password_1" parent="UILayer/1" index="1" unique_id=511807059]
 visible = false
 
 [node name="ClickableArea_Table" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("2_xnqfp")]

@@ -43,18 +43,18 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="PortraitRect" type="TextureRect" parent="." unique_id=1127022370]
-offset_left = 674.0
-offset_top = 49.0
-offset_right = 1435.0
-offset_bottom = 1812.0
-scale = Vector2(-1.1552582, 1.1109084)
+offset_left = 626.0
+offset_top = 146.00002
+offset_right = 1387.0
+offset_bottom = 1909.0
+scale = Vector2(-1.0468371, 1.0066495)
 texture = ExtResource("3_k2pvo")
 stretch_mode = 5
 
 [node name="DialogueText" type="RichTextLabel" parent="." unique_id=2003764996]
-offset_left = 438.0
+offset_left = 418.99997
 offset_top = 832.0
-offset_right = 1954.2734
+offset_right = 1935.2734
 offset_bottom = 1120.8857
 scale = Vector2(0.9107856, 0.81617427)
 theme_override_colors/default_color = Color(0.0023445897, 0.00234459, 0.00234459, 1)

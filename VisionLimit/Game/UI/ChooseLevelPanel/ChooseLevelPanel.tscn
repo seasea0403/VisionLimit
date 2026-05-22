@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://wr11vjhoeiph" path="res://Game/UI/ChooseLevelPanel/level_4.tscn" id="5_igci7"]
 [ext_resource type="PackedScene" uid="uid://cv7vl7tu0b26c" path="res://Game/UI/ChooseLevelPanel/level_5.tscn" id="6_7bwrw"]
 [ext_resource type="PackedScene" uid="uid://crhakl2uvrrjk" path="res://Game/UI/ChooseLevelPanel/level_6.tscn" id="7_di8lo"]
-[ext_resource type="PackedScene" uid="uid://55kpnr7lng7j" path="res://Game/UI/ChooseLevelPanel/level_7.tscn" id="8_15fdg"]
 [ext_resource type="Texture2D" uid="uid://dyt2ly8cgo8s6" path="res://Art/UI/Choose_Level/Line.png" id="10_hd6s5"]
 [ext_resource type="Script" uid="uid://cuhoq3jvtoov7" path="res://Game/UI/ChooseLevelPanel/control.gd" id="10_igci7"]
 
@@ -94,17 +93,6 @@ rotation = 0.14400046
 scale = Vector2(0.4851187, 0.44779804)
 texture = ExtResource("10_hd6s5")
 
-[node name="Line6" type="TextureRect" parent="Control" unique_id=1445541286 groups=["grid_lines"]]
-z_index = 1
-layout_mode = 0
-offset_left = 2813.0
-offset_top = 585.9998
-offset_right = 4434.048
-offset_bottom = 826.0328
-rotation = -0.8696131
-scale = Vector2(0.4851187, 0.44779804)
-texture = ExtResource("10_hd6s5")
-
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=236420664]
 layout_mode = 1
 anchors_preset = 15
@@ -119,7 +107,7 @@ vertical_scroll_mode = 0
 scroll_hint_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer" unique_id=1578751708]
-custom_minimum_size = Vector2(3800, 1080)
+custom_minimum_size = Vector2(3200, 1080)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
@@ -146,9 +134,6 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Level7" parent="ScrollContainer/HBoxContainer" unique_id=38837439 instance=ExtResource("8_15fdg")]
-layout_mode = 2
-
 [editable path="ScrollContainer/HBoxContainer/Level1"]
 [editable path="ScrollContainer/HBoxContainer/Level1/Node2D2/chooselevel"]
 [editable path="ScrollContainer/HBoxContainer/Level2"]
@@ -161,5 +146,3 @@ layout_mode = 2
 [editable path="ScrollContainer/HBoxContainer/Level5/Node2D2/chooselevel"]
 [editable path="ScrollContainer/HBoxContainer/Level6"]
 [editable path="ScrollContainer/HBoxContainer/Level6/Node2D2/chooselevel"]
-[editable path="ScrollContainer/HBoxContainer/Level7"]
-[editable path="ScrollContainer/HBoxContainer/Level7/Node2D2/chooselevel"]

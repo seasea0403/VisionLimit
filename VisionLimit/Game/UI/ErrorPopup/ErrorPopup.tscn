@@ -74,7 +74,7 @@ offset_bottom = 459.0
 theme_override_colors/font_color = Color(1, 0.01999998, 0.01999998, 1)
 theme_override_fonts/font = SubResource("FontFile_veh3o")
 theme_override_font_sizes/font_size = 28
-text = "系统提示"
+text = "警告"
 horizontal_alignment = 1
 
 [node name="Content" type="Label" parent="Node2D" unique_id=1191781913]

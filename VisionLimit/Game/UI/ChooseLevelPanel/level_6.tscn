@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://crhakl2uvrrjk"]
 
 [ext_resource type="PackedScene" uid="uid://cjipdyax8bo6i" path="res://Template/UI/Level.tscn" id="1_nnr81"]
+[ext_resource type="Texture2D" uid="uid://c0phiw23d1qw7" path="res://Art/UI/Choose_Level/Background7.png" id="2_gvytq"]
 
 [node name="Level1" unique_id=321591673 instance=ExtResource("1_nnr81")]
 
 [node name="TextureButton" parent="Node2D2/chooselevel" parent_id_path=PackedInt32Array(2074814427) index="0" unique_id=1367535632]
+texture_normal = ExtResource("2_gvytq")
+scene_path = "res://Game/Scenes/Chapter7/1/chapter_7_1.tscn"
 chapter_index = 6
 
 [node name="title" parent="Node2D2/Node2D" parent_id_path=PackedInt32Array(993991288) index="1" unique_id=21943005]
-text = "7.抉择"
+text = "6.抉择"
 
 [editable path="Node2D2/chooselevel"]
