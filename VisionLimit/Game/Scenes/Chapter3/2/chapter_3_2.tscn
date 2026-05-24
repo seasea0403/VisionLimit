@@ -62,7 +62,7 @@ layout_mode = 0
 layout_mode = 0
 
 [node name="click" parent="UILayer/ItemDetail" index="2" unique_id=1359093598]
-bus = &"Master"
+bus = &"SFX"
 
 [node name="RecordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1173323693 instance=ExtResource("3_dbqq3")]
 visible = false
@@ -153,7 +153,7 @@ rotation = 0.25272432
 stream = SubResource("AudioStreamMP3_g7dl3")
 volume_db = 1.351
 autoplay = true
-bus = &"Master"
+bus = &"BGM"
 
 [editable path="UILayer/ItemDetail"]
 [editable path="UILayer/ItemDetail/Control/PrevButton"]

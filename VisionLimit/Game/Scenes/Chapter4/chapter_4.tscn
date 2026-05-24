@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cglfrdwrknfgq" path="res://Game/Scenes/Chapter4/items/proof1.tscn" id="4_lhu06"]
 [ext_resource type="PackedScene" uid="uid://dhogimy85xi54" path="res://Game/Scenes/Chapter4/ClickableArea/ClickableArea_drawer.tscn" id="5_0r2fq"]
 [ext_resource type="PackedScene" uid="uid://bvypp8ptqxojt" path="res://Game/Scenes/Chapter4/items/proof2.tscn" id="5_whla1"]
-[ext_resource type="Script" path="res://Script/Chapters/chapter_4.gd" id="6_ch4sc"]
+[ext_resource type="Script" uid="uid://c0cr0h1o41pdc" path="res://Script/Chapters/chapter_4.gd" id="6_ch4sc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgmff"]
 size = Vector2(24.267735, 7.536969)
@@ -88,6 +88,7 @@ position = Vector2(892.04736, 600.5)
 description = "这块荣誉是九年前留下的。那时苍屿的渔业还蒸蒸日上，可自 2043 年起便一落千丈，至今都没能回春。"
 
 [node name="bluenote" parent="ZoomViews/ClickableArea_desk/Zoomview_desk/Items" parent_id_path=PackedInt32Array(1229629625, 198920514, 1759582505) index="1" unique_id=1429109202]
+item_id = "10"
 description = "临深集团？原来 2041 年他们还会配合检测，不知道如今这家在苍屿势力庞大、几乎一手遮天的大公司，还会不会把环保局放在眼里。"
 
 [node name="card" parent="ZoomViews/ClickableArea_desk/Zoomview_desk/Items" parent_id_path=PackedInt32Array(1229629625, 198920514, 1759582505) index="2" unique_id=1660416011]
@@ -101,6 +102,7 @@ record_entry_description = "外业勘测水质采样要求所用器具在下水�
 
 [node name="yellownote" parent="ZoomViews/ClickableArea_desk/Zoomview_desk/Items" parent_id_path=PackedInt32Array(1229629625, 198920514, 1759582505) index="4" unique_id=677936577]
 description = "电脑系统的升级通知。可能是为了匹配数字化存档需求。"
+can_record = false
 
 [node name="ClickableArea_drawer" parent="ZoomViews" index="2" unique_id=1415919454 instance=ExtResource("5_0r2fq")]
 

@@ -27,36 +27,27 @@ func _on_detail_opened(item_id: String) -> void:
 			else:
 				item_detail.close_detail()
 				_start_dock_dialogue()
-		"6":  # 魏江采访本（电子价牌 + 环境检测 两条线索共享此道具）
+		"6":  # 魏江采访本— 环境检测及价格异常两条线索的起点
 			if not _saw_book:
 				_saw_book = true
 				GameStateManager.set_clue("clue_inspect")
-				_check_price_clue()
-		"2":  # 电子价牌（黄色便签纸）
+				GameStateManager.set_clue("clue_price")
+		"2":  # 电子价牌（黄色便签纸）— 查看即解锁价格线索
 			if not _saw_note:
 				_saw_note = true
-				_check_price_clue()
-		"3":  # 渔获筐标签
+				GameStateManager.set_clue("clue_price")
+		"3":  # 渔获筐标签 — 查看即解锁溯源线索
 			if not _saw_tag:
 				_saw_tag = true
-				_check_trace_clue()
+				GameStateManager.set_clue("clue_trace")
 
 
 func _on_board_visible_changed() -> void:
 	var board_zv = $"ZoomViews/ClickableArea_priceboard2/Zoomview_information"
 	if board_zv and board_zv.visible and not _saw_board:
 		_saw_board = true
-		_check_trace_clue()
-
-
-func _check_price_clue() -> void:
-	if _saw_book and _saw_note:
-		GameStateManager.set_clue("clue_price")
-
-
-func _check_trace_clue() -> void:
-	if _saw_tag and _saw_board:
 		GameStateManager.set_clue("clue_trace")
+
 
 
 func _start_dock_dialogue() -> void:

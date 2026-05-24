@@ -14,6 +14,8 @@ var stop_panel: Node = null
 
 
 func _ready():
+	# 进入任意章节时停止跨场景全局音乐（结局音乐等），让本章节 SceneBgm 主导
+	GameStateManager.stop_global_music()
 	zoom_views_root.show()
 	for area in clickable_areas:
 		area.show()
@@ -38,6 +40,9 @@ func _ready():
 		hud_book_button.pressed.connect(_on_hud_book_pressed)
 	else:
 		push_warning("chapter.gd: 找不到 HUD book 按钮，路径 $UILayer/HudPanel/book/TextureButton")
+
+	# 场景就绪后延迟一帧，预热所有可点击物品的纹理，消除首次点击的 GPU 上传延迟
+	call_deferred("_prewarm_item_textures")
 
 
 # ==================== 面板追踪 ====================
@@ -127,3 +132,24 @@ func _on_item_recorded(item_id: String, entry_title: String, entry_description: 
 		record_panel.call("add_or_update_entry", item_id, entry_title, entry_description)
 		if not entry_title_2.strip_edges().is_empty() or not entry_description_2.strip_edges().is_empty():
 			record_panel.call("add_or_update_entry", item_id + "_b", entry_title_2, entry_description_2)
+
+
+# ==================== 纹理预热 ====================
+func _prewarm_item_textures() -> void:
+	"""收集场景内所有 ClickableItem 的纹理，交给 ItemDetail 做 GPU 预热。
+	在 _ready() 通过 call_deferred 调用，确保子节点已全部就绪。"""
+	if not item_detail:
+		return
+	var textures: Array = []
+	for node in get_tree().get_nodes_in_group("clickable_items"):
+		# 只收集属于本场景的物品（过滤其他场景残留）
+		if not node.is_inside_tree():
+			continue
+		var tex = node.get("detail_image")
+		if tex is Texture2D:
+			textures.append(tex)
+		var char_tex = node.get("character_image")
+		if char_tex is Texture2D:
+			textures.append(char_tex)
+	if textures.size() > 0 and item_detail.has_method("prewarm_textures"):
+		item_detail.prewarm_textures(textures)

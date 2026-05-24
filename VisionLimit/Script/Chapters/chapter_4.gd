@@ -31,23 +31,19 @@ func _on_detail_opened(item_id: String) -> void:
 			if not _saw_b2:
 				_saw_b2 = true
 				GameStateManager.set_clue("clue_archive")
-		"6":  # 工位牌
+		"6":  # 工位牌 — 查看即解锁档案删除节点线索
 			if not _saw_card:
 				_saw_card = true
-				_check_person_clue()
-		"8":  # 外业勘测日志
+				GameStateManager.set_clue("clue_person")
+		"8":  # 外业勘测日志 — 查看即解锁
 			if not _saw_log:
 				_saw_log = true
-				_check_person_clue()
-		"3":  # 量杯
+				GameStateManager.set_clue("clue_person")
+		"3":  # 量杯 — 查看即解锁
 			if not _saw_cup:
 				_saw_cup = true
-				_check_person_clue()
+				GameStateManager.set_clue("clue_person")
 
-
-func _check_person_clue() -> void:
-	if _saw_card and _saw_log and _saw_cup:
-		GameStateManager.set_clue("clue_person")
 
 
 func _start_lab_dialogue() -> void:

@@ -61,6 +61,11 @@ func _fade_to_black() -> void:
 	if bgm != null and bgm.playing:
 		tween.parallel().tween_property(bgm, "volume_db", MIN_BGM_VOLUME_DB, BGM_FADE_OUT_DURATION)
 
+	# 同时淡出跨场景全局音乐（结局音乐等）
+	var global_bgm = GameStateManager._global_music
+	if GameStateManager.is_ending_music_active and global_bgm != null and global_bgm.playing:
+		tween.parallel().tween_property(global_bgm, "volume_db", MIN_BGM_VOLUME_DB, BGM_FADE_OUT_DURATION)
+
 	await tween.finished
 
 

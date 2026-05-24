@@ -13,18 +13,23 @@ signal evidence_decided(ending: String) # "A" / "B" / "C"
 @onready var overlay: ColorRect = $Overlay
 @onready var overlay_label: Label = $Overlay/Label
 
-## 每个 clue_id 对应的解锁条件
-## 空字典 = 默认解锁；否则需要 GameStateManager.get_record(record_key) == record_value
+## 每个最终 clue（proofpanel 中的 9 张卡片）对应的"来源 clue 列表"。
+## 玩家在前面章节查看相关物品时，章节脚本会调用 GameStateManager.set_clue("clue_xxx")。
+## 只要列表里任意一个来源被收集，就算这张卡片解锁。
+## 空列表 = 默认解锁。
 const UNLOCK_RULES: Dictionary = {
-	"clue_p1": {},
-	"clue_p2": {},
-	"clue_p3": {"record_key": "ch3_huanbaoju", "record_value": "1"},
-	"clue_d1": {"record_key": "ch3_hospital", "record_value": "1"},
-	"clue_d2": {},
-	"clue_d3": {"record_key": "ch4_dock", "record_value": "1"},
-	"clue_s1": {"record_key": "ch3_huanbaoju", "record_value": "1"},
-	"clue_s2": {},
-	"clue_s3": {"record_key": "ch3_archives", "record_value": "1"},
+	# ── 第一栏：污染相关（精炼厂 / 环境）──
+	"clue_p1": ["clue_trace"],                          # C-03汞超标 ← 渔获筐标签+泊位告示（第三章2）
+	"clue_p2": ["clue_price"],                          # 精炼厂排污 ← 电子价牌+魏江采访本（第三章2）
+	"clue_p3": ["clue_inspect", "clue_funds"],          # 正源环境检测公司 ← 采访本/转账记录
+	# ── 第二栏：医疗相关（苍屿症 / 病例）──
+	"clue_d1": ["clue_brochure"],                       # 苍屿症 ← 苍屿症宣传册（第三章1）
+	"clue_d2": ["clue_appointment"],                    # 郑和平采样坐标 ← 粉色便签+台账（第三章1）
+	"clue_d3": ["clue_brochure", "clue_appointment"],   # 儿童病例集中分布 ← 宣传册/台账（第三章1）
+	# ── 第三栏：组织相关（晴野 / 临深）──
+	"clue_s1": ["clue_funds"],                          # 晴野基金会资金流向 ← 转账记录（第四章）
+	"clue_s2": ["clue_archive"],                        # 临深集团关联关系 ← B2档案（第四章）
+	"clue_s3": ["clue_person"],                         # 环保局档案删除节点 ← 工位牌+日志+量杯（第四章）
 }
 
 var _available_count: int = 0
@@ -73,16 +78,14 @@ func _apply_lock_states() -> void:
 func _is_unlocked(id: String, gsm: Node) -> bool:
 	if not UNLOCK_RULES.has(id):
 		return true # 未列入规则的默认解锁，避免误屏蔽
-	var rule: Dictionary = UNLOCK_RULES[id]
-	if rule.is_empty():
+	var sources: Array = UNLOCK_RULES[id]
+	if sources.is_empty():
 		return true
-	if gsm == null:
+	if gsm == null or not gsm.has_method("has_clue"):
 		return false
-	if gsm.has_method("has_clue") and gsm.call("has_clue", id):
-		return true
-	if gsm.has_method("get_record"):
-		var val: String = gsm.call("get_record", rule["record_key"], "")
-		if val == rule["record_value"]:
+	# 任一来源 clue 被收集，即视为本卡片解锁
+	for src in sources:
+		if gsm.call("has_clue", str(src)):
 			return true
 	return false
 

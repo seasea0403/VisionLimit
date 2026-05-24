@@ -94,6 +94,7 @@ func _ready() -> void:
 	if back_button:
 		back_button.pressed.connect(close_panel)
 	_seed_default_entries()
+	_load_persistent_entries()
 	hide()
 
 
@@ -105,6 +106,39 @@ func _seed_default_entries() -> void:
 		"description": "记忆海中的记忆有着不退化、随取随用等区别于真实记忆的特点，具体而言，真实记忆由真实经历产生，通过神经突触的动态连接网络存储。由海芯写入记忆海中的固化记忆，将以高密度固化编码形式存储。它不依赖突触强化维持，且不会退化和变形。\n这两种记忆在主观体验上感觉一样。无法靠内省判断某段记忆是真实经历还是写进去的。但在神经结构层面，两者有明确的格式差异，受过训练的人可以识别。"
 	}
 	_rebuild_entry_list()
+
+
+func _load_persistent_entries() -> void:
+	"""从 GameStateManager 读取所有已收集词条，恢复到本面板（跨章节持久化）"""
+	if not Engine.has_singleton("GameStateManager") and not _has_gsm():
+		_rebuild_entry_list()
+		return
+	var gsm := _get_gsm()
+	if gsm == null or not gsm.has_method("get_record_entries"):
+		_rebuild_entry_list()
+		return
+	var saved: Dictionary = gsm.call("get_record_entries")
+	for key in saved.keys():
+		var data: Dictionary = saved[key]
+		entries[key] = {
+			"title": data.get("title", key),
+			"description": data.get("description", "")
+		}
+	_rebuild_entry_list()
+
+
+func _get_gsm() -> Node:
+	var tree := get_tree()
+	if tree == null:
+		return null
+	var root := tree.root
+	if root == null:
+		return null
+	return root.get_node_or_null("GameStateManager")
+
+
+func _has_gsm() -> bool:
+	return _get_gsm() != null
 
 
 func add_or_update_entry(item_id: String, entry_title: String, entry_description: String) -> void:
@@ -122,6 +156,11 @@ func add_or_update_entry(item_id: String, entry_title: String, entry_description
 		"title": title,
 		"description": entry_description.strip_edges()
 	}
+
+	# 同步写入全局，保证切换场景后下个章节的 RecordPanel 仍能读到
+	var gsm := _get_gsm()
+	if gsm and gsm.has_method("add_record_entry"):
+		gsm.call("add_record_entry", key, title, entry_description)
 
 	selected_entry_key = key
 	_rebuild_entry_list()

@@ -82,7 +82,7 @@ scale = Vector2(3.5918956, 4.0467057)
 text = "打开录音"
 
 [node name="click" parent="UILayer/ItemDetail" parent_id_path=PackedInt32Array(552734023) index="2" unique_id=1359093598]
-bus = &"Master"
+bus = &"SFX"
 
 [node name="RecordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1173323693 instance=ExtResource("5_72ndw")]
 visible = false
@@ -105,6 +105,7 @@ text = "日期"
 [node name="RecordAudio" type="AudioStreamPlayer2D" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="5" unique_id=1972076221]
 stream = ExtResource("8_68ddi")
 volume_db = 18.318
+bus = &"BGM"
 
 [node name="ClickableArea_Paper" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("3_1aq8v")]
 
@@ -155,7 +156,7 @@ character_image = ExtResource("7_h3pkn")
 stream = SubResource("AudioStreamMP3_mchdh")
 volume_db = 6.0
 autoplay = true
-bus = &"Master"
+bus = &"BGM"
 
 [editable path="UILayer/ItemDetail"]
 [editable path="UILayer/ItemDetail/Control/PrevButton"]

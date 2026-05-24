@@ -40,19 +40,19 @@ size_flags_vertical = 0
 [node name="icon" type="TextureRect" parent="ImageWrap" unique_id=1364793017]
 z_index = 5
 layout_mode = 0
-offset_left = 35.0
-offset_top = 198.0
-offset_right = 525.0
-offset_bottom = 946.0
+offset_left = -14.0
+offset_top = 194.0
+offset_right = 476.0
+offset_bottom = 942.0
 scale = Vector2(0.2567544, 0.15328732)
 texture = ExtResource("2_n84v3")
 
 [node name="icon2" type="TextureRect" parent="ImageWrap" unique_id=1389169481]
 z_index = 5
 layout_mode = 0
-offset_left = 34.0
+offset_left = -25.999996
 offset_top = 7.9999995
-offset_right = 524.0
+offset_right = 464.0
 offset_bottom = 756.0
 scale = Vector2(0.2977737, 0.17365168)
 texture = ExtResource("3_xl4rd")
@@ -155,6 +155,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 value = 60.0
 
+[node name="BgmValue" type="Label" parent="Center/Panel/Margin/MainVBox/Content/BgmSection/BgmMargin/BgmStack/ValueRow" unique_id=1244186567]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_i7e3j")
+theme_override_font_sizes/font_size = 20
+text = "60%"
+vertical_alignment = 1
+
 [node name="SfxSection" type="PanelContainer" parent="Center/Panel/Margin/MainVBox/Content" unique_id=1159660198]
 custom_minimum_size = Vector2(0, 168)
 layout_mode = 2
@@ -194,6 +202,14 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_horizontal = 3
 value = 60.0
+
+[node name="SfxValue" type="Label" parent="Center/Panel/Margin/MainVBox/Content/SfxSection/SfxMargin/SfxStack/ValueRow" unique_id=1628781780]
+custom_minimum_size = Vector2(96, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_i7e3j")
+theme_override_font_sizes/font_size = 20
+text = "60%"
+vertical_alignment = 1
 
 [node name="FooterRow" type="HBoxContainer" parent="Center/Panel/Margin/MainVBox" unique_id=1598391801]
 layout_mode = 2

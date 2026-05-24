@@ -48,6 +48,8 @@ var item_detail: Control
 func _ready() -> void:
 	# 进入场景时先尝试自动解析一次 ItemDetail
 	item_detail = _resolve_item_detail()
+	# 注册到分组，便于 chapter.gd 在场景启动时批量收集纹理做预热
+	add_to_group("clickable_items")
 
 	# 连接点击信号
 	input_event.connect(_on_input_event)

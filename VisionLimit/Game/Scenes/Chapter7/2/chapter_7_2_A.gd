@@ -36,9 +36,9 @@ func _on_play_pressed() -> void:
 	if bgm:
 		bgm.stop()
 
-	# 2. 通过 GameStateManager 跨场景持续播放结局音乐，并标记结局音乐激活
+	# 2. 通过 GameStateManager 淡入持续播放结局音乐（挂载 BGM 总线，受 BGM 音量控制）
 	var new_stream: AudioStream = load(ENDING_MUSIC_PATH)
-	GameStateManager.play_global_music(new_stream, 0.0)
+	GameStateManager.fade_in_global_music(new_stream)
 
 	# 3. 关闭 ItemDetail
 	item_detail.close_detail()
@@ -83,6 +83,8 @@ func _start_ending_fade() -> void:
 	# ③ 停留 3 秒
 	tween.tween_interval(3.0)
 	# ④ 切回主界面（音乐由 GameStateManager 维持，不会随场景销毁而停止）
+	# 此处直接切换：场景已经全黑，无需 SceneTransitionManager 再做一次淡出；
+	# scene_changed 信号仍会被监听，UIPanel 的淡入由 SceneTransitionManager 自动处理。
 	tween.tween_callback(func() -> void:
-		SceneTransitionManager.change_scene_to_file("res://Game/UI/UIPanel.tscn")
+		get_tree().change_scene_to_file("res://Game/UI/UIPanel.tscn")
 	)

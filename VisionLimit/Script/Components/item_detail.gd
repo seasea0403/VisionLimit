@@ -29,6 +29,8 @@ var current_record_description_2: String = ""
 # ==================== 多页状态 ====================
 var _pages: Array[Dictionary] = []
 var _current_page: int = 0
+# 缓存 chapter 节点引用，避免每次 show 时重复向上遍历树
+var _chapter_cache: Node = null
 
 # ==================== 信号 ====================
 signal item_recorded(item_id: String, entry_title: String, entry_description: String, entry_title_2: String, entry_description_2: String)
@@ -70,6 +72,8 @@ func _ready() -> void:
 	hide()
 	# 注册到分组，便于其他节点动态查找
 	add_to_group("item_detail")
+	# 延迟执行一次布局预热，消除首次 show() 时的 layout 重算卡顿
+	call_deferred("_prewarm_layout")
 
 
 func _configure_image_display() -> void:
@@ -123,6 +127,8 @@ func show_detail_group(pages: Array[Dictionary]) -> void:
 		return
 	_pages = pages
 	_apply_page(0)
+	# 确保预热期间 modulate 被重置为完全可见
+	modulate.a = 1.0
 	show()
 	text_sfx.play()
 	var chapter := _find_chapter()
@@ -152,7 +158,6 @@ func _apply_page(idx: int) -> void:
 	var record_description_2 = p.get("record_description_2", "")
 	var character_image = p.get("character_image", null)
 
-	_configure_image_display()
 	image_display.texture = texture
 
 	if character_display:
@@ -211,12 +216,48 @@ func _update_nav_buttons() -> void:
 
 
 func _find_chapter() -> Node:
+	if _chapter_cache and is_instance_valid(_chapter_cache):
+		return _chapter_cache
 	var node := get_parent()
 	while node:
 		if node.has_method("register_panel_open"):
+			_chapter_cache = node
 			return node
 		node = node.get_parent()
 	return null
+
+
+# ==================== 预热（消除首次显示卡顿）====================
+func _prewarm_layout() -> void:
+	"""在场景启动后做一次不可见的 show/hide，让 Godot 提前完成 layout 计算缓存。"""
+	modulate.a = 0.0
+	show()
+	await get_tree().process_frame
+	hide()
+	modulate.a = 1.0
+
+
+func prewarm_textures(textures: Array) -> void:
+	"""预热场景内所有可点击物品的纹理 GPU 上传，消除首次点击的卡顿。
+	由 chapter.gd 在场景就绪后通过 call_deferred 调用。"""
+	if not image_display or textures.is_empty():
+		return
+	var prev_modulate_a := modulate.a
+	modulate.a = 0.0
+	show()
+	for tex in textures:
+		if not is_inside_tree():
+			break
+		if tex is Texture2D:
+			image_display.texture = tex
+			await get_tree().process_frame
+	if is_inside_tree() and not visible:
+		pass  # show_detail_group 已打开面板，无需再 hide
+	if is_inside_tree() and modulate.a == 0.0:
+		# 仍处于预热状态（未被 show_detail_group 中断），恢复隐藏
+		image_display.texture = null
+		hide()
+		modulate.a = prev_modulate_a
 
 # ==================== 面板打开/关闭接口 ====================
 func open_detail() -> void:

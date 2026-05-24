@@ -32,20 +32,15 @@ func _on_detail_opened(item_id: String) -> void:
 			if not _saw_brochure:
 				_saw_brochure = true
 				GameStateManager.set_clue("clue_brochure")
-		"2":  # 粉色便签
+		"2":  # 粉色便签（查看即解锁预约异常线索）
 			if not _saw_pinknote:
 				_saw_pinknote = true
-				_check_appointment_clue()
-		"4":  # 预约记录（台账）
+				GameStateManager.set_clue("clue_appointment")
+		"4":  # 预约记录（台账）— 同样单独查看即解锁
 			if not _saw_record:
 				_saw_record = true
-				_check_appointment_clue()
+				GameStateManager.set_clue("clue_appointment")
 
-
-func _check_appointment_clue() -> void:
-	"""粉色便签和台账都查看后，解锁"有明显异常"选项"""
-	if _saw_pinknote and _saw_record:
-		GameStateManager.set_clue("clue_appointment")
 
 
 # ==================== 医院对话 ====================

@@ -38,13 +38,13 @@ layout_mode = 0
 layout_mode = 0
 
 [node name="click" parent="UILayer/ItemDetail" index="2" unique_id=1359093598]
-bus = &"Master"
+bus = &"SFX"
 
 [node name="SceneBgm" parent="." index="3" unique_id=996875468]
 stream = SubResource("AudioStreamMP3_15vni")
 volume_db = 4.502
 autoplay = true
-bus = &"Master"
+bus = &"BGM"
 
 [node name="items" type="Node2D" parent="." index="4" unique_id=1835867741]
 
