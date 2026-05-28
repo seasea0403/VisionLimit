@@ -93,6 +93,33 @@ func has_record_entry(entry_key: String) -> bool:
 	return _record_entries.has(entry_key)
 
 
+# ==================== 物品收藏面板（SumPanel）====================
+## 收藏的物品，key=item_id，value={ name, description, thumbnail }
+var _inventory_items: Dictionary = {}
+
+## 有新物品加入时发出，携带 item_id
+signal item_added_to_inventory(item_id: String)
+
+func add_inventory_item(item_id: String, item_name: String, description: String, thumbnail: Texture2D = null) -> void:
+	"""将物品加入收藏面板，相同 item_id 不重复添加"""
+	var key := item_id.strip_edges()
+	if key.is_empty() or _inventory_items.has(key):
+		return
+	_inventory_items[key] = {
+		"name": item_name,
+		"description": description,
+		"thumbnail": thumbnail,
+	}
+	item_added_to_inventory.emit(key)
+
+func get_inventory_items() -> Dictionary:
+	"""返回已收藏的全部物品字典"""
+	return _inventory_items
+
+func has_inventory_item(item_id: String) -> bool:
+	return _inventory_items.has(item_id)
+
+
 # ==================== 全局持续音乐（跨场景不中断）====================
 var _global_music: AudioStreamPlayer = null
 var _global_music_tween: Tween = null

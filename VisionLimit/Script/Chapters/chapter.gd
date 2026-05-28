@@ -6,8 +6,10 @@ extends Node2D
 @onready var ui_layer = $UILayer
 @onready var hud_back_button = $UILayer/HudPanel/back/TextureButton
 @onready var hud_book_button = $UILayer/HudPanel/book/TextureButton
+@onready var hud_items_button = $UILayer/HudPanel/items/TextureButton
 
 var record_panel: Control
+var sum_panel: Control
 # 使用栈管理嵌套的面板，最上层的面板在栈顶
 var _panel_stack: Array[Node] = []
 var stop_panel: Node = null
@@ -26,6 +28,7 @@ func _ready():
 	item_detail.hide()
 	_setup_record_panel()
 	_setup_stop_panel()
+	_setup_sum_panel()
 
 	if item_detail and item_detail.has_signal("item_recorded"):
 		if not item_detail.item_recorded.is_connected(_on_item_recorded):
@@ -40,6 +43,11 @@ func _ready():
 		hud_book_button.pressed.connect(_on_hud_book_pressed)
 	else:
 		push_warning("chapter.gd: 找不到 HUD book 按钮，路径 $UILayer/HudPanel/book/TextureButton")
+
+	if hud_items_button:
+		hud_items_button.pressed.connect(_on_hud_items_pressed)
+	else:
+		push_warning("chapter.gd: 找不到 HUD items 按钮，路径 $UILayer/HudPanel/items/TextureButton")
 
 	# 场景就绪后延迟一帧，预热所有可点击物品的纹理，消除首次点击的 GPU 上传延迟
 	call_deferred("_prewarm_item_textures")
@@ -101,6 +109,12 @@ func _on_hud_book_pressed() -> void:
 		register_panel_open(record_panel)
 
 
+func _on_hud_items_pressed() -> void:
+	if sum_panel and sum_panel.has_method("open_panel"):
+		sum_panel.open_panel()
+		register_panel_open(sum_panel)
+
+
 func _setup_stop_panel() -> void:
 	stop_panel = find_child("StopPanel", true, false)
 	if not stop_panel:
@@ -123,6 +137,20 @@ func _setup_record_panel() -> void:
 		return
 	record_panel.name = "RecordPanel"
 	ui_layer.add_child(record_panel)
+
+
+func _setup_sum_panel() -> void:
+	sum_panel = ui_layer.find_child("SumPanel", true, false) as Control
+	if sum_panel:
+		return
+	var sum_panel_scene := load("res://Game/UI/SumPanel/SumPanel.tscn")
+	if not sum_panel_scene:
+		return
+	sum_panel = sum_panel_scene.instantiate() as Control
+	if not sum_panel:
+		return
+	sum_panel.name = "SumPanel"
+	ui_layer.add_child(sum_panel)
 
 
 func _on_item_recorded(item_id: String, entry_title: String, entry_description: String, entry_title_2: String, entry_description_2: String) -> void:

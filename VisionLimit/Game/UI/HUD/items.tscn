@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bp7xnmo4avd2c"]
+
+[ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="1_jqm4m"]
+[ext_resource type="Texture2D" uid="uid://52oqm1onrg2l" path="res://Art/UI/物品栏/微信图片_20260526100730_187_2451.png" id="2_jqm4m"]
+
+[node name="items" unique_id=2074814428 instance=ExtResource("1_jqm4m")]
+
+[node name="TextureButton" parent="." index="0" unique_id=1367535633]
+offset_left = 1543.0
+offset_top = 861.99994
+offset_right = 2182.0
+offset_bottom = 1500.0
+scale = Vector2(0.2905571, 0.28836036)
+texture_normal = ExtResource("2_jqm4m")
+
+[node name="Label" parent="TextureButton" index="0" unique_id=1029178861]
+text = ""
+
+[node name="hover" parent="." index="1" unique_id=2003038748]
+stream = null

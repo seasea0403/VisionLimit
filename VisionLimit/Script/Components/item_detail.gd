@@ -335,10 +335,16 @@ func _on_background_clicked(event: InputEvent) -> void:
 
 func _on_record_button_pressed() -> void:
 	"""
-	点击记录按钮，添加到发现册
+	点击记录按钮，添加到发现册并加入物品收藏面板
 	"""
 	if can_record:
-		# 发射信号
+		# 发射信号（RecordPanel 用）
 		item_recorded.emit(current_item_id, current_record_title, current_record_description, current_record_title_2, current_record_description_2)
-		
-		# 调用 GameState 记录，待实现
+
+		# 存入 SumPanel 物品收藏仓库
+		var thumb: Texture2D = null
+		if _pages.size() > 0:
+			thumb = _pages[_current_page].get("texture", null)
+		var desc: String = current_record_description if not current_record_description.strip_edges().is_empty() \
+			else (_pages[_current_page].get("description", "") if _pages.size() > 0 else "")
+		GameStateManager.add_inventory_item(current_item_id, current_title, desc, thumb)

@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://sdwoweqjwvnd" path="res://Game/UI/HUD/book.tscn" id="1_xcelq"]
 [ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="2_sdnxa"]
+[ext_resource type="PackedScene" path="res://Game/UI/HUD/items.tscn" id="3_items"]
+[ext_resource type="Texture2D" uid="uid://cycxqevvjrp2l" path="res://Art/UI/Document/Setting/Back.png" id="4_q5kc8"]
 
 [node name="HudPanel" type="Control" unique_id=1624742861]
 z_index = 5
@@ -11,3 +13,16 @@ anchors_preset = 0
 [node name="book" parent="." unique_id=2074814427 instance=ExtResource("1_xcelq")]
 
 [node name="back" parent="." unique_id=116801208 instance=ExtResource("2_sdnxa")]
+
+[node name="items" parent="." unique_id=116801209 instance=ExtResource("3_items")]
+
+[node name="TextureButton" parent="items" index="0" unique_id=1367535632]
+offset_left = 1183.0
+offset_top = 811.00006
+offset_right = 3081.0
+offset_bottom = 1809.0
+texture_normal = ExtResource("4_q5kc8")
+texture_pressed = ExtResource("4_q5kc8")
+texture_hover = ExtResource("4_q5kc8")
+
+[editable path="items"]
