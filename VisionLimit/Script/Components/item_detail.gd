@@ -54,6 +54,10 @@ func _ready() -> void:
 		_character_base_position = character_display.position
 		_character_base_scale = character_display.scale
 
+	# 让整个内容容器对鼠标事件透传，使 Area2D 物品在面板开启时仍可点击。
+	# 按钮等子节点自身仍是 MOUSE_FILTER_STOP，不影响 UI 交互。
+	$Control.mouse_filter = Control.MOUSE_FILTER_PASS
+
 	# 连接按钮信号
 	if dark_background:
 		# 设置为 IGNORE，使背景不消耗鼠标事件，避免遮挡 HUD 返回按钮。
@@ -191,6 +195,8 @@ func _apply_page(idx: int) -> void:
 
 	record_button.visible = can_record_flag
 	_update_nav_buttons()
+	# 自动入库 + 自动解锁词条（无需手动点击记录按鈕）
+	_auto_record(p)
 
 
 func set_action_button(visible_state: bool, label_text: String = "尝试") -> void:
@@ -348,3 +354,26 @@ func _on_record_button_pressed() -> void:
 		var desc: String = current_record_description if not current_record_description.strip_edges().is_empty() \
 			else (_pages[_current_page].get("description", "") if _pages.size() > 0 else "")
 		GameStateManager.add_inventory_item(current_item_id, current_title, desc, thumb)
+
+
+func _auto_record(page: Dictionary) -> void:
+	"""_apply_page 末尾调用：自动入库 + 自动解锁词条，无需手动点击记录按钮"""
+	if current_item_id.is_empty():
+		return
+
+	var texture: Texture2D = page.get("texture", null)
+	# 有图片 → 加入物品收藏；描述用普通 description，与词条内容无关
+	if texture != null:
+		var inv_desc: String = (page.get("description", "") as String)
+		GameStateManager.add_inventory_item(current_item_id, current_title, inv_desc, texture)
+
+	# 词条标题 / 描述原始值（不做 fallback）
+	var orig_rec_title: String = (page.get("record_title", "") as String).strip_edges()
+	var orig_rec_desc: String  = (page.get("record_description", "") as String).strip_edges()
+	var orig_rec_title_2: String = (page.get("record_title_2", "") as String).strip_edges()
+	var orig_rec_desc_2: String  = (page.get("record_description_2", "") as String).strip_edges()
+
+	# 任一非空 → 解锁词条；标题为空时以物品名代替
+	if not orig_rec_title.is_empty() or not orig_rec_desc.is_empty():
+		var eff_title: String = orig_rec_title if not orig_rec_title.is_empty() else current_title
+		item_recorded.emit(current_item_id, eff_title, orig_rec_desc, orig_rec_title_2, orig_rec_desc_2)

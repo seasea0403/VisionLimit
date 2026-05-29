@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dnviance0gyg5"]
 
 [ext_resource type="Script" uid="uid://exy6673ig511" path="res://Game/UI/SumPanel/sum_panel.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://c6ku8287ro7tx" path="res://Game/UI/SumPanel/record_page.gd" id="2_record_page"]
 [ext_resource type="Texture2D" uid="uid://crbdflqqo1wup" path="res://Art/UI/物品栏/IMG_3317.PNG" id="3_l2rhg"]
 [ext_resource type="Texture2D" uid="uid://dsrnxvlyh5xca" path="res://Art/UI/物品栏/IMG_3311.PNG" id="4_ojsed"]
 [ext_resource type="Texture2D" uid="uid://rpha1wpkn08h" path="res://Art/UI/物品栏/IMG_3330.PNG" id="4_slotframe"]
@@ -9,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bjiquksvw5um" path="res://Art/UI/物品栏/IMG_3328.PNG" id="7_q03ph"]
 [ext_resource type="FontFile" uid="uid://c3mexkpdyf8ag" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-Bold.ttf" id="8_eaw37"]
 [ext_resource type="FontFile" uid="uid://bnsrpukraxd3g" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-Regular.ttf" id="9_r0a7a"]
+[ext_resource type="Texture2D" uid="uid://dyxlpwwcnkqgc" path="res://Art/UI/物品栏/IMG_3314.PNG" id="10_q03ph"]
+[ext_resource type="Texture2D" uid="uid://dlupw1nayxnui" path="res://Art/UI/物品栏/IMG_3312.PNG" id="11_eaw37"]
+[ext_resource type="FontFile" uid="uid://cwjfcn0dqtqs0" path="res://Font/源云明体/GenWanMinJP-Medium（源云明体）.ttf" id="13_xkcc4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wk5w2"]
 texture = ExtResource("5_w6vm8")
@@ -19,6 +23,9 @@ texture = ExtResource("5_w6vm8")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q03ph"]
 texture = ExtResource("5_w6vm8")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oyxym"]
+texture = ExtResource("5_w6vm8")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eaw37"]
 texture = ExtResource("6_wgsk3")
 
@@ -27,6 +34,27 @@ texture = ExtResource("6_wgsk3")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xkcc4"]
 texture = ExtResource("6_wgsk3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hshnv"]
+texture = ExtResource("6_wgsk3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2451e"]
+texture = ExtResource("10_q03ph")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8gb1i"]
+texture = ExtResource("10_q03ph")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ye1ln"]
+texture = ExtResource("10_q03ph")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ulr5s"]
+texture = ExtResource("11_eaw37")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_03xc4"]
+texture = ExtResource("11_eaw37")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o31j8"]
+texture = ExtResource("11_eaw37")
 
 [node name="SumPanel" type="Control" unique_id=1239234424]
 layout_mode = 3
@@ -103,13 +131,14 @@ scale = Vector2(0.6, 0.6)
 theme_override_styles/normal = SubResource("StyleBoxTexture_wk5w2")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_l2rhg")
 theme_override_styles/hover = SubResource("StyleBoxTexture_q03ph")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_oyxym")
 
 [node name="SlotScroll" type="ScrollContainer" parent="PanelAnchor/LeftSection" unique_id=1538216118]
 layout_mode = 0
 offset_left = 29.958889
 offset_top = 52.033863
 offset_right = 294.9589
-offset_bottom = 555.0339
+offset_bottom = 641.5251
 scale = Vector2(0.8725573, 0.89339024)
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 0
@@ -140,6 +169,7 @@ scale = Vector2(0.6, 0.6)
 theme_override_styles/normal = SubResource("StyleBoxTexture_eaw37")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_r0a7a")
 theme_override_styles/hover = SubResource("StyleBoxTexture_xkcc4")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_hshnv")
 
 [node name="RightSection" type="Control" parent="PanelAnchor" unique_id=721632058]
 anchors_preset = 0
@@ -199,4 +229,92 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("9_r0a7a")
 theme_override_font_sizes/font_size = 30
 text = "哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇哇"
+autowrap_mode = 2
+
+[node name="Tab1Btn" type="Button" parent="PanelAnchor" unique_id=210000001]
+layout_mode = 0
+offset_left = -207.0
+offset_top = 607.0
+offset_right = -55.0
+offset_bottom = 701.30634
+scale = Vector2(1.5271922, 1.4217763)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_eaw37")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxTexture_2451e")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8gb1i")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ye1ln")
+text = "物品"
+
+[node name="Tab2Btn" type="Button" parent="PanelAnchor" unique_id=210000002]
+layout_mode = 0
+offset_left = -226.0
+offset_top = 467.0
+offset_right = 42.0
+offset_bottom = 624.0
+theme_override_colors/font_color = Color(3.7230246e-05, 3.7230428e-05, 3.7230297e-05, 1)
+theme_override_fonts/font = ExtResource("8_eaw37")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_ulr5s")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_03xc4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o31j8")
+text = "记录"
+
+[node name="Page2" type="Control" parent="PanelAnchor" unique_id=210000003]
+anchors_preset = 0
+offset_left = 66.0
+offset_top = 38.0
+offset_right = 1084.0
+offset_bottom = 627.0
+script = ExtResource("2_record_page")
+entry_font_size = 30
+entry_font = ExtResource("13_xkcc4")
+
+[node name="EntryListSection" type="Control" parent="PanelAnchor/Page2" unique_id=210000004]
+anchors_preset = 0
+offset_right = 275.0
+offset_bottom = 589.0
+
+[node name="EntryScroll" type="ScrollContainer" parent="PanelAnchor/Page2/EntryListSection" unique_id=210000005]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="EntryList" type="VBoxContainer" parent="PanelAnchor/Page2/EntryListSection/EntryScroll" unique_id=210000006]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EntryDetailSection" type="Control" parent="PanelAnchor/Page2" unique_id=210000007]
+anchors_preset = 0
+offset_left = 285.0
+offset_right = 1010.0
+offset_bottom = 589.0
+
+[node name="EntryTitle" type="Label" parent="PanelAnchor/Page2/EntryDetailSection" unique_id=210000008]
+layout_mode = 0
+offset_right = 725.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_eaw37")
+theme_override_font_sizes/font_size = 34
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EntryDescScroll" type="ScrollContainer" parent="PanelAnchor/Page2/EntryDetailSection" unique_id=210000009]
+layout_mode = 0
+offset_top = 65.0
+offset_right = 725.0
+offset_bottom = 589.0
+horizontal_scroll_mode = 0
+
+[node name="EntryDesc" type="Label" parent="PanelAnchor/Page2/EntryDetailSection/EntryDescScroll" unique_id=210000010]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_r0a7a")
+theme_override_font_sizes/font_size = 28
 autowrap_mode = 2

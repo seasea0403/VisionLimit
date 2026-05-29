@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://mtmxc6i6ii7v"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_e766p"]
+[ext_resource type="Texture2D" uid="uid://bjspodrve12f2" path="res://Art/Scenes/Scene1/Elements/药.png" id="2_qcytr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1kq2"]
+size = Vector2(12.071921, 7.1434803)
+
+[node name="pill" unique_id=223355110 instance=ExtResource("1_e766p")]
+item_id = "9"
+item_name = "药物"
+detail_image = ExtResource("2_qcytr")
+description = "工作久了，神经的负荷太大，我时常入睡困难。刚开始，我只是吃一两颗药，后来吃药也不管用了，索性越吃越多。"
+can_record = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(969.7625, 388.20645)
+rotation = 0.13614628
+scale = Vector2(37.200005, 37.200005)
+shape = SubResource("RectangleShape2D_x1kq2")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+scale = Vector2(1.2, 1.2)

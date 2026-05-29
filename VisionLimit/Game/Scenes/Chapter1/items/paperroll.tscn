@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dtiy3oey4e33h"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_3asb3"]
+[ext_resource type="Texture2D" uid="uid://c407bkkj5oi7k" path="res://Art/Scenes/Scene1/Elements/欠款单.png" id="2_3asb3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjy8d"]
+radius = 4.3342133
+height = 8.797806
+
+[node name="paperroll" unique_id=223355110 instance=ExtResource("1_3asb3")]
+scale = Vector2(1.001095, 1.0090336)
+item_id = "9"
+item_name = "医院欠款通知"
+detail_image = ExtResource("2_3asb3")
+description = "每个月10号，医院都会发来母亲的住院账单。"
+can_record = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(232, 342)
+scale = Vector2(15.319999, 15.319999)
+shape = SubResource("CapsuleShape2D_vjy8d")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+scale = Vector2(1.2, 1.2)

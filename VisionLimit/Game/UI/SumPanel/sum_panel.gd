@@ -5,9 +5,7 @@ extends Control
 @export var slot_frame_texture: Texture2D
 ## 单个槽位大小
 @export var slot_size: Vector2 = Vector2(110, 110)
-## 上/下箭头每次滚动像素量
-@export var scroll_step: float = 120.0
-## 预设空白槽位总数（从一开始就显示这么多格子）
+## 每页显示的槽位数量（超出后翻页）
 @export var total_slots: int = 10
 
 # ==================== 子节点引用 ====================
@@ -19,11 +17,19 @@ extends Control
 @onready var item_name: Label = $PanelAnchor/RightSection/ItemName
 @onready var item_image: TextureRect = $PanelAnchor/RightSection/ItemImage
 @onready var item_desc: Label = $PanelAnchor/RightSection/ItemDescScroll/ItemDesc
+@onready var left_section: Control = $PanelAnchor/LeftSection
+@onready var right_section: Control = $PanelAnchor/RightSection
+@onready var tab1_btn: Button = $PanelAnchor/Tab1Btn
+@onready var tab2_btn: Button = $PanelAnchor/Tab2Btn
+@onready var page2: Control = $PanelAnchor/Page2
 
 # ==================== 状态 ====================
 var _selected_item_id: String = ""
 ## item_id → PanelContainer（只有已填入物品的格子才在此记录）
 var _slot_nodes: Dictionary = {}
+var _current_page: int = 1  # 1=物品页  2=记录页
+## 物品页当前所在的页码（0 起始）
+var _item_page: int = 0
 
 
 # ==================== 初始化 ====================
@@ -31,10 +37,13 @@ func _ready() -> void:
 	close_btn.pressed.connect(close_panel)
 	up_btn.pressed.connect(_on_up_pressed)
 	down_btn.pressed.connect(_on_down_pressed)
+	tab1_btn.pressed.connect(_switch_to_page.bind(1))
+	tab2_btn.pressed.connect(_switch_to_page.bind(2))
 
 	if not GameStateManager.item_added_to_inventory.is_connected(_on_item_added):
 		GameStateManager.item_added_to_inventory.connect(_on_item_added)
 
+	_switch_to_page(1)
 	hide()
 
 
@@ -42,6 +51,20 @@ func _ready() -> void:
 func open_panel() -> void:
 	show()
 	_refresh_slots()
+
+
+func open_and_select(item_id: String) -> void:
+	"""由 ClickableItem 点击时调用：切换到物品页并选中指定物品"""
+	_switch_to_page(1)
+	# 先定位到该物品所在页码
+	var items := GameStateManager.get_inventory_items()
+	if item_id in items:
+		var idx: int = items.keys().find(item_id)
+		_item_page = idx / total_slots
+	show()
+	_refresh_slots()
+	if item_id in GameStateManager.get_inventory_items():
+		_select_slot(item_id)
 
 
 func close_panel() -> void:
@@ -54,8 +77,8 @@ func _on_item_added(_item_id: String) -> void:
 		_refresh_slots()
 
 
-# ==================== 刷新所有槽位 ====================
-# 始终渲染 total_slots 个格子：前面已收集的填上缩略图，剩余为空白
+# ==================== 刷新所有槽位（翻页模式）====================
+# 每页固定渲染 total_slots 个格子，只展示当前页对应的物品
 func _refresh_slots() -> void:
 	for child in slot_grid.get_children():
 		child.queue_free()
@@ -64,13 +87,24 @@ func _refresh_slots() -> void:
 	var items := GameStateManager.get_inventory_items()
 	var item_ids: Array = items.keys()  # 按收集顺序
 
+	# 修正页码越界
+	var max_page: int = max(0, (item_ids.size() - 1) / total_slots) if item_ids.size() > 0 else 0
+	_item_page = clamp(_item_page, 0, max_page)
+
+	var start: int = _item_page * total_slots
+
 	for i in range(total_slots):
-		if i < item_ids.size():
-			_add_filled_slot(item_ids[i], items[item_ids[i]])
+		var idx: int = start + i
+		if idx < item_ids.size():
+			_add_filled_slot(item_ids[idx], items[item_ids[idx]])
 		else:
 			_add_empty_slot()
 
-	# 恢复选中状态
+	# 更新翻页按钮状态
+	up_btn.disabled = (_item_page == 0)
+	down_btn.disabled = (_item_page >= max_page)
+
+	# 恢复选中状态（仅当选中物品在当前页时显示高亮）
 	if _selected_item_id in items:
 		_show_detail(_selected_item_id)
 	else:
@@ -164,10 +198,32 @@ func _clear_detail() -> void:
 	item_image.texture = null
 
 
-# ==================== 滚动控制 ====================
+# ==================== 翻页控制 ====================
 func _on_up_pressed() -> void:
-	slot_scroll.scroll_vertical = max(0, slot_scroll.scroll_vertical - int(scroll_step))
+	if _item_page > 0:
+		_item_page -= 1
+		_refresh_slots()
 
 
 func _on_down_pressed() -> void:
-	slot_scroll.scroll_vertical += int(scroll_step)
+	var item_count: int = GameStateManager.get_inventory_items().size()
+	var max_page: int = max(0, (item_count - 1) / total_slots) if item_count > 0 else 0
+	if _item_page < max_page:
+		_item_page += 1
+		_refresh_slots()
+
+
+# ==================== 页面切换 ====================
+func _switch_to_page(page: int) -> void:
+	_current_page = page
+	left_section.visible = (page == 1)
+	right_section.visible = (page == 1)
+	page2.visible = (page == 2)
+	if page == 2 and page2.has_method("on_page_opened"):
+		page2.call("on_page_opened")
+
+
+# ==================== 记录页：外部调用入口 ====================
+func add_record_entry(key: String, title: String, description: String) -> void:
+	if page2.has_method("add_record_entry"):
+		page2.call("add_record_entry", key, title, description)

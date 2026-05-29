@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d4r18xrnnmtq"]
+
+[ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Template/Scene/ClickableArea.tscn" id="1_f0jq4"]
+[ext_resource type="PackedScene" uid="uid://bxew1sgfajaj2" path="res://Game/Scenes/Chapter1/zoomview/zoomview_bed.tscn" id="2_rt11m"]
+[ext_resource type="PackedScene" uid="uid://cgc101ifvafy4" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_rubbish.tscn" id="3_aqoic"]
+
+[node name="ClickableArea" unique_id=676050068 instance=ExtResource("1_f0jq4")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=55883732]
+position = Vector2(716, 351)
+
+[node name="Zoomview" parent="." index="1" unique_id=198920514 instance=ExtResource("2_rt11m")]
+
+[node name="ClickableArea" parent="Zoomview" index="2" unique_id=1092606753 instance=ExtResource("3_aqoic")]
+
+[editable path="Zoomview"]
+[editable path="Zoomview/Items/mother"]
+[editable path="Zoomview/Items/paperroll"]

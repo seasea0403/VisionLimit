@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://7r14g3cwop0y"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_dtwck"]
+[ext_resource type="Texture2D" uid="uid://7ej08oqy55i1" path="res://Art/Scenes/Scene1/Elements/盆栽.png" id="2_dtwck"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjy8d"]
+radius = 3.194931
+height = 9.3153305
+
+[node name="grass" unique_id=223355110 instance=ExtResource("1_dtwck")]
+scale = Vector2(1.001095, 1.0090336)
+item_id = "1"
+item_name = "旧工牌和新工牌"
+detail_image = ExtResource("2_dtwck")
+description = "我什么都养不活，养盆假的最省事了。"
+can_record = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(232, 342)
+scale = Vector2(15.319999, 15.319999)
+shape = SubResource("CapsuleShape2D_vjy8d")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+scale = Vector2(1.2, 1.2)

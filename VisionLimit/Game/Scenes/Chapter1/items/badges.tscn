@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_trf46"]
 [ext_resource type="Texture2D" uid="uid://cwx0jtmryaly4" path="res://Art/Scenes/Scene1/Elements/Badges_back.png" id="2_tegq6"]
-[ext_resource type="Texture2D" uid="uid://cwe4ahionf6bt" path="res://Art/Scenes/Scene1/Elements/Badges.png" id="2_vjy8d"]
+[ext_resource type="Texture2D" uid="uid://bsa8fgfxor18k" path="res://Art/Scenes/Scene1/Elements/证件.png" id="2_vjy8d"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjy8d"]
 radius = 7.506529

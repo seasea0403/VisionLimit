@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://s4d2eoxsik1k"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_qtar4"]
+[ext_resource type="Texture2D" uid="uid://ba5tr37lrb2ig" path="res://Art/Scenes/Scene1/Elements/联系人.png" id="2_2eqfj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjy8d"]
+radius = 7.506529
+
+[node name="note1" unique_id=223355110 instance=ExtResource("1_qtar4")]
+scale = Vector2(1.001095, 1.0090336)
+item_id = "1"
+item_name = "待办事项"
+detail_image = ExtResource("2_2eqfj")
+description = "这是今天的工作安排。"
+can_record = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(232, 342)
+scale = Vector2(15.319999, 15.319999)
+shape = SubResource("CapsuleShape2D_vjy8d")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+scale = Vector2(1.2, 1.2)

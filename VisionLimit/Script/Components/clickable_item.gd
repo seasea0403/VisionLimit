@@ -67,10 +67,10 @@ func _on_input_event(_viewport, event, _shape_idx):
 		print("物品ID: ", item_id)
 		print("本地detail_image_scale值: ", detail_image_scale)
 
-		# 兜底：若 _ready 时还没解析到，点击时再解析一次
+		# 兄底：若 _ready 时还没解析到，点击时再解析一次
 		if not item_detail:
 			item_detail = _resolve_item_detail()
-		
+
 		if item_detail:
 			if linked_items.is_empty():
 				# 单页显示

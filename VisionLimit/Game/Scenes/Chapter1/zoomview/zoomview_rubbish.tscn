@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://de3qsh03j45l1"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_a8mi4"]
+[ext_resource type="Texture2D" uid="uid://dnqia5ajk8gsd" path="res://Art/Scenes/Scene1/Elements/垃圾桶.png" id="2_a8mi4"]
+[ext_resource type="PackedScene" uid="uid://mtmxc6i6ii7v" path="res://Game/Scenes/Chapter1/items/pill.tscn" id="3_m4hga"]
+
+[node name="Zoomview" unique_id=198920514 instance=ExtResource("1_a8mi4")]
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+scale = Vector2(0.94478923, 0.94478923)
+texture = ExtResource("2_a8mi4")
+
+[node name="pill" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_m4hga")]
+
+[node name="CollisionShape2D" parent="Items/pill" index="0" unique_id=398543410]
+position = Vector2(968.50116, 358.1205)
+rotation = -0.00963565
+
+[editable path="Items/pill"]

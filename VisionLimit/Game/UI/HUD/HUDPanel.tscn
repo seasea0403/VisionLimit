@@ -1,28 +1,38 @@
 [gd_scene format=3 uid="uid://db36xmmdbc587"]
 
-[ext_resource type="PackedScene" uid="uid://sdwoweqjwvnd" path="res://Game/UI/HUD/book.tscn" id="1_xcelq"]
 [ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="2_sdnxa"]
+[ext_resource type="Texture2D" uid="uid://bpqo6jl1gt741" path="res://Art/UI/icon/物品栏.PNG" id="3_i4fug"]
 [ext_resource type="PackedScene" path="res://Game/UI/HUD/items.tscn" id="3_items"]
-[ext_resource type="Texture2D" uid="uid://cycxqevvjrp2l" path="res://Art/UI/Document/Setting/Back.png" id="4_q5kc8"]
+[ext_resource type="PackedScene" uid="uid://cqbpd7n3h8r1m" path="res://Game/UI/HUD/inference.tscn" id="4_inference"]
+[ext_resource type="Texture2D" uid="uid://do8im258dmh2u" path="res://Art/UI/icon/推理板.PNG" id="5_tju23"]
 
 [node name="HudPanel" type="Control" unique_id=1624742861]
 z_index = 5
 layout_mode = 3
 anchors_preset = 0
 
-[node name="book" parent="." unique_id=2074814427 instance=ExtResource("1_xcelq")]
-
 [node name="back" parent="." unique_id=116801208 instance=ExtResource("2_sdnxa")]
 
 [node name="items" parent="." unique_id=116801209 instance=ExtResource("3_items")]
 
 [node name="TextureButton" parent="items" index="0" unique_id=1367535632]
-offset_left = 1183.0
-offset_top = 811.00006
-offset_right = 3081.0
-offset_bottom = 1809.0
-texture_normal = ExtResource("4_q5kc8")
-texture_pressed = ExtResource("4_q5kc8")
-texture_hover = ExtResource("4_q5kc8")
+offset_left = 1739.0001
+offset_top = 335.0
+offset_right = 1997.0001
+offset_bottom = 593.0
+scale = Vector2(0.6239726, 0.61925507)
+texture_normal = ExtResource("3_i4fug")
+
+[node name="inference" parent="." unique_id=116801210 instance=ExtResource("4_inference")]
+position = Vector2(62, 3)
+
+[node name="TextureButton" parent="inference" index="0" unique_id=1367535632]
+offset_left = 1653.0
+offset_top = 177.0
+offset_right = 1911.0
+offset_bottom = 435.0
+scale = Vector2(0.59332865, 0.58884287)
+texture_normal = ExtResource("5_tju23")
 
 [editable path="items"]
+[editable path="inference"]

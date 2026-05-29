@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://btweqnhmmbr2m"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_wh7ak"]
+[ext_resource type="Texture2D" uid="uid://b1qtw882lmcu1" path="res://Art/Scenes/Scene1/Elements/日记.png" id="2_wh7ak"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oicy"]
+size = Vector2(315.59998, 631.769)
+
+[node name="diary" unique_id=223355110 instance=ExtResource("1_wh7ak")]
+item_id = "5"
+item_name = "小时候的日记本"
+detail_image = ExtResource("2_wh7ak")
+description = "这是很久很久以前的事情了。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(1632.5, 875.7097)
+scale = Vector2(2.2148292, 1.0078206)
+shape = SubResource("RectangleShape2D_5oicy")

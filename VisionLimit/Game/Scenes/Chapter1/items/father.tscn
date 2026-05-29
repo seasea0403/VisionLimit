@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dopkk51crhu70"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_c2jia"]
+[ext_resource type="Texture2D" uid="uid://8sjm0pxnewm" path="res://Art/Scenes/Scene1/Elements/照片2.png" id="2_6gism"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjy8d"]
+radius = 7.506529
+
+[node name="father" unique_id=223355110 instance=ExtResource("1_c2jia")]
+scale = Vector2(1.001095, 1.0090336)
+item_id = "7"
+item_name = "照片"
+detail_image = ExtResource("2_6gism")
+description = "这是我和父亲的合影。"
+can_record = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(232, 342)
+scale = Vector2(15.319999, 15.319999)
+shape = SubResource("CapsuleShape2D_vjy8d")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+scale = Vector2(1.2, 1.2)

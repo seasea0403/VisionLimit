@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bxew1sgfajaj2"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_e7au5"]
+[ext_resource type="Texture2D" uid="uid://dhgnqsxc61bx5" path="res://Art/Scenes/Scene1/Elements/zoomview_bed.jpeg" id="2_flty1"]
+[ext_resource type="PackedScene" uid="uid://bxslcihfo5w2e" path="res://Game/Scenes/Chapter1/items/mother.tscn" id="3_audye"]
+[ext_resource type="PackedScene" uid="uid://dtiy3oey4e33h" path="res://Game/Scenes/Chapter1/items/paperroll.tscn" id="4_yo65c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ux8vm"]
+size = Vector2(10.130402, 7.1536484)
+
+[node name="Zoomview" unique_id=198920514 instance=ExtResource("1_e7au5")]
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+scale = Vector2(0.905, 0.905)
+texture = ExtResource("2_flty1")
+
+[node name="mother" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_audye")]
+
+[node name="CollisionShape2D" parent="Items/mother" index="0" unique_id=398543410]
+position = Vector2(1095.7999, 660.0375)
+shape = SubResource("RectangleShape2D_ux8vm")
+
+[node name="paperroll" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="1" unique_id=283832975 instance=ExtResource("4_yo65c")]
+position = Vector2(109, 507)
+
+[node name="CollisionShape2D" parent="Items/paperroll" index="0" unique_id=398543410]
+position = Vector2(247.72871, 370.6517)
+
+[editable path="Items/mother"]
+[editable path="Items/paperroll"]

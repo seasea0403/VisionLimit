@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://d1ujtnaq30h4w"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_17q7u"]
+[ext_resource type="Texture2D" uid="uid://pi02fm8qxc4f" path="res://Art/Scenes/Scene1/Elements/board_2.jpeg" id="2_gdwau"]
+[ext_resource type="PackedScene" uid="uid://s4d2eoxsik1k" path="res://Game/Scenes/Chapter1/items/note1.tscn" id="3_cjq4r"]
+[ext_resource type="PackedScene" uid="uid://dn5fgjegec0kh" path="res://Game/Scenes/Chapter1/items/note2.tscn" id="4_q4un8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kb5js"]
+size = Vector2(37.162563, 31.942074)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74hu7"]
+size = Vector2(54.40308, 31.282936)
+
+[node name="Zoomview" unique_id=198920514 instance=ExtResource("1_17q7u")]
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+scale = Vector2(0.905, 0.905)
+texture = ExtResource("2_gdwau")
+
+[node name="note1" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_cjq4r")]
+
+[node name="CollisionShape2D" parent="Items/note1" index="0" unique_id=398543410]
+position = Vector2(564.16565, 248.69434)
+rotation = -0.047199897
+shape = SubResource("RectangleShape2D_kb5js")
+
+[node name="note2" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="1" unique_id=1386252952 instance=ExtResource("4_q4un8")]
+
+[node name="CollisionShape2D" parent="Items/note2" index="0" unique_id=398543410]
+position = Vector2(1235.4631, 828.7217)
+shape = SubResource("RectangleShape2D_74hu7")
+
+[editable path="Items/note1"]
+[editable path="Items/note2"]

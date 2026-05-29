@@ -9,3 +9,5 @@
 position = Vector2(716, 351)
 
 [node name="Zoomview" parent="." index="1" unique_id=198920514 instance=ExtResource("2_gy1ar")]
+
+[editable path="Zoomview"]

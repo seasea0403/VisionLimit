@@ -13,6 +13,7 @@ extends Node2D
 @onready var hud_book_button = $UILayer/HudPanel/book/TextureButton
 
 var record_panel: Control
+var sum_panel: Control
 var open_panels: Array[Control] = []
 
 func register_panel_open(panel: Control) -> void:
@@ -31,6 +32,11 @@ func _ready():
 
 	item_detail.hide() # 隐藏详情面板
 	_setup_record_panel()
+	_setup_sum_panel()
+	# 连接 HUD 物品按钮
+	var hud_items_btn := get_node_or_null("UILayer/HudPanel/items/TextureButton") as BaseButton
+	if hud_items_btn and not hud_items_btn.pressed.is_connected(_on_hud_items_pressed):
+		hud_items_btn.pressed.connect(_on_hud_items_pressed)
 	
 	# 连接 ItemDetail 的记录信号
 	if item_detail and item_detail.has_signal("item_recorded"):
@@ -57,6 +63,20 @@ func _setup_record_panel() -> void:
 		return
 	record_panel.name = "RecordPanel"
 	ui_layer.add_child(record_panel)
+
+
+func _setup_sum_panel() -> void:
+	sum_panel = ui_layer.find_child("SumPanel", true, false) as Control
+	if sum_panel:
+		return
+	var sum_panel_scene := load("res://Game/UI/SumPanel/SumPanel.tscn")
+	if not sum_panel_scene:
+		return
+	sum_panel = sum_panel_scene.instantiate() as Control
+	if not sum_panel:
+		return
+	sum_panel.name = "SumPanel"
+	ui_layer.add_child(sum_panel)
 
 
 # ==================== HUD 按钮处理 ====================
@@ -87,10 +107,18 @@ func _on_hud_book_pressed() -> void:
 		record_panel.open_panel()
 
 
+func _on_hud_items_pressed() -> void:
+	if sum_panel and sum_panel.has_method("open_panel"):
+		sum_panel.open_panel()
+		register_panel_open(sum_panel)
+
+
 func _on_item_recorded(item_id: String, entry_title: String, entry_description: String, entry_title_2: String, entry_description_2: String) -> void:
-	if not record_panel:
-		return
-	if record_panel.has_method("add_or_update_entry"):
+	if record_panel and record_panel.has_method("add_or_update_entry"):
 		record_panel.call("add_or_update_entry", item_id, entry_title, entry_description)
 		if not entry_title_2.strip_edges().is_empty() or not entry_description_2.strip_edges().is_empty():
 			record_panel.call("add_or_update_entry", item_id + "_b", entry_title_2, entry_description_2)
+	if sum_panel and sum_panel.has_method("add_record_entry"):
+		sum_panel.call("add_record_entry", item_id, entry_title, entry_description)
+		if not entry_title_2.strip_edges().is_empty() or not entry_description_2.strip_edges().is_empty():
+			sum_panel.call("add_record_entry", item_id + "_b", entry_title_2, entry_description_2)

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dn5fgjegec0kh"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_1q8em"]
+[ext_resource type="Texture2D" uid="uid://b4njojo4qti82" path="res://Art/Scenes/Scene1/Elements/数独.png" id="2_1q8em"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vjy8d"]
+radius = 7.506529
+
+[node name="note2" unique_id=223355110 instance=ExtResource("1_1q8em")]
+scale = Vector2(1.001095, 1.0090336)
+item_id = "1"
+item_name = "数独"
+detail_image = ExtResource("2_1q8em")
+description = "解了一半的数独，我就会挂在墙上，随时随地都能看到，有时就有了新的想法。"
+can_record = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(232, 342)
+scale = Vector2(15.319999, 15.319999)
+shape = SubResource("CapsuleShape2D_vjy8d")
+
+[node name="Sprite2D" parent="." index="1" unique_id=771681859]
+scale = Vector2(1.2, 1.2)

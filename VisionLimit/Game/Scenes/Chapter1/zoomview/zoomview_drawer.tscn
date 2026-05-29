@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://tuiqdhou5uah"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_rnr6y"]
+[ext_resource type="Texture2D" uid="uid://dlvskili7ciwe" path="res://Art/Scenes/Scene1/Elements/抽屉.png" id="2_s3p2x"]
+
+[node name="Zoomview" unique_id=198920514 instance=ExtResource("1_rnr6y")]
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+scale = Vector2(0.62722945, 0.62722945)
+texture = ExtResource("2_s3p2x")

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bxgx5801p1s0i"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_nphci"]
+[ext_resource type="Texture2D" uid="uid://dmiiboyj8a2" path="res://Art/Scenes/Scene1/Elements/奖状.png" id="2_nrxm0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oicy"]
+size = Vector2(257.8077, 382.42865)
+
+[node name="bed" unique_id=223355110 instance=ExtResource("1_nphci")]
+item_id = "5"
+item_name = "荣誉证书"
+detail_image = ExtResource("2_nrxm0")
+description = "苍市的教育资源比苍屿县好了一大截。我的学生生涯都是在市里度过的。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(1632.5, 875.7097)
+scale = Vector2(2.2148292, 1.0078206)
+shape = SubResource("RectangleShape2D_5oicy")

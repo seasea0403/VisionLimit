@@ -1,0 +1,379 @@
+[gd_scene format=3 uid="uid://drhq2slbuploc"]
+
+[ext_resource type="Script" uid="uid://cye024fq1yxp5" path="res://Script/UI/inference_panel.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dxne77hv3ymai" path="res://Art/UI/推理板/推理板背景.png" id="2_board"]
+[ext_resource type="Texture2D" uid="uid://dh2xuu56t4x2n" path="res://Art/UI/推理板/推理板方框.png" id="4_frame"]
+[ext_resource type="Texture2D" uid="uid://ba18jtc3ijqmh" path="res://Art/UI/推理板/微信图片_20260527183105_626_2451.png" id="4_oola6"]
+[ext_resource type="Texture2D" uid="uid://bybvjlicyn6us" path="res://Art/UI/推理板/方框.png" id="5_slot"]
+[ext_resource type="Texture2D" uid="uid://do0cwo8ke37yr" path="res://Art/UI/推理板/左按键.png" id="6_left"]
+[ext_resource type="Texture2D" uid="uid://clocls8o2yqw6" path="res://Art/UI/推理板/方框部分背景.png" id="7_bf706"]
+[ext_resource type="Texture2D" uid="uid://b1u8afilwhovm" path="res://Art/UI/推理板/右按键.png" id="7_right"]
+[ext_resource type="Texture2D" uid="uid://bgq7hppi3s3py" path="res://Art/close.png" id="8_close"]
+
+[node name="InferencePanel" type="Control" unique_id=1999336769]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+slot_frame_texture = ExtResource("4_frame")
+item_bar_slot_texture = ExtResource("5_slot")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1311303766]
+visible = false
+layout_mode = 0
+offset_right = 3200.0
+offset_bottom = 1800.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_oola6")
+
+[node name="PanelAnchor" type="Control" parent="." unique_id=101]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -535.0
+offset_top = -365.0
+offset_right = 535.0
+offset_bottom = 365.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="BoardSection" type="Control" parent="PanelAnchor" unique_id=102]
+anchors_preset = 0
+offset_right = 1070.0
+offset_bottom = 525.0
+mouse_filter = 1
+
+[node name="BoardBg" type="TextureRect" parent="PanelAnchor/BoardSection" unique_id=103]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -431.0
+offset_top = -170.00002
+offset_right = -431.0
+offset_bottom = -170.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.8071561, 2.035741)
+mouse_filter = 2
+texture = ExtResource("2_board")
+expand_mode = 1
+
+[node name="Slot0" type="Control" parent="PanelAnchor/BoardSection" unique_id=104]
+anchors_preset = 0
+offset_left = 87.0
+offset_top = 25.0
+offset_right = 292.0
+offset_bottom = 260.0
+
+[node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot0" unique_id=107]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_frame")
+expand_mode = 1
+
+[node name="ThumbRect" type="TextureRect" parent="PanelAnchor/BoardSection/Slot0" unique_id=105]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HighlightFlash" type="ColorRect" parent="PanelAnchor/BoardSection/Slot0" unique_id=106]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.2, 1, 0.3, 0.45)
+
+[node name="Slot1" type="Control" parent="PanelAnchor/BoardSection" unique_id=108]
+anchors_preset = 0
+offset_left = 428.0
+offset_top = 1.0
+offset_right = 633.0
+offset_bottom = 236.0
+
+[node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot1" unique_id=111]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_frame")
+expand_mode = 1
+
+[node name="ThumbRect" type="TextureRect" parent="PanelAnchor/BoardSection/Slot1" unique_id=109]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HighlightFlash" type="ColorRect" parent="PanelAnchor/BoardSection/Slot1" unique_id=110]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.2, 1, 0.3, 0.45)
+
+[node name="Slot2" type="Control" parent="PanelAnchor/BoardSection" unique_id=112]
+anchors_preset = 0
+offset_left = 774.0
+offset_top = 9.0
+offset_right = 979.0
+offset_bottom = 244.0
+
+[node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot2" unique_id=115]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_frame")
+expand_mode = 1
+
+[node name="ThumbRect" type="TextureRect" parent="PanelAnchor/BoardSection/Slot2" unique_id=113]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HighlightFlash" type="ColorRect" parent="PanelAnchor/BoardSection/Slot2" unique_id=114]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.2, 1, 0.3, 0.45)
+
+[node name="Slot3" type="Control" parent="PanelAnchor/BoardSection" unique_id=116]
+anchors_preset = 0
+offset_left = 240.0
+offset_top = 249.0
+offset_right = 445.0
+offset_bottom = 484.0
+
+[node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot3" unique_id=119]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_frame")
+expand_mode = 1
+
+[node name="ThumbRect" type="TextureRect" parent="PanelAnchor/BoardSection/Slot3" unique_id=117]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HighlightFlash" type="ColorRect" parent="PanelAnchor/BoardSection/Slot3" unique_id=118]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.2, 1, 0.3, 0.45)
+
+[node name="Slot4" type="Control" parent="PanelAnchor/BoardSection" unique_id=120]
+anchors_preset = 0
+offset_left = 590.0
+offset_top = 255.0
+offset_right = 795.0
+offset_bottom = 490.0
+
+[node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot4" unique_id=123]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_frame")
+expand_mode = 1
+
+[node name="ThumbRect" type="TextureRect" parent="PanelAnchor/BoardSection/Slot4" unique_id=121]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HighlightFlash" type="ColorRect" parent="PanelAnchor/BoardSection/Slot4" unique_id=122]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.2, 1, 0.3, 0.45)
+
+[node name="CloseBtn" type="TextureButton" parent="PanelAnchor" unique_id=124]
+layout_mode = 0
+offset_left = 981.0
+offset_top = -64.0
+offset_right = 1080.0
+offset_bottom = 15.0
+texture_normal = ExtResource("8_close")
+
+[node name="BottomSection" type="Control" parent="PanelAnchor" unique_id=125]
+anchors_preset = 0
+offset_left = -38.0
+offset_top = 625.0
+offset_right = 1032.0
+offset_bottom = 780.0
+mouse_filter = 1
+
+[node name="BottomBg" type="TextureRect" parent="PanelAnchor/BottomSection" unique_id=126]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = -14.0
+offset_right = 41.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_bf706")
+expand_mode = 1
+
+[node name="LeftArrow" type="TextureButton" parent="PanelAnchor/BottomSection" unique_id=127]
+layout_mode = 0
+offset_left = -3.000001
+offset_top = 28.0
+offset_right = 62.0
+offset_bottom = 158.0
+scale = Vector2(0.6055157, 0.6055157)
+texture_normal = ExtResource("6_left")
+
+[node name="RightArrow" type="TextureButton" parent="PanelAnchor/BottomSection" unique_id=128]
+layout_mode = 0
+offset_left = 1120.0001
+offset_top = 24.0
+offset_right = 1185.0001
+offset_bottom = 154.0
+scale = Vector2(0.6175703, 0.6175703)
+texture_normal = ExtResource("7_right")
+
+[node name="ItemScroll" type="ScrollContainer" parent="PanelAnchor/BottomSection" unique_id=129]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 7.0
+offset_right = 1046.0
+offset_bottom = 126.0
+vertical_scroll_mode = 0
+
+[node name="ItemRow" type="HBoxContainer" parent="PanelAnchor/BottomSection/ItemScroll" unique_id=130]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SubmitBtn" type="Button" parent="PanelAnchor" unique_id=131]
+z_index = 2
+layout_mode = 0
+offset_left = 707.0
+offset_top = 507.0
+offset_right = 1007.0
+offset_bottom = 549.0
+theme_override_font_sizes/font_size = 28
+text = "提  交"
+
+[node name="FeedbackLabel" type="Label" parent="PanelAnchor" unique_id=132]
+z_index = 2
+layout_mode = 0
+offset_left = 86.0
+offset_top = 496.0
+offset_right = 986.0
+offset_bottom = 544.0
+theme_override_font_sizes/font_size = 38
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DragPreview" type="TextureRect" parent="." unique_id=133]
+visible = false
+z_index = 100
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 90.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
