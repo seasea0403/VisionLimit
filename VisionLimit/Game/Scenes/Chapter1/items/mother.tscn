@@ -8,7 +8,7 @@ radius = 7.506529
 
 [node name="mother" unique_id=223355110 instance=ExtResource("1_ttra1")]
 scale = Vector2(1.001095, 1.0090336)
-item_id = "8"
+item_id = "5"
 item_name = "照片"
 detail_image = ExtResource("2_ttra1")
 description = "这是我和父亲的合影。"

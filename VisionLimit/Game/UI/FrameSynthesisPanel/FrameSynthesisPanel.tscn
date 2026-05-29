@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://c7pxnr6yht5b2"]
+
+[ext_resource type="Script" uid="uid://3lswr4ewoelm" path="res://Script/Components/frame_synthesis_panel.gd" id="1_fsp"]
+[ext_resource type="Texture2D" uid="uid://clocls8o2yqw6" path="res://Art/UI/推理板/方框部分背景.png" id="2_bottombg"]
+[ext_resource type="Texture2D" uid="uid://bybvjlicyn6us" path="res://Art/UI/推理板/方框.png" id="2_enn1h"]
+[ext_resource type="Texture2D" uid="uid://8sjm0pxnewm" path="res://Art/Scenes/Scene1/Elements/照片2.png" id="3_hfblk"]
+[ext_resource type="Texture2D" uid="uid://do0cwo8ke37yr" path="res://Art/UI/推理板/左按键.png" id="3_leftarrow"]
+[ext_resource type="Texture2D" uid="uid://b1u8afilwhovm" path="res://Art/UI/推理板/右按键.png" id="4_rightarrow"]
+[ext_resource type="Texture2D" uid="uid://bfmedgf7fg0sq" path="res://Art/Scenes/Scene1/Elements/照片1.png" id="4_v2gr2"]
+[ext_resource type="Texture2D" uid="uid://c0ckpqn78pk42" path="res://Art/Scenes/Scene1/Elements/合照.png" id="5_6qewp"]
+
+[node name="FrameSynthesisPanel" type="Control" unique_id=989587711]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+script = ExtResource("1_fsp")
+mother_item_id = "5"
+father_item_id = "13"
+item_bar_slot_texture = ExtResource("2_enn1h")
+
+[node name="DropZone" type="Control" parent="." unique_id=1866336700]
+anchors_preset = 0
+offset_left = 489.0
+offset_top = 172.0
+offset_right = 1481.0
+offset_bottom = 833.0
+
+[node name="ImageFather" type="TextureRect" parent="." unique_id=549442278]
+layout_mode = 0
+offset_left = 623.0
+offset_top = 114.0
+offset_right = 823.0
+offset_bottom = 364.0
+scale = Vector2(3.0985117, 3.0985117)
+mouse_filter = 2
+texture = ExtResource("3_hfblk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ImageMother" type="TextureRect" parent="." unique_id=2071910456]
+layout_mode = 0
+offset_left = 732.00006
+offset_top = 241.0
+offset_right = 918.81476
+offset_bottom = 396.63126
+scale = Vector2(3.4954429, 3.4954429)
+mouse_filter = 2
+texture = ExtResource("4_v2gr2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ImageComplete" type="TextureRect" parent="." unique_id=1349316086]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 147.00002
+offset_right = 1470.9187
+offset_bottom = 829.23254
+scale = Vector2(1.0361433, 1.0361433)
+mouse_filter = 2
+texture = ExtResource("5_6qewp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BottomSection" type="Control" parent="." unique_id=1415715546]
+anchors_preset = 0
+offset_left = 424.0
+offset_top = 855.0
+offset_right = 1494.0
+offset_bottom = 1010.0
+mouse_filter = 1
+
+[node name="BottomBg" type="TextureRect" parent="BottomSection" unique_id=484407824]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = -14.0
+offset_right = 41.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_bottombg")
+expand_mode = 1
+
+[node name="LeftArrow" type="TextureButton" parent="BottomSection" unique_id=88628331]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 28.0
+offset_right = 62.0
+offset_bottom = 158.0
+scale = Vector2(0.6055157, 0.6055157)
+texture_normal = ExtResource("3_leftarrow")
+
+[node name="RightArrow" type="TextureButton" parent="BottomSection" unique_id=1372842858]
+layout_mode = 0
+offset_left = 1120.0
+offset_top = 24.0
+offset_right = 1185.0
+offset_bottom = 154.0
+scale = Vector2(0.6175703, 0.6175703)
+texture_normal = ExtResource("4_rightarrow")
+
+[node name="ItemScroll" type="ScrollContainer" parent="BottomSection" unique_id=876504875]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 7.0
+offset_right = 1046.0
+offset_bottom = 126.0
+vertical_scroll_mode = 0
+
+[node name="ItemRow" type="HBoxContainer" parent="BottomSection/ItemScroll" unique_id=196519472]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="DragPreview" type="TextureRect" parent="." unique_id=762807919]
+visible = false
+z_index = 100
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 90.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5

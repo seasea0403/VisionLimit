@@ -4,20 +4,36 @@ extends Control
 @onready var dark_background = $DarkBackground
 @onready var image_display = $Control/ImageDisplay
 @onready var title_label = $Control/TitleLabel
-@onready var description_label = $Control/DescriptionLabel
-@onready var record_button = $Control/record/TextureButton
-@onready var character_display = $Control/Character
+@onready var content_node: Node2D = $Control/content
+@onready var description_label = $Control/content/DescriptionLabel
+@onready var record_button = get_node_or_null("Control/record/TextureButton")
+@onready var character_display = $Control/content/Character
 @onready var text_sfx = $click
 @onready var prev_button = $Control/PrevButton/TextureButton
 @onready var next_button = $Control/LaterButton/TextureButton
 @onready var next_button_label = $Control/LaterButton/TextureButton/Label
 @onready var page_indicator = $Control/PageIndicator
 @onready var back_button = $Control/back/TextureButton
+@onready var frame_synthesis_panel: Control = $Control/FrameSynthesisPanel
+
+# ==================== 合成解谜配置 ====================
+## 需要触发合成解谜模式的物品 ID 列表；列表非空且当前物品 ID 在其中时激活合成栏
+@export var synthesis_item_ids: Array[String] = []
+## 合成完成后在底部显示的文字内容
+@export_multiline var synthesis_complete_text: String = ""
+## 合成完成后加入物品栏的物品 ID（留空则不加入）
+@export var synthesis_result_id: String = ""
+## 合成完成后加入物品栏的物品名称
+@export var synthesis_result_title: String = ""
+## 合成完成后加入物品栏的缩略图
+@export var synthesis_result_texture: Texture2D = null
 
 # ==================== 状态变量 ====================
 var current_item_id: String = ""
 var can_record: bool = false
 var _image_base_position: Vector2 = Vector2.ZERO
+var _synthesis_active: bool = false   # 当前是否处于合成模式
+var _synthesis_done: bool = false     # 合成是否已完成（跨开关面板保留）
 var _character_base_position: Vector2 = Vector2.ZERO
 var _character_base_scale: Vector2 = Vector2.ONE
 var current_title: String = ""
@@ -72,6 +88,10 @@ func _ready() -> void:
 	if back_button:
 		back_button.pressed.connect(close_detail)
 	
+	# 连接合成面板信号
+	if frame_synthesis_panel and frame_synthesis_panel.has_signal("synthesis_complete"):
+		frame_synthesis_panel.synthesis_complete.connect(_on_synthesis_complete)
+
 	# 初始化时隐藏
 	hide()
 	# 注册到分组，便于其他节点动态查找
@@ -193,10 +213,13 @@ func _apply_page(idx: int) -> void:
 	current_record_title_2 = record_title_2.strip_edges() if record_title_2 is String else ""
 	current_record_description_2 = record_description_2.strip_edges() if record_description_2 is String else ""
 
-	record_button.visible = can_record_flag
+	if record_button:
+		record_button.visible = can_record_flag
 	_update_nav_buttons()
 	# 自动入库 + 自动解锁词条（无需手动点击记录按鈕）
 	_auto_record(p)
+	# 检测是否需要激活合成解谜模式
+	_try_activate_synthesis()
 
 
 func set_action_button(visible_state: bool, label_text: String = "尝试") -> void:
@@ -284,6 +307,14 @@ func close_detail() -> void:
 	# 隐藏面板本身
 	hide()
 
+	# 关闭合成面板
+	if _synthesis_active:
+		_synthesis_active = false
+		if frame_synthesis_panel:
+			frame_synthesis_panel.close_panel()
+		if content_node:
+			content_node.show()
+
 	# 清理多页状态
 	_pages.clear()
 	_current_page = 0
@@ -362,8 +393,11 @@ func _auto_record(page: Dictionary) -> void:
 		return
 
 	var texture: Texture2D = page.get("texture", null)
-	# 有图片 → 加入物品收藏；描述用普通 description，与词条内容无关
-	if texture != null:
+	# 合成解谜物品在合成完成前不加入物品栏
+	var is_pending_synthesis: bool = \
+		not synthesis_item_ids.is_empty() and (current_item_id in synthesis_item_ids) and not _synthesis_done
+	# 有图片且不是待合成物品 → 加入物品收藏
+	if texture != null and not is_pending_synthesis:
 		var inv_desc: String = (page.get("description", "") as String)
 		GameStateManager.add_inventory_item(current_item_id, current_title, inv_desc, texture)
 
@@ -377,3 +411,50 @@ func _auto_record(page: Dictionary) -> void:
 	if not orig_rec_title.is_empty() or not orig_rec_desc.is_empty():
 		var eff_title: String = orig_rec_title if not orig_rec_title.is_empty() else current_title
 		item_recorded.emit(current_item_id, eff_title, orig_rec_desc, orig_rec_title_2, orig_rec_desc_2)
+
+
+# ==================== 合成解谜模式 ====================
+func _try_activate_synthesis() -> void:
+	"""根据 current_item_id 决定是否激活合成解谜模式"""
+	if not frame_synthesis_panel:
+		return
+	var should_be_synthesis: bool = \
+		not synthesis_item_ids.is_empty() and (current_item_id in synthesis_item_ids)
+	if should_be_synthesis:
+		_synthesis_active = true
+		if _synthesis_done:
+			# ── 完成态：主图换成合成结果图，显示描述，合成面板保持关闭（无法再交互）
+			if synthesis_result_texture:
+				image_display.texture = synthesis_result_texture
+			description_label.text = synthesis_complete_text
+			content_node.show()
+			if frame_synthesis_panel.visible:
+				frame_synthesis_panel.close_panel()
+		else:
+			# ── 未完成：隐藏文字区，打开合成面板（每次刷新底栏）
+			content_node.hide()
+			frame_synthesis_panel.open_panel()
+	else:
+		# 非合成物品：无论之前状态如何都恢复 content 显示
+		if _synthesis_active:
+			_synthesis_active = false
+			frame_synthesis_panel.close_panel()
+		content_node.show()
+
+
+func _on_synthesis_complete() -> void:
+	"""两张照片均摆放完成时触发，显示完整文字内容并加入物品栏"""
+	_synthesis_done = true
+	description_label.text = synthesis_complete_text
+	content_node.show()
+	# 锁定合成面板，禁止再次拖拽
+	if frame_synthesis_panel:
+		frame_synthesis_panel.lock()
+	# 将合成结果加入物品栏
+	if not synthesis_result_id.is_empty():
+		GameStateManager.add_inventory_item(
+			synthesis_result_id,
+			synthesis_result_title,
+			synthesis_complete_text,
+			synthesis_result_texture
+		)

@@ -5,7 +5,7 @@ extends Node2D
 @onready var clickable_areas = $ZoomViews.get_children()
 @onready var ui_layer = $UILayer
 @onready var hud_back_button = $UILayer/HudPanel/back/TextureButton
-@onready var hud_book_button = $UILayer/HudPanel/book/TextureButton
+@onready var hud_book_button = get_node_or_null("UILayer/HudPanel/book/TextureButton")
 @onready var hud_items_button = $UILayer/HudPanel/items/TextureButton
 @onready var hud_inference_button = $UILayer/HudPanel/inference/TextureButton
 
