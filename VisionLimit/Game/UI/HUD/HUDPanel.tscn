@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" path="res://Game/UI/HUD/items.tscn" id="3_items"]
 [ext_resource type="PackedScene" uid="uid://cqbpd7n3h8r1m" path="res://Game/UI/HUD/inference.tscn" id="4_inference"]
 [ext_resource type="Texture2D" uid="uid://do8im258dmh2u" path="res://Art/UI/icon/推理板.PNG" id="5_tju23"]
+[ext_resource type="Texture2D" uid="uid://dxktjvn1o8tv0" path="res://Art/UI/icon/消息.PNG" id="6_msg"]
 
 [node name="HudPanel" type="Control" unique_id=1624742861]
 z_index = 5
@@ -36,3 +37,18 @@ texture_normal = ExtResource("5_tju23")
 
 [editable path="items"]
 [editable path="inference"]
+
+[node name="message" type="Control" parent="." unique_id=116801211]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="TextureButton" type="TextureButton" parent="message" unique_id=116801212]
+layout_mode = 0
+offset_left = 1739.0
+offset_top = 640.0
+offset_right = 1997.0
+offset_bottom = 898.0
+scale = Vector2(0.6239726, 0.61925507)
+texture_normal = ExtResource("6_msg")

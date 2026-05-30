@@ -6,9 +6,62 @@
 [ext_resource type="Texture2D" uid="uid://ba18jtc3ijqmh" path="res://Art/UI/推理板/微信图片_20260527183105_626_2451.png" id="4_oola6"]
 [ext_resource type="Texture2D" uid="uid://bybvjlicyn6us" path="res://Art/UI/推理板/方框.png" id="5_slot"]
 [ext_resource type="Texture2D" uid="uid://do0cwo8ke37yr" path="res://Art/UI/推理板/左按键.png" id="6_left"]
+[ext_resource type="Texture2D" uid="uid://dsrnxvlyh5xca" path="res://Art/UI/物品栏/IMG_3311.PNG" id="6_yvepa"]
 [ext_resource type="Texture2D" uid="uid://clocls8o2yqw6" path="res://Art/UI/推理板/方框部分背景.png" id="7_bf706"]
 [ext_resource type="Texture2D" uid="uid://b1u8afilwhovm" path="res://Art/UI/推理板/右按键.png" id="7_right"]
-[ext_resource type="Texture2D" uid="uid://bgq7hppi3s3py" path="res://Art/close.png" id="8_close"]
+[ext_resource type="Texture2D" uid="uid://blab14kyncgud" path="res://Art/UI/红底按钮.png" id="10_jpeev"]
+[ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="11_ufi0g"]
+
+[sub_resource type="FontFile" id="FontFile_nafbt"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ygof"]
+texture = ExtResource("10_jpeev")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u75dp"]
+texture = ExtResource("10_jpeev")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p65pv"]
+texture = ExtResource("10_jpeev")
+
+[sub_resource type="FontFile" id="FontFile_yvepa"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/38/0/ascent = 0.0
+cache/0/38/0/descent = 0.0
+cache/0/38/0/underline_position = 0.0
+cache/0/38/0/underline_thickness = 0.0
+cache/0/38/0/scale = 1.0
 
 [node name="InferencePanel" type="Control" unique_id=1999336769]
 layout_mode = 3
@@ -68,10 +121,11 @@ expand_mode = 1
 
 [node name="Slot0" type="Control" parent="PanelAnchor/BoardSection" unique_id=104]
 anchors_preset = 0
-offset_left = 87.0
-offset_top = 25.0
-offset_right = 292.0
-offset_bottom = 260.0
+offset_left = 90.0
+offset_top = 19.0
+offset_right = 295.0
+offset_bottom = 254.0
+rotation = 0.07948404
 
 [node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot0" unique_id=107]
 layout_mode = 1
@@ -112,10 +166,11 @@ color = Color(0.2, 1, 0.3, 0.45)
 
 [node name="Slot1" type="Control" parent="PanelAnchor/BoardSection" unique_id=108]
 anchors_preset = 0
-offset_left = 428.0
-offset_top = 1.0
-offset_right = 633.0
-offset_bottom = 236.0
+offset_left = 422.0
+offset_top = 32.0
+offset_right = 627.0
+offset_bottom = 267.0
+rotation = -0.06955251
 
 [node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot1" unique_id=111]
 layout_mode = 1
@@ -156,10 +211,11 @@ color = Color(0.2, 1, 0.3, 0.45)
 
 [node name="Slot2" type="Control" parent="PanelAnchor/BoardSection" unique_id=112]
 anchors_preset = 0
-offset_left = 774.0
-offset_top = 9.0
-offset_right = 979.0
-offset_bottom = 244.0
+offset_left = 233.0
+offset_top = 273.0
+offset_right = 438.0
+offset_bottom = 508.0
+rotation = -0.14413661
 
 [node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot2" unique_id=115]
 layout_mode = 1
@@ -200,10 +256,11 @@ color = Color(0.2, 1, 0.3, 0.45)
 
 [node name="Slot3" type="Control" parent="PanelAnchor/BoardSection" unique_id=116]
 anchors_preset = 0
-offset_left = 240.0
-offset_top = 249.0
-offset_right = 445.0
-offset_bottom = 484.0
+offset_left = 732.0
+offset_top = 38.0
+offset_right = 937.0
+offset_bottom = 273.0
+rotation = -0.034779113
 
 [node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot3" unique_id=119]
 layout_mode = 1
@@ -248,6 +305,7 @@ offset_left = 590.0
 offset_top = 255.0
 offset_right = 795.0
 offset_bottom = 490.0
+rotation = 0.09105471
 
 [node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot4" unique_id=123]
 layout_mode = 1
@@ -288,11 +346,12 @@ color = Color(0.2, 1, 0.3, 0.45)
 
 [node name="CloseBtn" type="TextureButton" parent="PanelAnchor" unique_id=124]
 layout_mode = 0
-offset_left = 981.0
-offset_top = -64.0
-offset_right = 1080.0
-offset_bottom = 15.0
-texture_normal = ExtResource("8_close")
+offset_left = 951.0
+offset_top = -92.00001
+offset_right = 1151.0
+offset_bottom = 88.99999
+scale = Vector2(0.7220379, 0.7220379)
+texture_normal = ExtResource("6_yvepa")
 
 [node name="BottomSection" type="Control" parent="PanelAnchor" unique_id=125]
 anchors_preset = 0
@@ -350,20 +409,25 @@ theme_override_constants/separation = 8
 [node name="SubmitBtn" type="Button" parent="PanelAnchor" unique_id=131]
 z_index = 2
 layout_mode = 0
-offset_left = 707.0
-offset_top = 507.0
-offset_right = 1007.0
-offset_bottom = 549.0
+offset_left = 801.0
+offset_top = 465.0
+offset_right = 1011.0
+offset_bottom = 550.0
+theme_override_fonts/font = SubResource("FontFile_nafbt")
 theme_override_font_sizes/font_size = 28
-text = "提  交"
+theme_override_styles/normal = SubResource("StyleBoxTexture_1ygof")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_u75dp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_p65pv")
+text = "提交"
 
 [node name="FeedbackLabel" type="Label" parent="PanelAnchor" unique_id=132]
 z_index = 2
 layout_mode = 0
-offset_left = 86.0
+offset_left = 264.0
 offset_top = 496.0
-offset_right = 986.0
+offset_right = 752.0
 offset_bottom = 544.0
+theme_override_fonts/font = SubResource("FontFile_yvepa")
 theme_override_font_sizes/font_size = 38
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -377,3 +441,70 @@ offset_bottom = 90.0
 mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5
+
+[node name="Finish" parent="." unique_id=2074814427 instance=ExtResource("11_ufi0g")]
+position = Vector2(65, 11)
+
+[node name="TextureButton" parent="Finish" index="0" unique_id=1367535632]
+offset_left = 116.0
+offset_top = 139.0
+offset_right = 583.0
+offset_bottom = 369.0
+scale = Vector2(0.5515238, 0.5515238)
+texture_normal = ExtResource("10_jpeev")
+
+[node name="Label" parent="Finish/TextureButton" index="0" unique_id=1029178860]
+offset_left = 72.52634
+offset_top = 72.526344
+offset_right = 352.52634
+offset_bottom = 143.52635
+scale = Vector2(1.0998577, 1.0998577)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "已完成"
+horizontal_alignment = 1
+
+[node name="NextButton" parent="." unique_id=883295915 instance=ExtResource("11_ufi0g")]
+position = Vector2(1375, 12)
+
+[node name="TextureButton" parent="NextButton" index="0" unique_id=1367535632]
+offset_left = 116.0
+offset_top = 139.0
+offset_right = 583.0
+offset_bottom = 369.0
+scale = Vector2(0.5515238, 0.5515238)
+texture_normal = ExtResource("10_jpeev")
+
+[node name="Label" parent="NextButton/TextureButton" index="0" unique_id=1029178860]
+offset_left = 72.52634
+offset_top = 72.526344
+offset_right = 352.52634
+offset_bottom = 143.52635
+scale = Vector2(1.0998577, 1.0998577)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "下一关"
+horizontal_alignment = 1
+
+[node name="HoldonButton" parent="." unique_id=643464354 instance=ExtResource("11_ufi0g")]
+position = Vector2(1379, 148)
+
+[node name="TextureButton" parent="HoldonButton" index="0" unique_id=1367535632]
+offset_left = 116.0
+offset_top = 139.0
+offset_right = 583.0
+offset_bottom = 369.0
+scale = Vector2(0.5515238, 0.5515238)
+texture_normal = ExtResource("10_jpeev")
+
+[node name="Label" parent="HoldonButton/TextureButton" index="0" unique_id=1029178860]
+offset_left = 72.52634
+offset_top = 72.526344
+offset_right = 352.52634
+offset_bottom = 143.52635
+scale = Vector2(1.0998577, 1.0998577)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "继续探索"
+horizontal_alignment = 1
+
+[editable path="Finish"]
+[editable path="NextButton"]
+[editable path="HoldonButton"]

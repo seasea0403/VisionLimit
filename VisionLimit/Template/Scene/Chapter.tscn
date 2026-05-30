@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://doesud42gb1g4"]
 
 [ext_resource type="Script" uid="uid://dpf1dfnu8mwee" path="res://Script/Chapters/chapter.gd" id="1_3ndok"]
-[ext_resource type="Texture2D" uid="uid://7twvcojxkhdk" path="res://Art/Scenes/Scene1/Background/Background1.jpg" id="1_jjl8d"]
+[ext_resource type="Texture2D" uid="uid://bek10n3rsp4rr" path="res://Art/Scenes/Scene1/Background/Background1.png" id="1_jjl8d"]
 [ext_resource type="PackedScene" uid="uid://ilevtssko1gr" path="res://Template/Scene/ItemDetail.tscn" id="2_3ndok"]
 [ext_resource type="PackedScene" uid="uid://db36xmmdbc587" path="res://Game/UI/HUD/HUDPanel.tscn" id="4_rts0y"]
 

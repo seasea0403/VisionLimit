@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bp7xnmo4avd2c"]
 
 [ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="1_jqm4m"]
-[ext_resource type="Texture2D" uid="uid://52oqm1onrg2l" path="res://Art/UI/物品栏/微信图片_20260526100730_187_2451.png" id="2_jqm4m"]
+[ext_resource type="Texture2D" uid="uid://cq54yrt7wdah6" path="res://Art/UI/物品栏/IMG_3319.PNG" id="2_jqm4m"]
+
 
 [node name="items" unique_id=2074814428 instance=ExtResource("1_jqm4m")]
 

@@ -2,6 +2,8 @@ extends Control
 
 signal inference_success
 signal inference_fail
+signal chapter_next_requested
+signal chapter_holdon_requested
 
 # ==================== 导出配置 ====================
 ## 推理板方框纹理（推理板方框.png）
@@ -20,6 +22,9 @@ signal inference_fail
 @onready var submit_btn: Button = $PanelAnchor/SubmitBtn
 @onready var feedback_label: Label = $PanelAnchor/FeedbackLabel
 @onready var drag_preview: TextureRect = $DragPreview
+@onready var _next_btn_container: Control = $NextButton
+@onready var _holdon_btn_container: Control = $HoldonButton
+@onready var _finish_container: Control = $Finish
 
 # ==================== 状态 ====================
 var _slots: Array[Control] = []
@@ -42,6 +47,11 @@ func _ready() -> void:
 	feedback_label.hide()
 	drag_preview.hide()
 	drag_preview.z_index = 100
+	_next_btn_container.hide()
+	_holdon_btn_container.hide()
+	_finish_container.hide()
+	$NextButton/TextureButton.pressed.connect(_on_next_btn_pressed)
+	$HoldonButton/TextureButton.pressed.connect(_on_holdon_btn_pressed)
 
 	for i in range(5):
 		var slot: Control = $PanelAnchor/BoardSection.get_node("Slot%d" % i) as Control
@@ -314,6 +324,24 @@ func _clear_all_slots() -> void:
 		_placed[i] = ""
 		_update_slot_visual(i)
 	submit_btn.hide()
+
+
+# ==================== 完成按钮 ====================
+func show_completion_buttons() -> void:
+	_next_btn_container.show()
+	_holdon_btn_container.show()
+	_finish_container.show()
+	submit_btn.hide()
+	show()
+
+
+func _on_next_btn_pressed() -> void:
+	chapter_next_requested.emit()
+
+
+func _on_holdon_btn_pressed() -> void:
+	chapter_holdon_requested.emit()
+	close_panel()
 
 
 # ==================== 底栏滚动 ====================
