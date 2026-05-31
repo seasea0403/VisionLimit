@@ -8,8 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://yvj61qs2w3sq" path="res://Art/Scenes/Scene1/序章（沈意家）/0-网银-48年记录.png" id="6_y48"]
 [ext_resource type="Texture2D" uid="uid://ck4s1qohk7i17" path="res://Art/Scenes/Scene1/序章（沈意家）/0-网银-49年记录.png" id="7_y49"]
 [ext_resource type="Texture2D" uid="uid://62x5kklj32vg" path="res://Art/Scenes/Scene1/序章（沈意家）/0-网银-50年记录.png" id="8_y50"]
+[ext_resource type="Texture2D" uid="uid://cdrtc6ypy6d1n" path="res://Art/UI/物品栏/IMG_3312.PNG" id="9_5vcky"]
 
-[node name="BankingRecords" type="Control"]
+[node name="BankingRecords" type="Control" unique_id=1988045584]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,7 +24,7 @@ year_48_image = ExtResource("6_y48")
 year_49_image = ExtResource("7_y49")
 year_50_image = ExtResource("8_y50")
 
-[node name="BaseImage" type="TextureRect" parent="."]
+[node name="BaseImage" type="TextureRect" parent="." unique_id=1578470746]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,9 +33,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_base")
 expand_mode = 1
-stretch_mode = 0
 
-[node name="OverlayImage" type="TextureRect" parent="."]
+[node name="OverlayImage" type="TextureRect" parent="." unique_id=1654351624]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -43,41 +43,66 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 1
-stretch_mode = 0
 
-[node name="YearButtons" type="HBoxContainer" parent="."]
+[node name="YearButtons" type="VBoxContainer" parent="." unique_id=295226518]
 layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -80.0
+offset_left = 348.0
+offset_top = -683.0
+offset_right = 348.0
+offset_bottom = -367.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="Year46" type="Button" parent="YearButtons"]
-layout_mode = 2
+[node name="Year46" type="Button" parent="YearButtons" unique_id=794191001]
 custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
 text = "46年"
 
-[node name="Year47" type="Button" parent="YearButtons"]
-layout_mode = 2
+[node name="Year47" type="Button" parent="YearButtons" unique_id=35802065]
 custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
 text = "47年"
 
-[node name="Year48" type="Button" parent="YearButtons"]
-layout_mode = 2
+[node name="Year48" type="Button" parent="YearButtons" unique_id=940143106]
 custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
 text = "48年"
 
-[node name="Year49" type="Button" parent="YearButtons"]
-layout_mode = 2
+[node name="Year49" type="Button" parent="YearButtons" unique_id=336868366]
 custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
 text = "49年"
 
-[node name="Year50" type="Button" parent="YearButtons"]
-layout_mode = 2
+[node name="Year50" type="Button" parent="YearButtons" unique_id=182660496]
 custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
 text = "50年"
 
-[node name="back" parent="." instance=ExtResource("2_back")]
+[node name="back" parent="." unique_id=2074814427 instance=ExtResource("2_back")]
+visible = false
+z_index = 1
+position = Vector2(1392, 241.99998)
+scale = Vector2(0.9133065, 0.9133065)
+
+[node name="TextureButton" parent="back" index="0" unique_id=1367535632]
+offset_left = -4.000004
+offset_top = -59.0
+offset_right = 423.0
+offset_bottom = 312.0
+scale = Vector2(0.69461864, 0.29851648)
+texture_normal = ExtResource("9_5vcky")
+
+[node name="Label" parent="back/TextureButton" index="0" unique_id=1029178860]
+offset_left = 103.66057
+offset_top = 120.12012
+offset_right = 453.66058
+offset_bottom = 191.12012
+scale = Vector2(0.6937116, 1.9546847)
+text = "返回上一页"
+
+[editable path="back"]

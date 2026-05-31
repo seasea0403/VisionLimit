@@ -8,9 +8,6 @@ enum State { ICONS, BROWSER, PASSWORD, BANKING_RECORDS }
 @export var password_panel_scene: PackedScene
 
 # ==================== 节点引用 ====================
-## 桌面整体 back 按钮（关闭桌面，返回游戏）
-@onready var back_button: TextureButton = $back/TextureButton
-
 ## 桌面图标层（包含浏览器图标和网银图标）
 @onready var desktop_icons: Control = $DesktopIcons
 @onready var browser_icon: TextureButton = $DesktopIcons/BrowserIcon
@@ -18,7 +15,6 @@ enum State { ICONS, BROWSER, PASSWORD, BANKING_RECORDS }
 
 ## 浏览器视图（显示 0-电脑-浏览器页面.png）
 @onready var browser_view: Control = $BrowserView
-@onready var browser_back: TextureButton = $BrowserView/back/TextureButton
 
 ## 银行记录视图（BankingRecords.gd）
 @onready var banking_records: Control = $BankingRecords
@@ -31,23 +27,30 @@ var _password_instance: Control = null
 
 # ==================== 初始化 ====================
 func _ready() -> void:
-	back_button.pressed.connect(_on_back_pressed)
+	# Desktop 根节点的 back 由 HUD 负责（computer_trigger 已 register_panel_open），永久隐藏
+	var root_back := get_node_or_null("back") as Control
+	if root_back:
+		root_back.hide()
+
 	browser_icon.pressed.connect(_on_browser_pressed)
 	banking_icon.pressed.connect(_on_banking_pressed)
-	browser_back.pressed.connect(_show_desktop)
+
+	# 浏览器视图自己的 back 按钮 → 仅关闭浏览器，返回桌面图标
+	var bv_back: TextureButton = browser_view.get_node_or_null("back/TextureButton") as TextureButton
+	if bv_back:
+		bv_back.pressed.connect(_show_desktop)
+	else:
+		push_warning("[Desktop.gd] 未找到 BrowserView/back/TextureButton")
+
+	# 银行记录视图自己的 back 信号 → 仅关闭银行记录，返回桌面图标
 	banking_records.back_pressed.connect(_show_desktop)
+
 	_show_desktop()
 
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_VISIBILITY_CHANGED:
-		var hud := _get_hud_panel()
-		if hud:
-			if visible:
-				hud.hide()
-			else:
-				hud.show()
-		if visible:
+		if visible and is_node_ready():
 			_show_desktop()
 
 
@@ -59,10 +62,6 @@ func _show_desktop() -> void:
 	banking_records.hide()
 	if is_instance_valid(_password_instance):
 		_password_instance.hide()
-
-
-func _on_back_pressed() -> void:
-	hide()
 
 
 func _on_browser_pressed() -> void:
@@ -107,9 +106,3 @@ func _on_banking_pressed() -> void:
 func _on_password_confirmed() -> void:
 	_state = State.BANKING_RECORDS
 	banking_records.show()
-
-
-func _get_hud_panel() -> Node:
-	if not is_inside_tree():
-		return null
-	return get_tree().get_root().find_child("HudPanel", true, false)

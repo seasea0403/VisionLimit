@@ -48,12 +48,6 @@ offset_top = 176.0
 offset_right = 1493.0
 offset_bottom = 837.0
 
-[node name="PrevButton" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="3" unique_id=1215963410]
-visible = false
-
-[node name="LaterButton" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="4" unique_id=1536310642]
-visible = false
-
 [node name="Character" parent="UILayer/ItemDetail/Control/content" parent_id_path=PackedInt32Array(552734023, 917719551) index="2" unique_id=622851963]
 texture = ExtResource("7_h3pkn")
 
@@ -148,7 +142,7 @@ shape = SubResource("RectangleShape2D_rrtou")
 [node name="Map" parent="Items" index="0" unique_id=1938195744 instance=ExtResource("5_t8q1s")]
 item_id = "7"
 item_name = "苍屿县地图"
-description = "我在46年曾和郑和平见过面，这张地图就是她当时交给我的。上面标注了她所有去过的采样点位，她特意嘱咐我，一定要好好保管这份地图。"
+description = "（仔细端详）这是苍屿县呀。苍屿第一医院、旧码头、精炼厂外围采样点，离我家都很近。魏江在调查谁的行踪？"
 can_record = true
 record_entry_title = "郑和平"
 record_entry_description = "水文地质研究员，曾任某国家级地质研究所研究员，2042年以独立研究者身份接受苍屿县环保部门的委托项目，任务是评估近海地质变化."
@@ -156,7 +150,7 @@ character_image = ExtResource("4_2rb57")
 
 [node name="Note" parent="Items" index="1" unique_id=3154882 instance=ExtResource("6_mchdh")]
 item_id = "6"
-description = "这是我目前梳理出的一些推理，但还缺少关键的中间佐证，没法完全坐实。"
+description = "这么短的时间内被强制撤稿？魏江这篇报道究竟写了些什么，是关于晴野基金会与临深集团吗？"
 character_image = ExtResource("7_h3pkn")
 
 [node name="camera1" parent="Items" index="2" unique_id=811915225 instance=ExtResource("18_jwrn2")]

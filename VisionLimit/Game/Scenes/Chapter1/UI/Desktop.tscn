@@ -2,12 +2,84 @@
 
 [ext_resource type="Script" uid="uid://38h216c4enfu" path="res://Game/Scenes/Chapter1/UI/Desktop.gd" id="1_script"]
 [ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="2_back"]
+[ext_resource type="Texture2D" uid="uid://r5pqdltqj1jb" path="res://Art/Scenes/Scene7/第六章全部 - 副本/computer.png" id="3_23f6d"]
 [ext_resource type="Texture2D" uid="uid://da2t35w8g5niv" path="res://Art/Scenes/Scene1/序章（沈意家）/0-沈意电脑桌面.jpg" id="3_desktop"]
 [ext_resource type="Texture2D" uid="uid://dbgw2oprjewbn" path="res://Art/Scenes/Scene1/序章（沈意家）/0-电脑-浏览器页面.png" id="4_browser"]
 [ext_resource type="PackedScene" uid="uid://dr4nktscn01x" path="res://Game/Scenes/Chapter1/UI/BankingRecords.tscn" id="5_banking"]
 [ext_resource type="PackedScene" uid="uid://canc401gl5807" path="res://Game/Scenes/Chapter1/UI/1.tscn" id="6_password"]
+[ext_resource type="Texture2D" uid="uid://cdrtc6ypy6d1n" path="res://Art/UI/物品栏/IMG_3312.PNG" id="7_cmavt"]
+[ext_resource type="Texture2D" uid="uid://c7xjcrhbntxpk" path="res://Art/Scenes/Scene1/序章（沈意家）/0-网银-46年记录.png" id="9_cmavt"]
 
-[node name="Desktop" type="Control"]
+[sub_resource type="FontFile" id="FontFile_cmavt"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bkfmf"]
+bg_color = Color(0.17597125, 0.22727442, 0.25292605, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kme8v"]
+bg_color = Color(0.2473309, 0.45332998, 0.535434, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dh031"]
+bg_color = Color(0.43357852, 0.6848641, 0.78785443, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Desktop" type="Control" unique_id=2040546291]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,43 +89,40 @@ grow_vertical = 2
 script = ExtResource("1_script")
 password_panel_scene = ExtResource("6_password")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Background2" type="TextureRect" parent="." unique_id=1643993037]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 107.0
+offset_top = 83.0
+offset_right = 107.0
+offset_bottom = 83.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.87045866, 0.92732954)
+texture = ExtResource("3_23f6d")
+expand_mode = 1
+
+[node name="Background" type="TextureRect" parent="." unique_id=1111475978]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 269.62842
+offset_top = 183.99176
+offset_right = 269.62842
+offset_bottom = 183.9917
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7059316, 0.75854707)
 texture = ExtResource("3_desktop")
 expand_mode = 1
-stretch_mode = 0
 
-[node name="back" parent="." instance=ExtResource("2_back")]
-
-[node name="DesktopIcons" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BrowserIcon" type="TextureButton" parent="DesktopIcons"]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 100.0
-offset_right = 300.0
-offset_bottom = 300.0
-
-[node name="BankingIcon" type="TextureButton" parent="DesktopIcons"]
-layout_mode = 0
-offset_left = 400.0
-offset_top = 100.0
-offset_right = 600.0
-offset_bottom = 300.0
-
-[node name="BrowserView" type="Control" parent="."]
+[node name="back" parent="." unique_id=2081969548 instance=ExtResource("2_back")]
 visible = false
+
+[node name="DesktopIcons" type="Control" parent="." unique_id=332213694]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,18 +130,127 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BrowserImage" type="TextureRect" parent="BrowserView"]
+[node name="BrowserIcon" type="TextureButton" parent="DesktopIcons" unique_id=1990034993]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 298.0
+offset_right = 409.0
+offset_bottom = 384.0
+
+[node name="BankingIcon" type="TextureButton" parent="DesktopIcons" unique_id=1632578763]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 194.0
+offset_right = 403.0
+offset_bottom = 287.0
+
+[node name="BrowserView" type="Control" parent="." unique_id=92666206]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="BrowserImage" type="TextureRect" parent="BrowserView" unique_id=2061795587]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 261.0
+offset_top = 183.99998
+offset_right = 261.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7188887, 0.7564471)
 texture = ExtResource("4_browser")
 expand_mode = 1
-stretch_mode = 0
 
-[node name="back" parent="BrowserView" instance=ExtResource("2_back")]
+[node name="back" parent="BrowserView" unique_id=1427057092 instance=ExtResource("2_back")]
+z_index = 1
+position = Vector2(1392, 241.99998)
+scale = Vector2(0.9133065, 0.9133065)
 
-[node name="BankingRecords" parent="." instance=ExtResource("5_banking")]
-visible = false
+[node name="TextureButton" parent="BrowserView/back" index="0" unique_id=1367535632]
+offset_left = -4.000004
+offset_top = -59.0
+offset_right = 423.0
+offset_bottom = 312.0
+scale = Vector2(0.69461864, 0.29851648)
+texture_normal = ExtResource("7_cmavt")
+
+[node name="Label" parent="BrowserView/back/TextureButton" index="0" unique_id=1029178860]
+offset_left = 103.66057
+offset_top = 120.12012
+offset_right = 453.66058
+offset_bottom = 191.12012
+scale = Vector2(0.6937116, 1.9546847)
+text = "返回上一页"
+
+[node name="BankingRecords" parent="." unique_id=1801185166 instance=ExtResource("5_banking")]
+layout_mode = 1
+
+[node name="BaseImage" parent="BankingRecords" index="0" unique_id=1578470746]
+offset_left = 142.0
+offset_top = 156.0
+offset_right = 142.0
+offset_bottom = 156.0
+scale = Vector2(0.82866216, 0.7967228)
+
+[node name="OverlayImage" parent="BankingRecords" index="1" unique_id=1654351624]
+visible = true
+offset_left = 945.0
+offset_top = 470.00003
+offset_right = 944.99976
+offset_bottom = 470.0
+scale = Vector2(0.33834732, 0.4466992)
+texture = ExtResource("9_cmavt")
+
+[node name="YearButtons" parent="BankingRecords" index="2" unique_id=295226518]
+offset_left = 762.0
+offset_top = -518.0
+offset_right = -1038.0
+offset_bottom = -202.0
+
+[node name="Year46" parent="BankingRecords/YearButtons" index="0" unique_id=794191001]
+theme_override_fonts/font = SubResource("FontFile_cmavt")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_bkfmf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kme8v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dh031")
+
+[node name="Year47" parent="BankingRecords/YearButtons" index="1" unique_id=35802065]
+theme_override_fonts/font = SubResource("FontFile_cmavt")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_bkfmf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kme8v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dh031")
+
+[node name="Year48" parent="BankingRecords/YearButtons" index="2" unique_id=940143106]
+theme_override_fonts/font = SubResource("FontFile_cmavt")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_bkfmf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kme8v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dh031")
+
+[node name="Year49" parent="BankingRecords/YearButtons" index="3" unique_id=336868366]
+theme_override_fonts/font = SubResource("FontFile_cmavt")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_bkfmf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kme8v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dh031")
+
+[node name="Year50" parent="BankingRecords/YearButtons" index="4" unique_id=182660496]
+theme_override_fonts/font = SubResource("FontFile_cmavt")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_bkfmf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kme8v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dh031")
+
+[node name="back" parent="BankingRecords" index="3" unique_id=2074814427]
+visible = true
+
+[editable path="BrowserView/back"]
+[editable path="BankingRecords"]
+[editable path="BankingRecords/back"]
