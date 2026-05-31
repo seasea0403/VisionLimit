@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://d0fyw1o8m4vo5"]
+
+[ext_resource type="Script" uid="uid://d0fyw1o5lemv5" path="res://Game/Scenes/Chapter1/UI/ch1_email_panel.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://d2yjrs470c1w6" path="res://Art/Scenes/Scene1/序章（沈意家）/0-魏江邮件.png" id="2_mq4cs"]
+
+[sub_resource type="FontFile" id="FontFile_j4y2j"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2i8ut"]
+bg_color = Color(0.38824412, 0.640243, 0.7420376, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6o1qn"]
+bg_color = Color(0.26780564, 0.48392767, 0.57023257, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wh8m"]
+bg_color = Color(0.47893834, 0.72380644, 0.825135, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="Ch1EmailPanel" type="Control" unique_id=2100000001]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="BgRect" type="TextureRect" parent="." unique_id=2100000002]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 112.0
+offset_right = 2165.9578
+offset_bottom = 1256.816
+scale = Vector2(0.11542922, 0.10720746)
+texture = ExtResource("2_mq4cs")
+
+[node name="ConfirmButton" type="Button" parent="." unique_id=2100000003]
+layout_mode = 0
+offset_left = 780.0
+offset_top = 800.0
+offset_right = 1140.0
+offset_bottom = 870.0
+theme_override_fonts/font = SubResource("FontFile_j4y2j")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_2i8ut")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6o1qn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5wh8m")
+text = "确认"

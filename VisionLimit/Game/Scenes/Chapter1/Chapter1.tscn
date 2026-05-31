@@ -74,6 +74,7 @@ visible = false
 
 [node name="InferencePanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="3" unique_id=1999336769 instance=ExtResource("7_cfqdq")]
 visible = false
+correct_items = Array[String](["1", "2", "4", "6", "15"])
 
 [node name="Desktop" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="4" unique_id=2040546291 instance=ExtResource("8_h2x5b")]
 visible = false
@@ -89,8 +90,25 @@ z_index = 1005
 [node name="back" parent="UILayer/HudPanel" index="0" unique_id=116801208]
 z_index = 100
 
+[node name="items" parent="UILayer/HudPanel" index="1" unique_id=116801209]
+position = Vector2(-3, -131)
+
+[node name="TextureButton" parent="UILayer/HudPanel/items" index="0" unique_id=1367535632]
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" parent="UILayer/HudPanel/items/TextureButton" index="0" unique_id=1029178860]
+metadata/_edit_use_anchors_ = true
+
+[node name="inference" parent="UILayer/HudPanel" index="2" unique_id=116801210]
+position = Vector2(74, -140)
+
 [node name="message" parent="UILayer/HudPanel" index="3" unique_id=116801211]
 anchors_preset = 0
+offset_left = -1.0
+offset_top = -289.0
+offset_right = 1919.0
+offset_bottom = 791.0
+scale = Vector2(0.99644667, 1.0261724)
 
 [node name="Node2D" type="Node2D" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="6" unique_id=1229214350]
 z_index = 100

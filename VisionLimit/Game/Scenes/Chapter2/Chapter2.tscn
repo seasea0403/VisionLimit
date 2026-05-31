@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://dophknobhb3t2" path="res://Game/Scenes/Chapter2/ClickableArea/ClickableArea_Paper.tscn" id="3_1aq8v"]
 [ext_resource type="Texture2D" uid="uid://bk2nm47hk7qlv" path="res://Art/Scenes/Scene2/zoomview/Background2.jpeg" id="3_rrtou"]
 [ext_resource type="Texture2D" uid="uid://byxo1vb40lyg5" path="res://Art/Character/魏江.png" id="4_2rb57"]
-[ext_resource type="PackedScene" uid="uid://ccp5mfhfncfts" path="res://Game/UI/RecordPanel/RecordPanel.tscn" id="5_72ndw"]
 [ext_resource type="PackedScene" uid="uid://ba3yili7tv48i" path="res://Game/Scenes/Chapter2/ClickableArea/ClickableArea_Desk.tscn" id="5_o75tl"]
 [ext_resource type="PackedScene" uid="uid://c5ktso38cipw2" path="res://Game/Scenes/Chapter2/items/map.tscn" id="5_t8q1s"]
 [ext_resource type="PackedScene" uid="uid://k0nq76mbrol3" path="res://Game/Scenes/Chapter2/UI/1.tscn" id="6_d3jqh"]
@@ -72,13 +71,10 @@ offset_bottom = 424.41946
 scale = Vector2(3.5918956, 4.0467057)
 text = "打开录音"
 
-[node name="RecordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1173323693 instance=ExtResource("5_72ndw")]
+[node name="1" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1987393323 instance=ExtResource("6_d3jqh")]
 visible = false
 
-[node name="1" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="3" unique_id=1987393323 instance=ExtResource("6_d3jqh")]
-visible = false
-
-[node name="PasswordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="4" unique_id=1904747298 instance=ExtResource("7_2rb57")]
+[node name="PasswordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="3" unique_id=1904747298 instance=ExtResource("7_2rb57")]
 visible = false
 offset_left = 505.0
 offset_top = 138.0
@@ -90,12 +86,12 @@ correct_password = "0804"
 [node name="Label2" parent="UILayer/PasswordPanel/VBoxContainer" parent_id_path=PackedInt32Array(1904747298, 1592428207) index="1" unique_id=1722708654]
 text = "日期"
 
-[node name="RecordAudio" type="AudioStreamPlayer2D" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="5" unique_id=1972076221]
+[node name="RecordAudio" type="AudioStreamPlayer2D" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="4" unique_id=1972076221]
 stream = ExtResource("8_68ddi")
 volume_db = 18.318
 bus = &"BGM"
 
-[node name="LockpickMinigame" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="6" unique_id=1286001879 instance=ExtResource("23_lkpck")]
+[node name="LockpickMinigame" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="5" unique_id=1286001879 instance=ExtResource("23_lkpck")]
 visible = false
 up_speed = 250.0
 down_speed = 250.0
@@ -107,19 +103,24 @@ visible = false
 [node name="ClickableArea_Paper" parent="ZoomViews" index="0" unique_id=676050068 instance=ExtResource("3_1aq8v")]
 
 [node name="Calender" parent="ZoomViews/ClickableArea_Paper/Zoomview_paper/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="0" unique_id=223355110]
-item_id = "2"
 description = "3月11日……我永远忘不了那一天。我本以为自己终于能掀开秘密的一角，到头来却只是撞上了冰山的一角，被迫沉船了。"
 character_image = ExtResource("7_h3pkn")
+
+[node name="retreat" parent="ZoomViews/ClickableArea_Paper/Zoomview_paper/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="1" unique_id=1256418867]
+item_id = "2"
+
+[node name="brainmap" parent="ZoomViews/ClickableArea_Paper/Zoomview_paper/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="2" unique_id=1409558525]
+item_id = "3"
 
 [node name="ClickableArea_Desk" parent="ZoomViews" index="1" unique_id=1165186953 instance=ExtResource("5_o75tl")]
 
 [node name="Voice" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(1165186953, 198920514, 1759582505) index="0" unique_id=223355110]
-item_id = "3"
+item_id = "4"
 description = "这支录音笔是郑和平留给我的，里面的内容我已经听过了，你也打开听听吧。"
 character_image = ExtResource("4_2rb57")
 
 [node name="Card" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(1165186953, 198920514, 1759582505) index="1" unique_id=1292738154]
-item_id = "4"
+item_id = "5"
 detail_image_scale = Vector2(1.5, 1.5)
 detail_image_offset = Vector2(-200, -100)
 description = "我以前是《海岸时讯》的调查记者，后来因一篇报道被迫离职，之后便成了独立记者。我注意到到苍屿县出现多起儿童集中患病的异常病例，便专程过来展开调查。"
@@ -129,13 +130,16 @@ record_entry_description = "独立记者，曾在海岸时讯做调查记者，�
 character_image = ExtResource("9_d3jqh")
 
 [node name="Photo" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(1165186953, 198920514, 1759582505) index="2" unique_id=1745684966]
-item_id = "5"
+item_id = "6"
 description = "这是我之前在对苍屿症患者展开采访时拍摄的图片。"
 character_image = ExtResource("4_2rb57")
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items/Photo" index="0" unique_id=398543410]
 position = Vector2(1764.9999, 923.79785)
 shape = SubResource("RectangleShape2D_rrtou")
+
+[node name="bluenote" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(1165186953, 198920514, 1759582505) index="3" unique_id=223355110]
+item_id = "7"
 
 [node name="Items" type="Node2D" parent="." index="3" unique_id=1563513548]
 

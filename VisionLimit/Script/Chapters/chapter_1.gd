@@ -7,9 +7,6 @@ var _email_panel: Control = null
 # ==================== 初始化 ====================
 func _ready() -> void:
 	super._ready()
-	# 恢复完成态（若第一章已经通关）
-	if GameStateManager.is_chapter_unlocked(2):
-		_inference_completed = true
 	# 连接推理板信号
 	if inference_panel:
 		if inference_panel.has_signal("inference_success") and \
@@ -43,6 +40,7 @@ func _on_inference_success() -> void:
 	var msg_container := get_node_or_null("UILayer/HudPanel/message") as Control
 	if msg_container:
 		msg_container.show()
+		_play_sfx(load("res://Audio/SFX/Notification.mp3"))
 		var msg_btn := msg_container.get_node_or_null("TextureButton") as BaseButton
 		if msg_btn and not msg_btn.is_connected("pressed", _on_message_pressed):
 			msg_btn.connect("pressed", _on_message_pressed)
@@ -55,7 +53,7 @@ func _on_message_pressed() -> void:
 		msg_container.hide()
 	# 加载邮件面板（只实例化一次）
 	if not is_instance_valid(_email_panel):
-		var email_scene: PackedScene = load("res://Game/Scenes/Chapter1/UI/4.tscn")
+		var email_scene: PackedScene = load("res://Game/Scenes/Chapter1/UI/Ch1Email.tscn")
 		if not email_scene:
 			return
 		_email_panel = email_scene.instantiate() as Control
@@ -79,6 +77,18 @@ func _on_chapter_next() -> void:
 
 func _on_chapter_holdon() -> void:
 	_unregister_panel(inference_panel)
+
+
+func _play_sfx(stream: AudioStream) -> void:
+	if not stream:
+		return
+	var player := AudioStreamPlayer.new()
+	player.stream = stream
+	player.bus = "SFX"
+	add_child(player)
+	player.play()
+	await player.finished
+	player.queue_free()
 
 # ========================================================
 # 以下为占位符，保持文件末尾干净
