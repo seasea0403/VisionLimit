@@ -1,6 +1,10 @@
 extends Panel
 
-## 密码正确后弹出的工单终端场景（在 Inspector 中拖入 2.tscn）
+## 密码正确后，若由外部场景（如 Desktop）监听此信号，则交由外部处理；
+## 否则走旧流程：实例化 terminal_scene 并添加到场景树根节点
+signal password_confirmed
+
+## 密码正确后弹出的工单终端场景（旧流程保留；由 Desktop 管理时留空即可）
 @export var terminal_scene: PackedScene
 
 # ==================== 子节点引用 ====================
@@ -25,12 +29,12 @@ func _notification(what: int) -> void:
 
 # ==================== 信号处理 ====================
 func _on_password_correct() -> void:
-	"""密码输入正确 → 隐藏整个 1 节点（含背景），打开工单终端"""
+	"""密码输入正确 → 隐藏整个 1 节点（含背景），发出 password_confirmed 信号"""
 	# 必须隐藏整个父节点 1（而非仅 password_1 Panel），
-	# 否则 TextureRect 背景残留在 UILayer(layer=1) 会遮住 layer=0 的 2.tscn
+	# 否则 TextureRect 背景残留在 UILayer(layer=1) 会遮住后续面板
 	get_parent().hide()
-	if terminal_scene:
+	password_confirmed.emit()
+	# 旧流程兼容：若 terminal_scene 有值且无外部监听者，则自行实例化
+	if terminal_scene and password_confirmed.get_connections().is_empty():
 		var terminal: Control = terminal_scene.instantiate()
 		get_tree().get_root().add_child(terminal)
-	else:
-		push_warning("[password_1.gd] terminal_scene 未设置，请在 Inspector 中拖入 2.tscn")

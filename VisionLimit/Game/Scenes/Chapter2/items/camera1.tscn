@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://vr673dbvemt"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_ois55"]
+[ext_resource type="Texture2D" uid="uid://b4rafkis6l0fj" path="res://Art/Scenes/Scene2/第一章（魏江办公室）/1-摄影设备.png" id="2_bxo7k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(12.222389, 9.957781)
+
+[node name="camera1" unique_id=223355110 instance=ExtResource("1_ois55")]
+item_id = "1"
+item_name = "摄影设备"
+detail_image = ExtResource("2_bxo7k")
+description = "他的设备有好多，三脚架、闪光灯、这是稳定器吗，还有镜头......这么多镜头应该不便宜吧。"
+linked_items = Array[NodePath]([NodePath("")])
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(824.99994, 548.00006)
+rotation = -0.3871058
+scale = Vector2(16.66317, 13.6)
+shape = SubResource("RectangleShape2D_rm26b")

@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://doesud42gb1g4"]
 
 [ext_resource type="Script" uid="uid://dpf1dfnu8mwee" path="res://Script/Chapters/chapter.gd" id="1_3ndok"]
-[ext_resource type="Texture2D" uid="uid://bek10n3rsp4rr" path="res://Art/Scenes/Scene1/Background/Background1.png" id="1_jjl8d"]
+[ext_resource type="Texture2D" uid="uid://cxy17h0d03a3q" path="res://Art/Scenes/Scene1/Background/Background1.png" id="1_jjl8d"]
 [ext_resource type="PackedScene" uid="uid://ilevtssko1gr" path="res://Template/Scene/ItemDetail.tscn" id="2_3ndok"]
+[ext_resource type="Texture2D" uid="uid://b60wvqglcnbx" path="res://Art/UI/new_content.png" id="4_om43j"]
 [ext_resource type="PackedScene" uid="uid://db36xmmdbc587" path="res://Game/UI/HUD/HUDPanel.tscn" id="4_rts0y"]
 
 [node name="Chapter" type="Node2D" unique_id=1917343286]
@@ -18,16 +19,14 @@ texture = ExtResource("1_jjl8d")
 [node name="ItemDetail" parent="UILayer" unique_id=552734023 instance=ExtResource("2_3ndok")]
 
 [node name="DarkBackground" parent="UILayer/ItemDetail" index="0" unique_id=1174300489]
-layout_mode = 3
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.3372549)
 
-[node name="Control" parent="UILayer/ItemDetail" index="1" unique_id=327138164]
-layout_mode = 3
+[node name="TextBackground" parent="UILayer/ItemDetail/Control/content" parent_id_path=PackedInt32Array(552734023, 917719551) index="0" unique_id=1305692855]
+texture = ExtResource("4_om43j")
 
 [node name="HudPanel" parent="UILayer" unique_id=1624742861 instance=ExtResource("4_rts0y")]
-z_index = 5
 
 [node name="ZoomViews" type="Node2D" parent="." unique_id=395467288]
 
@@ -35,3 +34,5 @@ z_index = 5
 bus = &"BGM"
 
 [editable path="UILayer/ItemDetail"]
+[editable path="UILayer/ItemDetail/Control/PrevButton"]
+[editable path="UILayer/ItemDetail/Control/LaterButton"]

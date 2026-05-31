@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://wj2w07ah1hsa"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_jrfpx"]
+[ext_resource type="Texture2D" uid="uid://3cbnjdknbmt" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-黄色牌子 在左侧台子上.png" id="2_jrfpx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbicw"]
+size = Vector2(10.031039, 22.167746)
+
+[node name="yellow_information" unique_id=223355110 instance=ExtResource("1_jrfpx")]
+item_id = "2"
+item_name = "黄色的牌子"
+detail_image = ExtResource("2_jrfpx")
+description = "才十点钟，护士就去休息了？这个科室还有心思治病吗？"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(311.75006, 266.5)
+scale = Vector2(15.202802, -5.007276)
+shape = SubResource("RectangleShape2D_dbicw")

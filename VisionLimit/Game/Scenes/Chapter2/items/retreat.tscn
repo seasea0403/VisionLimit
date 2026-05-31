@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c8pw0ntxcjplb"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_v18bj"]
+[ext_resource type="Texture2D" uid="uid://j6ig4dnnw1kl" path="res://Art/Scenes/Scene2/第一章（魏江办公室）/1-离职信.png" id="2_v18bj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(12.222389, 9.957781)
+
+[node name="retreat" unique_id=223355110 instance=ExtResource("1_v18bj")]
+item_id = "1"
+item_name = "离职信"
+detail_image = ExtResource("2_v18bj")
+description = "落款是2047年3月15日...他已经不是海岸时讯的在职记者了，那他为什么还在调查。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(824.99994, 548.00006)
+rotation = -0.3871058
+scale = Vector2(16.66317, 13.6)
+shape = SubResource("RectangleShape2D_rm26b")

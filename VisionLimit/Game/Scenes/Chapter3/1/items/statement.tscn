@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b3cm2gyesfata"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_h5xbc"]
+[ext_resource type="Texture2D" uid="uid://byb3sr6ej03tw" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-医院公告.png" id="2_h5xbc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_er5vu"]
+size = Vector2(33.928345, 18.526346)
+
+[node name="statement" unique_id=223355110 instance=ExtResource("1_h5xbc")]
+item_name = "公告"
+detail_image = ExtResource("2_h5xbc")
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(140.06834, 955.0061)
+rotation = 2.9027247
+scale = Vector2(9.562999, -7.221371)
+shape = SubResource("RectangleShape2D_er5vu")

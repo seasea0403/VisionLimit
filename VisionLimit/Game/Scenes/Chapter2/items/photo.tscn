@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://boyv821ik8h2y"]
 
 [ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_8gpqu"]
-[ext_resource type="Texture2D" uid="uid://cffs5ifsapfsr" path="res://Art/Scenes/Scene2/Elements/Photo.png" id="2_38ljv"]
-[ext_resource type="Texture2D" uid="uid://c6a33rvt10yl2" path="res://Art/Scenes/Scene2/Elements/Photo_back.png" id="3_jbuep"]
+[ext_resource type="Texture2D" uid="uid://dcbtjsgiw5bv5" path="res://Art/Scenes/Scene2/Elements/Photo.png" id="2_38ljv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gpqu"]
 size = Vector2(19.115124, 73)
@@ -15,6 +14,3 @@ detail_image = ExtResource("2_38ljv")
 position = Vector2(1767, 453.5)
 scale = Vector2(15.903631, 1.161763)
 shape = SubResource("RectangleShape2D_8gpqu")
-
-[node name="Sprite2D" parent="." index="1" unique_id=771681859]
-texture = ExtResource("3_jbuep")

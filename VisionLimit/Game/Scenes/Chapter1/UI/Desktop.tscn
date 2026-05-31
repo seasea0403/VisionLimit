@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dd4sktscn01x"]
+
+[ext_resource type="Script" uid="uid://38h216c4enfu" path="res://Game/Scenes/Chapter1/UI/Desktop.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="2_back"]
+[ext_resource type="Texture2D" uid="uid://da2t35w8g5niv" path="res://Art/Scenes/Scene1/序章（沈意家）/0-沈意电脑桌面.jpg" id="3_desktop"]
+[ext_resource type="Texture2D" uid="uid://dbgw2oprjewbn" path="res://Art/Scenes/Scene1/序章（沈意家）/0-电脑-浏览器页面.png" id="4_browser"]
+[ext_resource type="PackedScene" uid="uid://dr4nktscn01x" path="res://Game/Scenes/Chapter1/UI/BankingRecords.tscn" id="5_banking"]
+[ext_resource type="PackedScene" uid="uid://canc401gl5807" path="res://Game/Scenes/Chapter1/UI/1.tscn" id="6_password"]
+
+[node name="Desktop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+password_panel_scene = ExtResource("6_password")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_desktop")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="back" parent="." instance=ExtResource("2_back")]
+
+[node name="DesktopIcons" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BrowserIcon" type="TextureButton" parent="DesktopIcons"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 300.0
+offset_bottom = 300.0
+
+[node name="BankingIcon" type="TextureButton" parent="DesktopIcons"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 100.0
+offset_right = 600.0
+offset_bottom = 300.0
+
+[node name="BrowserView" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BrowserImage" type="TextureRect" parent="BrowserView"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_browser")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="back" parent="BrowserView" instance=ExtResource("2_back")]
+
+[node name="BankingRecords" parent="." instance=ExtResource("5_banking")]
+visible = false

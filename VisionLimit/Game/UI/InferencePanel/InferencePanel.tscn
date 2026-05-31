@@ -2,17 +2,20 @@
 
 [ext_resource type="Script" uid="uid://cye024fq1yxp5" path="res://Script/UI/inference_panel.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://dxne77hv3ymai" path="res://Art/UI/推理板/推理板背景.png" id="2_board"]
-[ext_resource type="Texture2D" uid="uid://dh2xuu56t4x2n" path="res://Art/UI/推理板/推理板方框.png" id="4_frame"]
+[ext_resource type="Texture2D" uid="uid://w5uwq488vtpm" path="res://Art/UI/推理板/推理板方框.png" id="4_frame"]
 [ext_resource type="Texture2D" uid="uid://ba18jtc3ijqmh" path="res://Art/UI/推理板/微信图片_20260527183105_626_2451.png" id="4_oola6"]
-[ext_resource type="Texture2D" uid="uid://bybvjlicyn6us" path="res://Art/UI/推理板/方框.png" id="5_slot"]
+[ext_resource type="Texture2D" uid="uid://cp2r8aupcvxtc" path="res://Art/UI/推理板/方框.png" id="5_slot"]
 [ext_resource type="Texture2D" uid="uid://do0cwo8ke37yr" path="res://Art/UI/推理板/左按键.png" id="6_left"]
-[ext_resource type="Texture2D" uid="uid://dsrnxvlyh5xca" path="res://Art/UI/物品栏/IMG_3311.PNG" id="6_yvepa"]
-[ext_resource type="Texture2D" uid="uid://clocls8o2yqw6" path="res://Art/UI/推理板/方框部分背景.png" id="7_bf706"]
+[ext_resource type="Texture2D" uid="uid://b31pwtsomolgb" path="res://Art/UI/物品栏/IMG_3311.PNG" id="6_yvepa"]
+[ext_resource type="Texture2D" uid="uid://j10qn2ws7dg" path="res://Art/UI/推理板/方框部分背景.png" id="7_bf706"]
 [ext_resource type="Texture2D" uid="uid://b1u8afilwhovm" path="res://Art/UI/推理板/右按键.png" id="7_right"]
 [ext_resource type="Texture2D" uid="uid://blab14kyncgud" path="res://Art/UI/红底按钮.png" id="10_jpeev"]
 [ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="11_ufi0g"]
 
 [sub_resource type="FontFile" id="FontFile_nafbt"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -43,6 +46,9 @@ texture = ExtResource("10_jpeev")
 texture = ExtResource("10_jpeev")
 
 [sub_resource type="FontFile" id="FontFile_yvepa"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0

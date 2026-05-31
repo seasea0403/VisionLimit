@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://busbqi7iujly7"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_wskrt"]
+[ext_resource type="Texture2D" uid="uid://bjmwvtxxwa6oy" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-左侧台子上的相框.png" id="2_8ut8f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbicw"]
+size = Vector2(10.031039, 22.167746)
+
+[node name="photo" unique_id=223355110 instance=ExtResource("1_wskrt")]
+item_id = "2"
+item_name = "合照"
+detail_image = ExtResource("2_8ut8f")
+description = "苏临......"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(311.75006, 266.5)
+scale = Vector2(15.202802, -5.007276)
+shape = SubResource("RectangleShape2D_dbicw")

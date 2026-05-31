@@ -4,15 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_xnqfp"]
 [ext_resource type="PackedScene" uid="uid://j0xbvmq5qgge" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_Table.tscn" id="2_xnqfp"]
 [ext_resource type="PackedScene" uid="uid://canc401gl5807" path="res://Game/Scenes/Chapter1/UI/1.tscn" id="3_uari3"]
-[ext_resource type="Texture2D" uid="uid://c0ckpqn78pk42" path="res://Art/Scenes/Scene1/Elements/合照.png" id="3_xd5ah"]
+[ext_resource type="Texture2D" uid="uid://bi8r1x7gxn5fs" path="res://Art/Scenes/Scene1/Elements/合照.png" id="3_xd5ah"]
 [ext_resource type="PackedScene" uid="uid://d2fksn0gfp2fw" path="res://Game/UI/LeadingPanel/LeadingPanel.tscn" id="4_06b1o"]
+[ext_resource type="Texture2D" uid="uid://b60wvqglcnbx" path="res://Art/UI/new_content.png" id="4_h2x5b"]
 [ext_resource type="PackedScene" uid="uid://ceft3bne41ye8" path="res://Game/Scenes/Chapter1/items/dock.tscn" id="5_5oj76"]
 [ext_resource type="Script" uid="uid://ddmi68bkrli6g" path="res://Game/Scenes/Chapter1/computer_trigger.gd" id="5_6oq13"]
 [ext_resource type="PackedScene" uid="uid://dnviance0gyg5" path="res://Game/UI/SumPanel/SumPanel.tscn" id="5_il3tr"]
 [ext_resource type="PackedScene" uid="uid://e5g0f23rifgx" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_Board.tscn" id="6_uari3"]
 [ext_resource type="PackedScene" uid="uid://drhq2slbuploc" path="res://Game/UI/InferencePanel/InferencePanel.tscn" id="7_cfqdq"]
-[ext_resource type="Texture2D" uid="uid://c2e2st2dfigg0" path="res://Art/Character/沈意生气.png" id="8_06b1o"]
-[ext_resource type="Texture2D" uid="uid://on8d41rdugy0" path="res://Art/Character/沈意骄傲.png" id="8_8f3k6"]
+[ext_resource type="Texture2D" uid="uid://cp6vadvuhwvqs" path="res://Art/Character/沈意生气.png" id="8_06b1o"]
+[ext_resource type="Texture2D" uid="uid://df8y8e6blevfd" path="res://Art/Character/沈意骄傲.png" id="8_8f3k6"]
 [ext_resource type="PackedScene" uid="uid://d4r18xrnnmtq" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_bed.tscn" id="13_278lo"]
 [ext_resource type="PackedScene" uid="uid://cy203h1ac6kgg" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_Board_2.tscn" id="14_jcxq8"]
 [ext_resource type="Texture2D" uid="uid://bfmedgf7fg0sq" path="res://Art/Scenes/Scene1/Elements/照片1.png" id="14_qmlx1"]
@@ -66,6 +67,9 @@ layout_mode = 0
 [node name="Control" parent="UILayer/ItemDetail" index="1" unique_id=327138164]
 layout_mode = 0
 
+[node name="TextBackground" parent="UILayer/ItemDetail/Control/content" parent_id_path=PackedInt32Array(552734023, 917719551) index="0" unique_id=1305692855]
+texture = ExtResource("4_h2x5b")
+
 [node name="DescriptionLabel" parent="UILayer/ItemDetail/Control/content" parent_id_path=PackedInt32Array(552734023, 917719551) index="1" unique_id=1691985772]
 offset_left = 274.0
 offset_top = 897.0
@@ -91,7 +95,6 @@ z_index = 100
 anchors_preset = 0
 
 [node name="1" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="5" unique_id=1869578665 instance=ExtResource("3_uari3")]
-visible = false
 
 [node name="Node2D" type="Node2D" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="6" unique_id=1229214350]
 z_index = 100
@@ -103,6 +106,10 @@ visible = false
 
 [node name="Badges" parent="ZoomViews/ClickableArea_Table/Zoomview_desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="0" unique_id=223355110]
 item_name = "工牌"
+description = "我的第一份工作是在忆忆神经护理机构当二级托管师。至于后来......后来的工作，都用不上工牌了。"
+
+[node name="Certification" parent="ZoomViews/ClickableArea_Table/Zoomview_desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="1" unique_id=1689087515]
+description = "那时正值海芯技术面市，用户记忆紊乱的症状频繁出现，托管师当时还是份新兴的职业，我便学习如何记忆托管，考下了这张执照。二级执照限制很多，但对我来说有这个资质就足够了。"
 
 [node name="foodbox" parent="ZoomViews/ClickableArea_Table/Zoomview_desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="2" unique_id=223355110]
 character_image = ExtResource("8_8f3k6")
@@ -128,6 +135,7 @@ visible = false
 detail_character_image = null
 
 [node name="patent" parent="ZoomViews/ClickableArea/Zoomview/Items" parent_id_path=PackedInt32Array(1055747330, 198920514, 1759582505) index="0" unique_id=223355110]
+description = "我至今记得领这张证的那天，下了很大的雨……当时的我在想什么？也许是希望下次办证时能有个好天气。"
 character_image = ExtResource("8_06b1o")
 
 [node name="ClickableArea2" parent="ZoomViews" index="2" unique_id=1425636122 instance=ExtResource("13_278lo")]

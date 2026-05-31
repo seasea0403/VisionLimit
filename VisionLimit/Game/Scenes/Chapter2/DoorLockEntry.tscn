@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bkm8n3wxypqf0"]
+
+[ext_resource type="Script" uid="uid://c4rv5h2mxtqst" path="res://Game/Scenes/Chapter2/DoorLockEntry.gd" id="1_dlent"]
+[ext_resource type="Texture2D" uid="uid://d2f1p33x7egqg" path="res://Art/Scenes/Scene2/第一章（魏江办公室）/1-魏江办公室门口的锁.jpg" id="2_i616g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
+size = Vector2(708, 416)
+
+[node name="DoorLockEntry" type="Node2D" unique_id=1859935617]
+script = ExtResource("1_dlent")
+
+[node name="DoorImage" type="Sprite2D" parent="." unique_id=250953538]
+position = Vector2(952, 545)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_i616g")
+
+[node name="ClickArea" type="Area2D" parent="." unique_id=1412201503]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickArea" unique_id=495476419]
+position = Vector2(1295, 570)
+shape = SubResource("RectangleShape2D_door")

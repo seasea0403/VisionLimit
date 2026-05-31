@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bdc28r2to8t6u"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_cu684"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(12.222389, 9.957781)
+
+[node name="frag" unique_id=223355110 instance=ExtResource("1_cu684")]
+item_id = "1"
+item_name = "窗外的风景"
+description = "这里比我家高一些，但是我还是喜欢家里的海景，在这只能看到其他楼。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(824.99994, 548.00006)
+rotation = -0.3871058
+scale = Vector2(16.66317, 13.6)
+shape = SubResource("RectangleShape2D_rm26b")

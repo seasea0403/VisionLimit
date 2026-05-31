@@ -1,21 +1,19 @@
 [gd_scene format=3 uid="uid://10fyaegydl5n"]
 
 [ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_282mk"]
-[ext_resource type="Texture2D" uid="uid://cv37tpfwabcku" path="res://Art/Scenes/Scene2/Elements/Calender.png" id="2_o7cql"]
-[ext_resource type="Texture2D" uid="uid://dmddxeyr4leya" path="res://Art/Scenes/Scene2/Elements/Calender_back.png" id="3_c1usd"]
+[ext_resource type="Texture2D" uid="uid://cqvlw58w4vl8q" path="res://Art/Scenes/Scene2/第一章（魏江办公室）/1-被撕了的日历.png" id="2_282mk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
-size = Vector2(20, 35.135082)
+size = Vector2(11.4444275, 10.2879925)
 
 [node name="Calender" unique_id=223355110 instance=ExtResource("1_282mk")]
+item_id = "1"
 item_name = "被撕掉的日历"
-detail_image = ExtResource("2_o7cql")
+detail_image = ExtResource("2_282mk")
+description = "这个日历怎么被撕了一半？"
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
 position = Vector2(824.99994, 548.00006)
 rotation = -0.3871058
 scale = Vector2(16.66317, 13.6)
 shape = SubResource("RectangleShape2D_rm26b")
-
-[node name="Sprite2D" parent="." index="1" unique_id=771681859]
-texture = ExtResource("3_c1usd")

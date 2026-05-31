@@ -1,23 +1,21 @@
 [gd_scene format=4 uid="uid://dm73m13o2toqy"]
 
 [ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_symjg"]
-[ext_resource type="Texture2D" uid="uid://ch5v2d5wmihbh" path="res://Art/Scenes/Scene3/Background/Background3_1.png" id="2_0j8q1"]
 [ext_resource type="PackedScene" uid="uid://ccp5mfhfncfts" path="res://Game/UI/RecordPanel/RecordPanel.tscn" id="3_aq64q"]
 [ext_resource type="PackedScene" uid="uid://babjb3dqu3ovm" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_Information2.tscn" id="3_hcco1"]
-[ext_resource type="PackedScene" uid="uid://drqdemmbxx0ti" path="res://Game/Scenes/Chapter2/items/魏江.tscn" id="3_khwgn"]
+[ext_resource type="Texture2D" uid="uid://c6dibgfvw7gj4" path="res://Art/Scenes/Scene3/第二章（医院+码头）/医院.jpeg" id="3_khwgn"]
 [ext_resource type="PackedScene" uid="uid://jrveeikxo2r" path="res://Game/Scenes/Chapter3/UI/1.tscn" id="4_3bxp2"]
 [ext_resource type="PackedScene" uid="uid://dmv5xjol2vcjn" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_Board.tscn" id="4_aq64q"]
-[ext_resource type="Texture2D" uid="uid://djecu5okialbk" path="res://Art/Character/魏江.png" id="4_rq353"]
-[ext_resource type="Texture2D" uid="uid://kitay7qiyqao" path="res://Art/Character/沈意叹气.png" id="5_bbl1v"]
-[ext_resource type="Texture2D" uid="uid://ca3kcyesg7wga" path="res://Art/Character/魏江抱胸思考.png" id="5_r3dcq"]
+[ext_resource type="Texture2D" uid="uid://dh08ghvtyxrkg" path="res://Art/Character/沈意叹气.png" id="5_bbl1v"]
+[ext_resource type="Texture2D" uid="uid://cid0hbuv6a5rr" path="res://Art/Character/魏江抱胸思考.png" id="5_r3dcq"]
 [ext_resource type="PackedScene" uid="uid://ccmf3iqls3df3" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_Declaration.tscn" id="5_u0bx5"]
 [ext_resource type="PackedScene" uid="uid://wkc7okqmt3h4" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_Desk.tscn" id="6_dhn8c"]
 [ext_resource type="PackedScene" uid="uid://bf1jp4la0lmc2" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_Information1.tscn" id="7_r3dcq"]
-[ext_resource type="Texture2D" uid="uid://c2e2st2dfigg0" path="res://Art/Character/沈意生气.png" id="10_bbl1v"]
+[ext_resource type="Texture2D" uid="uid://cp6vadvuhwvqs" path="res://Art/Character/沈意生气.png" id="10_bbl1v"]
 [ext_resource type="PackedScene" uid="uid://dcwiq0v3lug8k" path="res://Game/Scenes/Chapter1/ClickableArea/clickable_video.tscn" id="10_dhn8c"]
 [ext_resource type="VideoStream" uid="uid://cvf1epdfye043" path="res://Art/Animation/hospital.ogv" id="11_r3dcq"]
-[ext_resource type="Texture2D" uid="uid://hl0dm7k4wthg" path="res://Art/Character/人物立绘/沈意.png" id="17_4itum"]
-[ext_resource type="Script" path="res://Script/Chapters/chapter_3_1.gd" id="99_ch31s"]
+[ext_resource type="Texture2D" uid="uid://l5xtrykb5dmr" path="res://Art/Character/人物立绘/沈意.png" id="17_4itum"]
+[ext_resource type="Script" uid="uid://b5iq1o7irv51m" path="res://Script/Chapters/chapter_3_1.gd" id="99_ch31s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcco1"]
 size = Vector2(10.052077, 2.8392053)
@@ -45,35 +43,19 @@ size = Vector2(69.58034, 222.82816)
 script = ExtResource("99_ch31s")
 
 [node name="Background" parent="." index="0" unique_id=2106778844]
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_0j8q1")
+scale = Vector2(1, 1)
+texture = ExtResource("3_khwgn")
 
-[node name="魏江" parent="Background" index="0" unique_id=223355110 instance=ExtResource("3_khwgn")]
-position = Vector2(-431.66663, -569.9999)
-rotation = 3.141988
-scale = Vector2(-1.1575056, -0.9667978)
-item_id = "1"
-item_name = ""
-detail_image = null
-description = "近年来，医院的神经护理区除了接受记忆紊乱患者，也接纳苍屿症患者。但神经护理区不对外公开太多信息，所以你要自己搜索。先走一圈吧，把能看到的都看一下。"
-character_image = ExtResource("4_rq353")
-
-[node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="0" unique_id=552734023]
+[node name="UILayer" parent="." index="1" unique_id=577909593]
 visible = false
 
-[node name="DarkBackground" parent="UILayer/ItemDetail" index="0" unique_id=1174300489]
-layout_mode = 0
-
-[node name="Control" parent="UILayer/ItemDetail" index="1" unique_id=327138164]
-layout_mode = 0
-
-[node name="click" parent="UILayer/ItemDetail" index="2" unique_id=1359093598]
-bus = &"SFX"
-
-[node name="RecordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1173323693 instance=ExtResource("3_aq64q")]
+[node name="ItemDetail" parent="UILayer" index="0" unique_id=552734023]
 visible = false
 
-[node name="1" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="3" unique_id=180244854 instance=ExtResource("4_3bxp2")]
+[node name="RecordPanel" parent="UILayer" index="2" unique_id=1173323693 instance=ExtResource("3_aq64q")]
+visible = false
+
+[node name="1" parent="UILayer" index="3" unique_id=180244854 instance=ExtResource("4_3bxp2")]
 visible = false
 
 [node name="ZoomViews" parent="." index="2" unique_id=395467288]
@@ -153,7 +135,6 @@ description = "小孩的画吗.....好奇怪的配色，白色的鱼和灰色的
 [node name="SceneBgm" parent="." index="3" unique_id=996875468]
 stream = SubResource("AudioStreamMP3_u0bx5")
 autoplay = true
-bus = &"BGM"
 
 [node name="ClickableVideo" parent="." index="4" unique_id=663052762 instance=ExtResource("10_dhn8c")]
 video_path = "res://Art/Animation/hospital.ogv"

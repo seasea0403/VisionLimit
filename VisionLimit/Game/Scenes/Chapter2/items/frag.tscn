@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bxg3dfmacoguc"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_afm3s"]
+[ext_resource type="Texture2D" uid="uid://dyrhw7fm2df7r" path="res://Art/Scenes/Scene2/第一章（魏江办公室）/1-鱼缸.png" id="2_afm3s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(12.222389, 9.957781)
+
+[node name="bluenote" unique_id=223355110 instance=ExtResource("1_afm3s")]
+item_id = "1"
+item_name = "青蛙缸"
+detail_image = ExtResource("2_afm3s")
+description = "（吃惊）居然养了一只小青蛙，还挺可爱的。不过，我是不会养这种东西的。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(824.99994, 548.00006)
+rotation = -0.3871058
+scale = Vector2(16.66317, 13.6)
+shape = SubResource("RectangleShape2D_rm26b")

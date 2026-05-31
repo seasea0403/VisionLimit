@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bak3m2ilmo7ev"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_4oyun"]
+[ext_resource type="Texture2D" uid="uid://d6s60mbdka5" path="res://Art/Scenes/Scene2/第一章（魏江办公室）/1-蓝色便签.png" id="2_uso3g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(13.178238, 11.236264)
+
+[node name="bluenote" unique_id=223355110 instance=ExtResource("1_4oyun")]
+item_id = "1"
+item_name = "打印机上的纸条"
+detail_image = ExtResource("2_uso3g")
+description = "这是什么？看起来像是两个日期。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(824.99994, 548.00006)
+rotation = -0.3871058
+scale = Vector2(16.66317, 13.6)
+shape = SubResource("RectangleShape2D_rm26b")

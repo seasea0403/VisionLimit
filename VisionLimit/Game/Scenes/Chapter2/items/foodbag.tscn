@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://du7wf2a6tfbbj"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_pthwm"]
+[ext_resource type="Texture2D" uid="uid://g505aw6cjyrm" path="res://Art/Scenes/Scene2/第一章（魏江办公室）/1-外卖袋.png" id="2_pthwm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(6.0184, 16.052393)
+
+[node name="foodbag" unique_id=223355110 instance=ExtResource("1_pthwm")]
+item_id = "1"
+item_name = "外卖袋"
+detail_image = ExtResource("2_pthwm")
+description = "还热着，他刚才还在这里吗？"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(824.99994, 548.00006)
+rotation = -0.3871058
+scale = Vector2(16.66317, 13.6)
+shape = SubResource("RectangleShape2D_rm26b")

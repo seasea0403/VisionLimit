@@ -1,13 +1,37 @@
 [gd_scene format=3 uid="uid://cq3u0weg6wxvh"]
 
 [ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_r065e"]
-[ext_resource type="Texture2D" uid="uid://dh7i2fmkto4id" path="res://Art/Scenes/Scene2/Elements/Calender_back_1.png" id="2_r065e"]
-[ext_resource type="PackedScene" path="res://Game/Scenes/Chapter2/items/calender.tscn" id="3_ri7vh"]
+[ext_resource type="Texture2D" uid="uid://bfxn070eu05in" path="res://Art/Scenes/Scene2/第一章（魏江办公室）/1-左下纸堆近景.png" id="2_ri7vh"]
+[ext_resource type="PackedScene" uid="uid://10fyaegydl5n" path="res://Game/Scenes/Chapter2/items/calender.tscn" id="3_ri7vh"]
+[ext_resource type="PackedScene" uid="uid://c8pw0ntxcjplb" path="res://Game/Scenes/Chapter2/items/retreat.tscn" id="4_fwwdd"]
+[ext_resource type="PackedScene" uid="uid://b74aw2piay05f" path="res://Game/Scenes/Chapter2/items/brainmap.tscn" id="5_dl072"]
 
 [node name="Zoomview_paper" unique_id=198920514 instance=ExtResource("1_r065e")]
 
 [node name="Background" parent="." index="0" unique_id=698713652]
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_r065e")
+texture = ExtResource("2_ri7vh")
 
 [node name="Calender" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_ri7vh")]
+
+[node name="CollisionShape2D" parent="Items/Calender" index="0" unique_id=398543410]
+position = Vector2(830.73035, 70.29617)
+rotation = -0.01818487
+
+[node name="retreat" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="1" unique_id=1256418867 instance=ExtResource("4_fwwdd")]
+
+[node name="CollisionShape2D" parent="Items/retreat" index="0" unique_id=398543410]
+position = Vector2(276.6579, 963.19165)
+rotation = 0.01782319
+scale = Vector2(16.663166, 13.6)
+
+[node name="brainmap" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="2" unique_id=1409558525 instance=ExtResource("5_dl072")]
+
+[node name="CollisionShape2D" parent="Items/brainmap" index="0" unique_id=398543410]
+position = Vector2(890.5801, 724.9791)
+rotation = 0.00043973338
+scale = Vector2(16.66317, 13.599997)
+
+[editable path="Items/Calender"]
+[editable path="Items/retreat"]
+[editable path="Items/brainmap"]

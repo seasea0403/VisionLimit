@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://dr4nktscn01x"]
+
+[ext_resource type="Script" uid="uid://dg11fee1ngddy" path="res://Game/Scenes/Chapter1/UI/BankingRecords.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="2_back"]
+[ext_resource type="Texture2D" uid="uid://c3o2ktlipybjj" path="res://Art/Scenes/Scene1/序章（沈意家）/0-电脑-网银转账记录.png" id="3_base"]
+[ext_resource type="Texture2D" uid="uid://c7xjcrhbntxpk" path="res://Art/Scenes/Scene1/序章（沈意家）/0-网银-46年记录.png" id="4_y46"]
+[ext_resource type="Texture2D" uid="uid://by2e5u5ptad1g" path="res://Art/Scenes/Scene1/序章（沈意家）/0-网银-47年记录.png" id="5_y47"]
+[ext_resource type="Texture2D" uid="uid://yvj61qs2w3sq" path="res://Art/Scenes/Scene1/序章（沈意家）/0-网银-48年记录.png" id="6_y48"]
+[ext_resource type="Texture2D" uid="uid://ck4s1qohk7i17" path="res://Art/Scenes/Scene1/序章（沈意家）/0-网银-49年记录.png" id="7_y49"]
+[ext_resource type="Texture2D" uid="uid://62x5kklj32vg" path="res://Art/Scenes/Scene1/序章（沈意家）/0-网银-50年记录.png" id="8_y50"]
+
+[node name="BankingRecords" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+year_46_image = ExtResource("4_y46")
+year_47_image = ExtResource("5_y47")
+year_48_image = ExtResource("6_y48")
+year_49_image = ExtResource("7_y49")
+year_50_image = ExtResource("8_y50")
+
+[node name="BaseImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_base")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="OverlayImage" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 0
+
+[node name="YearButtons" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Year46" type="Button" parent="YearButtons"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 60)
+text = "46年"
+
+[node name="Year47" type="Button" parent="YearButtons"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 60)
+text = "47年"
+
+[node name="Year48" type="Button" parent="YearButtons"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 60)
+text = "48年"
+
+[node name="Year49" type="Button" parent="YearButtons"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 60)
+text = "49年"
+
+[node name="Year50" type="Button" parent="YearButtons"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 60)
+text = "50年"
+
+[node name="back" parent="." instance=ExtResource("2_back")]

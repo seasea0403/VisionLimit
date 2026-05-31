@@ -3,6 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Template/Scene/ClickableArea.tscn" id="1_qams2"]
 [ext_resource type="PackedScene" uid="uid://da0wfbu0i4wx0" path="res://Game/Scenes/Chapter2/zoomview/zoomview_desk.tscn" id="2_0ri17"]
 [ext_resource type="PackedScene" uid="uid://dvmc8et1c5qnh" path="res://Game/Scenes/Chapter2/ClickableArea/ClickableArea_Computer.tscn" id="3_rs8gp"]
+[ext_resource type="PackedScene" uid="uid://bak3m2ilmo7ev" path="res://Game/Scenes/Chapter2/items/bluenote.tscn" id="3_yu5qc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88ucp"]
+size = Vector2(19.115124, 73)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yu5qc"]
 size = Vector2(26.6039, 18.235703)
@@ -14,6 +18,18 @@ position = Vector2(987.49994, 605.5)
 
 [node name="Zoomview_Desk" parent="." index="1" unique_id=198920514 instance=ExtResource("2_0ri17")]
 
+[node name="CollisionShape2D" parent="Zoomview_Desk/Items/Photo" parent_id_path=PackedInt32Array(198920514, 1745684966) index="0" unique_id=398543410]
+position = Vector2(1757, 931.00006)
+shape = SubResource("RectangleShape2D_88ucp")
+
+[node name="bluenote" parent="Zoomview_Desk/Items" parent_id_path=PackedInt32Array(198920514, 1759582505) index="3" unique_id=223355110 instance=ExtResource("3_yu5qc")]
+position = Vector2(13, 91)
+
+[node name="CollisionShape2D" parent="Zoomview_Desk/Items/bluenote" index="0" unique_id=398543410]
+position = Vector2(1196.5592, 403.1807)
+rotation = -0.0077079637
+scale = Vector2(10.554979, 13.354723)
+
 [node name="ClickableArea_Computer" parent="Zoomview_Desk" index="2" unique_id=714400689 instance=ExtResource("3_rs8gp")]
 
 [node name="CollisionShape2D" parent="Zoomview_Desk/ClickableArea_Computer" index="0" unique_id=55883732]
@@ -24,4 +40,6 @@ shape = SubResource("RectangleShape2D_yu5qc")
 visible = false
 
 [editable path="Zoomview_Desk"]
+[editable path="Zoomview_Desk/Items/Photo"]
+[editable path="Zoomview_Desk/Items/bluenote"]
 [editable path="Zoomview_Desk/ClickableArea_Computer"]

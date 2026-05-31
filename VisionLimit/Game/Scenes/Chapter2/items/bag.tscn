@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cw7df52m43cqp"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_5ubn4"]
+[ext_resource type="Texture2D" uid="uid://cj6dpuybseoyh" path="res://Art/Scenes/Scene2/第一章（魏江办公室）/1-书包.png" id="2_5ubn4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(9.772152, 13.069291)
+
+[node name="bag" unique_id=223355110 instance=ExtResource("1_5ubn4")]
+item_id = "1"
+item_name = "大书包"
+detail_image = ExtResource("2_5ubn4")
+description = "看起来能装很多东西。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(824.99994, 548.00006)
+rotation = -0.3871058
+scale = Vector2(16.66317, 13.6)
+shape = SubResource("RectangleShape2D_rm26b")

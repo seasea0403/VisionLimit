@@ -22,9 +22,9 @@ signal chapter_holdon_requested
 @onready var submit_btn: Button = $PanelAnchor/SubmitBtn
 @onready var feedback_label: Label = $PanelAnchor/FeedbackLabel
 @onready var drag_preview: TextureRect = $DragPreview
-@onready var _next_btn_container: Control = $NextButton
-@onready var _holdon_btn_container: Control = $HoldonButton
-@onready var _finish_container: Control = $Finish
+@onready var _next_btn_container: Node2D = $NextButton
+@onready var _holdon_btn_container: Node2D = $HoldonButton
+@onready var _finish_container: Node2D = $Finish
 
 # ==================== 状态 ====================
 var _slots: Array[Control] = []

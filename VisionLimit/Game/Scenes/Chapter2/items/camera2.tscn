@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dc15vuf6m5fjp"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_7ph1s"]
+[ext_resource type="Texture2D" uid="uid://qwjpk4p1g8tl" path="res://Art/Scenes/Scene2/第一章（魏江办公室）/1-旧镜头.png" id="2_7ph1s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(12.222389, 9.957781)
+
+[node name="camera2" unique_id=223355110 instance=ExtResource("1_7ph1s")]
+item_id = "1"
+item_name = "特别旧的镜头"
+detail_image = ExtResource("2_7ph1s")
+description = "这个是收藏吗？看起来比其他的都要旧一些。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(824.99994, 548.00006)
+rotation = -0.3871058
+scale = Vector2(16.66317, 13.6)
+shape = SubResource("RectangleShape2D_rm26b")
