@@ -1,16 +1,13 @@
 [gd_scene format=4 uid="uid://ctyylbxm38mvx"]
 
 [ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_umqn5"]
-[ext_resource type="Texture2D" uid="uid://iap7kj6sxrpj" path="res://Art/Scenes/Scene5/Background/Background5.png" id="2_2k8s4"]
+[ext_resource type="Texture2D" uid="uid://b4rvy2y2n01fe" path="res://Art/Scenes/Scene5/Background/Background5.png" id="2_2k8s4"]
 [ext_resource type="Script" uid="uid://dqwva1ct7tlxd" path="res://Script/Chapters/chapter_5.gd" id="2_neg8u"]
 [ext_resource type="PackedScene" uid="uid://b0ng4fnjbekia" path="res://Game/Scenes/Chapter5/ClickableArea/ClickableArea_Desk.tscn" id="3_0tw87"]
-[ext_resource type="PackedScene" uid="uid://drqdemmbxx0ti" path="res://Game/Scenes/Chapter2/items/魏江.tscn" id="3_w4bja"]
-[ext_resource type="Texture2D" uid="uid://on8d41rdugy0" path="res://Art/Character/沈意骄傲.png" id="4_fbfs3"]
+[ext_resource type="Texture2D" uid="uid://df8y8e6blevfd" path="res://Art/Character/沈意骄傲.png" id="4_fbfs3"]
 [ext_resource type="PackedScene" uid="uid://dfug80gvcpggs" path="res://Game/Scenes/Chapter5/ClickableArea/ClickableArea_Block.tscn" id="4_fp6ag"]
-[ext_resource type="Texture2D" uid="uid://djecu5okialbk" path="res://Art/Character/魏江.png" id="4_neg8u"]
-[ext_resource type="Texture2D" uid="uid://kitay7qiyqao" path="res://Art/Character/沈意叹气.png" id="5_nqh41"]
-[ext_resource type="Texture2D" uid="uid://d3ajlvpvonxth" path="res://Art/Scenes/Scene5/Elements/keyboard.png" id="7_cu6p6"]
-[ext_resource type="Texture2D" uid="uid://n57qn72imbot" path="res://Art/Character/魏江张手.png" id="7_w4bja"]
+[ext_resource type="Texture2D" uid="uid://dh08ghvtyxrkg" path="res://Art/Character/沈意叹气.png" id="5_nqh41"]
+[ext_resource type="Texture2D" uid="uid://dej620f6lg4b3" path="res://Art/Character/魏江张手.png" id="7_w4bja"]
 [ext_resource type="PackedScene" uid="uid://detnxptpgnhtx" path="res://Game/Scenes/Chapter5/items/computer.tscn" id="9_xxd6n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbfs3"]
@@ -33,27 +30,8 @@ script = ExtResource("2_neg8u")
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_2k8s4")
 
-[node name="魏江" parent="Background" index="0" unique_id=223355110 instance=ExtResource("3_w4bja")]
-position = Vector2(763.33325, -798.3333)
-rotation = 3.141988
-scale = Vector2(1.7006806, -1.5676773)
-item_id = "1"
-item_name = ""
-detail_image = null
-description = "郑和平的记忆很可能以某种不可抹杀的形式留在了你的记忆海中。所以你会对她经历过的一切有共感。真是奇妙，四年前你删除了她记忆海中的数据，四年后又要从你的记忆海中把数据挖掘出来。但谢谢你愿意这么做，更感谢你愿意冒着风险这样做。"
-character_image = ExtResource("4_neg8u")
-
 [node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="0" unique_id=552734023]
 visible = false
-
-[node name="DarkBackground" parent="UILayer/ItemDetail" index="0" unique_id=1174300489]
-layout_mode = 0
-
-[node name="Control" parent="UILayer/ItemDetail" index="1" unique_id=327138164]
-layout_mode = 0
-
-[node name="click" parent="UILayer/ItemDetail" index="2" unique_id=1359093598]
-bus = &"SFX"
 
 [node name="ClickableArea_Desk" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("3_0tw87")]
 
@@ -67,12 +45,10 @@ shape = SubResource("RectangleShape2D_fbfs3")
 visible = false
 
 [node name="Note" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="0" unique_id=223355110]
-item_name = "键盘"
-detail_image = ExtResource("7_cu6p6")
-description = "Ctrl和D按键磨损得十分厉害，这是我从前做托管师时留下的习惯。四年前处理郑和平那桩委托，是我最后一次使用这个键盘，如今再看到它都觉得有些陌生了。"
 character_image = ExtResource("4_fbfs3")
 
 [node name="Card" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="1" unique_id=1064052470]
+description = "魏江还算贴心，知道挖掘自己的记忆海绝不是一件轻松的事，特意为我倒来一杯水。不过能不能离电脑远一点。"
 character_image = ExtResource("5_nqh41")
 
 [node name="computer" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="3" unique_id=64157657 instance=ExtResource("9_xxd6n")]
@@ -99,7 +75,6 @@ character_image = ExtResource("7_w4bja")
 stream = SubResource("AudioStreamMP3_2k8s4")
 volume_db = 4.502
 autoplay = true
-bus = &"BGM"
 
 [editable path="UILayer/ItemDetail"]
 [editable path="UILayer/ItemDetail/Control/PrevButton"]

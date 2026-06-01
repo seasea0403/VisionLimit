@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_ndh8s"]
 [ext_resource type="Script" uid="uid://bylc8qmqkbeuj" path="res://Script/Chapters/chapter_6.gd" id="2_i22gp"]
-[ext_resource type="Texture2D" uid="uid://bw3icdet3llso" path="res://Art/Scenes/Scene6/Background/Background6.png" id="2_ylfvo"]
-[ext_resource type="Texture2D" uid="uid://ttbayylk1hb2" path="res://Art/Scenes/Scene6/Elements/result.png" id="4_3c8dh"]
+[ext_resource type="Texture2D" uid="uid://c8oouofo0ystg" path="res://Art/Scenes/Scene6/Background/Background6.png" id="2_ylfvo"]
+[ext_resource type="Texture2D" uid="uid://bguwixyh2l81r" path="res://Art/Scenes/Scene6/Elements/result.png" id="4_3c8dh"]
 [ext_resource type="PackedScene" uid="uid://bwl7s2xyfebxs" path="res://Game/Scenes/Chapter6/items/block.tscn" id="4_5ebmf"]
-[ext_resource type="Texture2D" uid="uid://umh3mt55iax" path="res://Art/Scenes/Scene6/Elements/location.png" id="5_co3cs"]
-[ext_resource type="Texture2D" uid="uid://bpp8v187shnyo" path="res://Art/Scenes/Scene6/Elements/back.png" id="5_paoyu"]
-[ext_resource type="Texture2D" uid="uid://blt3360v674vp" path="res://Art/Scenes/Scene6/Elements/map.png" id="6_i5lbi"]
+[ext_resource type="Texture2D" uid="uid://0lx8e61q11x8" path="res://Art/Scenes/Scene6/Elements/location.png" id="5_co3cs"]
+[ext_resource type="Texture2D" uid="uid://cq4uv7irbq6hu" path="res://Art/Scenes/Scene6/Elements/back.png" id="5_paoyu"]
+[ext_resource type="Texture2D" uid="uid://bxyon6t8sm25y" path="res://Art/Scenes/Scene6/Elements/map.png" id="6_i5lbi"]
 [ext_resource type="PackedScene" uid="uid://bfsmdyaqcd2ws" path="res://Game/Scenes/Chapter6/items/keyboard.tscn" id="6_i22gp"]
-[ext_resource type="Texture2D" uid="uid://kitay7qiyqao" path="res://Art/Character/沈意叹气.png" id="7_5ebmf"]
+[ext_resource type="Texture2D" uid="uid://dh08ghvtyxrkg" path="res://Art/Character/沈意叹气.png" id="7_5ebmf"]
 [ext_resource type="PackedScene" uid="uid://dngdv8nbhgmfa" path="res://Game/Scenes/Chapter6/items/cup.tscn" id="8_dnamj"]
 [ext_resource type="PackedScene" uid="uid://51pbtbvgrs3s" path="res://Game/Scenes/Chapter6/items/hardcore.tscn" id="10_e5o1m"]
 [ext_resource type="PackedScene" uid="uid://bybn5iu606ljv" path="res://Game/Scenes/Chapter6/ClickableArea/clickable_video.tscn" id="12_paoyu"]
@@ -31,20 +31,10 @@ texture = ExtResource("2_ylfvo")
 [node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="0" unique_id=552734023]
 visible = false
 
-[node name="DarkBackground" parent="UILayer/ItemDetail" index="0" unique_id=1174300489]
-layout_mode = 0
-
-[node name="Control" parent="UILayer/ItemDetail" index="1" unique_id=327138164]
-layout_mode = 0
-
-[node name="click" parent="UILayer/ItemDetail" index="2" unique_id=1359093598]
-bus = &"SFX"
-
 [node name="SceneBgm" parent="." index="3" unique_id=996875468]
 stream = SubResource("AudioStreamMP3_15vni")
 volume_db = 4.502
 autoplay = true
-bus = &"BGM"
 
 [node name="items" type="Node2D" parent="." index="4" unique_id=1835867741]
 

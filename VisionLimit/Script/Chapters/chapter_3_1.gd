@@ -131,16 +131,3 @@ func _start_hospital_dialogue() -> void:
 func _on_hospital_dialogue_finished() -> void:
 	GameStateManager.complete_chapter(3)
 	SceneTransitionManager.change_scene_to_file("res://Game/Scenes/Chapter3/2/chapter_3_2.tscn")
-
-
-# ==================== 音效工具 ====================
-func _play_sfx(stream: AudioStream) -> void:
-	if not stream:
-		return
-	var player := AudioStreamPlayer.new()
-	player.stream = stream
-	player.bus = "SFX"
-	add_child(player)
-	player.play()
-	await player.finished
-	player.queue_free()

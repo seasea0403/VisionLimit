@@ -107,6 +107,8 @@ func _ready() -> void:
 func _on_detail_opened(item_id: String) -> void:
 	_open_record_btn.visible = false
 	match item_id:
+		"13":  # 青蛙缸 — 播放青蛙叫音效
+			_play_sfx(load("res://Audio/SFX/青蛙叫.mp3"))
 		"3":
 			# 录音笔：探索阶段或录音完成后均显示「打开录音」按钮（播放中除外）
 			if _state == State.EXPLORE or _state >= State.TRANSCRIPT_DONE:

@@ -5,11 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://brpg4pj2q8thh" path="res://Game/Scenes/Chapter4/ClickableArea/ClickableArea_paper.tscn" id="3_qnvrk"]
 [ext_resource type="PackedScene" uid="uid://xctyue1xc2e6" path="res://Game/Scenes/Chapter4/ClickableArea/ClickableArea_desk.tscn" id="4_0r2fq"]
 [ext_resource type="PackedScene" uid="uid://cglfrdwrknfgq" path="res://Game/Scenes/Chapter4/items/proof1.tscn" id="4_lhu06"]
+[ext_resource type="PackedScene" uid="uid://dnviance0gyg5" path="res://Game/UI/SumPanel/SumPanel.tscn" id="4_woqs7"]
 [ext_resource type="PackedScene" uid="uid://dhogimy85xi54" path="res://Game/Scenes/Chapter4/ClickableArea/ClickableArea_drawer.tscn" id="5_0r2fq"]
 [ext_resource type="PackedScene" uid="uid://bvypp8ptqxojt" path="res://Game/Scenes/Chapter4/items/proof2.tscn" id="5_whla1"]
+[ext_resource type="PackedScene" uid="uid://drhq2slbuploc" path="res://Game/UI/InferencePanel/InferencePanel.tscn" id="5_xoqtl"]
 [ext_resource type="Script" uid="uid://c0cr0h1o41pdc" path="res://Script/Chapters/chapter_4.gd" id="6_ch4sc"]
 [ext_resource type="PackedScene" uid="uid://cvc5ddrn1cwxu" path="res://Game/Scenes/Chapter4/items/paint.tscn" id="9_jvqod"]
 [ext_resource type="PackedScene" uid="uid://cvwocxc2yliqs" path="res://Game/Scenes/Chapter4/items/fishpool.tscn" id="10_mscpq"]
+[ext_resource type="FontFile" uid="uid://cwjfcn0dqtqs0" path="res://Font/源云明体/GenWanMinJP-Medium（源云明体）.ttf" id="11_mscpq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgmff"]
 size = Vector2(24.267735, 7.536969)
@@ -49,6 +52,20 @@ position = Vector2(97, 0)
 
 [node name="LaterButton" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="4" unique_id=1536310642]
 position = Vector2(1070, 0)
+
+[node name="SumPanel" parent="UILayer" index="1" unique_id=1239234424 instance=ExtResource("4_woqs7")]
+
+[node name="InferencePanel" parent="UILayer" index="2" unique_id=1999336769 instance=ExtResource("5_xoqtl")]
+
+[node name="CountdownLabel" type="Label" parent="UILayer" index="4" unique_id=314159265]
+offset_left = 820.0
+offset_top = 18.0
+offset_right = 1100.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 44
+text = "10:00"
+horizontal_alignment = 1
 
 [node name="ZoomViews" parent="." index="2" unique_id=395467288]
 visible = false
@@ -145,6 +162,59 @@ shape = SubResource("RectangleShape2D_bu6hn")
 [node name="CollisionShape2D" parent="item/fishpool" index="0" unique_id=398543410]
 position = Vector2(1217, 704.3125)
 shape = SubResource("RectangleShape2D_woqs7")
+
+[node name="OpeningOverlay" type="CanvasLayer" parent="." index="5" unique_id=512345678]
+layer = 5
+
+[node name="BlackBackground" type="ColorRect" parent="OpeningOverlay" index="0" unique_id=612345678]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="OpeningOverlay" index="1" unique_id=2074219843]
+offset_left = 884.0
+offset_top = 135.0
+offset_right = 1034.0
+offset_bottom = 193.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("11_mscpq")
+theme_override_font_sizes/font_size = 50
+text = "在路上"
+
+[node name="HintOverlay" type="CanvasLayer" parent="." index="6" unique_id=712345678]
+layer = 4
+visible = false
+
+[node name="DimRect" type="ColorRect" parent="HintOverlay" index="0" unique_id=812345678]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.65)
+
+[node name="HintLabel" type="Label" parent="HintOverlay" index="1" unique_id=912345678]
+offset_left = 260.0
+offset_top = 460.0
+offset_right = 1660.0
+offset_bottom = 620.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 46
+text = "【魏江在牵制保安，你需要在有限的时间内找到尽可能多的线索】"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DismissButton" type="Button" parent="HintOverlay" index="2" unique_id=1012345678]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
 
 [editable path="UILayer/ItemDetail"]
 [editable path="UILayer/ItemDetail/Control/PrevButton"]

@@ -205,6 +205,19 @@ func _on_item_recorded(item_id: String, entry_title: String, entry_description: 
 			sum_panel.call("add_record_entry", item_id + "_b", entry_title_2, entry_description_2)
 
 
+# ==================== 音效工具 ====================
+func _play_sfx(stream: AudioStream) -> void:
+	if not stream:
+		return
+	var player := AudioStreamPlayer.new()
+	player.stream = stream
+	player.bus = "SFX"
+	add_child(player)
+	player.play()
+	await player.finished
+	player.queue_free()
+
+
 # ==================== 纹理预热 ====================
 func _prewarm_item_textures() -> void:
 	"""收集场景内所有 ClickableItem 的纹理，交给 ItemDetail 做 GPU 预热。

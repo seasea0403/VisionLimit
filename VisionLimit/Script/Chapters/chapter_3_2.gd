@@ -42,6 +42,8 @@ func _on_detail_opened(item_id: String) -> void:
 			if not _saw_tag:
 				_saw_tag = true
 				GameStateManager.set_clue("clue_trace")
+		"16":  # 船 — 播放船鸣音效
+			_play_sfx(load("res://Audio/SFX/船鸣.mp3"))
 
 
 func _on_board_visible_changed() -> void:
