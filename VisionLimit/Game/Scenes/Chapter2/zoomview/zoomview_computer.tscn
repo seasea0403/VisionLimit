@@ -2,22 +2,28 @@
 
 [ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_mwil0"]
 [ext_resource type="Texture2D" uid="uid://r5pqdltqj1jb" path="res://Art/Scenes/Scene7/第六章全部 - 副本/computer.png" id="2_sbktp"]
-[ext_resource type="Texture2D" uid="uid://bjhstg4xltp88" path="res://Art/Scenes/Scene2/UI/visitrecord.png" id="3_tmsgf"]
+[ext_resource type="Texture2D" uid="uid://iod3jjvcveo" path="res://Art/Scenes/Scene2/第一章（魏江办公室）/1-桌面.jpeg" id="3_sbktp"]
+[ext_resource type="PackedScene" uid="uid://dspssbejs5wy8" path="res://Game/Scenes/Chapter2/items/computer_content.tscn" id="4_tmsgf"]
 
 [node name="Zoomview_Computer" unique_id=198920514 instance=ExtResource("1_mwil0")]
-show_detail_on_open = true
-detail_title = "魏江的电脑"
-detail_description = "十一次。三个月。——我在她的记忆海里待了整整三个月。
-四年前我刚被前一家公司清退。晴野基金会找上门的时候很客气，价钱也客气得过分。我几乎没有拒绝的理由。于是我接受了这单奇怪的记忆紊乱治疗委托。
-治疗完成后我接受了空前严苛的记忆清洗，我以为一切都结束了。"
 
 [node name="Background" parent="." index="0" unique_id=698713652]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.53351295, 0.53351295)
 texture = ExtResource("2_sbktp")
 
 [node name="Content" type="TextureRect" parent="Background" index="0" unique_id=1493545820]
-offset_left = -964.99994
-offset_top = -520.0
-offset_right = 971.66656
-offset_bottom = 531.6666
-texture = ExtResource("3_tmsgf")
+offset_left = -1302.4198
+offset_top = -712.6448
+offset_right = 634.2467
+offset_bottom = 367.35522
+scale = Vector2(1.3539451, 1.3539451)
+texture = ExtResource("3_sbktp")
+
+[node name="bag" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("4_tmsgf")]
+
+[node name="CollisionShape2D" parent="Items/bag" index="0" unique_id=398543410]
+position = Vector2(325.00003, 210.00002)
+rotation = -0.012852937
+scale = Vector2(22.450504, 18.323454)
+
+[editable path="Items/bag"]

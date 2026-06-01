@@ -9,7 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://k0nq76mbrol3" path="res://Game/Scenes/Chapter2/UI/1.tscn" id="6_d3jqh"]
 [ext_resource type="PackedScene" uid="uid://dghfxso3rd6oe" path="res://Game/Scenes/Chapter2/items/note.tscn" id="6_mchdh"]
 [ext_resource type="PackedScene" uid="uid://b55jdfoulgfa6" path="res://Game/UI/PasswordPanel/PasswordPanel.tscn" id="7_2rb57"]
+[ext_resource type="PackedScene" uid="uid://dnviance0gyg5" path="res://Game/UI/SumPanel/SumPanel.tscn" id="7_ekbio"]
 [ext_resource type="Texture2D" uid="uid://cid0hbuv6a5rr" path="res://Art/Character/魏江抱胸思考.png" id="7_h3pkn"]
+[ext_resource type="PackedScene" uid="uid://drhq2slbuploc" path="res://Game/UI/InferencePanel/InferencePanel.tscn" id="8_6krsd"]
 [ext_resource type="AudioStream" uid="uid://dv38q148wb3he" path="res://Audio/录音.mp3" id="8_68ddi"]
 [ext_resource type="Texture2D" uid="uid://5uqrwey2ygfh" path="res://Art/UI/Document/Setting/Back.png" id="8_ysv4g"]
 [ext_resource type="Script" uid="uid://be0rryr333e51" path="res://Game/Scenes/Chapter2/chapter2.gd" id="9_ch2gd"]
@@ -71,10 +73,18 @@ offset_bottom = 424.41946
 scale = Vector2(3.5918956, 4.0467057)
 text = "打开录音"
 
-[node name="1" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1987393323 instance=ExtResource("6_d3jqh")]
+[node name="SumPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="1" unique_id=1239234424 instance=ExtResource("7_ekbio")]
+
+[node name="InferencePanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1999336769 instance=ExtResource("8_6krsd")]
+correct_items = Array[String](["2", "3", "8", "9", "10"])
+
+[node name="Label" parent="UILayer/InferencePanel/NextButton/TextureButton" parent_id_path=PackedInt32Array(1999336769, 883295915, 1367535632) index="0" unique_id=1029178860]
+text = "下一步"
+
+[node name="1" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="4" unique_id=1987393323 instance=ExtResource("6_d3jqh")]
 visible = false
 
-[node name="PasswordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="3" unique_id=1904747298 instance=ExtResource("7_2rb57")]
+[node name="PasswordPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="5" unique_id=1904747298 instance=ExtResource("7_2rb57")]
 visible = false
 offset_left = 505.0
 offset_top = 138.0
@@ -86,16 +96,17 @@ correct_password = "0804"
 [node name="Label2" parent="UILayer/PasswordPanel/VBoxContainer" parent_id_path=PackedInt32Array(1904747298, 1592428207) index="1" unique_id=1722708654]
 text = "日期"
 
-[node name="RecordAudio" type="AudioStreamPlayer2D" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="4" unique_id=1972076221]
+[node name="RecordAudio" type="AudioStreamPlayer2D" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="6" unique_id=1972076221]
 stream = ExtResource("8_68ddi")
 volume_db = 18.318
 bus = &"BGM"
 
-[node name="LockpickMinigame" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="5" unique_id=1286001879 instance=ExtResource("23_lkpck")]
+[node name="LockpickMinigame" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="7" unique_id=1286001879 instance=ExtResource("23_lkpck")]
 visible = false
 up_speed = 250.0
 down_speed = 250.0
 key_speed = 150.0
+initial_progress = 0.215
 
 [node name="ZoomViews" parent="." index="2" unique_id=395467288]
 visible = false
@@ -110,12 +121,12 @@ character_image = ExtResource("7_h3pkn")
 item_id = "2"
 
 [node name="brainmap" parent="ZoomViews/ClickableArea_Paper/Zoomview_paper/Items" parent_id_path=PackedInt32Array(676050068, 198920514, 1759582505) index="2" unique_id=1409558525]
-item_id = "3"
+item_id = "4"
 
 [node name="ClickableArea_Desk" parent="ZoomViews" index="1" unique_id=1165186953 instance=ExtResource("5_o75tl")]
 
 [node name="Voice" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(1165186953, 198920514, 1759582505) index="0" unique_id=223355110]
-item_id = "4"
+item_id = "3"
 description = "这支录音笔是郑和平留给我的，里面的内容我已经听过了，你也打开听听吧。"
 character_image = ExtResource("4_2rb57")
 
@@ -141,10 +152,13 @@ shape = SubResource("RectangleShape2D_rrtou")
 [node name="bluenote" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(1165186953, 198920514, 1759582505) index="3" unique_id=223355110]
 item_id = "7"
 
+[node name="bag" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/ClickableArea_Computer/Zoomview_Computer/Items" parent_id_path=PackedInt32Array(1165186953, 714400689, 198920514, 1759582505) index="0" unique_id=223355110]
+item_id = "8"
+
 [node name="Items" type="Node2D" parent="." index="3" unique_id=1563513548]
 
 [node name="Map" parent="Items" index="0" unique_id=1938195744 instance=ExtResource("5_t8q1s")]
-item_id = "7"
+item_id = "9"
 item_name = "苍屿县地图"
 description = "（仔细端详）这是苍屿县呀。苍屿第一医院、旧码头、精炼厂外围采样点，离我家都很近。魏江在调查谁的行踪？"
 can_record = true
@@ -153,11 +167,12 @@ record_entry_description = "水文地质研究员，曾任某国家级地质研�
 character_image = ExtResource("4_2rb57")
 
 [node name="Note" parent="Items" index="1" unique_id=3154882 instance=ExtResource("6_mchdh")]
-item_id = "6"
+item_id = "10"
 description = "这么短的时间内被强制撤稿？魏江这篇报道究竟写了些什么，是关于晴野基金会与临深集团吗？"
 character_image = ExtResource("7_h3pkn")
 
 [node name="camera1" parent="Items" index="2" unique_id=811915225 instance=ExtResource("18_jwrn2")]
+item_id = "11"
 linked_items = Array[NodePath]([NodePath("../camera2")])
 
 [node name="CollisionShape2D" parent="Items/camera1" index="0" unique_id=398543410]
@@ -167,8 +182,10 @@ shape = SubResource("RectangleShape2D_o8fsg")
 
 [node name="camera2" parent="Items" index="3" unique_id=1977868026 instance=ExtResource("19_runxl")]
 visible = false
+item_id = "12"
 
 [node name="frag" parent="Items" index="4" unique_id=586050600 instance=ExtResource("20_unkop")]
+item_id = "13"
 
 [node name="CollisionShape2D" parent="Items/frag" index="0" unique_id=398543410]
 position = Vector2(848.8217, 594.1414)
@@ -176,18 +193,21 @@ rotation = 0.0138045885
 scale = Vector2(16.663166, 13.6)
 
 [node name="bag" parent="Items" index="5" unique_id=344847166 instance=ExtResource("17_o8fsg")]
+item_id = "14"
 
 [node name="CollisionShape2D" parent="Items/bag" index="0" unique_id=398543410]
 position = Vector2(1703.515, 936.09)
 rotation = 0.003336816
 
 [node name="foodbag" parent="Items" index="6" unique_id=184176783 instance=ExtResource("21_jwrn2")]
+item_id = "15"
 
 [node name="CollisionShape2D" parent="Items/foodbag" index="0" unique_id=398543410]
 position = Vector2(1388.9929, 907.79724)
 rotation = -0.016160676
 
 [node name="view" parent="Items" index="7" unique_id=913075214 instance=ExtResource("22_runxl")]
+item_id = "16"
 
 [node name="CollisionShape2D" parent="Items/view" index="0" unique_id=398543410]
 position = Vector2(1566.3246, 429.91864)
@@ -204,6 +224,10 @@ autoplay = true
 [editable path="UILayer/ItemDetail/Control/PrevButton"]
 [editable path="UILayer/ItemDetail/Control/LaterButton"]
 [editable path="UILayer/ItemDetail/Control/OpenRecordButton"]
+[editable path="UILayer/InferencePanel"]
+[editable path="UILayer/InferencePanel/Finish"]
+[editable path="UILayer/InferencePanel/NextButton"]
+[editable path="UILayer/InferencePanel/HoldonButton"]
 [editable path="UILayer/PasswordPanel"]
 [editable path="ZoomViews/ClickableArea_Paper"]
 [editable path="ZoomViews/ClickableArea_Paper/Zoomview_paper"]
@@ -215,6 +239,8 @@ autoplay = true
 [editable path="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items/Photo"]
 [editable path="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items/bluenote"]
 [editable path="ZoomViews/ClickableArea_Desk/Zoomview_Desk/ClickableArea_Computer"]
+[editable path="ZoomViews/ClickableArea_Desk/Zoomview_Desk/ClickableArea_Computer/Zoomview_Computer"]
+[editable path="ZoomViews/ClickableArea_Desk/Zoomview_Desk/ClickableArea_Computer/Zoomview_Computer/Items/bag"]
 [editable path="Items/camera1"]
 [editable path="Items/frag"]
 [editable path="Items/bag"]

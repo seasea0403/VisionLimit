@@ -2,14 +2,15 @@ extends "res://Script/Chapters/chapter.gd"
 
 # ==================== 状态机 ====================
 enum State {
-	LOCKPICK_INTRO,   # 开场：等待第一次点击，显示提示文字
-	LOCKPICK_READY,   # 提示已读：等待第二次点击启动小游戏
-	LOCKPICK_GAME,    # 开锁小游戏进行中
-	EXPLORE,          # 初始探索（录音密码未解开）
-	RECORD_PLAYING,   # RecordPlayer 面板播放中
-	TRANSCRIPT_DONE,  # 录音播放完毕，可与魏江对话进入拼图
-	PUZZLE,           # 拼图推理阶段（UILayer/1 打开）
-	ENDING,           # 最终对话序列
+	LOCKPICK_INTRO,    # 开场：等待第一次点击，显示提示文字
+	LOCKPICK_READY,    # 提示已读：等待第二次点击启动小游戏
+	LOCKPICK_GAME,     # 开锁小游戏进行中
+	EXPLORE,           # 初始探索（录音密码未解开）
+	RECORD_PLAYING,    # RecordPlayer 面板播放中
+	TRANSCRIPT_DONE,   # 录音播放完毕，等待 InferencePanel 完成
+	ENDING_PART1,      # 结局对话第一段（大头 + 双人对话到推理板）
+	PUZZLE2,           # 对话中途打开 UI/1 推理板
+	ENDING_PART2,      # 结局对话第二段（推理板完成后）
 }
 
 var _state := State.LOCKPICK_INTRO
@@ -23,8 +24,7 @@ var _state := State.LOCKPICK_INTRO
 @onready var _items_root: Node2D = $Items
 
 # ==================== 对话数据 ====================
-const Ch2WeijianExit = preload("res://Script/Dialogues/ch2_weijian_exit.gd")
-const Ch2Ending      = preload("res://Script/Dialogues/ch2_ending.gd")
+const Ch2Ending = preload("res://Script/Dialogues/ch2_ending.gd")
 const RECORD_PLAYER_SCENE = preload("res://Game/UI/RecordPlayer/RecordPlayer.tscn")
 
 var _lockpick_minigame: Control = null
@@ -49,8 +49,8 @@ func _ready() -> void:
 	if _back_btn:
 		_back_btn.visible = true
 
-	# 拼图 UI：连接完成信号（字符串形式，避免静态类型检查警告）
-	_puzzle_ui.connect("puzzle_solved", _on_puzzle_solved_handler)
+	# UI/1 推理板：连接完成信号（字符串形式，避免静态类型检查警告）
+	_puzzle_ui.connect("puzzle_solved", _on_puzzle2_solved)
 
 	# ItemDetail 信号
 	item_detail.detail_opened.connect(_on_detail_opened)
@@ -73,6 +73,14 @@ func _ready() -> void:
 	else:
 		push_warning("chapter2.gd: 找不到 DoorLockEntry 节点")
 
+	# InferencePanel：提交正确显示「下一步」按钮，点击后触发结局序列
+	if inference_panel and inference_panel.has_signal("chapter_next_requested"):
+		inference_panel.inference_success.connect(inference_panel.show_completion_buttons)
+		inference_panel.chapter_next_requested.connect(_on_inference_complete)
+	else:
+		# inference_panel 由父类延迟挂载，等一帧后再连接
+		call_deferred("_connect_inference_panel")
+
 	# ==================== 开锁前置初始化 ====================
 	if GameStateManager.get_record("ch2_lockpick_done") == "true":
 		_state = State.EXPLORE
@@ -92,13 +100,6 @@ func _on_detail_opened(item_id: String) -> void:
 			# 录音笔：EXPLORE 阶段显示「打开录音」按钮
 			if _state == State.EXPLORE:
 				_open_record_btn.visible = true
-		"1":
-			# 魏江：录音播放完后拦截 ItemDetail，直接触发对话
-			if _state == State.TRANSCRIPT_DONE or _state == State.PUZZLE:
-				item_detail.close_detail()
-				# 回退到 TRANSCRIPT_DONE 以便对话可重复触发（如玩家中途关闭拼图）
-				_state = State.TRANSCRIPT_DONE
-				_show_exit_dialogue()
 
 func _on_item_detail_closed() -> void:
 	_open_record_btn.visible = false
@@ -172,28 +173,42 @@ func _on_record_playback_done() -> void:
 	if _hud_panel:
 		_hud_panel.show()
 
-# ==================== 魏江关卡出口对话 ====================
-func _show_exit_dialogue() -> void:
-	DialogueManager.dialogue_finished.connect(_on_exit_dialogue_finished, CONNECT_ONE_SHOT)
-	DialogueManager.start_dialogue(Ch2WeijianExit.DATA, "start")
+# ==================== InferencePanel 信号延迟连接 ====================
+func _connect_inference_panel() -> void:
+	if inference_panel and inference_panel.has_signal("chapter_next_requested"):
+		if not inference_panel.inference_success.is_connected(inference_panel.show_completion_buttons):
+			inference_panel.inference_success.connect(inference_panel.show_completion_buttons)
+		if not inference_panel.chapter_next_requested.is_connected(_on_inference_complete):
+			inference_panel.chapter_next_requested.connect(_on_inference_complete)
 
-func _on_exit_dialogue_finished() -> void:
-	var choice: String = GameStateManager.get_record("ch2_exit_choice", "")
-	if choice == "start":
-		_state = State.PUZZLE
-		_puzzle_ui.show()
-		register_panel_open(_puzzle_ui)
-
-# ==================== 拼图完成 ====================
-func _on_puzzle_solved_handler() -> void:
-	_state = State.ENDING
-	# 合成面板保持两秒后再关闭
-	await get_tree().create_timer(2.0).timeout
-	_puzzle_ui.hide()
-	DialogueManager.dialogue_finished.connect(_on_ending_finished, CONNECT_ONE_SHOT)
+# ==================== InferencePanel 完成 → 启动结局第一段 ====================
+func _on_inference_complete() -> void:
+	_state = State.ENDING_PART1
+	inference_panel.close_panel()
+	# 接管 DialogueManager advance，拦截 __puzzle__ 节点
+	DialogueManager.advance_interceptor = _on_dialogue_advance_intercept
+	DialogueManager.dialogue_finished.connect(_on_ending_part2_finished, CONNECT_ONE_SHOT)
 	DialogueManager.start_dialogue(Ch2Ending.DATA, "start")
 
-# ==================== 结局：解锁第三章并返回关卡选择 ====================
-func _on_ending_finished() -> void:
+# ==================== 对话推进拦截：捕获 __puzzle__ ====================
+func _on_dialogue_advance_intercept(next_id: String) -> bool:
+	"""返回 true 表示已拦截（DialogueManager 不继续推进）"""
+	if next_id == "__puzzle__":
+		_state = State.PUZZLE2
+		DialogueManager.pause_dialogue()
+		_puzzle_ui.show()
+		register_panel_open(_puzzle_ui)
+		return true
+	return false
+
+# ==================== UI/1 推理板完成（对话中途）====================
+func _on_puzzle2_solved() -> void:
+	_puzzle_ui.hide()
+	_state = State.ENDING_PART2
+	DialogueManager.resume_dialogue("post_puzzle")
+
+# ==================== 结局第二段结束 → 完成章节 ====================
+func _on_ending_part2_finished() -> void:
+	DialogueManager.advance_interceptor = Callable()
 	GameStateManager.complete_chapter(2)
 	SceneTransitionManager.change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")

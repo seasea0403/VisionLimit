@@ -8,6 +8,9 @@ signal advance_requested(next_id: String, record_key: String, record_value: Stri
 @onready var continue_button: Button = $ContinueButton
 @onready var choices_container: VBoxContainer = $Background/ChoicesContainer
 @onready var portrait_rect: TextureRect = $PortraitRect
+@onready var portrait_rect2: TextureRect = $PortraitRect2
+@onready var portrait_head: TextureRect = $PortraitHead
+@onready var background: TextureRect = $Background
 
 const CHOICE_BUTTON_SCENE := preload("res://Game/UI/DialoguePanel/ChoiceButton.tscn")
 
@@ -18,6 +21,11 @@ var _current_record_value: String = ""
 
 
 func _ready() -> void:
+	# 对话框文字和按钮始终在最顶层
+	dialogue_text.z_index = 2
+	continue_button.z_index = 2
+	# Background 默认 z_index = 0，立绘通过 z_index 控制在其上方或下方
+	background.z_index = 0
 	continue_button.pressed.connect(_on_continue_pressed)
 	continue_button.hide()
 	choices_container.hide()
@@ -26,7 +34,17 @@ func load_node(node_data: Dictionary) -> void:
 	speaker_name.text = node_data.get("speaker", "")
 	dialogue_text.text = node_data.get("text", "")
 
-	# 立绘切换
+	# 大头立绘（portrait_head）：存在时隐藏左右两个立绘
+	var head_path: String = node_data.get("portrait_head", "")
+	if head_path != "":
+		portrait_head.texture = load(head_path)
+		portrait_head.show()
+		portrait_rect.hide()
+		portrait_rect2.hide()
+	else:
+		portrait_head.hide()
+
+	# 左侧立绘
 	var portrait_path: String = node_data.get("portrait", "")
 	if portrait_path != "":
 		portrait_rect.texture = load(portrait_path)
@@ -34,6 +52,46 @@ func load_node(node_data: Dictionary) -> void:
 	else:
 		portrait_rect.texture = null
 		portrait_rect.hide()
+
+	# 右侧立绘（双人布局）
+	var portrait_path2: String = node_data.get("portrait_right", "")
+	if portrait_path2 != "":
+		portrait_rect2.texture = load(portrait_path2)
+		portrait_rect2.show()
+	else:
+		portrait_rect2.hide()
+
+	# 层级控制：active_side 决定哪侧立绘在 Background 上方（z=1），哪侧在下方（z=-1）
+	# "left"  → 左上右下  "right" → 右上左下
+	# "none"  → 两侧都在下方  ""      → 两侧都在上方（旧行为）
+	const DIM := Color(0.4, 0.4, 0.4, 1.0)
+	const BRIGHT := Color(1.0, 1.0, 1.0, 1.0)
+	var active_side: String = node_data.get("active_side", "")
+	match active_side:
+		"left":
+			portrait_rect.z_index = 1
+			portrait_rect2.z_index = -1
+			portrait_rect.modulate = BRIGHT
+			portrait_rect2.modulate = DIM
+			dialogue_text.position.x = 400
+		"right":
+			portrait_rect.z_index = -1
+			portrait_rect2.z_index = 1
+			portrait_rect.modulate = DIM
+			portrait_rect2.modulate = BRIGHT
+			dialogue_text.position.x = 270
+		"none":
+			portrait_rect.z_index = -1
+			portrait_rect2.z_index = -1
+			portrait_rect.modulate = DIM
+			portrait_rect2.modulate = DIM
+			dialogue_text.position.x = 270
+		_:
+			portrait_rect.z_index = 1
+			portrait_rect2.z_index = 1
+			portrait_rect.modulate = BRIGHT
+			portrait_rect2.modulate = BRIGHT
+			dialogue_text.position.x = 270
 
 	continue_button.hide()
 	_clear_choices()
@@ -98,6 +156,13 @@ func _show_response(response_text: String, portrait_path: String, next_id: Strin
 	else:
 		portrait_rect.texture = null
 		portrait_rect.hide()
+	# 选项回应时：沈意在左说话，左上右下
+	dialogue_text.position.x = 400
+	if portrait_rect2.visible:
+		portrait_rect.z_index = 1
+		portrait_rect2.z_index = -1
+		portrait_rect.modulate = Color(1.0, 1.0, 1.0, 1.0)
+		portrait_rect2.modulate = Color(0.4, 0.4, 0.4, 1.0)
 	_current_next_id = next_id
 	_current_record_key = record_key
 	_current_record_value = record_value

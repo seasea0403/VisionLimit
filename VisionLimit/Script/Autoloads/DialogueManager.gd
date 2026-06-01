@@ -8,6 +8,10 @@ const PANEL_SCENE_PATH := "res://Game/UI/DialoguePanel/DialoguePanel.tscn"
 var _panel: Node = null
 var _dialogue_nodes: Dictionary = {}
 
+## 可选拦截器：Callable(next_id: String) -> bool
+## 返回 true 表示已拦截（DialogueManager 不继续推进），返回 false 则正常推进
+var advance_interceptor: Callable
+
 ## 当前是否有对话框正在显示（供 ClickableArea/Item/Video 屏蔽穿透点击用）
 var is_active: bool:
 	get: return is_instance_valid(_panel) and _panel.visible
@@ -32,6 +36,11 @@ func advance(next_id: String, record_key: String = "", record_value: String = ""
 	if record_key != "":
 		GameStateManager.set_record(record_key, record_value)
 
+	# 拦截器优先处理（用于 __puzzle__ 等特殊节点）
+	if advance_interceptor.is_valid():
+		if advance_interceptor.call(next_id):
+			return
+
 	# "__exit__" 表示玩家选择退出对话继续探索，仅关闭面板，不发 dialogue_finished 信号
 	if next_id == "__exit__":
 		if is_instance_valid(_panel):
@@ -42,6 +51,23 @@ func advance(next_id: String, record_key: String = "", record_value: String = ""
 		_end_dialogue()
 	else:
 		_go_to_node(next_id)
+
+
+func pause_dialogue() -> void:
+	"""暂停对话面板（隐藏但不结束，不发 dialogue_finished）"""
+	if is_instance_valid(_panel):
+		_panel.hide()
+
+
+func resume_dialogue(node_id: String) -> void:
+	"""从指定节点恢复对话（重新显示面板）"""
+	if not is_instance_valid(_panel):
+		var scene: PackedScene = load(PANEL_SCENE_PATH)
+		_panel = scene.instantiate()
+		get_tree().current_scene.add_child(_panel)
+		_panel.advance_requested.connect(advance)
+	_panel.show()
+	_go_to_node(node_id)
 
 
 func _go_to_node(node_id: String) -> void:

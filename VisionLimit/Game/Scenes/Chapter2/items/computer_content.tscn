@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dspssbejs5wy8"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_6x1p0"]
+[ext_resource type="Texture2D" uid="uid://bjhstg4xltp88" path="res://Art/Scenes/Scene2/UI/visitrecord.png" id="2_6x1p0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(4.7836227, 4.69983)
+
+[node name="bag" unique_id=223355110 instance=ExtResource("1_6x1p0")]
+item_id = "1"
+item_name = "访客记录"
+detail_image = ExtResource("2_6x1p0")
+description = "我和郑和平见过？郑和平，郑和平为什么在医院。我...我真的去拜访过她吗？11次，我不可能平白无故地过去，谁让我去的？是工作委托吗？为什么我不记得有这段记忆.....是被删去了吗？"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(824.99994, 548.00006)
+rotation = -0.3871058
+scale = Vector2(16.66317, 13.6)
+shape = SubResource("RectangleShape2D_rm26b")
