@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b2ns7fxew6xqo"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_nbek6"]
+[ext_resource type="Texture2D" uid="uid://cj2dt4ipyes8t" path="res://Art/Scenes/Scene4/第三章（档案室）/3-陈星河与郑和平的合影.png" id="2_7krdn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(39.029915, 13.172719)
+
+[node name="photo" unique_id=223355110 instance=ExtResource("1_nbek6")]
+item_id = "19"
+item_name = "合照"
+detail_image = ExtResource("2_7krdn")
+description = "这是郑和平...旁边这个...是她的女儿吗？"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(177, 472.00003)
+rotation = 0.025370391
+scale = Vector2(32.109863, 23.993809)
+shape = SubResource("RectangleShape2D_rm26b")

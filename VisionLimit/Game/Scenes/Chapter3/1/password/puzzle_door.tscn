@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://d0iqvq87rwkl7"]
 
-[ext_resource type="Script" uid="uid://q2ho3hiqe352" path="res://Script/UI/password_panel.gd" id="1_hv27d"]
-[ext_resource type="AudioStream" uid="uid://q0u3yxfxoavj" path="res://Audio/SFX/Click.mp3" id="2_shk0q"]
+[ext_resource type="Script" uid="uid://lx6dc3tlm54s" path="res://Game/Scenes/Chapter3/1/password/puzzle_door.gd" id="1_hv27d"]
 [ext_resource type="FontFile" uid="uid://bvl8ulxuys0rb" path="res://Font/华文隶书.TTF" id="3_4jc7x"]
-[ext_resource type="StyleBox" uid="uid://cbagne1a0b20q" path="res://Style/password.tres" id="4_gwxlh"]
+[ext_resource type="Texture2D" uid="uid://by2bon5amq7f3" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-病房门密码锁.png" id="3_gwxlh"]
+[ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="5_shk0q"]
 
 [sub_resource type="FontFile" id="FontFile_vswdk"]
 subpixel_positioning = 0
@@ -188,206 +188,199 @@ cache/0/36/0/underline_position = 0.0
 cache/0/36/0/underline_thickness = 0.0
 cache/0/36/0/scale = 1.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7j1r"]
-bg_color = Color(0.19852564, 0.37625048, 0.5684453, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.14901961, 0.3019608, 0.44705883, 1)
-corner_radius_top_left = 24
-corner_radius_top_right = 24
-corner_radius_bottom_right = 24
-corner_radius_bottom_left = 24
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_clear"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xghp"]
-bg_color = Color(0.31049502, 0.52397877, 0.75791776, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.14901961, 0.3019608, 0.44705883, 1)
-corner_radius_top_left = 24
-corner_radius_top_right = 24
-corner_radius_bottom_right = 24
-corner_radius_bottom_left = 24
-
-[node name="PasswordPanel" type="Container" unique_id=1904747298]
-anchors_preset = -1
-offset_left = 542.0
-offset_top = 212.0
-offset_right = 542.0
-offset_bottom = 302.0
+[node name="PasswordPanel" type="Control" unique_id=1855487618]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 394.0
+offset_top = 131.0
+offset_right = 394.0
+offset_bottom = 221.0
 size_flags_horizontal = 4
 script = ExtResource("1_hv27d")
-click_sound = ExtResource("2_shk0q")
 
 [node name="background" type="TextureRect" parent="." unique_id=1996196112]
-layout_mode = 2
+layout_mode = 0
+offset_left = -278.0
+offset_top = -77.00001
+offset_right = 2922.0
+offset_bottom = 1723.0
+scale = Vector2(0.5239399, 0.5239399)
+texture = ExtResource("3_gwxlh")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1399859477]
-layout_mode = 2
+layout_mode = 0
 color = Color(1, 1, 1, 0)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1592428207]
-custom_minimum_size = Vector2(800, 700)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 16
-alignment = 1
-
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1677869521]
-layout_mode = 2
+[node name="Label" type="Label" parent="." unique_id=1677869521]
+layout_mode = 0
+offset_left = 463.0
+offset_top = 145.0
+offset_right = 623.0
+offset_bottom = 200.0
 size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontFile_vswdk")
 theme_override_font_sizes/font_size = 40
 text = "输入密码"
+horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1722708654]
-layout_mode = 2
+[node name="Label2" type="Label" parent="." unique_id=1722708654]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 219.0
+offset_right = 624.0
+offset_bottom = 251.0
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_4jc7x")
 theme_override_font_sizes/font_size = 30
 text = "结果"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="Control" parent="." unique_id=1152798077]
+custom_minimum_size = Vector2(800, 700)
+anchors_preset = 0
+offset_left = 137.0
+offset_top = 96.0
+offset_right = 937.0
+offset_bottom = 796.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer" unique_id=2087379970]
-layout_mode = 2
+layout_mode = 0
+offset_left = 243.0
+offset_top = 231.0
+offset_right = 557.0
+offset_bottom = 587.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_constants/h_separation = 37
+theme_override_constants/v_separation = 12
 columns = 3
 
 [node name="Button" type="Button" parent="VBoxContainer/GridContainer" unique_id=1373138009]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_wnosh")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("4_gwxlh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m7j1r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3xghp")
-text = "1"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clear")
 
 [node name="Button2" type="Button" parent="VBoxContainer/GridContainer" unique_id=1152237604]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_wnosh")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("4_gwxlh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m7j1r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3xghp")
-text = "2"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clear")
 
 [node name="Button3" type="Button" parent="VBoxContainer/GridContainer" unique_id=13826791]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_wnosh")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("4_gwxlh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m7j1r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3xghp")
-text = "3"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clear")
 
 [node name="Button4" type="Button" parent="VBoxContainer/GridContainer" unique_id=919363032]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_wnosh")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("4_gwxlh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m7j1r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3xghp")
-text = "4"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clear")
 
 [node name="Button5" type="Button" parent="VBoxContainer/GridContainer" unique_id=2132126018]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_wnosh")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("4_gwxlh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m7j1r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3xghp")
-text = "5"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clear")
 
 [node name="Button6" type="Button" parent="VBoxContainer/GridContainer" unique_id=1690885823]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_wnosh")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("4_gwxlh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m7j1r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3xghp")
-text = "6"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clear")
 
 [node name="Button7" type="Button" parent="VBoxContainer/GridContainer" unique_id=725034184]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_wnosh")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("4_gwxlh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m7j1r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3xghp")
-text = "7"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clear")
 
 [node name="Button8" type="Button" parent="VBoxContainer/GridContainer" unique_id=636080802]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_wnosh")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("4_gwxlh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m7j1r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3xghp")
-text = "8"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clear")
 
 [node name="Button9" type="Button" parent="VBoxContainer/GridContainer" unique_id=1850733258]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_wnosh")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("4_gwxlh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m7j1r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3xghp")
-text = "9"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clear")
 
 [node name="Button10" type="Button" parent="VBoxContainer/GridContainer" unique_id=2130959184]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_wnosh")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("4_gwxlh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m7j1r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3xghp")
-text = "√"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clear")
 
 [node name="Button11" type="Button" parent="VBoxContainer/GridContainer" unique_id=1653779872]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_wnosh")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = ExtResource("4_gwxlh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m7j1r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3xghp")
-text = "0"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clear")
 
 [node name="Button12" type="Button" parent="VBoxContainer/GridContainer" unique_id=370239299]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_wnosh")
 theme_override_font_sizes/font_size = 42
-theme_override_styles/normal = ExtResource("4_gwxlh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m7j1r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3xghp")
-text = "⌫"
+theme_override_styles/normal = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_clear")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_clear")
 
-[node name="BackButton" type="Button" parent="VBoxContainer" unique_id=587341209]
-visible = false
-custom_minimum_size = Vector2(330, 60)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = SubResource("FontFile_wnosh")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("4_gwxlh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_m7j1r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3xghp")
-text = "返回"
+[node name="back" parent="." unique_id=2074814427 instance=ExtResource("5_shk0q")]
+position = Vector2(-380, -129)
 
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button" to="." method="_on_digit_pressed" binds= ["1"]]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button2" to="." method="_on_digit_pressed" binds= ["2"]]
@@ -398,7 +391,8 @@ text = "返回"
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button7" to="." method="_on_digit_pressed" binds= ["7"]]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button8" to="." method="_on_digit_pressed" binds= ["8"]]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button9" to="." method="_on_digit_pressed" binds= ["9"]]
-[connection signal="pressed" from="VBoxContainer/GridContainer/Button10" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button10" to="." method="_on_delete_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button11" to="." method="_on_digit_pressed" binds= ["0"]]
-[connection signal="pressed" from="VBoxContainer/GridContainer/Button12" to="." method="_on_delete_pressed"]
-[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="close"]
+[connection signal="pressed" from="VBoxContainer/GridContainer/Button12" to="." method="_on_confirm_pressed"]
+
+[editable path="back"]

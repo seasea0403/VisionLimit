@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b5s4ivoxmq0cy" path="res://Art/Scenes/Scene5/Elements/cup.png" id="2_o8o16"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbicw"]
-size = Vector2(8.792854, 35.6203)
+size = Vector2(13.373119, 42.094086)
 
 [node name="dialogue" unique_id=223355110 instance=ExtResource("1_0jiyn")]
 item_id = "2"

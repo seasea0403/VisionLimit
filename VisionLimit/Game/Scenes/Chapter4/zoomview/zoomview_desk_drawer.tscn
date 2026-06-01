@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cx3mpsu2qrj3x"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_3gi71"]
+[ext_resource type="Texture2D" uid="uid://bboau8hqme1s4" path="res://Art/Scenes/Scene4/第三章（档案室）/3-抽屉近景.png" id="2_rshfj"]
+[ext_resource type="PackedScene" uid="uid://b2ns7fxew6xqo" path="res://Game/Scenes/Chapter4/items/photo.tscn" id="3_r8fn0"]
+[ext_resource type="Script" uid="uid://c2zmdeskdrawer" path="res://Script/Components/zoomview_desk_drawer.gd" id="4_dkscr"]
+
+[node name="Zoomview_desk" unique_id=198920514 instance=ExtResource("1_3gi71")]
+script = ExtResource("4_dkscr")
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+position = Vector2(960.00006, 540.00006)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_rshfj")
+
+[node name="photo" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_r8fn0")]
+
+[node name="CollisionShape2D" parent="Items/photo" index="0" unique_id=398543410]
+position = Vector2(867.58777, 699.123)
+
+[editable path="Items/photo"]

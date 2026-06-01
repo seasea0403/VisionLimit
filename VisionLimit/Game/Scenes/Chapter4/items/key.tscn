@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://uoob8crha8uv"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_kisr3"]
+[ext_resource type="Texture2D" uid="uid://b0a842vtgleul" path="res://Art/Scenes/Scene4/第三章（档案室）/3-钥匙.png" id="2_c405l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(3.2426038, 4.7747483)
+
+[node name="key" unique_id=223355110 instance=ExtResource("1_kisr3")]
+item_id = "1"
+item_name = "一把钥匙"
+detail_image = ExtResource("2_c405l")
+description = "这是哪个锁的钥匙呢？"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(177, 472.00003)
+rotation = 0.025370391
+scale = Vector2(32.109863, 23.993809)
+shape = SubResource("RectangleShape2D_rm26b")

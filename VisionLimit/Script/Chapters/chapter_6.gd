@@ -16,9 +16,9 @@ var _black_overlay: ColorRect
 var _overlay_layer: CanvasLayer
 
 func _ready() -> void:
+	is_chapter_continuation = true
+	chapter_number = 5
 	super._ready()
-	GameStateManager.set_current_chapter(6)
-	GameStateManager.reset_chapter_items(6)
 
 	# 获取所有舞台节点
 	_stages = $Stages.get_children()
@@ -136,4 +136,5 @@ func _start_memory_dialogue() -> void:
 
 func _on_memory_dialogue_finished() -> void:
 	GameStateManager.set_record("ch5_memory_completed", "1")
+	GameStateManager.complete_chapter(5)
 	SceneTransitionManager.change_scene_to_file("res://Game/Scenes/Chapter5/chapter_5.tscn")

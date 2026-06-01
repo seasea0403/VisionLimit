@@ -444,6 +444,7 @@ z_index = 100
 layout_mode = 0
 offset_right = 90.0
 offset_bottom = 90.0
+scale = Vector2(5, 5)
 mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5

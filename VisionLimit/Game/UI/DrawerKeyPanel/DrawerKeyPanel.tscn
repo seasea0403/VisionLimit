@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://c8drwkpanel12"]
+
+[ext_resource type="Script" uid="uid://c2k1imu1uiak6" path="res://Script/Components/drawer_key_panel.gd" id="1_dkp"]
+[ext_resource type="Texture2D" uid="uid://cp2r8aupcvxtc" path="res://Art/UI/推理板/方框.png" id="2_dkp"]
+[ext_resource type="Texture2D" uid="uid://j10qn2ws7dg" path="res://Art/UI/推理板/方框部分背景.png" id="3_dkp"]
+[ext_resource type="Texture2D" uid="uid://do0cwo8ke37yr" path="res://Art/UI/推理板/左按键.png" id="4_dkp"]
+[ext_resource type="Texture2D" uid="uid://b1u8afilwhovm" path="res://Art/UI/推理板/右按键.png" id="5_dkp"]
+
+[node name="DrawerKeyPanel" type="Control" unique_id=201010101]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_dkp")
+item_bar_slot_texture = ExtResource("2_dkp")
+
+[node name="DropZone" type="Control" parent="." unique_id=201010102]
+anchors_preset = 0
+offset_left = 720.0
+offset_top = 580.0
+offset_right = 1020.0
+offset_bottom = 820.0
+mouse_filter = 2
+
+[node name="BottomSection" type="Control" parent="." unique_id=201010103]
+anchors_preset = 0
+offset_left = 424.0
+offset_top = 855.0
+offset_right = 1494.0
+offset_bottom = 1010.0
+mouse_filter = 1
+
+[node name="BottomBg" type="TextureRect" parent="BottomSection" unique_id=201010104]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = -14.0
+offset_right = 41.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_dkp")
+expand_mode = 1
+
+[node name="LeftArrow" type="TextureButton" parent="BottomSection" unique_id=201010105]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 28.0
+offset_right = 62.0
+offset_bottom = 158.0
+scale = Vector2(0.6055157, 0.6055157)
+texture_normal = ExtResource("4_dkp")
+
+[node name="ItemScroll" type="ScrollContainer" parent="BottomSection" unique_id=201010106]
+layout_mode = 0
+offset_left = 86.0
+offset_top = 9.0
+offset_right = 1036.0
+offset_bottom = 144.0
+
+[node name="ItemRow" type="HBoxContainer" parent="BottomSection/ItemScroll" unique_id=201010107]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="RightArrow" type="TextureButton" parent="BottomSection" unique_id=201010108]
+layout_mode = 0
+offset_left = 1115.0001
+offset_top = 23.0
+offset_right = 1180.0001
+offset_bottom = 153.0
+scale = Vector2(0.6055157, 0.6055157)
+texture_normal = ExtResource("5_dkp")
+
+[node name="DragPreview" type="TextureRect" parent="." unique_id=201010109]
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 90.0
+scale = Vector2(3, 3)
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
