@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cbgvy14ngek13"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_ood1i"]
+[ext_resource type="Texture2D" uid="uid://sfdsh0kt54sj" path="res://Art/Scenes/Scene6/第四章 （沈意工作室）/合照.png" id="2_saf5o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(14.014701, 29.59144)
+
+[node name="photo" unique_id=223355110 instance=ExtResource("1_ood1i")]
+item_id = "7"
+item_name = "郑和平和苏临的合照"
+detail_image = ExtResource("2_saf5o")
+description = "这是...郑和平和苏临？她们两个早就认识了？"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(753.58887, 355.42795)
+rotation = 0.003573399
+scale = Vector2(16.66317, 13.6)
+shape = SubResource("RectangleShape2D_rm26b")

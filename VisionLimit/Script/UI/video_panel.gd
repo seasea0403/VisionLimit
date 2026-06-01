@@ -12,6 +12,10 @@ extends CanvasLayer
 @export var detail_title: String = ""
 ## ItemDetail 正文（对话内容）
 @export_multiline var detail_description: String = ""
+## 物品图片（显示在详情面板的 ImageDisplay 位置）
+@export var detail_item_image: Texture2D = null
+## 物品 ID（非空且有图片时自动加入物品收藏，SumPanel / InferencePanel 均会刷新）
+@export var detail_item_id: String = ""
 ## 角色立绘（同 ClickableItem 的 character_image 用法一致）
 @export var detail_character_image: Texture2D = null
 
@@ -56,8 +60,8 @@ func _on_video_finished() -> void:
 		var item_detail = get_tree().get_first_node_in_group("item_detail")
 		if item_detail:
 			item_detail.show_detail(
-				null, detail_description, detail_title,
-				false, "", Vector2.ONE, Vector2.ZERO,
+				detail_item_image, detail_description, detail_title,
+				false, detail_item_id, Vector2.ONE, Vector2.ZERO,
 				"", "", "", "",
 				detail_character_image
 			)

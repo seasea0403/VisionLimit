@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cli40ob87wfww"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_0jiyn"]
+[ext_resource type="Texture2D" uid="uid://b5s4ivoxmq0cy" path="res://Art/Scenes/Scene5/Elements/cup.png" id="2_o8o16"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbicw"]
+size = Vector2(8.792854, 35.6203)
+
+[node name="dialogue" unique_id=223355110 instance=ExtResource("1_0jiyn")]
+item_id = "2"
+item_name = "苏临和郑和平的对话"
+detail_image = ExtResource("2_o8o16")
+description = "原来苏临和郑和平还有这层关系..."
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(1451.2288, 773.28687)
+rotation = -0.00436157
+scale = Vector2(15.202802, -5.007276)
+shape = SubResource("RectangleShape2D_dbicw")

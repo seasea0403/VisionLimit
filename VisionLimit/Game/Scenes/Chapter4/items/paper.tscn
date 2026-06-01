@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dfqaxpm6ufxjr"]
 
 [ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_1v4f3"]
-[ext_resource type="Texture2D" uid="uid://beutbujt2m6a1" path="res://Art/Scenes/Scene4/第三章（档案室）/3-鱼缸.png" id="2_spc5g"]
+[ext_resource type="Texture2D" uid="uid://bkg55tjarjfpi" path="res://Art/Scenes/Scene4/第三章（档案室）/3-环保局简介.png" id="2_1v4f3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mb1hh"]
 size = Vector2(2.6305165, 23.628876)
@@ -9,7 +9,7 @@ size = Vector2(2.6305165, 23.628876)
 [node name="paper" unique_id=223355110 instance=ExtResource("1_1v4f3")]
 item_id = "2"
 item_name = "办公室说明"
-detail_image = ExtResource("2_spc5g")
+detail_image = ExtResource("2_1v4f3")
 description = "至少说明我们没有走错地方..."
 can_record = true
 

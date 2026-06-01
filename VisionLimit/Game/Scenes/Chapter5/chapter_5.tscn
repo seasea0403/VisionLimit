@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dh08ghvtyxrkg" path="res://Art/Character/沈意叹气.png" id="5_nqh41"]
 [ext_resource type="Texture2D" uid="uid://dej620f6lg4b3" path="res://Art/Character/魏江张手.png" id="7_w4bja"]
 [ext_resource type="PackedScene" uid="uid://detnxptpgnhtx" path="res://Game/Scenes/Chapter5/items/computer.tscn" id="9_xxd6n"]
+[ext_resource type="FontFile" uid="uid://b0tas48jqyolx" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-ExtraLight.ttf" id="10_neg8u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbfs3"]
 size = Vector2(27.655869, 18.700935)
@@ -75,6 +76,28 @@ character_image = ExtResource("7_w4bja")
 stream = SubResource("AudioStreamMP3_2k8s4")
 volume_db = 4.502
 autoplay = true
+
+[node name="OpeningOverlay" type="CanvasLayer" parent="." index="4" unique_id=512345679]
+layer = 5
+
+[node name="BlackBackground" type="ColorRect" parent="OpeningOverlay" index="0" unique_id=612345679]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LocationLabel" type="Label" parent="OpeningOverlay" index="1" unique_id=712345679]
+offset_left = 820.0
+offset_top = 100.0
+offset_right = 1100.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("10_neg8u")
+theme_override_font_sizes/font_size = 50
+text = "在路上"
+horizontal_alignment = 1
 
 [editable path="UILayer/ItemDetail"]
 [editable path="UILayer/ItemDetail/Control/PrevButton"]

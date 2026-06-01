@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://fcwikt8ri0aq"]
 
 [ext_resource type="Script" uid="uid://oir507y24r33" path="res://Game/UI/NotebookPanel/notebook_panel.gd" id="1_5lnwx"]
-[ext_resource type="Texture2D" uid="uid://mo3htet8ftn8" path="res://Art/UI/Record_book/Book.png" id="1_aobsf"]
+[ext_resource type="Texture2D" uid="uid://cyj13lv6xgdr4" path="res://Art/UI/Record_book/Book.png" id="1_aobsf"]
 [ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="3_7y7sm"]
-[ext_resource type="Texture2D" uid="uid://dyk7cyhmk3cd2" path="res://Art/UI/Choose_Level/level1.png" id="4_3r07s"]
+[ext_resource type="Texture2D" uid="uid://bds24vn6u2n02" path="res://Art/UI/Choose_Level/level1.png" id="4_3r07s"]
 [ext_resource type="FontFile" uid="uid://b0tas48jqyolx" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-ExtraLight.ttf" id="5_q2la6"]
 [ext_resource type="Texture2D" uid="uid://nsera1uydj02" path="res://Art/Character/人物大头/沈意.png" id="6_f81jx"]
 [ext_resource type="FontFile" uid="uid://bnsrpukraxd3g" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-Regular.ttf" id="7_8rs4v"]

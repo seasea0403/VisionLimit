@@ -1,15 +1,47 @@
 extends "res://Script/Chapters/chapter.gd"
 
 const Ch5End = preload("res://Script/Dialogues/ch5_end.gd")
+const Ch5Intro = preload("res://Script/Dialogues/ch5_intro.gd")
+const Ch5SceneIntro = preload("res://Script/Dialogues/ch5_scene_intro.gd")
 var confirm_panel_scene = preload("res://Game/Scenes/Chapter6/UI/confirmpanel.tscn")
 var _confirm_panel_instance: Node = null
+
+## 开场黑屏覆盖层
+var _opening_overlay: CanvasLayer = null
+
 
 func _ready() -> void:
 	super._ready()
 	GameStateManager.set_current_chapter(5)
 	GameStateManager.reset_chapter_items(5)
-	
-	# 如果记忆海已经完成
+
+	_opening_overlay = get_node_or_null("OpeningOverlay") as CanvasLayer
+
+	# 隐藏场景和 HUD，等待开场对话结束
+	zoom_views_root.hide()
+	ui_layer.hide()
+
+	# 启动路上黑屏对话
+	if not DialogueManager.dialogue_finished.is_connected(_on_intro_finished):
+		DialogueManager.dialogue_finished.connect(_on_intro_finished, CONNECT_ONE_SHOT)
+	DialogueManager.start_dialogue(Ch5Intro.DATA, "start")
+
+
+# ==================== 路上对话完成 ====================
+func _on_intro_finished() -> void:
+	if is_instance_valid(_opening_overlay):
+		_opening_overlay.hide()
+	zoom_views_root.show()
+	# 启动工作室入场对话，HUD 仍隐藏
+	if not DialogueManager.dialogue_finished.is_connected(_on_scene_intro_finished):
+		DialogueManager.dialogue_finished.connect(_on_scene_intro_finished, CONNECT_ONE_SHOT)
+	DialogueManager.start_dialogue(Ch5SceneIntro.DATA, "start")
+
+
+# ==================== 工作室入场对话完成 ====================
+func _on_scene_intro_finished() -> void:
+	ui_layer.show()
+	# 如果记忆海已经完成，直接播放结局对话
 	if GameStateManager.get_record("ch5_memory_completed") == "1":
 		_play_end_dialogue()
 	else:
