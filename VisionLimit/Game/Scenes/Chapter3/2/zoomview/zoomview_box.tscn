@@ -1,14 +1,30 @@
 [gd_scene format=3 uid="uid://c8a7aq2nat4qf"]
 
 [ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_kujmo"]
-[ext_resource type="Texture2D" uid="uid://dpb8ocjxwmmy5" path="res://Art/Scenes/Scene3/Zoomview_2/box.jpg" id="2_cbor8"]
+[ext_resource type="Texture2D" uid="uid://b5yctyrvhuorp" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-黄鱼近景.png" id="2_v6kuv"]
 [ext_resource type="PackedScene" uid="uid://tsn0fvwfqxx3" path="res://Game/Scenes/Chapter3/2/items/tag.tscn" id="3_v6kuv"]
+[ext_resource type="PackedScene" uid="uid://y2ptpxueaib0" path="res://Game/Scenes/Chapter3/2/items/fish.tscn" id="4_otkur"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhe10"]
+size = Vector2(30.652431, 9.676893)
 
 [node name="Zoomview_box" unique_id=198920514 instance=ExtResource("1_kujmo")]
 
 [node name="Background" parent="." index="0" unique_id=698713652]
 position = Vector2(960.00006, 540.00006)
-scale = Vector2(1.124, 1.124)
-texture = ExtResource("2_cbor8")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_v6kuv")
 
-[node name="paint" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_v6kuv")]
+[node name="tag" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_v6kuv")]
+position = Vector2(-40, -54)
+scale = Vector2(1.3964432, 1.3964432)
+
+[node name="fish" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="1" unique_id=2048691584 instance=ExtResource("4_otkur")]
+
+[node name="CollisionShape2D" parent="Items/fish" index="0" unique_id=398543410]
+position = Vector2(856.8977, 266.92273)
+rotation = 0.01515013
+scale = Vector2(32.109863, 23.993816)
+shape = SubResource("RectangleShape2D_vhe10")
+
+[editable path="Items/fish"]

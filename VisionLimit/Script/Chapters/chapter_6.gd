@@ -16,6 +16,8 @@ var _overlay_layer: CanvasLayer
 
 func _ready() -> void:
 	super._ready()
+	GameStateManager.set_current_chapter(6)
+	GameStateManager.reset_chapter_items(6)
 	item_detail.detail_opened.connect(_on_detail_opened)
 	
 	# 这里监听玩家自己关闭详情面板的信号

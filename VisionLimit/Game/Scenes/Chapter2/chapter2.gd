@@ -32,9 +32,16 @@ var _door_lock_entry: Node2D   = null
 
 var _record_player: Control = null
 
+# 录音是否已在本次章节中完整播放过（每次进入章节重置）
+var _recording_done: bool = false
+# 重播前保存的状态（播完后还原）
+var _state_before_replay: State = State.EXPLORE
+
 # ==================== 初始化 ====================
 func _ready() -> void:
 	super._ready()
+	GameStateManager.set_current_chapter(2)
+	GameStateManager.reset_chapter_items(2)
 
 	# 实例化并挂载 RecordPlayer 到 UILayer
 	_record_player = RECORD_PLAYER_SCENE.instantiate()
@@ -56,6 +63,10 @@ func _ready() -> void:
 	item_detail.detail_opened.connect(_on_detail_opened)
 	_open_record_btn.get_node("TextureButton").pressed.connect(_on_open_record_pressed)
 	item_detail.panel_closed.connect(_on_item_detail_closed)
+
+	# 录音笔在听完录音前不自动加入物品栏（每次进入章节重置）
+	item_detail.no_auto_inventory_ids.clear()
+	item_detail.no_auto_inventory_ids.append("3")
 
 	# 开锁小游戏和门锁节点
 	_lockpick_minigame = get_node_or_null("UILayer/LockpickMinigame")
@@ -97,8 +108,8 @@ func _on_detail_opened(item_id: String) -> void:
 	_open_record_btn.visible = false
 	match item_id:
 		"3":
-			# 录音笔：EXPLORE 阶段显示「打开录音」按钮
-			if _state == State.EXPLORE:
+			# 录音笔：探索阶段或录音完成后均显示「打开录音」按钮（播放中除外）
+			if _state == State.EXPLORE or _state >= State.TRANSCRIPT_DONE:
 				_open_record_btn.visible = true
 
 func _on_item_detail_closed() -> void:
@@ -157,7 +168,15 @@ func _on_lockpick_failed() -> void:
 # ==================== 本地按钮：录音笔「打开录音」====================
 func _on_open_record_pressed() -> void:
 	item_detail.close_detail()
-	_password_panel.open()
+	if _recording_done:
+		# 已解锁：保存当前状态后直接重播
+		_state_before_replay = _state
+		_state = State.RECORD_PLAYING
+		if _hud_panel:
+			_hud_panel.hide()
+		_record_player.start_playback(_record_audio)
+	else:
+		_password_panel.open()
 
 # ==================== 密码解锁 → 播放录音 ====================
 func _on_password_correct() -> void:
@@ -169,7 +188,17 @@ func _on_password_correct() -> void:
 	_record_player.start_playback(_record_audio)
 
 func _on_record_playback_done() -> void:
-	_state = State.TRANSCRIPT_DONE
+	if not _recording_done:
+		# 第一次播放完成：解锁物品栏入库
+		_recording_done = true
+		item_detail.no_auto_inventory_ids.erase("3")
+		var voice_node = get_node_or_null("ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items/Voice")
+		if voice_node:
+			GameStateManager.add_inventory_item("3", voice_node.item_name, voice_node.description, voice_node.detail_image)
+		_state = State.TRANSCRIPT_DONE
+	else:
+		# 重播完成：恢复之前的状态
+		_state = _state_before_replay
 	if _hud_panel:
 		_hud_panel.show()
 

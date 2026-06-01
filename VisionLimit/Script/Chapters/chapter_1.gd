@@ -7,6 +7,8 @@ var _email_panel: Control = null
 # ==================== 初始化 ====================
 func _ready() -> void:
 	super._ready()
+	GameStateManager.set_current_chapter(1)
+	GameStateManager.reset_chapter_items(1)
 	# 连接推理板信号
 	if inference_panel:
 		if inference_panel.has_signal("inference_success") and \

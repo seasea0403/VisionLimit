@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://3cbnjdknbmt" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-黄色牌子 在左侧台子上.png" id="2_jrfpx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbicw"]
-size = Vector2(10.031039, 22.167746)
+size = Vector2(4.10977, 13.524664)
 
 [node name="yellow_information" unique_id=223355110 instance=ExtResource("1_jrfpx")]
 item_id = "2"

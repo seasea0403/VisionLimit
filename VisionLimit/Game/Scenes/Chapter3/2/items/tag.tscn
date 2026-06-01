@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_by3t1"]
 size = Vector2(317.75, 202)
 
-[node name="paint" unique_id=223355110 instance=ExtResource("1_74hkt")]
+[node name="tag" unique_id=223355110 instance=ExtResource("1_74hkt")]
 item_id = "3"
 item_name = "标签"
 detail_image = ExtResource("2_74hkt")

@@ -16,8 +16,19 @@ var inference_panel: Control
 var _panel_stack: Array[Node] = []
 var stop_panel: Node = null
 
+## 当前章节编号（由子类在 super._ready() 前赋值）
+var chapter_number: int = 0
+## 多场景章节的后续场景（如 chapter_3_2、chapter_7_2_A/C）设为 true，
+## 以避免进入时清空本章已收集物品
+var is_chapter_continuation: bool = false
+
 
 func _ready():
+	# 向 GameStateManager 注册当前章节编号；若为多场景章节的续集则不清空物品
+	if chapter_number > 0:
+		GameStateManager.set_current_chapter(chapter_number)
+		if not is_chapter_continuation:
+			GameStateManager.reset_chapter_items(chapter_number)
 	# 进入任意章节时停止跨场景全局音乐（结局音乐等），让本章节 SceneBgm 主导
 	GameStateManager.stop_global_music()
 	zoom_views_root.show()

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://y2ptpxueaib0"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_6qcpa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(18.387077, 25.294561)
+
+[node name="fish" unique_id=223355110 instance=ExtResource("1_6qcpa")]
+item_id = "1"
+item_name = "鱼"
+description = "这一批鱼看起来格外大。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(872, 640)
+rotation = 0.2906434
+scale = Vector2(32.109863, 23.993809)
+shape = SubResource("RectangleShape2D_rm26b")

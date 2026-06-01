@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b16sxepm5q75v"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_kwske"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(18.387077, 25.294561)
+
+[node name="boat" unique_id=223355110 instance=ExtResource("1_kwske")]
+item_id = "1"
+item_name = "船"
+description = "小时候我跟妈妈来码头的时候，当时用的也是这种船，这么多年都没变。这艘船已经回港了。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(872, 640)
+rotation = 0.2906434
+scale = Vector2(32.109863, 23.993809)
+shape = SubResource("RectangleShape2D_rm26b")

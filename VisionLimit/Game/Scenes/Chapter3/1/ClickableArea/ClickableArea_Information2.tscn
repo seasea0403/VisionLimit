@@ -13,6 +13,11 @@ scale = Vector2(16.812447, 53.536106)
 [node name="Zoomview_information2" parent="." index="1" unique_id=198920514 instance=ExtResource("3_w7612")]
 
 [node name="ClickableArea_Book" parent="Zoomview_information2" index="2" unique_id=1437686243 instance=ExtResource("3_knw70")]
-position = Vector2(-235, 6)
+position = Vector2(404, 98)
+
+[node name="Zoomview" parent="Zoomview_information2/ClickableArea_Book" index="1" unique_id=198920514]
+position = Vector2(-403, -121)
 
 [editable path="Zoomview_information2"]
+[editable path="Zoomview_information2/ClickableArea_Book"]
+[editable path="Zoomview_information2/ClickableArea_Book/Zoomview"]

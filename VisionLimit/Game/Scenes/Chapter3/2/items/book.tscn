@@ -1,16 +1,17 @@
 [gd_scene format=3 uid="uid://dbrli3a0k5of8"]
 
 [ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_ylh4d"]
-[ext_resource type="Texture2D" uid="uid://cm6i3udq361y7" path="res://Art/Scenes/Scene3/Elements_2/book.png" id="2_ylh4d"]
-[ext_resource type="Texture2D" uid="uid://uoiqjivkurrl" path="res://Art/Scenes/Scene3/Elements_2/book_back.png" id="3_ylh4d"]
+[ext_resource type="Texture2D" uid="uid://bbclxr2xg5qbo" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-码头日记本2.png" id="2_ylh4d"]
+[ext_resource type="Texture2D" uid="uid://b723tnyl2b2ct" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-码头日记本1.png" id="3_ylh4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
 size = Vector2(18.942345, 32.041733)
 
 [node name="book" unique_id=223355110 instance=ExtResource("1_ylh4d")]
 item_id = "1"
-item_name = "魏江的笔记本"
+item_name = "日记本"
 detail_image = ExtResource("2_ylh4d")
+description = "这是妈妈的日记？"
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
 position = Vector2(872, 640)

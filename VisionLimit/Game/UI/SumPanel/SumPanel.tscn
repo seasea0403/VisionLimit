@@ -3,16 +3,32 @@
 [ext_resource type="Script" uid="uid://exy6673ig511" path="res://Game/UI/SumPanel/sum_panel.gd" id="1_script"]
 [ext_resource type="Script" uid="uid://c6ku8287ro7tx" path="res://Game/UI/SumPanel/record_page.gd" id="2_record_page"]
 [ext_resource type="Texture2D" uid="uid://crbdflqqo1wup" path="res://Art/UI/物品栏/IMG_3317.PNG" id="3_l2rhg"]
-[ext_resource type="Texture2D" uid="uid://dsrnxvlyh5xca" path="res://Art/UI/物品栏/IMG_3311.PNG" id="4_ojsed"]
-[ext_resource type="Texture2D" uid="uid://rpha1wpkn08h" path="res://Art/UI/物品栏/IMG_3330.PNG" id="4_slotframe"]
+[ext_resource type="Texture2D" uid="uid://b31pwtsomolgb" path="res://Art/UI/物品栏/IMG_3311.PNG" id="4_ojsed"]
+[ext_resource type="Texture2D" uid="uid://b6lais5oxtded" path="res://Art/UI/物品栏/IMG_3330.PNG" id="4_slotframe"]
 [ext_resource type="Texture2D" uid="uid://bsww6p6v5vx3y" path="res://Art/UI/物品栏/up.PNG" id="5_w6vm8"]
 [ext_resource type="Texture2D" uid="uid://blgoyyheqpkxi" path="res://Art/UI/物品栏/down.PNG" id="6_wgsk3"]
-[ext_resource type="Texture2D" uid="uid://bjiquksvw5um" path="res://Art/UI/物品栏/IMG_3328.PNG" id="7_q03ph"]
+[ext_resource type="Texture2D" uid="uid://ggofdwdlm3pb" path="res://Art/UI/物品栏/IMG_3328.PNG" id="7_q03ph"]
 [ext_resource type="FontFile" uid="uid://c3mexkpdyf8ag" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-Bold.ttf" id="8_eaw37"]
 [ext_resource type="FontFile" uid="uid://bnsrpukraxd3g" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-Regular.ttf" id="9_r0a7a"]
-[ext_resource type="Texture2D" uid="uid://dyxlpwwcnkqgc" path="res://Art/UI/物品栏/IMG_3314.PNG" id="10_q03ph"]
-[ext_resource type="Texture2D" uid="uid://dlupw1nayxnui" path="res://Art/UI/物品栏/IMG_3312.PNG" id="11_eaw37"]
+[ext_resource type="Texture2D" uid="uid://chv1tx5jr5q5o" path="res://Art/UI/物品栏/IMG_3314.PNG" id="10_q03ph"]
+[ext_resource type="Texture2D" uid="uid://cdrtc6ypy6d1n" path="res://Art/UI/物品栏/IMG_3312.PNG" id="11_eaw37"]
 [ext_resource type="FontFile" uid="uid://cwjfcn0dqtqs0" path="res://Font/源云明体/GenWanMinJP-Medium（源云明体）.ttf" id="13_xkcc4"]
+
+[sub_resource type="FontFile" id="FontFile_xkcc4"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wk5w2"]
 texture = ExtResource("5_w6vm8")
@@ -120,6 +136,38 @@ offset_top = -59.999992
 offset_right = 353.0
 offset_bottom = 530.0
 scale = Vector2(1.268405, 1.268405)
+
+[node name="ChapterNavRow" type="HBoxContainer" parent="PanelAnchor/LeftSection" unique_id=229338458]
+layout_mode = 0
+offset_left = 237.30592
+offset_top = -11.825877
+offset_right = 437.3059
+offset_bottom = 28.174122
+scale = Vector2(1.5947356, 1.5947356)
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="PrevBtn" type="Button" parent="PanelAnchor/LeftSection/ChapterNavRow" unique_id=565716724]
+custom_minimum_size = Vector2(38, 34)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "◀"
+flat = true
+
+[node name="ChapterLabel" type="Label" parent="PanelAnchor/LeftSection/ChapterNavRow" unique_id=1468524618]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_xkcc4")
+text = "第1章"
+horizontal_alignment = 1
+
+[node name="NextBtn" type="Button" parent="PanelAnchor/LeftSection/ChapterNavRow" unique_id=1778171578]
+custom_minimum_size = Vector2(38, 34)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "▶"
+flat = true
 
 [node name="UpBtn" type="Button" parent="PanelAnchor/LeftSection" unique_id=890273381]
 layout_mode = 0

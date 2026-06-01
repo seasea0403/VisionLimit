@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://5d6qtsbmgah"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_4rg8c"]
+[ext_resource type="Texture2D" uid="uid://d2tck52i7jcol" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-码头工作安全指南.png" id="2_0y288"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(18.387077, 25.294561)
+
+[node name="statement" unique_id=223355110 instance=ExtResource("1_4rg8c")]
+item_id = "1"
+item_name = "工作指南"
+detail_image = ExtResource("2_0y288")
+description = "码头工作安全指南明确要求了船只入港登记。"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(872, 640)
+rotation = 0.2906434
+scale = Vector2(32.109863, 23.993809)
+shape = SubResource("RectangleShape2D_rm26b")

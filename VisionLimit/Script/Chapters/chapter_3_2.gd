@@ -12,6 +12,8 @@ var _saw_board: bool = false         # 码头泊位告示牌（Zoomview visibili
 
 func _ready() -> void:
 	super._ready()
+	# chapter_3_1 已调过 set_current_chapter(3)，续集场景不重置物品
+	GameStateManager.set_current_chapter(3)
 	item_detail.detail_opened.connect(_on_detail_opened)
 	# 码头泊位告示牌通过 zoomview 可见性变化检测（该 zoomview 无 item_id）
 	var board_zv = $"ZoomViews/ClickableArea_priceboard2/Zoomview_information"

@@ -30,6 +30,13 @@ var _slot_nodes: Dictionary = {}
 var _current_page: int = 1  # 1=物品页  2=记录页
 ## 物品页当前所在的页码（0 起始）
 var _item_page: int = 0
+## 当前在物品栏中查看的章节编号
+var _viewing_chapter: int = 1
+
+# ==================== 章节导航（节点引用）====================
+@onready var _chapter_prev_btn: Button = $PanelAnchor/LeftSection/ChapterNavRow/PrevBtn
+@onready var _chapter_next_btn: Button = $PanelAnchor/LeftSection/ChapterNavRow/NextBtn
+@onready var _chapter_label: Label = $PanelAnchor/LeftSection/ChapterNavRow/ChapterLabel
 
 
 # ==================== 初始化 ====================
@@ -43,27 +50,40 @@ func _ready() -> void:
 	if not GameStateManager.item_added_to_inventory.is_connected(_on_item_added):
 		GameStateManager.item_added_to_inventory.connect(_on_item_added)
 
+	if is_instance_valid(_chapter_prev_btn):
+		_chapter_prev_btn.pressed.connect(_on_chapter_prev_pressed)
+	if is_instance_valid(_chapter_next_btn):
+		_chapter_next_btn.pressed.connect(_on_chapter_next_pressed)
+
 	_switch_to_page(1)
 	hide()
 
 
 # ==================== 面板开关 ====================
 func open_panel() -> void:
+	_viewing_chapter = GameStateManager.get_current_chapter()
+	if _viewing_chapter <= 0:
+		_viewing_chapter = 1
 	show()
 	_refresh_slots()
+	_update_chapter_nav()
 
 
 func open_and_select(item_id: String) -> void:
 	"""由 ClickableItem 点击时调用：切换到物品页并选中指定物品"""
 	_switch_to_page(1)
+	_viewing_chapter = GameStateManager.get_current_chapter()
+	if _viewing_chapter <= 0:
+		_viewing_chapter = 1
 	# 先定位到该物品所在页码
-	var items := GameStateManager.get_inventory_items()
+	var items := GameStateManager.get_inventory_items_for_chapter(_viewing_chapter)
 	if item_id in items:
 		var idx: int = items.keys().find(item_id)
 		_item_page = idx / total_slots
 	show()
 	_refresh_slots()
-	if item_id in GameStateManager.get_inventory_items():
+	_update_chapter_nav()
+	if item_id in GameStateManager.get_inventory_items_for_chapter(_viewing_chapter):
 		_select_slot(item_id)
 
 
@@ -84,7 +104,7 @@ func _refresh_slots() -> void:
 		child.queue_free()
 	_slot_nodes.clear()
 
-	var items := GameStateManager.get_inventory_items()
+	var items := GameStateManager.get_inventory_items_for_chapter(_viewing_chapter)
 	var item_ids: Array = items.keys()  # 按收集顺序
 
 	# 修正页码越界
@@ -104,7 +124,7 @@ func _refresh_slots() -> void:
 	up_btn.disabled = (_item_page == 0)
 	down_btn.disabled = (_item_page >= max_page)
 
-	# 恢复选中状态（仅当选中物品在当前页时显示高亮）
+	# 恢复选中状态（仅当选中物品在当前查看章节时显示高亮）
 	if _selected_item_id in items:
 		_show_detail(_selected_item_id)
 	else:
@@ -183,7 +203,7 @@ func _select_slot(item_id: String) -> void:
 
 # ==================== 显示右侧详情 ====================
 func _show_detail(item_id: String) -> void:
-	var items := GameStateManager.get_inventory_items()
+	var items := GameStateManager.get_inventory_items_for_chapter(_viewing_chapter)
 	if not items.has(item_id):
 		return
 	var data: Dictionary = items[item_id]
@@ -206,11 +226,39 @@ func _on_up_pressed() -> void:
 
 
 func _on_down_pressed() -> void:
-	var item_count: int = GameStateManager.get_inventory_items().size()
+	var item_count: int = GameStateManager.get_inventory_items_for_chapter(_viewing_chapter).size()
 	var max_page: int = max(0, (item_count - 1) / total_slots) if item_count > 0 else 0
 	if _item_page < max_page:
 		_item_page += 1
 		_refresh_slots()
+
+
+# ==================== 章节导航 ====================
+func _update_chapter_nav() -> void:
+	"""根据 _viewing_chapter 刷新章节标签及左右按钮可用状态"""
+	if not is_instance_valid(_chapter_label):
+		return
+	_chapter_label.text = "第%d章" % _viewing_chapter
+	_chapter_prev_btn.disabled = (_viewing_chapter <= 1)
+	_chapter_next_btn.disabled = (
+		_viewing_chapter >= GameStateManager.current_unlocked_chapter
+	)
+
+
+func _on_chapter_prev_pressed() -> void:
+	if _viewing_chapter > 1:
+		_viewing_chapter -= 1
+		_item_page = 0
+		_refresh_slots()
+		_update_chapter_nav()
+
+
+func _on_chapter_next_pressed() -> void:
+	if _viewing_chapter < GameStateManager.current_unlocked_chapter:
+		_viewing_chapter += 1
+		_item_page = 0
+		_refresh_slots()
+		_update_chapter_nav()
 
 
 # ==================== 页面切换 ====================

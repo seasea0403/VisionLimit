@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cwcxofm58ddo0"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_bvwtn"]
+[ext_resource type="Texture2D" uid="uid://ck6ghn21wnn2x" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-健康小妙招.png" id="2_bvwtn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(18.942345, 34.354435)
+
+[node name="tip" unique_id=223355110 instance=ExtResource("1_bvwtn")]
+item_id = "1"
+item_name = "健康小妙招"
+detail_image = ExtResource("2_bvwtn")
+description = "不给家里添麻烦...医院怎么会一直这样宣传？"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(1606.9073, 499.49698)
+rotation = 0.007768303
+scale = Vector2(32.109863, 23.993809)
+shape = SubResource("RectangleShape2D_rm26b")

@@ -11,6 +11,8 @@ var _dialogue_done: bool = false
 
 func _ready() -> void:
 	super._ready()
+	GameStateManager.set_current_chapter(7)
+	GameStateManager.reset_chapter_items(7)
 	item_detail.detail_opened.connect(_on_detail_opened)
 
 	# 预先实例化苏临 UI，消除点击时的加载延迟

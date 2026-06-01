@@ -12,6 +12,8 @@ var _saw_cup: bool = false    # item_id="3"  量杯
 
 func _ready() -> void:
 	super._ready()
+	GameStateManager.set_current_chapter(4)
+	GameStateManager.reset_chapter_items(4)
 	item_detail.detail_opened.connect(_on_detail_opened)
 
 

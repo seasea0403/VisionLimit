@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bvypp8ptqxojt"]
 
 [ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_csyjc"]
-[ext_resource type="Texture2D" uid="uid://c46q6stong5t3" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/proof3.png" id="2_hj5nh"]
+[ext_resource type="Texture2D" uid="uid://dflc7qrvrvp2w" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/proof1.png" id="2_csyjc"]
 [ext_resource type="Texture2D" uid="uid://b4qgywdvl0ng3" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/proof_back.png" id="3_w5ra4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
@@ -10,8 +10,8 @@ size = Vector2(3.9298997, 5.856588)
 [node name="proof" unique_id=223355110 instance=ExtResource("1_csyjc")]
 item_id = "7"
 item_name = "转账链断口"
-detail_image = ExtResource("2_hj5nh")
-description = "正源环境检测把钱转出去，但无法追踪到钱的去向。【0044】，我有在哪里看到过吗？"
+detail_image = ExtResource("2_csyjc")
+description = "正源环境监测把钱出去，但这笔钱最后去哪了？0044...我有在哪里看到过吗？"
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
 position = Vector2(549.189, 420.16983)

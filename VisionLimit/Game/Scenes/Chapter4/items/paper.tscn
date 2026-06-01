@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dfqaxpm6ufxjr"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_1v4f3"]
+[ext_resource type="Texture2D" uid="uid://beutbujt2m6a1" path="res://Art/Scenes/Scene4/第三章（档案室）/3-鱼缸.png" id="2_spc5g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb1hh"]
+size = Vector2(2.6305165, 23.628876)
+
+[node name="paper" unique_id=223355110 instance=ExtResource("1_1v4f3")]
+item_id = "2"
+item_name = "办公室说明"
+detail_image = ExtResource("2_spc5g")
+description = "至少说明我们没有走错地方..."
+can_record = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(572.5, 768.75)
+scale = Vector2(33.07334, -3.9993448)
+shape = SubResource("RectangleShape2D_mb1hh")

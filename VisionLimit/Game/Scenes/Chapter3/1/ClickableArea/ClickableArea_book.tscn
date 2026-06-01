@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Template/Scene/ClickableArea.tscn" id="1_w8snk"]
 [ext_resource type="PackedScene" uid="uid://das5gnrpa7fev" path="res://Game/Scenes/Chapter3/1/zoomview/zoomview_book.tscn" id="2_w8snk"]
+[ext_resource type="Texture2D" uid="uid://cx3p3fuw3abl3" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-苍屿症症状+小纸条.png" id="3_qjw0n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kw1g1"]
 size = Vector2(20.64886, 28.723812)
@@ -14,3 +15,15 @@ rotation = -0.011997527
 shape = SubResource("RectangleShape2D_kw1g1")
 
 [node name="Zoomview" parent="." index="1" unique_id=198920514 instance=ExtResource("2_w8snk")]
+
+[node name="Background" parent="Zoomview" index="0" unique_id=698713652]
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("3_qjw0n")
+
+[node name="Items" parent="Zoomview" index="1" unique_id=1759582505]
+position = Vector2(-255, 21)
+
+[node name="smallnote" parent="Zoomview/Items" index="0" unique_id=223355110]
+description = "这是患者留的字条吗？怎么会这样..."
+
+[editable path="Zoomview"]

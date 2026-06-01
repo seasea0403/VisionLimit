@@ -1,14 +1,24 @@
 [gd_scene format=3 uid="uid://cloe03agemtlt"]
 
 [ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_ajeuq"]
-[ext_resource type="Texture2D" uid="uid://1nk1i7qgpttb" path="res://Art/Scenes/Scene3/Zoomview_2/board.png" id="2_83h16"]
+[ext_resource type="Texture2D" uid="uid://cxcs2dsik81vu" path="res://Art/Scenes/Scene3/Zoomview_2/board.png" id="2_83h16"]
+[ext_resource type="PackedScene" uid="uid://5d6qtsbmgah" path="res://Game/Scenes/Chapter3/2/items/statement.tscn" id="3_ajeuq"]
 
 [node name="Zoomview_board" unique_id=198920514 instance=ExtResource("1_ajeuq")]
 show_detail_on_open = true
-detail_title = "5. 冷库门口手写告示"
-detail_description = "「相关部门核验」。哪个部门？什么时候核验的？核验结果是什么？便签写了这么多字，一个有用的信息也没有"
+detail_title = "渔获品质说明"
+detail_description = "为什么单独提及了C-03区域的损耗？一定有一些异常。"
 
 [node name="Background" parent="." index="0" unique_id=698713652]
 position = Vector2(960.00006, 540.00006)
 scale = Vector2(0.288, 0.288)
 texture = ExtResource("2_83h16")
+
+[node name="statement" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_ajeuq")]
+
+[node name="CollisionShape2D" parent="Items/statement" index="0" unique_id=398543410]
+position = Vector2(1781.8594, 499.06152)
+rotation = -0.014842678
+scale = Vector2(32.109867, 23.993809)
+
+[editable path="Items/statement"]

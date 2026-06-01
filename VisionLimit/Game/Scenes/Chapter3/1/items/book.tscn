@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d0p7u2k0blcn2"]
 
 [ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_1ryp7"]
-[ext_resource type="Texture2D" uid="uid://dmsvnjpqrcsv5" path="res://Art/Scenes/Scene3/Elements_1/book.png" id="2_nwstn"]
+[ext_resource type="Texture2D" uid="uid://cx3p3fuw3abl3" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-苍屿症症状+小纸条.png" id="2_1ryp7"]
 [ext_resource type="Texture2D" uid="uid://pcw0o4q4a244" path="res://Art/Scenes/Scene3/Elements_1/book_back.png" id="3_vf6an"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
@@ -10,7 +10,7 @@ size = Vector2(18.942345, 34.354435)
 [node name="book" unique_id=223355110 instance=ExtResource("1_1ryp7")]
 item_id = "1"
 item_name = "苍屿症宣传册"
-detail_image = ExtResource("2_nwstn")
+detail_image = ExtResource("2_1ryp7")
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
 position = Vector2(1606.9073, 499.49698)

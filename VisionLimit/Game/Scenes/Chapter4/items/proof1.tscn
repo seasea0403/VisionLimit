@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cglfrdwrknfgq"]
 
 [ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_mly8n"]
-[ext_resource type="Texture2D" uid="uid://dw0taqjg787ql" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/proof2.png" id="2_mly8n"]
+[ext_resource type="Texture2D" uid="uid://cb5acnor2nulc" path="res://Art/Scenes/Scene4/第三章（档案室）/3-营业执照.png" id="2_mly8n"]
 [ext_resource type="Texture2D" uid="uid://b4qgywdvl0ng3" path="res://Art/Scenes/Scene4/Elements/场景五 档案室/proof_back.png" id="3_yqunt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
@@ -11,7 +11,7 @@ size = Vector2(3.9298997, 5.856588)
 item_id = "7"
 item_name = "工商注册信息"
 detail_image = ExtResource("2_mly8n")
-description = "成立两个月后就收到第一笔钱。像是专门为了应对环境检测而临时成立的机构。"
+description = "7月份刚刚成立的公司，法定人是现在档案室的负责人。"
 
 [node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
 position = Vector2(549.189, 420.16983)

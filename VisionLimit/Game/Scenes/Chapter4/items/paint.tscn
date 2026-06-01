@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cvc5ddrn1cwxu"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_3cvht"]
+[ext_resource type="Texture2D" uid="uid://bv0aaww53o5b6" path="res://Art/Scenes/Scene4/第三章（档案室）/3-山水画.png" id="2_3cvht"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb1hh"]
+size = Vector2(2.6305165, 23.628876)
+
+[node name="paint" unique_id=223355110 instance=ExtResource("1_3cvht")]
+item_id = "2"
+item_name = "山水画"
+detail_image = ExtResource("2_3cvht")
+description = "我儿时记忆中的苍屿，就是这样，山清水秀。"
+can_record = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(572.5, 768.75)
+scale = Vector2(33.07334, -3.9993448)
+shape = SubResource("RectangleShape2D_mb1hh")

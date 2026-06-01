@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cvwocxc2yliqs"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_jw10q"]
+[ext_resource type="Texture2D" uid="uid://beutbujt2m6a1" path="res://Art/Scenes/Scene4/第三章（档案室）/3-鱼缸.png" id="2_jw10q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb1hh"]
+size = Vector2(2.6305165, 23.628876)
+
+[node name="fishpool" unique_id=223355110 instance=ExtResource("1_jw10q")]
+item_id = "2"
+item_name = "鱼缸"
+detail_image = ExtResource("2_jw10q")
+description = "这间档案室曾经的主人在办公室里养过鱼吗？"
+can_record = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(572.5, 768.75)
+scale = Vector2(33.07334, -3.9993448)
+shape = SubResource("RectangleShape2D_mb1hh")

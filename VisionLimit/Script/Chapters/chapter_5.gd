@@ -6,6 +6,8 @@ var _confirm_panel_instance: Node = null
 
 func _ready() -> void:
 	super._ready()
+	GameStateManager.set_current_chapter(5)
+	GameStateManager.reset_chapter_items(5)
 	
 	# 如果记忆海已经完成
 	if GameStateManager.get_record("ch5_memory_completed") == "1":

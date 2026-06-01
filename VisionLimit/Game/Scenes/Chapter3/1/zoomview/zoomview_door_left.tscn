@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://6nbwkixvjhku"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_l4atd"]
+[ext_resource type="Texture2D" uid="uid://bv8mk6thul8vt" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-医院病房门近景.jpg" id="2_l4atd"]
+
+[node name="Zoomview_door_left" unique_id=198920514 instance=ExtResource("1_l4atd")]
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+texture = ExtResource("2_l4atd")

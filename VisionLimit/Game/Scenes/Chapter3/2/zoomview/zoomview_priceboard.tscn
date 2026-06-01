@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://br27qwsus3m5c"]
 
 [ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_pdgti"]
-[ext_resource type="Texture2D" uid="uid://b2xxr57lbn0xb" path="res://Art/Scenes/Scene3/Zoomview_2/price_board.png" id="2_tcf5p"]
+[ext_resource type="Texture2D" uid="uid://b7tndvylq6hir" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-价格牌.png" id="2_tcf5p"]
 [ext_resource type="PackedScene" uid="uid://cjl71cimgvjyn" path="res://Game/Scenes/Chapter3/2/items/note.tscn" id="3_vnbxd"]
 
 [node name="Zoomview_priceboard" unique_id=198920514 instance=ExtResource("1_pdgti")]

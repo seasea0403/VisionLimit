@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://5v777nlm16f7"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_glme0"]
+[ext_resource type="Texture2D" uid="uid://10hav22k635b" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-码头报纸.png" id="2_lu015"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm26b"]
+size = Vector2(18.387077, 25.294561)
+
+[node name="photo" unique_id=223355110 instance=ExtResource("1_glme0")]
+item_id = "1"
+item_name = "报道"
+detail_image = ExtResource("2_lu015")
+description = "又是苏临..."
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(872, 640)
+rotation = 0.2906434
+scale = Vector2(32.109863, 23.993809)
+shape = SubResource("RectangleShape2D_rm26b")

@@ -94,18 +94,38 @@ func has_record_entry(entry_key: String) -> bool:
 
 
 # ==================== 物品收藏面板（SumPanel）====================
-## 收藏的物品，key=item_id，value={ name, description, thumbnail }
-var _inventory_items: Dictionary = {}
+## 按章节存储的物品：{ chapter_num(int): { item_id: { name, description, thumbnail } } }
+var _inventory_items_by_chapter: Dictionary = {}
+## 当前正在运行的章节编号（由章节场景的 _ready 通过 set_current_chapter 设置）
+var _current_chapter: int = 0
 
 ## 有新物品加入时发出，携带 item_id
 signal item_added_to_inventory(item_id: String)
 
+func set_current_chapter(chapter_num: int) -> void:
+	"""进入章节时设置当前章节号，由 chapter.gd 的 _ready 调用"""
+	_current_chapter = chapter_num
+
+func get_current_chapter() -> int:
+	"""返回当前章节号"""
+	return _current_chapter
+
+func reset_chapter_items(chapter_num: int) -> void:
+	"""重置某章物品（每次从关卡选择重新开始该章时调用，实现"只保留最后一次游玩"）"""
+	_inventory_items_by_chapter[chapter_num] = {}
+
 func add_inventory_item(item_id: String, item_name: String, description: String, thumbnail: Texture2D = null) -> void:
-	"""将物品加入收藏面板，相同 item_id 不重复添加"""
-	var key := item_id.strip_edges()
-	if key.is_empty() or _inventory_items.has(key):
+	"""将物品加入当前章节的收藏，相同 item_id 在同一章内不重复添加"""
+	if _current_chapter <= 0:
 		return
-	_inventory_items[key] = {
+	var key := item_id.strip_edges()
+	if key.is_empty():
+		return
+	if not _inventory_items_by_chapter.has(_current_chapter):
+		_inventory_items_by_chapter[_current_chapter] = {}
+	if _inventory_items_by_chapter[_current_chapter].has(key):
+		return
+	_inventory_items_by_chapter[_current_chapter][key] = {
 		"name": item_name,
 		"description": description,
 		"thumbnail": thumbnail,
@@ -113,11 +133,26 @@ func add_inventory_item(item_id: String, item_name: String, description: String,
 	item_added_to_inventory.emit(key)
 
 func get_inventory_items() -> Dictionary:
-	"""返回已收藏的全部物品字典"""
-	return _inventory_items
+	"""返回当前章节的物品字典（向后兼容接口，InferencePanel 等直接调用此函数仍只看到本章物品）"""
+	return get_inventory_items_for_chapter(_current_chapter)
+
+func get_inventory_items_for_chapter(chapter_num: int) -> Dictionary:
+	"""返回指定章节的物品字典"""
+	if not _inventory_items_by_chapter.has(chapter_num):
+		return {}
+	return _inventory_items_by_chapter[chapter_num]
+
+func get_unlocked_chapters_with_items() -> Array:
+	"""返回已解锁且有物品记录的章节编号列表（升序），供 SumPanel 导航使用"""
+	var chapters: Array = []
+	for ch in _inventory_items_by_chapter.keys():
+		if ch <= current_unlocked_chapter and not _inventory_items_by_chapter[ch].is_empty():
+			chapters.append(ch)
+	chapters.sort()
+	return chapters
 
 func has_inventory_item(item_id: String) -> bool:
-	return _inventory_items.has(item_id)
+	return get_inventory_items_for_chapter(_current_chapter).has(item_id)
 
 
 # ==================== 全局持续音乐（跨场景不中断）====================

@@ -34,6 +34,8 @@ var can_record: bool = false
 var _image_base_position: Vector2 = Vector2.ZERO
 var _synthesis_active: bool = false   # 当前是否处于合成模式
 var _synthesis_done: bool = false     # 合成是否已完成（跨开关面板保留）
+## 在此列表中的 item_id 将跳过自动入库（由使用方按需配置）
+var no_auto_inventory_ids: Array[String] = []
 var _character_base_position: Vector2 = Vector2.ZERO
 var _character_base_scale: Vector2 = Vector2.ONE
 var current_title: String = ""
@@ -69,6 +71,8 @@ func _ready() -> void:
 	if character_display:
 		_character_base_position = character_display.position
 		_character_base_scale = character_display.scale
+		# 确保角色立绘始终渲染在描述文字和背景图上方
+		character_display.z_index = 1
 
 	# 让整个内容容器对鼠标事件透传，使 Area2D 物品在面板开启时仍可点击。
 	# 按钮等子节点自身仍是 MOUSE_FILTER_STOP，不影响 UI 交互。
@@ -328,7 +332,6 @@ func close_detail() -> void:
 	current_record_description = ""
 	current_record_title_2 = ""
 	current_record_description_2 = ""
-
 	# 重置图片显示到默认状态
 	if image_display:
 		image_display.scale = Vector2.ONE
@@ -396,8 +399,8 @@ func _auto_record(page: Dictionary) -> void:
 	# 合成解谜物品在合成完成前不加入物品栏
 	var is_pending_synthesis: bool = \
 		not synthesis_item_ids.is_empty() and (current_item_id in synthesis_item_ids) and not _synthesis_done
-	# 有图片且不是待合成物品 → 加入物品收藏
-	if texture != null and not is_pending_synthesis:
+	# 有图片且不是待合成物品，且不在阻止列表中 → 加入物品收藏
+	if texture != null and not is_pending_synthesis and current_item_id not in no_auto_inventory_ids:
 		var inv_desc: String = (page.get("description", "") as String)
 		GameStateManager.add_inventory_item(current_item_id, current_title, inv_desc, texture)
 

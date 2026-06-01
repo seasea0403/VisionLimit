@@ -10,6 +10,8 @@ const ENDING_MUSIC_PATH := "res://Audio/BGM/Last.mp3"
 # ==================== 初始化 ====================
 func _ready() -> void:
 	super._ready()
+	# 第7章的续集场景，不重置物品（第7章第一场已重置）
+	GameStateManager.set_current_chapter(7)
 
 	# 连接 ItemDetail 信号
 	item_detail.detail_opened.connect(_on_detail_opened)

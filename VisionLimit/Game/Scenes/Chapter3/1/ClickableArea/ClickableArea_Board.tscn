@@ -14,3 +14,5 @@ rotation = -0.011997527
 shape = SubResource("RectangleShape2D_kw1g1")
 
 [node name="Zoomview" parent="." index="1" unique_id=198920514 instance=ExtResource("3_ynnoj")]
+
+[editable path="Zoomview"]
