@@ -69,6 +69,7 @@ shape = SubResource("RectangleShape2D_2k8s4")
 visible = false
 
 [node name="Calender" parent="ZoomViews/ClickableArea_Block/Zoomview_paper/Items" parent_id_path=PackedInt32Array(1041883668, 198920514, 1759582505) index="0" unique_id=223355110]
+item_id = "61"
 description = "在潜入自己的记忆海时，为了避免外界干扰为操作者带来不可逆的影响，需要打开信号屏蔽装置。"
 character_image = ExtResource("7_w4bja")
 

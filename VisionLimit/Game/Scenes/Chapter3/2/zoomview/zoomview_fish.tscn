@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://vqsmd2gbqw6y"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_vjdg8"]
+[ext_resource type="PackedScene" uid="uid://r1jwur75xqs1" path="res://Game/Scenes/Chapter3/2/puzzle/puzzle_fish.tscn" id="2_vjdg8"]
+[ext_resource type="PackedScene" uid="uid://bmbblbqlhqwlt" path="res://Game/Scenes/Chapter3/2/puzzle/2.tscn" id="3_8ks8h"]
+
+[node name="Zoomview_fish" unique_id=198920514 instance=ExtResource("1_vjdg8")]
+show_detail_on_open = true
+detail_title = "渔获品质说明"
+detail_description = "为什么单独提及了C-03区域的损耗？一定有一些异常。"
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+position = Vector2(960.00006, 540.00006)
+scale = Vector2(0.288, 0.288)
+
+[node name="PasswordPanel" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=1855487618 instance=ExtResource("2_vjdg8")]
+
+[node name="2" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="1" unique_id=180244854 instance=ExtResource("3_8ks8h")]

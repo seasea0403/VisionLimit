@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://4gw6431mlci5" path="res://Art/Scenes/Scene4/Zoomview/zoomview_desk.png" id="2_ekrhv"]
 [ext_resource type="PackedScene" uid="uid://dgdqjn2x4hc1r" path="res://Game/Scenes/Chapter4/items/honor.tscn" id="3_l82cf"]
 [ext_resource type="PackedScene" uid="uid://u5b7o8ax35yw" path="res://Game/Scenes/Chapter4/items/bluenote.tscn" id="4_6bps3"]
-[ext_resource type="PackedScene" uid="uid://dj41i0o82b82r" path="res://Game/Scenes/Chapter4/items/card.tscn" id="5_1ccvi"]
 [ext_resource type="PackedScene" uid="uid://b27blv2xt81b3" path="res://Game/Scenes/Chapter4/items/cup.tscn" id="6_boci2"]
 [ext_resource type="PackedScene" uid="uid://ds2tuqw25syn1" path="res://Game/Scenes/Chapter4/items/yellownote.tscn" id="7_ak6v4"]
 [ext_resource type="PackedScene" uid="uid://dfqaxpm6ufxjr" path="res://Game/Scenes/Chapter4/items/paper.tscn" id="8_1ccvi"]
+[ext_resource type="PackedScene" uid="uid://8yfocbjgfnrl" path="res://Game/Scenes/Chapter4/ClickableArea/ClickableArea_card.tscn" id="9_1ccvi"]
 [ext_resource type="PackedScene" uid="uid://cvwocxc2yliqs" path="res://Game/Scenes/Chapter4/items/fishpool.tscn" id="9_boci2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ak6v4"]
@@ -15,6 +15,9 @@ size = Vector2(6.122755, 51.82099)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ccvi"]
 size = Vector2(12.162361, 78.04405)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boci2"]
+size = Vector2(8.79174, 2.5814447)
 
 [node name="Zoomview_desk" unique_id=198920514 instance=ExtResource("1_peaee")]
 
@@ -27,23 +30,33 @@ texture = ExtResource("2_ekrhv")
 
 [node name="bluenote" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="1" unique_id=1429109202 instance=ExtResource("4_6bps3")]
 
-[node name="card" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="2" unique_id=1660416011 instance=ExtResource("5_1ccvi")]
+[node name="cup" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="2" unique_id=1231178518 instance=ExtResource("6_boci2")]
 
-[node name="cup" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="3" unique_id=1231178518 instance=ExtResource("6_boci2")]
+[node name="yellownote" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="3" unique_id=677936577 instance=ExtResource("7_ak6v4")]
 
-[node name="yellownote" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="4" unique_id=677936577 instance=ExtResource("7_ak6v4")]
-
-[node name="paper" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="5" unique_id=1562175273 instance=ExtResource("8_1ccvi")]
+[node name="paper" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="4" unique_id=1562175273 instance=ExtResource("8_1ccvi")]
 
 [node name="CollisionShape2D" parent="Items/paper" index="0" unique_id=398543410]
 position = Vector2(900.75, 115.375)
 shape = SubResource("RectangleShape2D_ak6v4")
 
-[node name="fishpool" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="6" unique_id=797864920 instance=ExtResource("9_boci2")]
+[node name="fishpool" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="5" unique_id=797864920 instance=ExtResource("9_boci2")]
 
 [node name="CollisionShape2D" parent="Items/fishpool" index="0" unique_id=398543410]
 position = Vector2(1654.8751, 833.93744)
 shape = SubResource("RectangleShape2D_1ccvi")
 
+[node name="ClickableArea_card" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="6" unique_id=676050068 instance=ExtResource("9_1ccvi")]
+
+[node name="CollisionShape2D" parent="Items/ClickableArea_card" index="0" unique_id=55883732]
+position = Vector2(455.0947, 936)
+shape = SubResource("RectangleShape2D_boci2")
+
+[node name="Zoomview_card" parent="Items/ClickableArea_card" index="1" unique_id=198920514]
+visible = false
+
 [editable path="Items/paper"]
 [editable path="Items/fishpool"]
+[editable path="Items/ClickableArea_card"]
+[editable path="Items/ClickableArea_card/Zoomview_card"]
+[editable path="Items/ClickableArea_card/Zoomview_card/Items/B2"]

@@ -59,6 +59,8 @@ func show_view() -> void:
 # ==================== 解锁回调 ====================
 func _on_drawer_unlocked() -> void:
 	unlocked = true
+	# 记录跨章节标记：第五章据此决定是否播放路上对话
+	GameStateManager.set_record("ch4_got_photo_19", "1")
 
 	# 从物品栏移除钥匙
 	if is_instance_valid(_key_panel):

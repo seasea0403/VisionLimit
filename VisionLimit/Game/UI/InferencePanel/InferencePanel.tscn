@@ -12,6 +12,27 @@
 [ext_resource type="Texture2D" uid="uid://blab14kyncgud" path="res://Art/UI/红底按钮.png" id="10_jpeev"]
 [ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="11_ufi0g"]
 
+[sub_resource type="FontFile" id="FontFile_jpeev"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+
 [sub_resource type="FontFile" id="FontFile_nafbt"]
 subpixel_positioning = 0
 msdf_pixel_range = 14
@@ -125,12 +146,22 @@ mouse_filter = 2
 texture = ExtResource("2_board")
 expand_mode = 1
 
+[node name="hint" type="Label" parent="PanelAnchor/BoardSection" unique_id=146050531]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 7.0
+offset_right = 926.0
+offset_bottom = 41.0
+theme_override_fonts/font = SubResource("FontFile_jpeev")
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+
 [node name="Slot0" type="Control" parent="PanelAnchor/BoardSection" unique_id=104]
 anchors_preset = 0
-offset_left = 90.0
-offset_top = 19.0
-offset_right = 295.0
-offset_bottom = 254.0
+offset_left = 102.65909
+offset_top = 58.246765
+offset_right = 307.6591
+offset_bottom = 293.24677
 rotation = 0.07948404
 
 [node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot0" unique_id=107]
@@ -172,10 +203,10 @@ color = Color(0.2, 1, 0.3, 0.45)
 
 [node name="Slot1" type="Control" parent="PanelAnchor/BoardSection" unique_id=108]
 anchors_preset = 0
-offset_left = 422.0
-offset_top = 32.0
-offset_right = 627.0
-offset_bottom = 267.0
+offset_left = 434.6591
+offset_top = 71.246765
+offset_right = 639.65906
+offset_bottom = 306.24677
 rotation = -0.06955251
 
 [node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot1" unique_id=111]
@@ -217,10 +248,10 @@ color = Color(0.2, 1, 0.3, 0.45)
 
 [node name="Slot2" type="Control" parent="PanelAnchor/BoardSection" unique_id=112]
 anchors_preset = 0
-offset_left = 233.0
-offset_top = 273.0
-offset_right = 438.0
-offset_bottom = 508.0
+offset_left = 245.65909
+offset_top = 312.24677
+offset_right = 450.6591
+offset_bottom = 547.24677
 rotation = -0.14413661
 
 [node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot2" unique_id=115]
@@ -262,10 +293,10 @@ color = Color(0.2, 1, 0.3, 0.45)
 
 [node name="Slot3" type="Control" parent="PanelAnchor/BoardSection" unique_id=116]
 anchors_preset = 0
-offset_left = 732.0
-offset_top = 38.0
-offset_right = 937.0
-offset_bottom = 273.0
+offset_left = 744.6591
+offset_top = 77.246765
+offset_right = 949.6591
+offset_bottom = 312.24677
 rotation = -0.034779113
 
 [node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot3" unique_id=119]
@@ -307,10 +338,10 @@ color = Color(0.2, 1, 0.3, 0.45)
 
 [node name="Slot4" type="Control" parent="PanelAnchor/BoardSection" unique_id=120]
 anchors_preset = 0
-offset_left = 590.0
-offset_top = 255.0
-offset_right = 795.0
-offset_bottom = 490.0
+offset_left = 602.6591
+offset_top = 294.24677
+offset_right = 807.6591
+offset_bottom = 529.24677
 rotation = 0.09105471
 
 [node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot4" unique_id=123]
@@ -444,7 +475,7 @@ z_index = 100
 layout_mode = 0
 offset_right = 90.0
 offset_bottom = 90.0
-scale = Vector2(5, 5)
+scale = Vector2(4, 4)
 mouse_filter = 2
 expand_mode = 1
 stretch_mode = 5

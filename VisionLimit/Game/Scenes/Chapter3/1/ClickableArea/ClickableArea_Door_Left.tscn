@@ -2,6 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Template/Scene/ClickableArea.tscn" id="1_nlilw"]
 [ext_resource type="PackedScene" uid="uid://6nbwkixvjhku" path="res://Game/Scenes/Chapter3/1/zoomview/zoomview_door_left.tscn" id="2_nlilw"]
+[ext_resource type="PackedScene" uid="uid://dqi18xng5dxf0" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_open.tscn" id="3_5jqcc"]
+[ext_resource type="PackedScene" uid="uid://d0iqvq87rwkl7" path="res://Game/Scenes/Chapter3/1/password/puzzle_door.tscn" id="4_502uv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hn8hc"]
+size = Vector2(7.7211037, 3.5901098)
 
 [node name="ClickableArea_Door_Left" unique_id=676050068 instance=ExtResource("1_nlilw")]
 
@@ -10,3 +15,20 @@ position = Vector2(767, 373.5)
 scale = Vector2(16.812447, 53.536106)
 
 [node name="Zoomview_door_left" parent="." index="1" unique_id=198920514 instance=ExtResource("2_nlilw")]
+
+[node name="ClickableArea_Door_Right" parent="Zoomview_door_left/Items" parent_id_path=PackedInt32Array(198920514, 1759582505) index="1" unique_id=2042056337 instance=ExtResource("3_5jqcc")]
+
+[node name="CollisionShape2D" parent="Zoomview_door_left/Items/ClickableArea_Door_Right" index="0" unique_id=55883732]
+position = Vector2(953.09467, 474.89978)
+shape = SubResource("RectangleShape2D_hn8hc")
+
+[node name="PasswordPanel" parent="Zoomview_door_left/Items/ClickableArea_Door_Right/Zoomview_door_right" parent_id_path=PackedInt32Array(2042056337, 198920514) index="0" unique_id=1855487618 instance=ExtResource("4_502uv")]
+
+[node name="Background" parent="Zoomview_door_left/Items/ClickableArea_Door_Right/Zoomview_door_right" parent_id_path=PackedInt32Array(2042056337, 198920514) index="1" unique_id=698713652]
+visible = false
+texture = null
+
+[editable path="Zoomview_door_left"]
+[editable path="Zoomview_door_left/Items/dazzle"]
+[editable path="Zoomview_door_left/Items/ClickableArea_Door_Right"]
+[editable path="Zoomview_door_left/Items/ClickableArea_Door_Right/Zoomview_door_right"]

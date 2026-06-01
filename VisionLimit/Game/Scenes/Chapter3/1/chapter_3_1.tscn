@@ -14,7 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://bf1jp4la0lmc2" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_Information1.tscn" id="7_r3dcq"]
 [ext_resource type="Texture2D" uid="uid://cp6vadvuhwvqs" path="res://Art/Character/沈意生气.png" id="10_bbl1v"]
 [ext_resource type="PackedScene" uid="uid://d1ex37jxlkxx8" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_Door_Left.tscn" id="15_rx12k"]
+[ext_resource type="AudioStream" uid="uid://q0u3yxfxoavj" path="res://Audio/SFX/Click.mp3" id="16_0et2f"]
 [ext_resource type="PackedScene" uid="uid://ba4d7n3x1latw" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_Door_Rignt.tscn" id="16_x0dfe"]
+[ext_resource type="Script" uid="uid://v4h0xqgt3hsj" path="res://Script/Components/clickable_area.gd" id="17_8boos"]
 [ext_resource type="PackedScene" uid="uid://busbqi7iujly7" path="res://Game/Scenes/Chapter3/1/items/photo.tscn" id="17_gcdcv"]
 [ext_resource type="PackedScene" uid="uid://b3cm2gyesfata" path="res://Game/Scenes/Chapter3/1/items/statement.tscn" id="18_8boos"]
 [ext_resource type="PackedScene" uid="uid://wj2w07ah1hsa" path="res://Game/Scenes/Chapter3/1/items/yellow_information.tscn" id="19_0et2f"]
@@ -98,6 +100,10 @@ text = "继续 ▶"
 [node name="SumPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="1" unique_id=1239234424 instance=ExtResource("5_rq353")]
 
 [node name="InferencePanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1999336769 instance=ExtResource("6_4itum")]
+correct_items = Array[String](["1", "20", "6", "13", "10"])
+
+[node name="hint" parent="UILayer/InferencePanel/PanelAnchor/BoardSection" parent_id_path=PackedInt32Array(1999336769, 102) index="1" unique_id=146050531]
+text = "求救 人物 混沌 谎言 优惠"
 
 [node name="1" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="4" unique_id=180244854 instance=ExtResource("4_3bxp2")]
 visible = false
@@ -188,11 +194,27 @@ description = "小孩的画吗.....好奇怪的配色，白色的鱼和灰色的
 position = Vector2(1483.0237, 494.5)
 shape = SubResource("RectangleShape2D_8boos")
 
+[node name="dazzle" parent="ZoomViews/ClickableArea_Door_Left/Zoomview_door_left/Items" parent_id_path=PackedInt32Array(1792556252, 198920514, 1759582505) index="0" unique_id=223355110]
+item_id = "20"
+
+[node name="PasswordPanel" parent="ZoomViews/ClickableArea_Door_Left/Zoomview_door_left/Items/ClickableArea_Door_Right/Zoomview_door_right" parent_id_path=PackedInt32Array(1792556252, 2042056337, 198920514) index="0" unique_id=1855487618]
+correct_password = "9056"
+click_sound = ExtResource("16_0et2f")
+
 [node name="ClickableArea_Door_Right" parent="ZoomViews" index="6" unique_id=1919987231 instance=ExtResource("16_x0dfe")]
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_Door_Right" index="0" unique_id=55883732]
 position = Vector2(1733.25, 449)
 shape = SubResource("RectangleShape2D_0et2f")
+
+[node name="Zoomview_door_right" parent="ZoomViews/ClickableArea_Door_Right/Zoomview_door_right/Items/ClickableArea_suo" parent_id_path=PackedInt32Array(1919987231, 2139652603) index="1" unique_id=198920514]
+visible = false
+
+[node name="ClickableArea_suo_2" parent="ZoomViews/ClickableArea_Door_Right/Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right/Items" parent_id_path=PackedInt32Array(1919987231, 2139652603, 198920514, 1759582505) index="0" unique_id=821874772]
+script = ExtResource("17_8boos")
+
+[node name="PasswordPanel_open" parent="ZoomViews/ClickableArea_Door_Right/Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right/Items/ClickableArea_suo_2" index="1" unique_id=1855487618]
+visible = true
 
 [node name="SceneBgm" parent="." index="3" unique_id=996875468]
 stream = SubResource("AudioStreamMP3_u0bx5")
@@ -251,6 +273,10 @@ stretch_mode = 6
 [editable path="UILayer/ItemDetail/Control/PrevButton"]
 [editable path="UILayer/ItemDetail/Control/LaterButton"]
 [editable path="UILayer/SumPanel"]
+[editable path="UILayer/InferencePanel"]
+[editable path="UILayer/InferencePanel/Finish"]
+[editable path="UILayer/InferencePanel/NextButton"]
+[editable path="UILayer/InferencePanel/HoldonButton"]
 [editable path="ZoomViews/ClickableArea_Information2"]
 [editable path="ZoomViews/ClickableArea_Information2/Zoomview_information2"]
 [editable path="ZoomViews/ClickableArea_Information2/Zoomview_information2/ClickableArea_Book"]
@@ -265,7 +291,16 @@ stretch_mode = 6
 [editable path="ZoomViews/ClickableArea_Information1"]
 [editable path="ZoomViews/ClickableArea_Information1/Zoomview_information1"]
 [editable path="ZoomViews/ClickableArea_Door_Left"]
+[editable path="ZoomViews/ClickableArea_Door_Left/Zoomview_door_left"]
+[editable path="ZoomViews/ClickableArea_Door_Left/Zoomview_door_left/Items/dazzle"]
+[editable path="ZoomViews/ClickableArea_Door_Left/Zoomview_door_left/Items/ClickableArea_Door_Right"]
+[editable path="ZoomViews/ClickableArea_Door_Left/Zoomview_door_left/Items/ClickableArea_Door_Right/Zoomview_door_right"]
 [editable path="ZoomViews/ClickableArea_Door_Right"]
+[editable path="ZoomViews/ClickableArea_Door_Right/Zoomview_door_right"]
+[editable path="ZoomViews/ClickableArea_Door_Right/Zoomview_door_right/Items/ClickableArea_suo"]
+[editable path="ZoomViews/ClickableArea_Door_Right/Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right"]
+[editable path="ZoomViews/ClickableArea_Door_Right/Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right/Items/ClickableArea_suo_2"]
+[editable path="ZoomViews/ClickableArea_Door_Right/Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right/Items/ClickableArea_suo_2/Zoomview_door_right"]
 [editable path="item/photo"]
 [editable path="item/statement"]
 [editable path="item/yellow_information"]

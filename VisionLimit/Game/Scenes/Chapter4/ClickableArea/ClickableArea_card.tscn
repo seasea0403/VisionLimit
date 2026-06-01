@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://8yfocbjgfnrl"]
+
+[ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Template/Scene/ClickableArea.tscn" id="1_ucgr4"]
+[ext_resource type="PackedScene" uid="uid://b8rssy43oobpy" path="res://Game/Scenes/Chapter4/zoomview/zoomview_drawer_B2.tscn" id="2_0edsn"]
+[ext_resource type="Texture2D" uid="uid://dydci3jp3x18c" path="res://Art/Scenes/Scene4/第三章（档案室）/3-名牌2.png" id="3_6mirj"]
+[ext_resource type="Texture2D" uid="uid://c6c0gxo342b6p" path="res://Art/Scenes/Scene4/第三章（档案室）/3-名牌1.png" id="4_i7q46"]
+
+[node name="ClickableArea_card" unique_id=676050068 instance=ExtResource("1_ucgr4")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=55883732]
+position = Vector2(301.00003, 682)
+scale = Vector2(16.812447, 53.536106)
+
+[node name="Zoomview_card" parent="." index="1" unique_id=198920514 instance=ExtResource("2_0edsn")]
+
+[node name="Background" parent="Zoomview_card" index="0" unique_id=698713652]
+texture = ExtResource("3_6mirj")
+
+[node name="B2" parent="Zoomview_card/Items" parent_id_path=PackedInt32Array(198920514, 1759582505) index="0" unique_id=223355110]
+item_name = "工牌"
+detail_image = ExtResource("4_i7q46")
+description = "这个工位之前的主人是...陈星河？"
+
+[node name="CollisionShape2D" parent="Zoomview_card/Items/B2" index="0" unique_id=398543410]
+position = Vector2(948.68774, 543.7778)
+scale = Vector2(16.002169, 1.1810887)
+
+[node name="Sprite2D" parent="Zoomview_card/Items/B2" index="1" unique_id=771681859]
+texture = null
+
+[editable path="Zoomview_card"]
+[editable path="Zoomview_card/Items/B2"]

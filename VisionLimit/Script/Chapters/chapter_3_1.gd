@@ -5,6 +5,7 @@ const Ch3Hospital = preload("res://Script/Dialogues/ch3_hospital.gd")
 const Ch3Intro = preload("res://Script/Dialogues/ch3_intro.gd")
 const Ch3Message = preload("res://Script/Dialogues/ch3_message.gd")
 const Ch3Phone = preload("res://Script/Dialogues/ch3_phone.gd")
+const Ch3Door = preload("res://Script/Dialogues/ch3_door.gd")
 
 # ==================== 状态 ====================
 ## 魏江是否已被点击过一次（第一次=开场白，第二次=触发对话）
@@ -15,6 +16,8 @@ var _saw_brochure: bool = false
 var _saw_pinknote: bool = false
 ## 是否已查看预约记录/台账（item_id="4"）
 var _saw_record: bool = false
+## 母亲病房门是否已解锁过（解锁后再点击跳过密码直接弹选项）
+var _door_unlocked: bool = false
 
 ## 草丛开场覆盖层
 var _opening_overlay: CanvasLayer = null
@@ -42,6 +45,24 @@ func _ready() -> void:
 	if not DialogueManager.dialogue_finished.is_connected(_on_intro_finished):
 		DialogueManager.dialogue_finished.connect(_on_intro_finished, CONNECT_ONE_SHOT)
 	DialogueManager.start_dialogue(Ch3Intro.DATA, "sy_1")
+
+	# ========== 病房门流程 ==========
+	# 左门密码面板
+	var left_pw = get_node_or_null("ZoomViews/ClickableArea_Door_Left/Zoomview_door_left/Items/ClickableArea_Door_Right/Zoomview_door_right/PasswordPanel")
+	if left_pw:
+		left_pw.password_correct.connect(_on_door_password_unlocked)
+	# 左门内层 Zoomview：已解锁时直接弹选项
+	var left_inner_zv = get_node_or_null("ZoomViews/ClickableArea_Door_Left/Zoomview_door_left/Items/ClickableArea_Door_Right/Zoomview_door_right")
+	if left_inner_zv:
+		left_inner_zv.visibility_changed.connect(_on_left_door_inner_zv_visible)
+	# 右门密码面板
+	var right_pw = get_node_or_null("ZoomViews/ClickableArea_Door_Right/Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right/Items/ClickableArea_suo_2/PasswordPanel_open")
+	if right_pw:
+		right_pw.password_correct.connect(_on_door_password_unlocked)
+	# 右门中间 Zoomview：已解锁时直接弹选项
+	var right_mid_zv = get_node_or_null("ZoomViews/ClickableArea_Door_Right/Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right")
+	if right_mid_zv:
+		right_mid_zv.visibility_changed.connect(_on_right_door_mid_zv_visible)
 
 
 # ==================== 开场对话完成 ====================
@@ -130,4 +151,48 @@ func _start_hospital_dialogue() -> void:
 
 func _on_hospital_dialogue_finished() -> void:
 	GameStateManager.complete_chapter(3)
+	SceneTransitionManager.change_scene_to_file("res://Game/Scenes/Chapter3/2/chapter_3_2.tscn")
+
+
+# ==================== 母亲病房入室流程 ====================
+func _on_door_password_unlocked() -> void:
+	_door_unlocked = true
+	_start_door_choice_dialogue()
+
+
+func _on_left_door_inner_zv_visible() -> void:
+	if not _door_unlocked:
+		return
+	var left_zv = get_node_or_null("ZoomViews/ClickableArea_Door_Left/Zoomview_door_left/Items/ClickableArea_Door_Right/Zoomview_door_right")
+	if left_zv and left_zv.visible:
+		left_zv.hide_view()
+		_start_door_choice_dialogue()
+
+
+func _on_right_door_mid_zv_visible() -> void:
+	var right_zv = get_node_or_null("ZoomViews/ClickableArea_Door_Right/Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right")
+	if not right_zv or not right_zv.visible:
+		return
+	if _door_unlocked:
+		# 已解锁 → 跳过密码，直接弹出选项
+		right_zv.hide_view()
+		_start_door_choice_dialogue()
+	else:
+		# 首次进入 → 自动弹出密码面板，无需再点 ClickableArea_suo_2
+		var pw = get_node_or_null("ZoomViews/ClickableArea_Door_Right/Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right/Items/ClickableArea_suo_2/PasswordPanel_open")
+		if pw and pw.has_method("open"):
+			register_panel_open(pw)
+			pw.open()
+
+
+func _start_door_choice_dialogue() -> void:
+	if DialogueManager.is_active:
+		return
+	if not DialogueManager.dialogue_finished.is_connected(_on_door_dialogue_finished):
+		DialogueManager.dialogue_finished.connect(_on_door_dialogue_finished, CONNECT_ONE_SHOT)
+	DialogueManager.start_dialogue(Ch3Door.DATA, "door_confirm")
+
+
+func _on_door_dialogue_finished() -> void:
+	# 仅当玩家选择「确定」并完成无线电对话后到达此处
 	SceneTransitionManager.change_scene_to_file("res://Game/Scenes/Chapter3/2/chapter_3_2.tscn")

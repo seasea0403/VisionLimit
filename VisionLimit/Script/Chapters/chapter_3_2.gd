@@ -19,6 +19,15 @@ func _ready() -> void:
 	var board_zv = $"ZoomViews/ClickableArea_priceboard2/Zoomview_information"
 	if board_zv:
 		board_zv.visibility_changed.connect(_on_board_visible_changed)
+	# 鱼谜题流程：password → 连线谜题 → 跳转 chapter_3_1
+	var password_panel = $"ZoomViews/ClickableArea_fish/Zoomview_fish/Items/PasswordPanel"
+	var puzzle_2 = $"ZoomViews/ClickableArea_fish/Zoomview_fish/Items/2"
+	if puzzle_2:
+		puzzle_2.hide()
+	if password_panel:
+		password_panel.password_correct.connect(_on_fish_password_correct)
+	if puzzle_2:
+		puzzle_2.puzzle_completed.connect(_on_fish_puzzle_completed)
 
 
 func _on_detail_opened(item_id: String) -> void:
@@ -66,3 +75,19 @@ func _on_dock_dialogue_finished() -> void:
 	# 同时解锁第四章（confirm chapter index matches GameStateManager logic）
 	GameStateManager.complete_chapter(3)
 	SceneTransitionManager.change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")
+
+
+func _on_fish_password_correct() -> void:
+	var password_panel = $"ZoomViews/ClickableArea_fish/Zoomview_fish/Items/PasswordPanel"
+	var puzzle_2 = $"ZoomViews/ClickableArea_fish/Zoomview_fish/Items/2"
+	if password_panel:
+		password_panel.hide()
+	if puzzle_2:
+		puzzle_2.show()
+
+
+func _on_fish_puzzle_completed() -> void:
+	var zoomview_fish = $"ZoomViews/ClickableArea_fish/Zoomview_fish"
+	if zoomview_fish and zoomview_fish.has_method("hide_view"):
+		zoomview_fish.hide_view()
+	SceneTransitionManager.change_scene_to_file("res://Game/Scenes/Chapter3/1/chapter_3_1.tscn")

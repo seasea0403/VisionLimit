@@ -3,6 +3,7 @@ extends "res://Script/Chapters/chapter.gd"
 const Ch4Lab = preload("res://Script/Dialogues/ch4_lab.gd")
 const Ch4Intro = preload("res://Script/Dialogues/ch4_intro.gd")
 const Ch4Archive = preload("res://Script/Dialogues/ch4_archive.gd")
+const Ch4InferenceFinish = preload("res://Script/Dialogues/ch4_inference_finish.gd")
 
 var _weijian_clicked: bool = false
 var _saw_proof: bool = false  # item_id="7"  转账记录（打印机旁三页纸）
@@ -10,6 +11,8 @@ var _saw_b2: bool = false     # item_id="9"  B2格档案柜内档案
 var _saw_card: bool = false   # item_id="6"  工位牌
 var _saw_log: bool = false    # item_id="8"  外业勘测日志
 var _saw_cup: bool = false    # item_id="3"  量杯
+var _saw_photo: bool = false  # item_id="19" 合照（影响结局）
+var _saw_things1: bool = false # item_id="20" 信件（影响结局）
 
 ## 开场黑屏覆盖层
 var _opening_overlay: CanvasLayer = null
@@ -86,6 +89,8 @@ func _start_countdown() -> void:
 	if is_instance_valid(inference_panel) and inference_panel.has_signal("inference_success"):
 		if not inference_panel.is_connected("inference_success", _on_inference_solved):
 			inference_panel.connect("inference_success", _on_inference_solved)
+		if not inference_panel.is_connected("chapter_next_requested", _on_inference_next_pressed):
+			inference_panel.connect("chapter_next_requested", _on_inference_next_pressed)
 
 	# 更新显示并启动每秒 tick 的 Timer
 	_update_countdown_display()
@@ -118,6 +123,26 @@ func _on_inference_solved() -> void:
 	# 倒计时完成使命，隐藏标签
 	if is_instance_valid(_countdown_label):
 		_countdown_label.hide()
+	
+	# 显示推理板完成后的按钮（下一步、继续探索、已完成）
+	if is_instance_valid(inference_panel):
+		inference_panel.show_completion_buttons()
+
+
+func _on_inference_next_pressed() -> void:
+	if is_instance_valid(inference_panel):
+		inference_panel.hide()
+	
+	# 启动推理完成后的对话
+	if not DialogueManager.dialogue_finished.is_connected(_on_inference_finish_dialogue_done):
+		DialogueManager.dialogue_finished.connect(_on_inference_finish_dialogue_done, CONNECT_ONE_SHOT)
+	DialogueManager.start_dialogue(Ch4InferenceFinish.DATA, "start")
+
+
+func _on_inference_finish_dialogue_done() -> void:
+	# 对话完成后，解锁下一关并转场
+	GameStateManager.complete_chapter(4)
+	SceneTransitionManager.change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")
 
 
 func _on_countdown_expired() -> void:
@@ -176,6 +201,14 @@ func _on_detail_opened(item_id: String) -> void:
 			if not _saw_cup:
 				_saw_cup = true
 				GameStateManager.set_clue("clue_person")
+		"19":  # 合照 — 影响结局
+			if not _saw_photo:
+				_saw_photo = true
+				GameStateManager.set_record("saw_photo", "true")
+		"20":  # 信件 — 影响结局
+			if not _saw_things1:
+				_saw_things1 = true
+				GameStateManager.set_record("saw_things1", "true")
 
 
 

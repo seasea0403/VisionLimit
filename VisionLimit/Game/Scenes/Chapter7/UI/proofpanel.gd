@@ -1,35 +1,27 @@
 extends Control
 
 ## 证据板·最后整理
-## 玩家把前六章收集到的线索拖入对应栏目，根据完整度决定结局。
-
-signal evidence_decided(ending: String) # "A" / "B" / "C"
+## 玩家把前六章收集到的线索拖入对应栏目，整理完成后可关闭面板。
 
 @onready var clue_pool: HFlowContainer = $CluePool
 @onready var info_label: Label = $ResultArea/InfoLabel
 @onready var action_box: HBoxContainer = $ResultArea/ActionBox
-@onready var btn_send: Button = $ResultArea/ActionBox/BtnSend
-@onready var btn_seal: Button = $ResultArea/ActionBox/BtnSeal
-@onready var overlay: ColorRect = $Overlay
-@onready var overlay_label: Label = $Overlay/Label
+@onready var btn_close: Button = $ResultArea/ActionBox/BtnClose
 
-## 每个最终 clue（proofpanel 中的 9 张卡片）对应的"来源 clue 列表"。
-## 玩家在前面章节查看相关物品时，章节脚本会调用 GameStateManager.set_clue("clue_xxx")。
-## 只要列表里任意一个来源被收集，就算这张卡片解锁。
-## 空列表 = 默认解锁。
+## 所有线索卡默认全部解锁
 const UNLOCK_RULES: Dictionary = {
 	# ── 第一栏：污染相关（精炼厂 / 环境）──
-	"clue_p1": ["clue_trace"],                          # C-03汞超标 ← 渔获筐标签+泊位告示（第三章2）
-	"clue_p2": ["clue_price"],                          # 精炼厂排污 ← 电子价牌+魏江采访本（第三章2）
-	"clue_p3": ["clue_inspect", "clue_funds"],          # 正源环境检测公司 ← 采访本/转账记录
+	"clue_p1": [],                          # C-03汞超标 ← 默认解锁
+	"clue_p2": [],                          # 精炼厂排污 ← 默认解锁
+	"clue_p3": [],                          # 正源环境检测公司 ← 默认解锁
 	# ── 第二栏：医疗相关（苍屿症 / 病例）──
-	"clue_d1": ["clue_brochure"],                       # 苍屿症 ← 苍屿症宣传册（第三章1）
-	"clue_d2": ["clue_appointment"],                    # 郑和平采样坐标 ← 粉色便签+台账（第三章1）
-	"clue_d3": ["clue_brochure", "clue_appointment"],   # 儿童病例集中分布 ← 宣传册/台账（第三章1）
+	"clue_d1": [],                          # 苍屿症 ← 默认解锁
+	"clue_d2": [],                          # 郑和平采样坐标 ← 默认解锁
+	"clue_d3": [],                          # 儿童病例集中分布 ← 默认解锁
 	# ── 第三栏：组织相关（晴野 / 临深）──
-	"clue_s1": ["clue_funds"],                          # 晴野基金会资金流向 ← 转账记录（第四章）
-	"clue_s2": ["clue_archive"],                        # 临深集团关联关系 ← B2档案（第四章）
-	"clue_s3": ["clue_person"],                         # 环保局档案删除节点 ← 工位牌+日志+量杯（第四章）
+	"clue_s1": [],                          # 晴野基金会资金流向 ← 默认解锁
+	"clue_s2": [],                          # 临深集团关联关系 ← 默认解锁
+	"clue_s3": [],                          # 环保局档案删除节点 ← 默认解锁
 }
 
 var _available_count: int = 0
@@ -44,12 +36,8 @@ func _ready() -> void:
 
 	info_label.text = ""
 	action_box.visible = false
-	overlay.visible = false
-	overlay.color = Color(0, 0, 0, 0)
-	overlay_label.modulate = Color(1, 1, 1, 0)
 
-	btn_send.pressed.connect(_on_btn_send_pressed)
-	btn_seal.pressed.connect(_on_btn_seal_pressed)
+	btn_close.pressed.connect(_on_btn_close_pressed)
 
 
 ## ──────────────── 解锁状态应用 ────────────────
@@ -155,50 +143,20 @@ func _recount_placed() -> void:
 func _evaluate_state() -> void:
 	if _placed_count >= 9:
 		_status_level = 0
-		info_label.text = "证据链完整。来源可追溯。\n\n证据整理完成。请做出最终选择。"
+		info_label.text = "证据链完整。来源可追溯。"
 	elif _placed_count >= 7:
 		_status_level = 1
-		info_label.text = "证据链较完整。部分来源不可追溯。\n\n证据整理完成。请做出最终选择。"
+		info_label.text = "证据链较完整。部分来源不可追溯。"
 	else:
 		_status_level = 2
-		info_label.text = "证据链有缺口。可能无法支撑正式指控。\n\n证据整理完成。请做出最终选择。"
+		info_label.text = "证据链有缺口。可能无法支撑正式指控。"
+	info_label.text += "\n\n整理完成。"
 	action_box.visible = true
 
 
-func _on_btn_send_pressed() -> void:
+func _on_btn_close_pressed() -> void:
 	if _decided:
 		return
-	if _status_level == 0:
-		_trigger_ending("A", "数据已发送。不可撤回。")
-	else:
-		_trigger_ending("B", "数据已发送。来源：未知。")
-
-
-func _on_btn_seal_pressed() -> void:
-	if _decided:
-		return
-	_trigger_ending("C", "归档完成。")
-
-
-## ──────────────── 结局过渡 ────────────────
-
-func _trigger_ending(ending: String, text: String) -> void:
 	_decided = true
 	action_box.visible = false
-	overlay.visible = true
-	overlay_label.text = text
-
-	var tween: Tween = create_tween()
-	tween.tween_property(overlay, "color", Color(0, 0, 0, 1), 1.0)
-	tween.tween_property(overlay_label, "modulate", Color(1, 1, 1, 1), 1.0)
-	tween.tween_interval(2.0)
-	tween.tween_callback(Callable(self, "_change_to_ending_scene").bind(ending))
-	evidence_decided.emit(ending)
-
-
-func _change_to_ending_scene(ending: String) -> void:
-	var path: String = "res://Game/Scenes/Chapter7/2/chapter_7_2_" + ending + ".tscn"
-	if ResourceLoader.exists(path):
-		SceneTransitionManager.change_scene_to_file(path)
-	else:
-		push_warning("[ProofPanel] 目标结局场景不存在：" + path)
+	queue_free()

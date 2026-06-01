@@ -2,6 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bumsha53k50sf" path="res://Template/Scene/ClickableArea.tscn" id="1_embmn"]
 [ext_resource type="PackedScene" uid="uid://bb3c7n0f3h71k" path="res://Game/Scenes/Chapter3/1/zoomview/zoomview_door_right.tscn" id="2_o720x"]
+[ext_resource type="PackedScene" uid="uid://dqi18xng5dxf0" path="res://Game/Scenes/Chapter3/1/ClickableArea/ClickableArea_open.tscn" id="3_3cf41"]
+[ext_resource type="Texture2D" uid="uid://cnoxx3n8uaar4" path="res://Art/Scenes/Scene3/谜题/密码/屏幕截图 2026-06-01 125341.png" id="4_3cf41"]
+[ext_resource type="Texture2D" uid="uid://cryh3i3hvkgki" path="res://Art/Scenes/Scene3/谜题/密码/屏幕截图 2026-06-01 125310.png" id="5_1eeuu"]
+[ext_resource type="PackedScene" uid="uid://d1mpmmqu7qr7x" path="res://Game/Scenes/Chapter3/1/password/puzzle_open.tscn" id="5_g34d2"]
+[ext_resource type="Script" uid="uid://ch3lockarea01" path="res://Game/Scenes/Chapter3/1/ClickableArea/ch3_lock_area.gd" id="6_lock"]
 
 [node name="ClickableArea_Door_Right" unique_id=676050068 instance=ExtResource("1_embmn")]
 
@@ -10,3 +15,37 @@ position = Vector2(767, 373.5)
 scale = Vector2(16.812447, 53.536106)
 
 [node name="Zoomview_door_right" parent="." index="1" unique_id=198920514 instance=ExtResource("2_o720x")]
+
+[node name="ClickableArea_suo" parent="Zoomview_door_right/Items" parent_id_path=PackedInt32Array(198920514, 1759582505) index="0" unique_id=2139652603 instance=ExtResource("3_3cf41")]
+
+[node name="CollisionShape2D" parent="Zoomview_door_right/Items/ClickableArea_suo" index="0" unique_id=55883732]
+position = Vector2(1683.0946, 484.89978)
+
+[node name="Background" parent="Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right" parent_id_path=PackedInt32Array(2139652603, 198920514) index="0" unique_id=698713652]
+position = Vector2(1069, 596)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("4_3cf41")
+
+[node name="ClickableArea_suo_2" parent="Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right/Items" parent_id_path=PackedInt32Array(2139652603, 198920514, 1759582505) index="0" unique_id=821874772 instance=ExtResource("3_3cf41")]
+script = ExtResource("6_lock")
+
+[node name="CollisionShape2D" parent="Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right/Items/ClickableArea_suo_2" index="0" unique_id=55883732]
+position = Vector2(668, 581)
+scale = Vector2(8.278871, 27.782188)
+
+[node name="PasswordPanel_open" parent="Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right/Items/ClickableArea_suo_2" index="1" unique_id=1855487618 instance=ExtResource("5_g34d2")]
+visible = false
+
+[node name="Zoomview_door_right" parent="Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right/Items/ClickableArea_suo_2" index="2" unique_id=198920514]
+visible = false
+
+[node name="Background" parent="Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right/Items/ClickableArea_suo_2/Zoomview_door_right" index="0" unique_id=698713652]
+position = Vector2(1076, 596)
+scale = Vector2(0.90573007, 0.90573007)
+texture = ExtResource("5_1eeuu")
+
+[editable path="Zoomview_door_right"]
+[editable path="Zoomview_door_right/Items/ClickableArea_suo"]
+[editable path="Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right"]
+[editable path="Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right/Items/ClickableArea_suo_2"]
+[editable path="Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right/Items/ClickableArea_suo_2/Zoomview_door_right"]

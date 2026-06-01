@@ -1,0 +1,457 @@
+[gd_scene format=3 uid="uid://bucgrqk25423d"]
+
+[ext_resource type="Script" uid="uid://blhvjdy2t7ufr" path="res://Game/Scenes/Chapter4/puzzle/puzzle_suo.gd" id="1_eqimo"]
+[ext_resource type="AudioStream" uid="uid://q0u3yxfxoavj" path="res://Audio/SFX/Click.mp3" id="2_wm15d"]
+[ext_resource type="Texture2D" uid="uid://cbbgifhxfvnwm" path="res://Art/Scenes/Scene4/谜题/密码锁/锁.png" id="3_rlolo"]
+[ext_resource type="Texture2D" uid="uid://d2a1j2oilsm1c" path="res://Art/Scenes/Scene4/谜题/密码锁/输入框.png" id="4_kjlml"]
+[ext_resource type="FontFile" uid="uid://bvl8ulxuys0rb" path="res://Font/华文隶书.TTF" id="4_uu8gm"]
+[ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="5_de2wj"]
+
+[sub_resource type="FontFile" id="FontFile_vswdk"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/35/0/ascent = 0.0
+cache/0/35/0/descent = 0.0
+cache/0/35/0/underline_position = 0.0
+cache/0/35/0/underline_thickness = 0.0
+cache/0/35/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_eqimo"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/54/0/ascent = 0.0
+cache/0/54/0/descent = 0.0
+cache/0/54/0/underline_position = 0.0
+cache/0/54/0/underline_thickness = 0.0
+cache/0/54/0/scale = 1.0
+cache/0/55/0/ascent = 0.0
+cache/0/55/0/descent = 0.0
+cache/0/55/0/underline_position = 0.0
+cache/0/55/0/underline_thickness = 0.0
+cache/0/55/0/scale = 1.0
+cache/0/56/0/ascent = 0.0
+cache/0/56/0/descent = 0.0
+cache/0/56/0/underline_position = 0.0
+cache/0/56/0/underline_thickness = 0.0
+cache/0/56/0/scale = 1.0
+cache/0/57/0/ascent = 0.0
+cache/0/57/0/descent = 0.0
+cache/0/57/0/underline_position = 0.0
+cache/0/57/0/underline_thickness = 0.0
+cache/0/57/0/scale = 1.0
+cache/0/58/0/ascent = 0.0
+cache/0/58/0/descent = 0.0
+cache/0/58/0/underline_position = 0.0
+cache/0/58/0/underline_thickness = 0.0
+cache/0/58/0/scale = 1.0
+cache/0/59/0/ascent = 0.0
+cache/0/59/0/descent = 0.0
+cache/0/59/0/underline_position = 0.0
+cache/0/59/0/underline_thickness = 0.0
+cache/0/59/0/scale = 1.0
+cache/0/60/0/ascent = 0.0
+cache/0/60/0/descent = 0.0
+cache/0/60/0/underline_position = 0.0
+cache/0/60/0/underline_thickness = 0.0
+cache/0/60/0/scale = 1.0
+cache/0/61/0/ascent = 0.0
+cache/0/61/0/descent = 0.0
+cache/0/61/0/underline_position = 0.0
+cache/0/61/0/underline_thickness = 0.0
+cache/0/61/0/scale = 1.0
+cache/0/62/0/ascent = 0.0
+cache/0/62/0/descent = 0.0
+cache/0/62/0/underline_position = 0.0
+cache/0/62/0/underline_thickness = 0.0
+cache/0/62/0/scale = 1.0
+cache/0/63/0/ascent = 0.0
+cache/0/63/0/descent = 0.0
+cache/0/63/0/underline_position = 0.0
+cache/0/63/0/underline_thickness = 0.0
+cache/0/63/0/scale = 1.0
+cache/0/64/0/ascent = 0.0
+cache/0/64/0/descent = 0.0
+cache/0/64/0/underline_position = 0.0
+cache/0/64/0/underline_thickness = 0.0
+cache/0/64/0/scale = 1.0
+cache/0/65/0/ascent = 0.0
+cache/0/65/0/descent = 0.0
+cache/0/65/0/underline_position = 0.0
+cache/0/65/0/underline_thickness = 0.0
+cache/0/65/0/scale = 1.0
+cache/0/66/0/ascent = 0.0
+cache/0/66/0/descent = 0.0
+cache/0/66/0/underline_position = 0.0
+cache/0/66/0/underline_thickness = 0.0
+cache/0/66/0/scale = 1.0
+cache/0/53/0/ascent = 0.0
+cache/0/53/0/descent = 0.0
+cache/0/53/0/underline_position = 0.0
+cache/0/53/0/underline_thickness = 0.0
+cache/0/53/0/scale = 1.0
+cache/0/52/0/ascent = 0.0
+cache/0/52/0/descent = 0.0
+cache/0/52/0/underline_position = 0.0
+cache/0/52/0/underline_thickness = 0.0
+cache/0/52/0/scale = 1.0
+cache/0/51/0/ascent = 0.0
+cache/0/51/0/descent = 0.0
+cache/0/51/0/underline_position = 0.0
+cache/0/51/0/underline_thickness = 0.0
+cache/0/51/0/scale = 1.0
+cache/0/49/0/ascent = 0.0
+cache/0/49/0/descent = 0.0
+cache/0/49/0/underline_position = 0.0
+cache/0/49/0/underline_thickness = 0.0
+cache/0/49/0/scale = 1.0
+cache/0/48/0/ascent = 0.0
+cache/0/48/0/descent = 0.0
+cache/0/48/0/underline_position = 0.0
+cache/0/48/0/underline_thickness = 0.0
+cache/0/48/0/scale = 1.0
+cache/0/47/0/ascent = 0.0
+cache/0/47/0/descent = 0.0
+cache/0/47/0/underline_position = 0.0
+cache/0/47/0/underline_thickness = 0.0
+cache/0/47/0/scale = 1.0
+cache/0/46/0/ascent = 0.0
+cache/0/46/0/descent = 0.0
+cache/0/46/0/underline_position = 0.0
+cache/0/46/0/underline_thickness = 0.0
+cache/0/46/0/scale = 1.0
+cache/0/45/0/ascent = 0.0
+cache/0/45/0/descent = 0.0
+cache/0/45/0/underline_position = 0.0
+cache/0/45/0/underline_thickness = 0.0
+cache/0/45/0/scale = 1.0
+cache/0/44/0/ascent = 0.0
+cache/0/44/0/descent = 0.0
+cache/0/44/0/underline_position = 0.0
+cache/0/44/0/underline_thickness = 0.0
+cache/0/44/0/scale = 1.0
+cache/0/43/0/ascent = 0.0
+cache/0/43/0/descent = 0.0
+cache/0/43/0/underline_position = 0.0
+cache/0/43/0/underline_thickness = 0.0
+cache/0/43/0/scale = 1.0
+cache/0/42/0/ascent = 0.0
+cache/0/42/0/descent = 0.0
+cache/0/42/0/underline_position = 0.0
+cache/0/42/0/underline_thickness = 0.0
+cache/0/42/0/scale = 1.0
+cache/0/36/0/ascent = 0.0
+cache/0/36/0/descent = 0.0
+cache/0/36/0/underline_position = 0.0
+cache/0/36/0/underline_thickness = 0.0
+cache/0/36/0/scale = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h00vh"]
+
+[node name="PasswordPanel" type="Control" unique_id=1855487618]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 427.0
+offset_top = 131.0
+offset_right = 427.0
+offset_bottom = 221.0
+size_flags_horizontal = 4
+script = ExtResource("1_eqimo")
+correct_password = "20420806"
+max_digits = 8
+click_sound = ExtResource("2_wm15d")
+
+[node name="background" type="TextureRect" parent="." unique_id=1996196112]
+layout_mode = 0
+offset_left = -801.0
+offset_top = -350.00003
+offset_right = 12533.0
+offset_bottom = 7150.0
+scale = Vector2(0.20989025, 0.20989025)
+texture = ExtResource("3_rlolo")
+
+[node name="background2" type="TextureRect" parent="." unique_id=1644652718]
+layout_mode = 0
+offset_left = -801.0
+offset_top = -350.00003
+offset_right = 12533.0
+offset_bottom = 7150.0
+scale = Vector2(0.20989025, 0.20989025)
+texture = ExtResource("4_kjlml")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1399859477]
+layout_mode = 0
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="." unique_id=1677869521]
+layout_mode = 0
+offset_left = 246.00005
+offset_top = 576.00006
+offset_right = 521.66565
+offset_bottom = 631.00006
+rotation = 0.0016989149
+scale = Vector2(0.8058678, 0.8058678)
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_vswdk")
+theme_override_font_sizes/font_size = 30
+text = "输入密码"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="." unique_id=1722708654]
+visible = false
+layout_mode = 0
+offset_left = 647.0543
+offset_top = 188.0
+offset_right = 813.0543
+offset_bottom = 220.0
+rotation = 0.0016989149
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_uu8gm")
+theme_override_font_sizes/font_size = 30
+text = "船鸣"
+horizontal_alignment = 1
+
+[node name="button" type="Control" parent="." unique_id=748971678]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="button" unique_id=1896421819]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 766.0
+offset_top = 219.0
+offset_right = 846.0
+offset_bottom = 299.0
+scale = Vector2(0.72304446, 0.72304446)
+theme_override_fonts/font = SubResource("FontFile_eqimo")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h00vh")
+
+[node name="Button2" type="Button" parent="button" unique_id=1273906048]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 838.0
+offset_top = 219.0
+offset_right = 918.0
+offset_bottom = 299.0
+scale = Vector2(0.72304446, 0.72304446)
+theme_override_fonts/font = SubResource("FontFile_eqimo")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h00vh")
+
+[node name="Button3" type="Button" parent="button" unique_id=963089141]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 909.0
+offset_top = 219.0
+offset_right = 989.0
+offset_bottom = 299.0
+scale = Vector2(0.72304446, 0.72304446)
+theme_override_fonts/font = SubResource("FontFile_eqimo")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h00vh")
+
+[node name="Button4" type="Button" parent="button" unique_id=1851341322]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 766.0
+offset_top = 306.0
+offset_right = 846.0
+offset_bottom = 386.0
+scale = Vector2(0.72304446, 0.72304446)
+theme_override_fonts/font = SubResource("FontFile_eqimo")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h00vh")
+
+[node name="Button5" type="Button" parent="button" unique_id=610193438]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 838.0
+offset_top = 306.0
+offset_right = 918.0
+offset_bottom = 386.0
+scale = Vector2(0.72304446, 0.72304446)
+theme_override_fonts/font = SubResource("FontFile_eqimo")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h00vh")
+
+[node name="Button6" type="Button" parent="button" unique_id=1590361085]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 909.0
+offset_top = 306.0
+offset_right = 989.0
+offset_bottom = 386.0
+scale = Vector2(0.72304446, 0.72304446)
+theme_override_fonts/font = SubResource("FontFile_eqimo")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h00vh")
+
+[node name="Button7" type="Button" parent="button" unique_id=1208696638]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 766.0
+offset_top = 393.0
+offset_right = 846.0
+offset_bottom = 473.0
+scale = Vector2(0.72304446, 0.72304446)
+theme_override_fonts/font = SubResource("FontFile_eqimo")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h00vh")
+
+[node name="Button8" type="Button" parent="button" unique_id=1341746700]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 838.0
+offset_top = 393.0
+offset_right = 918.0
+offset_bottom = 473.0
+scale = Vector2(0.72304446, 0.72304446)
+theme_override_fonts/font = SubResource("FontFile_eqimo")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h00vh")
+
+[node name="Button9" type="Button" parent="button" unique_id=517967051]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 909.0
+offset_top = 393.0
+offset_right = 989.0
+offset_bottom = 473.0
+scale = Vector2(0.72304446, 0.72304446)
+theme_override_fonts/font = SubResource("FontFile_eqimo")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h00vh")
+
+[node name="Button10" type="Button" parent="button" unique_id=659046678]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 835.0
+offset_top = 474.0
+offset_right = 915.0
+offset_bottom = 554.0
+scale = Vector2(0.72304446, 0.72304446)
+theme_override_fonts/font = SubResource("FontFile_eqimo")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h00vh")
+
+[node name="Button11" type="Button" parent="button" unique_id=388850754]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 765.0
+offset_top = 465.0
+offset_right = 845.0
+offset_bottom = 545.0
+scale = Vector2(0.72304446, 0.72304446)
+theme_override_fonts/font = SubResource("FontFile_eqimo")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h00vh")
+
+[node name="Button12" type="Button" parent="button" unique_id=770177673]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 906.0
+offset_top = 474.0
+offset_right = 986.0
+offset_bottom = 554.0
+scale = Vector2(0.72304446, 0.72304446)
+theme_override_fonts/font = SubResource("FontFile_eqimo")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_h00vh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h00vh")
+
+[node name="back" parent="." unique_id=2074814427 instance=ExtResource("5_de2wj")]
+position = Vector2(-380, -129)
+
+[editable path="back"]

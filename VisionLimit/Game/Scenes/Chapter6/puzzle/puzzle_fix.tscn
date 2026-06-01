@@ -1,0 +1,244 @@
+[gd_scene format=4 uid="uid://q8tw5e031q7x"]
+
+[ext_resource type="Script" uid="uid://bnv3s8m2utywj" path="res://Game/Scenes/Chapter6/puzzle/puzzle_fix.gd" id="1_fix"]
+[ext_resource type="Script" uid="uid://pr8tgnrihumr" path="res://Script/Components/puzzle_event_card.gd" id="2_card"]
+[ext_resource type="Script" uid="uid://o3hftk1ljhlj" path="res://Script/Components/puzzle_timeline_slot.gd" id="3_slot"]
+[ext_resource type="Texture2D" uid="uid://bvy1lurmjwod4" path="res://Art/Scenes/Scene6/谜题/时间轴.png" id="4_bg"]
+[ext_resource type="Texture2D" uid="uid://cevrhowqlgakf" path="res://Art/Scenes/Scene6/谜题/1.png" id="5_t1"]
+[ext_resource type="Texture2D" uid="uid://crnpd0cjsqpte" path="res://Art/Scenes/Scene6/谜题/2.png" id="6_t2"]
+[ext_resource type="Texture2D" uid="uid://cgst5axtn3cl0" path="res://Art/Scenes/Scene6/谜题/3.png" id="7_t3"]
+[ext_resource type="Texture2D" uid="uid://7m5ggn7rmqlo" path="res://Art/Scenes/Scene6/谜题/4.png" id="8_t4"]
+[ext_resource type="Texture2D" uid="uid://bx4ot3lxv1akr" path="res://Art/Scenes/Scene6/谜题/5.png" id="9_t5"]
+[ext_resource type="Texture2D" uid="uid://tfafci1hkws8" path="res://Art/Scenes/Scene6/谜题/6.png" id="10_t6"]
+[ext_resource type="Texture2D" uid="uid://8iagbqhok0ge" path="res://Art/Scenes/Scene6/谜题/7.png" id="11_t7"]
+[ext_resource type="Texture2D" uid="uid://4xyx8a4ggheu" path="res://Art/Scenes/Scene6/谜题/8.png" id="12_t8"]
+[ext_resource type="Texture2D" uid="uid://2ttixec6wjxv" path="res://Art/Scenes/Scene6/谜题/9.png" id="13_t9"]
+[ext_resource type="Texture2D" uid="uid://cvips6ol5re6g" path="res://Art/Scenes/Scene6/谜题/10.png" id="14_t10"]
+
+[node name="PuzzleFix" type="Control" unique_id=1347974975]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fix")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1627239267]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource("4_bg")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SlotT1_2039" type="Control" parent="." unique_id=708322223]
+anchors_preset = 0
+offset_left = 418.0
+offset_top = 208.0
+offset_right = 558.0
+offset_bottom = 383.0
+script = ExtResource("3_slot")
+expected_card_id = 2
+
+[node name="SlotT2_2042" type="Control" parent="." unique_id=2034088709]
+anchors_preset = 0
+offset_left = 624.0
+offset_top = 208.0
+offset_right = 764.0
+offset_bottom = 383.0
+script = ExtResource("3_slot")
+expected_card_id = 3
+
+[node name="SlotT3_2043Jul" type="Control" parent="." unique_id=1246104755]
+anchors_preset = 0
+offset_left = 829.0
+offset_top = 208.0
+offset_right = 969.0
+offset_bottom = 383.0
+script = ExtResource("3_slot")
+expected_card_id = 9
+
+[node name="SlotT4_2046Mar" type="Control" parent="." unique_id=1598866581]
+anchors_preset = 0
+offset_left = 1034.0
+offset_top = 208.0
+offset_right = 1174.0
+offset_bottom = 383.0
+script = ExtResource("3_slot")
+expected_card_id = 6
+
+[node name="SlotT5_2046Sep" type="Control" parent="." unique_id=1989341528]
+anchors_preset = 0
+offset_left = 1240.0
+offset_top = 208.0
+offset_right = 1380.0
+offset_bottom = 383.0
+script = ExtResource("3_slot")
+expected_card_id = 8
+
+[node name="SlotB1_2041" type="Control" parent="." unique_id=1977521377]
+anchors_preset = 0
+offset_left = 523.0
+offset_top = 695.0
+offset_right = 663.0
+offset_bottom = 870.0
+script = ExtResource("3_slot")
+expected_card_id = 10
+
+[node name="SlotB2_2043" type="Control" parent="." unique_id=1811733721]
+anchors_preset = 0
+offset_left = 728.0
+offset_top = 695.0
+offset_right = 868.0
+offset_bottom = 870.0
+script = ExtResource("3_slot")
+expected_card_id = 7
+
+[node name="SlotB3_2044" type="Control" parent="." unique_id=1160479634]
+anchors_preset = 0
+offset_left = 933.0
+offset_top = 695.0
+offset_right = 1073.0
+offset_bottom = 870.0
+script = ExtResource("3_slot")
+expected_card_id = 1
+
+[node name="SlotB4_2046Aug" type="Control" parent="." unique_id=387600485]
+anchors_preset = 0
+offset_left = 1139.0
+offset_top = 695.0
+offset_right = 1279.0
+offset_bottom = 870.0
+script = ExtResource("3_slot")
+expected_card_id = 5
+
+[node name="SlotB5_2047" type="Control" parent="." unique_id=1579890632]
+anchors_preset = 0
+offset_left = 1344.0
+offset_top = 695.0
+offset_right = 1484.0
+offset_bottom = 870.0
+script = ExtResource("3_slot")
+expected_card_id = 4
+
+[node name="Card1_Destroy" type="TextureRect" parent="." unique_id=778020074]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 39.0
+offset_right = 305.0
+offset_bottom = 231.0
+texture = ExtResource("5_t1")
+expand_mode = 3
+stretch_mode = 6
+script = ExtResource("2_card")
+card_id = 1
+
+[node name="Card2_Factory" type="TextureRect" parent="." unique_id=320875570]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 245.0
+offset_right = 305.0
+offset_bottom = 437.0
+texture = ExtResource("6_t2")
+expand_mode = 3
+stretch_mode = 6
+script = ExtResource("2_card")
+card_id = 2
+
+[node name="Card3_Zheng" type="TextureRect" parent="." unique_id=1198436300]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 451.0
+offset_right = 305.0
+offset_bottom = 643.0
+texture = ExtResource("7_t3")
+expand_mode = 3
+stretch_mode = 6
+script = ExtResource("2_card")
+card_id = 3
+
+[node name="Card4_Wei" type="TextureRect" parent="." unique_id=516386060]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 657.0
+offset_right = 305.0
+offset_bottom = 849.0
+texture = ExtResource("8_t4")
+expand_mode = 3
+stretch_mode = 6
+script = ExtResource("2_card")
+card_id = 4
+
+[node name="Card5_Memory" type="TextureRect" parent="." unique_id=1595334693]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 863.0
+offset_right = 305.0
+offset_bottom = 1055.0
+texture = ExtResource("9_t5")
+expand_mode = 3
+stretch_mode = 6
+script = ExtResource("2_card")
+card_id = 5
+
+[node name="Card6_Shen" type="TextureRect" parent="." unique_id=1919113119]
+layout_mode = 0
+offset_left = 1617.0
+offset_top = 36.0
+offset_right = 1775.0
+offset_bottom = 228.0
+texture = ExtResource("10_t6")
+expand_mode = 3
+stretch_mode = 6
+script = ExtResource("2_card")
+card_id = 6
+
+[node name="Card7_Disease" type="TextureRect" parent="." unique_id=1919953778]
+layout_mode = 0
+offset_left = 1617.0
+offset_top = 242.0
+offset_right = 1775.0
+offset_bottom = 434.0
+texture = ExtResource("11_t7")
+expand_mode = 3
+stretch_mode = 6
+script = ExtResource("2_card")
+card_id = 7
+
+[node name="Card8_Access" type="TextureRect" parent="." unique_id=316881827]
+layout_mode = 0
+offset_left = 1617.0
+offset_top = 446.0
+offset_right = 1775.0
+offset_bottom = 638.0
+texture = ExtResource("12_t8")
+expand_mode = 3
+stretch_mode = 6
+script = ExtResource("2_card")
+card_id = 8
+
+[node name="Card9_Report" type="TextureRect" parent="." unique_id=878412147]
+layout_mode = 0
+offset_left = 1617.0
+offset_top = 654.0
+offset_right = 1775.0
+offset_bottom = 846.0
+texture = ExtResource("13_t9")
+expand_mode = 3
+stretch_mode = 6
+script = ExtResource("2_card")
+card_id = 9
+
+[node name="Card10_Fish" type="TextureRect" parent="." unique_id=456562101]
+layout_mode = 0
+offset_left = 1617.0
+offset_top = 859.0
+offset_right = 1775.0
+offset_bottom = 1051.0
+texture = ExtResource("14_t10")
+expand_mode = 3
+stretch_mode = 6
+script = ExtResource("2_card")
+card_id = 10

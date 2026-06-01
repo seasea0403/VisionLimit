@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://beemwvxpogg4a"]
 
 [ext_resource type="Script" uid="uid://bn0rkhwukrkq4" path="res://Game/Scenes/Chapter7/UI/proofpanel.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://dw4das0ey32ts" path="res://Art/popback.png" id="2_1mfll"]
-[ext_resource type="PackedScene" path="res://Template/Scene/ReasoningSlot.tscn" id="3_slot"]
+[ext_resource type="Texture2D" uid="uid://blkc6kdc2pmxf" path="res://Art/popback.png" id="2_1mfll"]
+[ext_resource type="PackedScene" uid="uid://rs1miavq07xl" path="res://Template/Scene/ReasoningSlot.tscn" id="3_slot"]
 [ext_resource type="FontFile" uid="uid://bjtrn41cebq4e" path="res://Font/CLFN 16x CN.ttf" id="4_font"]
-[ext_resource type="Texture2D" uid="uid://cjmcu3j4s8ew4" path="res://Art/UI/UI2/微信图片_20260515115216_3100_2323.png" id="5_qm5y1"]
+[ext_resource type="Texture2D" uid="uid://b826h07d2ah6a" path="res://Art/UI/UI2/微信图片_20260515115216_3100_2323.png" id="5_qm5y1"]
 [ext_resource type="PackedScene" uid="uid://cp3xgf2ql8nm" path="res://Template/Scene/CluePanel.tscn" id="6_clue"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1mfll"]
@@ -289,19 +289,12 @@ layout_mode = 2
 theme_override_constants/separation = 80
 alignment = 1
 
-[node name="BtnSend" type="Button" parent="ResultArea/ActionBox" unique_id=1101327887]
+[node name="BtnClose" type="Button" parent="ResultArea/ActionBox" unique_id=1101327887]
 custom_minimum_size = Vector2(220, 60)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_font")
 theme_override_font_sizes/font_size = 26
-text = "发送证据"
-
-[node name="BtnSeal" type="Button" parent="ResultArea/ActionBox" unique_id=2029095259]
-custom_minimum_size = Vector2(220, 60)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_font")
-theme_override_font_sizes/font_size = 26
-text = "封存证据"
+text = "关闭"
 
 [node name="Overlay" type="ColorRect" parent="." unique_id=1533684197]
 layout_mode = 1

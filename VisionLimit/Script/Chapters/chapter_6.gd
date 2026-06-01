@@ -1,7 +1,8 @@
 extends "res://Script/Chapters/chapter.gd"
 
-const Ch5Memory = preload("res://Script/Dialogues/ch5_memory.gd")
-const Ch6Confrontation = preload("res://Script/Dialogues/ch6_confrontation.gd")
+const Ch6Confrontation    = preload("res://Script/Dialogues/ch6_confrontation.gd")
+const Ch6SulinPressure    = preload("res://Script/Dialogues/ch6_sulin_pressure.gd")
+const PuzzleFixScene      = preload("res://Game/Scenes/Chapter6/puzzle/puzzle_fix.tscn")
 
 const TOTAL_STAGES: int = 7
 const FADE_DURATION: float = 1.5
@@ -86,11 +87,11 @@ func _on_panel_closed() -> void:
 	_stage_item_interacted = false
 
 	if _current_stage >= TOTAL_STAGES - 1:
-		# 最后一个舞台完成：执行章节结束序列
+		# 最后一个舞台完成：黑屏后显示谜题
 		_transitioning = true
 		var tween = create_tween()
-		tween.tween_property(_black_overlay, "color", Color(0, 0, 0, 1), 2.0)
-		tween.tween_callback(_start_memory_dialogue)
+		tween.tween_property(_black_overlay, "color", Color(0, 0, 0, 1), 1.5)
+		tween.tween_callback(_show_puzzle)
 	else:
 		_advance_stage()
 
@@ -128,13 +129,75 @@ func _advance_stage() -> void:
 	)
 
 
-func _start_memory_dialogue() -> void:
-	if not DialogueManager.dialogue_finished.is_connected(_on_memory_dialogue_finished):
-		DialogueManager.dialogue_finished.connect(_on_memory_dialogue_finished, CONNECT_ONE_SHOT)
-	DialogueManager.start_dialogue(Ch5Memory.DATA, "0")
+func _show_puzzle() -> void:
+	# 在新 CanvasLayer 上实例化谜题，layer 高于黑屏遮罩
+	_puzzle_layer = CanvasLayer.new()
+	_puzzle_layer.layer = 10
+	add_child(_puzzle_layer)
+
+	var puzzle = PuzzleFixScene.instantiate()
+	_puzzle_layer.add_child(puzzle)
+	puzzle.puzzle_completed.connect(_on_puzzle_completed, CONNECT_ONE_SHOT)
+
+	# 淡出黑屏，显示谜题
+	var tween = create_tween()
+	tween.tween_property(_black_overlay, "color", Color(0, 0, 0, 0), 1.0)
 
 
-func _on_memory_dialogue_finished() -> void:
-	GameStateManager.set_record("ch5_memory_completed", "1")
-	GameStateManager.complete_chapter(5)
+func _on_puzzle_completed() -> void:
+	_play_static_to_black(_start_sulin_dialogue)
+
+
+# ── 雪花特效 + 黑屏 ──────────────────────────────────────────────────────────
+
+var _puzzle_layer: CanvasLayer = null
+var _static_layer: CanvasLayer = null
+
+func _play_static_to_black(callback: Callable) -> void:
+	_static_layer = CanvasLayer.new()
+	_static_layer.layer = 11
+	add_child(_static_layer)
+
+	var static_rect := ColorRect.new()
+	static_rect.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	static_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
+	var shader_mat := ShaderMaterial.new()
+	var shader := Shader.new()
+	shader.code = "shader_type canvas_item;\nuniform float intensity : hint_range(0.0, 1.0) = 0.0;\nvoid fragment() {\n\tfloat noise = fract(sin(dot(UV * TIME * 300.0 + vec2(12.9898, 78.233), vec2(127.1, 311.7))) * 43758.5453);\n\tCOLOR = vec4(vec3(noise), intensity);\n}"
+	shader_mat.shader = shader
+	shader_mat.set_shader_parameter("intensity", 0.0)
+	static_rect.material = shader_mat
+	_static_layer.add_child(static_rect)
+
+	if is_instance_valid(_puzzle_layer):
+		_puzzle_layer.queue_free()
+		_puzzle_layer = null
+
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_method(func(v: float): shader_mat.set_shader_parameter("intensity", v), 0.0, 1.0, 1.2)
+	tween.tween_property(_black_overlay, "color", Color(0, 0, 0, 1), 1.2)
+	tween.set_parallel(false)
+	tween.tween_interval(0.3)
+	tween.tween_callback(func():
+		_static_layer.queue_free()
+		_static_layer = null
+		callback.call()
+	)
+
+
+# ── 苏临对话 ─────────────────────────────────────────────────────────────────
+
+func _start_sulin_dialogue() -> void:
+	DialogueManager.dialogue_finished.connect(_on_sulin_dialogue_finished, CONNECT_ONE_SHOT)
+	DialogueManager.start_dialogue(Ch6SulinPressure.DATA, "0")
+
+
+func _on_sulin_dialogue_finished() -> void:
+	_play_static_to_black(_goto_chapter5)
+
+
+func _goto_chapter5() -> void:
+	GameStateManager.set_record("ch6_return_from_memory", "1")
 	SceneTransitionManager.change_scene_to_file("res://Game/Scenes/Chapter5/chapter_5.tscn")

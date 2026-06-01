@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmbblbqlhqwlt"]
 
-[ext_resource type="Script" uid="uid://rfbm17f3p687" path="res://Game/Scenes/Chapter3/UI/2.gd" id="1_xbeqx"]
+[ext_resource type="Script" uid="uid://rfbm17f3p687" path="res://Game/Scenes/Chapter3/2/puzzle/2.gd" id="1_xbeqx"]
 [ext_resource type="Texture2D" uid="uid://2qwxtfxretky" path="res://Art/Scenes/Scene3/谜题/连线/鱼谜题.png" id="2_5f2u3"]
 [ext_resource type="Texture2D" uid="uid://djwcsnjifegqu" path="res://Art/Scenes/Scene3/谜题/连线/1.png" id="4_0vt03"]
 [ext_resource type="PackedScene" uid="uid://d4dilrlae4nxt" path="res://Template/Scene/Chapter3ItemCard.tscn" id="4_xiff5"]
@@ -9,6 +9,22 @@
 [ext_resource type="Texture2D" uid="uid://ri0u48t02nwk" path="res://Art/Scenes/Scene3/谜题/连线/4.png" id="7_eidyi"]
 [ext_resource type="Texture2D" uid="uid://1utji2unwd40" path="res://Art/Scenes/Scene3/谜题/连线/5.png" id="8_yhgba"]
 [ext_resource type="Texture2D" uid="uid://bih1i65xxjd2w" path="res://Art/Scenes/Scene3/谜题/连线/6.png" id="9_oxwax"]
+
+[sub_resource type="FontFile" id="FontFile_x6ssy"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8uo5l"]
 texture = ExtResource("4_0vt03")
@@ -36,9 +52,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xbeqx")
-title_text = "线索整理"
-completion_title_text = "线索整理已完成"
-completion_desc_text = "四组对应全部正确，可以继续推进。"
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1371023568]
 layout_mode = 0
@@ -47,20 +60,22 @@ offset_bottom = 40.0
 scale = Vector2(0.90685695, 0.90685695)
 texture = ExtResource("2_5f2u3")
 
+[node name="Label" type="Label" parent="." unique_id=812329997]
+layout_mode = 0
+offset_left = 727.00006
+offset_top = 368.00003
+offset_right = 871.00006
+offset_bottom = 391.00003
+scale = Vector2(1.4564718, 1.4564718)
+theme_override_fonts/font = SubResource("FontFile_x6ssy")
+text = "点击连线可取消重连"
+
 [node name="BoardRoot" type="Control" parent="." unique_id=1371056403]
 anchors_preset = 0
 offset_left = 320.0
 offset_top = 264.0
 offset_right = 1609.0
 offset_bottom = 790.0
-
-[node name="ConnectionLayer" type="Control" parent="BoardRoot" unique_id=828979715]
-anchors_preset = 0
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
 
 [node name="LeftColumn" type="Control" parent="BoardRoot" unique_id=2028172462]
 anchors_preset = 0
@@ -91,7 +106,6 @@ scale = Vector2(0.39186454, 0.87812376)
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_cgm8r")
 item_id = "B"
-item_text = " B  冷库门口告示——「货品损耗属正常海运波动范围，品质经相关部门核验。」"
 
 [node name="ItemC" parent="BoardRoot/LeftColumn" unique_id=545595190 instance=ExtResource("4_xiff5")]
 layout_mode = 0
@@ -148,3 +162,11 @@ size_flags_horizontal = 10
 theme_override_styles/panel = SubResource("StyleBoxTexture_sw6gn")
 item_id = "3"
 item_side = 1
+
+[node name="ConnectionLayer" type="Control" parent="BoardRoot" unique_id=828979715]
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

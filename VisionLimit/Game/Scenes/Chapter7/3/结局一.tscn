@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b0u0wxwujlhh1"]
+
+[ext_resource type="Texture2D" uid="uid://6kwlhmc75ght" path="res://Art/Scenes/尾声/看守所门口.png" id="1_nmr72"]
+[ext_resource type="Script" uid="uid://daxttomhsr68x" path="res://Script/Chapters/ending_1_controller.gd" id="1_script"]
+
+[node name="结局一" type="Node2D" unique_id=149764737]
+script = ExtResource("1_script")
+
+[node name="background" type="TextureRect" parent="." unique_id=1139998711]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_nmr72")

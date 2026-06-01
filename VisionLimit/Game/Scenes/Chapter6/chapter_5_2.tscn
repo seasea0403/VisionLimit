@@ -73,6 +73,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("4_7ehwl")
 
 [node name="Calender" parent="Stages/Stage1" index="1" unique_id=223355110 instance=ExtResource("5_e0dyl")]
+item_id = "15"
 item_name = "背影"
 detail_image = ExtResource("6_v5vxl")
 description = "这是我！郑和平的记忆里，居然出现了我的背影。也就是说，她在昏迷的时候，仍能感受到我的存在。"
@@ -93,7 +94,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("7_j2u6v")
 
 [node name="Note" parent="Stages/Stage2" index="1" unique_id=134305686 instance=ExtResource("8_4nyxn")]
-item_id = "2"
+item_id = "8"
 item_name = "化验报告"
 detail_image = ExtResource("9_qwxik")
 description = "找到了，海域汞含量超标的检测结果！这直接指向了该片区鱼类价格大幅下跌的原因。"
@@ -115,7 +116,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("11_yn1j7")
 
 [node name="Card" parent="Stages/Stage3" index="1" unique_id=570228330 instance=ExtResource("12_d1b5b")]
-item_id = "3"
+item_id = "9"
 item_name = "采样坐标"
 detail_image = ExtResource("13_66ci3")
 description = "郑和平昏迷前曾在苍屿各处采样搜集资料，这应当就是他存入记忆海中的采样地点记录。"
@@ -136,7 +137,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("14_k1f8d")
 
 [node name="hardcore" parent="Stages/Stage4" index="1" unique_id=603386124 instance=ExtResource("15_y6dq8")]
-item_id = "4"
+item_id = "10"
 item_name = "苍屿县地图"
 detail_image = ExtResource("16_thedq")
 description = "和魏江工作室里的一样。看来郑和平把它也写入了记忆海以方便进行采样调查。"
@@ -164,35 +165,37 @@ shape = SubResource("RectangleShape2D_i22gp")
 
 [node name="VideoPanel" parent="Stages/Stage5/ClickableVideo" index="1" unique_id=1234567890]
 detail_item_image = ExtResource("19_pfrex")
-detail_item_id = "5"
+detail_item_id = "11"
 
-[node name="Stage6" type="Node2D" parent="Stages" index="5" unique_id=800000012]
+[node name="Stage6" type="Node2D" parent="Stages" index="5" unique_id=800000014]
 
-[node name="Background" type="Sprite2D" parent="Stages/Stage6" index="0" unique_id=800000013]
-position = Vector2(960, 540)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("20_10i1v")
-
-[node name="photo" parent="Stages/Stage6" index="1" unique_id=1877166316 instance=ExtResource("21_d401o")]
-
-[node name="CollisionShape2D" parent="Stages/Stage6/photo" index="0" unique_id=398543410]
-position = Vector2(1568.9775, 551.18115)
-shape = SubResource("RectangleShape2D_8ikql")
-
-[node name="Stage7" type="Node2D" parent="Stages" index="6" unique_id=800000014]
-
-[node name="Background" type="Sprite2D" parent="Stages/Stage7" index="0" unique_id=800000015]
+[node name="Background" type="Sprite2D" parent="Stages/Stage6" index="0" unique_id=800000015]
 position = Vector2(960, 540)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("22_n2nvh")
 
-[node name="dialogue" parent="Stages/Stage7" index="1" unique_id=1133742194 instance=ExtResource("23_v4rdh")]
-item_id = "7"
+[node name="dialogue" parent="Stages/Stage6" index="1" unique_id=1133742194 instance=ExtResource("23_v4rdh")]
+item_id = "12"
 detail_image = ExtResource("24_3p1u6")
 description = "原来郑和平和苏临曾爆发过冲突..."
 
-[node name="CollisionShape2D" parent="Stages/Stage7/dialogue" index="0" unique_id=398543410]
+[node name="CollisionShape2D" parent="Stages/Stage6/dialogue" index="0" unique_id=398543410]
 position = Vector2(1290.8868, 706.0561)
+
+[node name="Stage7" type="Node2D" parent="Stages" index="6" unique_id=800000012]
+
+[node name="Background" type="Sprite2D" parent="Stages/Stage7" index="0" unique_id=800000013]
+position = Vector2(960, 540)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("20_10i1v")
+
+[node name="photo" parent="Stages/Stage7" index="1" unique_id=1877166316 instance=ExtResource("21_d401o")]
+item_id = "13"
+description = "这是...郑和平和苏临？她们两个早就认识了。"
+
+[node name="CollisionShape2D" parent="Stages/Stage7/photo" index="0" unique_id=398543410]
+position = Vector2(1568.9775, 551.18115)
+shape = SubResource("RectangleShape2D_8ikql")
 
 [editable path="UILayer/ItemDetail"]
 [editable path="UILayer/ItemDetail/Control/PrevButton"]
@@ -203,5 +206,5 @@ position = Vector2(1290.8868, 706.0561)
 [editable path="Stages/Stage4/hardcore"]
 [editable path="Stages/Stage5/ClickableVideo"]
 [editable path="Stages/Stage5/ClickableVideo/VideoPanel"]
-[editable path="Stages/Stage6/photo"]
-[editable path="Stages/Stage7/dialogue"]
+[editable path="Stages/Stage6/dialogue"]
+[editable path="Stages/Stage7/photo"]

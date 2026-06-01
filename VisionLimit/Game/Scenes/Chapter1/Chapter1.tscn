@@ -76,6 +76,9 @@ visible = false
 visible = false
 correct_items = Array[String](["1", "2", "4", "6", "15"])
 
+[node name="hint" parent="UILayer/InferencePanel/PanelAnchor/BoardSection" parent_id_path=PackedInt32Array(1999336769, 102) index="1" unique_id=146050531]
+text = "身份   处境   家庭"
+
 [node name="Desktop" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="4" unique_id=2040546291 instance=ExtResource("8_h2x5b")]
 visible = false
 z_index = -1
@@ -103,7 +106,6 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(74, -140)
 
 [node name="message" parent="UILayer/HudPanel" index="3" unique_id=116801211]
-anchors_preset = 0
 offset_left = -1.0
 offset_top = -289.0
 offset_right = 1919.0
@@ -240,6 +242,10 @@ autoplay = true
 [editable path="UILayer/ItemDetail"]
 [editable path="UILayer/ItemDetail/Control/PrevButton"]
 [editable path="UILayer/ItemDetail/Control/LaterButton"]
+[editable path="UILayer/InferencePanel"]
+[editable path="UILayer/InferencePanel/Finish"]
+[editable path="UILayer/InferencePanel/NextButton"]
+[editable path="UILayer/InferencePanel/HoldonButton"]
 [editable path="UILayer/Desktop"]
 [editable path="UILayer/Desktop/BrowserView/back"]
 [editable path="UILayer/Desktop/BankingRecords"]

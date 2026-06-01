@@ -10,3 +10,10 @@ position = Vector2(558.00006, 434.5628)
 scale = Vector2(16.812447, 53.536106)
 
 [node name="Zoomview_desk" parent="." index="1" unique_id=198920514 instance=ExtResource("2_t23ie")]
+
+[editable path="Zoomview_desk"]
+[editable path="Zoomview_desk/Items/paper"]
+[editable path="Zoomview_desk/Items/fishpool"]
+[editable path="Zoomview_desk/Items/ClickableArea_card"]
+[editable path="Zoomview_desk/Items/ClickableArea_card/Zoomview_card"]
+[editable path="Zoomview_desk/Items/ClickableArea_card/Zoomview_card/Items/B2"]

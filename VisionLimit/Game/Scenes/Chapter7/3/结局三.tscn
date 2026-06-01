@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://1vg080vi1os8"]
+
+[ext_resource type="Script" uid="uid://rxm2e53akqaa" path="res://Script/Chapters/ending_3_controller.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://f5e75d73c0" path="res://Art/Scenes/尾声/学校门口.png" id="1_wmy07"]
+
+[node name="结局三" type="Node2D" unique_id=149764737]
+script = ExtResource("1_script")
+
+[node name="background" type="TextureRect" parent="." unique_id=1139998711]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_wmy07")

@@ -2,8 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_l4atd"]
 [ext_resource type="Texture2D" uid="uid://bv8mk6thul8vt" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-医院病房门近景.jpg" id="2_l4atd"]
+[ext_resource type="PackedScene" uid="uid://dibysonekpyuu" path="res://Game/Scenes/Chapter3/1/items/dazzle.tscn" id="3_hpg40"]
 
 [node name="Zoomview_door_left" unique_id=198920514 instance=ExtResource("1_l4atd")]
 
 [node name="Background" parent="." index="0" unique_id=698713652]
 texture = ExtResource("2_l4atd")
+
+[node name="dazzle" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=223355110 instance=ExtResource("3_hpg40")]
+
+[node name="CollisionShape2D" parent="Items/dazzle" index="0" unique_id=398543410]
+position = Vector2(502.87753, 562.9098)
+
+[editable path="Items/dazzle"]

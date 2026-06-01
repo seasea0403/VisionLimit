@@ -1,35 +1,26 @@
 extends Control
 
-@onready var title_label: Label = $Center/PhonePanel/Margin/MainVBox/Header/HeaderPad/HeaderRow/TitleStack/TitleLabel
-@onready var subtitle_label: Label = $Center/PhonePanel/Margin/MainVBox/Header/HeaderPad/HeaderRow/TitleStack/SubtitleLabel
-@onready var progress_label: Label = $Center/PhonePanel/Margin/MainVBox/Header/HeaderPad/HeaderRow/ProgressLabel
-@onready var board_root: Control = $Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot
-@onready var columns_row: HBoxContainer = $Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow
-@onready var connection_layer: Control = $Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ConnectionLayer
-@onready var complete_overlay: Control = $CompleteOverlay
-@onready var complete_desc_label: Label = $CompleteOverlay/Center/CompleteCard/CompletePad/CompleteStack/CompleteDescLabel
-@onready var complete_button: Button = $CompleteOverlay/Center/CompleteCard/CompletePad/CompleteStack/ContinueButton
+signal puzzle_completed
 
-@onready var left_a = $Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/LeftColumn/ItemA
-@onready var left_b = $Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/LeftColumn/ItemB
-@onready var left_c = $Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/LeftColumn/ItemC
-@onready var left_d = $Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/LeftColumn/ItemD
-@onready var right_1 = $Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/RightColumn/Item1
-@onready var right_2 = $Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/RightColumn/Item2
-@onready var right_3 = $Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/RightColumn/Item3
-@onready var right_4 = $Center/PhonePanel/Margin/MainVBox/Board/BoardPad/BoardRoot/ColumnsRow/RightColumn/Item4
+@onready var board_root: Control = $BoardRoot
+@onready var connection_layer: Control = $BoardRoot/ConnectionLayer
 
-@export var title_text: String = "沈意 · 拍照记录"
-@export var subtitle_text: String = "点击左侧物证，再点右侧观察项连线；连线可直接点击撤销"
-@export var completion_title_text: String = "拍照记录已完成"
-@export var completion_desc_text: String = "四组对应全部正确，可以继续推进第三章。"
+@onready var left_a = $BoardRoot/LeftColumn/ItemA
+@onready var left_b = $BoardRoot/LeftColumn/ItemB
+@onready var left_c = $BoardRoot/LeftColumn/ItemC
+@onready var right_1 = $BoardRoot/RightColumn/Item1
+@onready var right_2 = $BoardRoot/RightColumn/Item2
+@onready var right_3 = $BoardRoot/RightColumn/Item3
+
+@export var title_text: String = "线索整理"
+@export var completion_title_text: String = "线索整理已完成"
+@export var completion_desc_text: String = "四组对应全部正确，可以继续推进。"
 @export var completion_chapter_index: int = 3
 
 @export var expected_pairs: Array[Dictionary] = [
-	{"left": "A", "right": "4"},
+	{"left": "A", "right": "2"},
 	{"left": "B", "right": "3"},
-	{"left": "C", "right": "2"},
-	{"left": "D", "right": "1"},
+	{"left": "C", "right": "1"},
 ]
 
 @export var line_thickness: float = 16.0
@@ -51,25 +42,16 @@ var _completed: bool = false
 
 
 func _ready() -> void:
-	_left_cards = [left_a, left_b, left_c, left_d]
-	_right_cards = [right_1, right_2, right_3, right_4]
+	_left_cards = [left_a, left_b, left_c]
+	_right_cards = [right_1, right_2, right_3]
 	_all_cards = _left_cards.duplicate()
 	_all_cards.append_array(_right_cards)
 
-	title_label.text = title_text
-	subtitle_label.text = subtitle_text
-	progress_label.text = "0 / %d" % expected_pairs.size()
-	complete_desc_label.text = completion_desc_text
-	complete_overlay.visible = false
-	complete_overlay.z_index = 10
 	connection_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 	for card in _all_cards:
 		if card and card.has_signal("card_pressed"):
 			card.connect("card_pressed", Callable(self, "_on_card_pressed"))
-
-	if complete_button:
-		complete_button.pressed.connect(_on_complete_button_pressed)
 
 	resized.connect(_refresh_all_connection_lines)
 	call_deferred("_refresh_all_connection_lines")
@@ -190,8 +172,8 @@ func _update_connection_line(left_id: String) -> void:
 
 	var left_rect: Rect2 = left_card.get_global_rect()
 	var right_rect: Rect2 = right_card.get_global_rect()
-	var start_global: Vector2 = Vector2(left_rect.end.x, left_rect.position.y + left_rect.size.y * 0.5)
-	var end_global: Vector2 = Vector2(right_rect.position.x, right_rect.position.y + right_rect.size.y * 0.5)
+	var start_global: Vector2 = left_rect.get_center()
+	var end_global: Vector2 = right_rect.get_center()
 	var layer_transform: Transform2D = connection_layer.get_global_transform_with_canvas().affine_inverse()
 	var start_local: Vector2 = layer_transform * start_global
 	var end_local: Vector2 = layer_transform * end_global
@@ -226,13 +208,7 @@ func _refresh_card_states() -> void:
 
 
 func _update_progress() -> void:
-	var correct_count: int = 0
-	for pair: Dictionary in expected_pairs:
-		var left_id: String = str(pair.get("left", ""))
-		var right_id: String = str(pair.get("right", ""))
-		if _left_to_right.get(left_id, "") == right_id:
-			correct_count += 1
-	progress_label.text = "%d / %d" % [correct_count, expected_pairs.size()]
+	pass
 
 
 func _check_completion() -> void:
@@ -246,14 +222,9 @@ func _check_completion() -> void:
 			return
 
 	_completed = true
-	complete_desc_label.text = completion_desc_text
-	complete_overlay.visible = true
 	if has_node("/root/GameStateManager"):
 		GameStateManager.complete_chapter(completion_chapter_index)
-
-
-func _on_complete_button_pressed() -> void:
-	complete_overlay.visible = false
+	puzzle_completed.emit()
 
 
 func _get_card(item_id: String) -> Control:

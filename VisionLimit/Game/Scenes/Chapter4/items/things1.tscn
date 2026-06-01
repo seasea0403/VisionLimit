@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dh25qbglx6yss"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_kfqp5"]
+[ext_resource type="Texture2D" uid="uid://bpm8xcp3u71tk" path="res://Art/Scenes/Scene4/第三章（档案室）/3-郑和平的信.png" id="2_kfqp5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb1hh"]
+size = Vector2(2.6305165, 23.628876)
+
+[node name="things1" unique_id=223355110 instance=ExtResource("1_kfqp5")]
+item_id = "20"
+item_name = "信件"
+detail_image = ExtResource("2_kfqp5")
+description = "陈星河是郑和平的女儿，2042年，郑和平来苍屿县调查，同年，陈星河入职苍屿县的环境监测局。她为什么离职了？是因为身份特殊，怕她离真相太近吗？那她现在在哪里，郑和平昏迷后，她又在哪？"
+can_record = true
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(572.5, 768.75)
+scale = Vector2(33.07334, -3.9993448)
+shape = SubResource("RectangleShape2D_mb1hh")

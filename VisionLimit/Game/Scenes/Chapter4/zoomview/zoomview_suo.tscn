@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://csgple1kotle2"]
+
+[ext_resource type="PackedScene" uid="uid://c6fjnaypcpj1t" path="res://Template/Scene/Zoomview.tscn" id="1_s0trl"]
+[ext_resource type="Texture2D" uid="uid://4gw6431mlci5" path="res://Art/Scenes/Scene4/Zoomview/zoomview_desk.png" id="2_g36hj"]
+[ext_resource type="PackedScene" uid="uid://bucgrqk25423d" path="res://Game/Scenes/Chapter4/puzzle/puzzle_suo.tscn" id="3_vqgud"]
+[ext_resource type="PackedScene" uid="uid://dh25qbglx6yss" path="res://Game/Scenes/Chapter4/items/things1.tscn" id="4_llr4q"]
+[ext_resource type="Script" uid="uid://dsuo40oomvw5g" path="res://Game/Scenes/Chapter4/zoomview/zoomview_suo.gd" id="6_zmsuo"]
+
+[node name="Zoomview_suo" unique_id=198920514 instance=ExtResource("1_s0trl")]
+script = ExtResource("6_zmsuo")
+
+[node name="Background" parent="." index="0" unique_id=698713652]
+position = Vector2(960.00006, 540.00006)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_g36hj")
+
+[node name="PasswordPanel" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="0" unique_id=1855487618 instance=ExtResource("3_vqgud")]
+
+[node name="things1" parent="Items" parent_id_path=PackedInt32Array(1759582505) index="1" unique_id=223355110 instance=ExtResource("4_llr4q")]

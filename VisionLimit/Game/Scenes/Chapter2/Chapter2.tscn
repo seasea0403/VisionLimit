@@ -78,6 +78,9 @@ text = "打开录音"
 [node name="InferencePanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1999336769 instance=ExtResource("8_6krsd")]
 correct_items = Array[String](["2", "3", "8", "9", "10"])
 
+[node name="hint" parent="UILayer/InferencePanel/PanelAnchor/BoardSection" parent_id_path=PackedInt32Array(1999336769, 102) index="1" unique_id=146050531]
+text = "身份 记录 混乱 行踪 调查"
+
 [node name="Label" parent="UILayer/InferencePanel/NextButton/TextureButton" parent_id_path=PackedInt32Array(1999336769, 883295915, 1367535632) index="0" unique_id=1029178860]
 text = "下一步"
 
@@ -127,7 +130,7 @@ item_id = "4"
 
 [node name="Voice" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(1165186953, 198920514, 1759582505) index="0" unique_id=223355110]
 item_id = "3"
-description = "这支录音笔是郑和平留给我的，里面的内容我已经听过了，你也打开听听吧。"
+description = "录音笔上写着：重要的日子"
 character_image = ExtResource("4_2rb57")
 
 [node name="Card" parent="ZoomViews/ClickableArea_Desk/Zoomview_Desk/Items" parent_id_path=PackedInt32Array(1165186953, 198920514, 1759582505) index="1" unique_id=1292738154]

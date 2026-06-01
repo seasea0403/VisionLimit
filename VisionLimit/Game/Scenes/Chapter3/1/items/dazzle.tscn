@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dibysonekpyuu"]
+
+[ext_resource type="PackedScene" uid="uid://cn2nfjinw7sfg" path="res://Template/Scene/ClickableItem.tscn" id="1_6n58h"]
+[ext_resource type="Texture2D" uid="uid://jx0nr8ydrosj" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-头晕.png" id="2_6n58h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbicw"]
+size = Vector2(44.21849, 204.53842)
+
+[node name="dazzle" unique_id=223355110 instance=ExtResource("1_6n58h")]
+item_id = "2"
+item_name = "病房门"
+detail_image = ExtResource("2_6n58h")
+description = "头好痛......为什么一靠近这个房间，头就会剧烈地痛......"
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=398543410]
+position = Vector2(311.75006, 266.5)
+scale = Vector2(15.202802, -5.007276)
+shape = SubResource("RectangleShape2D_dbicw")
