@@ -4,8 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://b4rvy2y2n01fe" path="res://Art/Scenes/Scene5/Background/Background5.png" id="2_2k8s4"]
 [ext_resource type="Script" uid="uid://dqwva1ct7tlxd" path="res://Script/Chapters/chapter_5.gd" id="2_neg8u"]
 [ext_resource type="PackedScene" uid="uid://b0ng4fnjbekia" path="res://Game/Scenes/Chapter5/ClickableArea/ClickableArea_Desk.tscn" id="3_0tw87"]
+[ext_resource type="PackedScene" uid="uid://dnviance0gyg5" path="res://Game/UI/SumPanel/SumPanel.tscn" id="4_cu6p6"]
 [ext_resource type="Texture2D" uid="uid://df8y8e6blevfd" path="res://Art/Character/沈意骄傲.png" id="4_fbfs3"]
 [ext_resource type="PackedScene" uid="uid://dfug80gvcpggs" path="res://Game/Scenes/Chapter5/ClickableArea/ClickableArea_Block.tscn" id="4_fp6ag"]
+[ext_resource type="PackedScene" uid="uid://drhq2slbuploc" path="res://Game/UI/InferencePanel/InferencePanel.tscn" id="5_ffjt7"]
 [ext_resource type="Texture2D" uid="uid://dh08ghvtyxrkg" path="res://Art/Character/沈意叹气.png" id="5_nqh41"]
 [ext_resource type="Texture2D" uid="uid://dej620f6lg4b3" path="res://Art/Character/魏江张手.png" id="7_w4bja"]
 [ext_resource type="PackedScene" uid="uid://detnxptpgnhtx" path="res://Game/Scenes/Chapter5/items/computer.tscn" id="9_xxd6n"]
@@ -33,6 +35,10 @@ texture = ExtResource("2_2k8s4")
 
 [node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="0" unique_id=552734023]
 visible = false
+
+[node name="SumPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="1" unique_id=1239234424 instance=ExtResource("4_cu6p6")]
+
+[node name="InferencePanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1999336769 instance=ExtResource("5_ffjt7")]
 
 [node name="ClickableArea_Desk" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("3_0tw87")]
 

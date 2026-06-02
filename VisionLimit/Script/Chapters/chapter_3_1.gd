@@ -6,6 +6,7 @@ const Ch3Intro = preload("res://Script/Dialogues/ch3_intro.gd")
 const Ch3Message = preload("res://Script/Dialogues/ch3_message.gd")
 const Ch3Phone = preload("res://Script/Dialogues/ch3_phone.gd")
 const Ch3Door = preload("res://Script/Dialogues/ch3_door.gd")
+const Ch3InferenceEnd = preload("res://Script/Dialogues/ch3_inference_end.gd")
 
 # ==================== 状态 ====================
 ## 魏江是否已被点击过一次（第一次=开场白，第二次=触发对话）
@@ -17,7 +18,7 @@ var _saw_pinknote: bool = false
 ## 是否已查看预约记录/台账（item_id="4"）
 var _saw_record: bool = false
 ## 母亲病房门是否已解锁过（解锁后再点击跳过密码直接弹选项）
-var _door_unlocked: bool = false
+# 状态现在由 GameStateManager.get_record("ch3_door_unlocked") 持有
 
 ## 草丛开场覆盖层
 var _opening_overlay: CanvasLayer = null
@@ -27,6 +28,9 @@ var _continue_button: Button = null
 
 func _ready() -> void:
 	chapter_number = 3
+	# 从 chapter_3_2 返回时，保留本章已收集物品（需在 super._ready() 之前设置）
+	if GameStateManager.get_record("ch3_returning_from_3_2") == "true":
+		is_chapter_continuation = true
 	super._ready()
 	item_detail.detail_opened.connect(_on_detail_opened)
 	_continue_button = item_detail.get_node_or_null("Control/ContinueButton") as Button
@@ -34,8 +38,26 @@ func _ready() -> void:
 		_continue_button.pressed.connect(_on_continue_button_pressed)
 		item_detail.panel_closed.connect(func(): _continue_button.visible = false)
 
+	# 连接推理板信号（inference_panel 由 super._ready() 中的 _setup_inference_panel 初始化）
+	if is_instance_valid(inference_panel):
+		if not inference_panel.is_connected("inference_success", _on_inference_success):
+			inference_panel.connect("inference_success", _on_inference_success)
+		if not inference_panel.is_connected("chapter_next_requested", _on_inference_next_pressed):
+			inference_panel.connect("chapter_next_requested", _on_inference_next_pressed)
+
 	# 获取开场背景覆盖层
 	_opening_overlay = get_node_or_null("OpeningOverlay") as CanvasLayer
+
+	# 从 chapter_3_2 返回：跳过开场对话，直接恢复探索状态
+	if is_chapter_continuation:
+		GameStateManager.set_record("ch3_returning_from_3_2", "false")
+		_weijian_clicked = true
+		_saw_brochure = true
+		_saw_pinknote = true
+		_saw_record = true
+		if is_instance_valid(_opening_overlay):
+			_opening_overlay.hide()
+		return
 
 	# 隐藏医院场景和 HUD，等待开场对话结束后再显示
 	zoom_views_root.hide()
@@ -45,24 +67,6 @@ func _ready() -> void:
 	if not DialogueManager.dialogue_finished.is_connected(_on_intro_finished):
 		DialogueManager.dialogue_finished.connect(_on_intro_finished, CONNECT_ONE_SHOT)
 	DialogueManager.start_dialogue(Ch3Intro.DATA, "sy_1")
-
-	# ========== 病房门流程 ==========
-	# 左门密码面板
-	var left_pw = get_node_or_null("ZoomViews/ClickableArea_Door_Left/Zoomview_door_left/Items/ClickableArea_Door_Right/Zoomview_door_right/PasswordPanel")
-	if left_pw:
-		left_pw.password_correct.connect(_on_door_password_unlocked)
-	# 左门内层 Zoomview：已解锁时直接弹选项
-	var left_inner_zv = get_node_or_null("ZoomViews/ClickableArea_Door_Left/Zoomview_door_left/Items/ClickableArea_Door_Right/Zoomview_door_right")
-	if left_inner_zv:
-		left_inner_zv.visibility_changed.connect(_on_left_door_inner_zv_visible)
-	# 右门密码面板
-	var right_pw = get_node_or_null("ZoomViews/ClickableArea_Door_Right/Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right/Items/ClickableArea_suo_2/PasswordPanel_open")
-	if right_pw:
-		right_pw.password_correct.connect(_on_door_password_unlocked)
-	# 右门中间 Zoomview：已解锁时直接弹选项
-	var right_mid_zv = get_node_or_null("ZoomViews/ClickableArea_Door_Right/Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right")
-	if right_mid_zv:
-		right_mid_zv.visibility_changed.connect(_on_right_door_mid_zv_visible)
 
 
 # ==================== 开场对话完成 ====================
@@ -155,37 +159,7 @@ func _on_hospital_dialogue_finished() -> void:
 
 
 # ==================== 母亲病房入室流程 ====================
-func _on_door_password_unlocked() -> void:
-	_door_unlocked = true
-	_start_door_choice_dialogue()
-
-
-func _on_left_door_inner_zv_visible() -> void:
-	if not _door_unlocked:
-		return
-	var left_zv = get_node_or_null("ZoomViews/ClickableArea_Door_Left/Zoomview_door_left/Items/ClickableArea_Door_Right/Zoomview_door_right")
-	if left_zv and left_zv.visible:
-		left_zv.hide_view()
-		_start_door_choice_dialogue()
-
-
-func _on_right_door_mid_zv_visible() -> void:
-	var right_zv = get_node_or_null("ZoomViews/ClickableArea_Door_Right/Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right")
-	if not right_zv or not right_zv.visible:
-		return
-	if _door_unlocked:
-		# 已解锁 → 跳过密码，直接弹出选项
-		right_zv.hide_view()
-		_start_door_choice_dialogue()
-	else:
-		# 首次进入 → 自动弹出密码面板，无需再点 ClickableArea_suo_2
-		var pw = get_node_or_null("ZoomViews/ClickableArea_Door_Right/Zoomview_door_right/Items/ClickableArea_suo/Zoomview_door_right/Items/ClickableArea_suo_2/PasswordPanel_open")
-		if pw and pw.has_method("open"):
-			register_panel_open(pw)
-			pw.open()
-
-
-func _start_door_choice_dialogue() -> void:
+func start_door_choice_dialogue() -> void:
 	if DialogueManager.is_active:
 		return
 	if not DialogueManager.dialogue_finished.is_connected(_on_door_dialogue_finished):
@@ -194,5 +168,35 @@ func _start_door_choice_dialogue() -> void:
 
 
 func _on_door_dialogue_finished() -> void:
-	# 仅当玩家选择「确定」并完成无线电对话后到达此处
-	SceneTransitionManager.change_scene_to_file("res://Game/Scenes/Chapter3/2/chapter_3_2.tscn")
+	var choice := GameStateManager.get_record("ch3_door_choice")
+	if choice == "a":
+		# 玩家选「再看一会儿」：关闭当前最顶层的可见 ZoomView
+		_on_hud_back_pressed()
+	else:
+		# 玩家选「确定」：完成第三章并跳转至下一场景
+		GameStateManager.complete_chapter(3)
+		SceneTransitionManager.change_scene_to_file("res://Game/Scenes/Chapter3/2/chapter_3_2.tscn")
+
+
+# ==================== 推理板 ====================
+func _on_inference_success() -> void:
+	if is_instance_valid(inference_panel):
+		inference_panel.show_completion_buttons()
+
+
+func _on_inference_next_pressed() -> void:
+	if is_instance_valid(inference_panel):
+		inference_panel.close_panel()
+	# 隐藏医院场景与 HUD，显示草丛背景，播放汇报对话
+	zoom_views_root.hide()
+	ui_layer.hide()
+	if is_instance_valid(_opening_overlay):
+		_opening_overlay.show()
+	if not DialogueManager.dialogue_finished.is_connected(_on_inference_end_finished):
+		DialogueManager.dialogue_finished.connect(_on_inference_end_finished, CONNECT_ONE_SHOT)
+	DialogueManager.start_dialogue(Ch3InferenceEnd.DATA, "wj_1")
+
+
+func _on_inference_end_finished() -> void:
+	GameStateManager.complete_chapter(3)
+	SceneTransitionManager.change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")

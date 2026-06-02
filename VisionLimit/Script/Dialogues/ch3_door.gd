@@ -11,8 +11,8 @@ const DATA: Dictionary = {
 		"speaker": "",
 		"text": "提示：这是母亲的病房。\n你确定要进入此病房了吗？",
 		"choices": [
-			{"text": "不确定，再看一会吧。", "next": "__exit__"},
-			{"text": "确定", "next": "wj_radio"},
+			{"text": "不确定，再看一会吧。", "record_key": "ch3_door_choice", "record_value": "a", "next": ""},
+			{"text": "确定", "record_key": "ch3_door_choice", "record_value": "b", "next": "wj_radio"},
 		],
 	},
 	# ── 无线电简报 ────────────────────────────────────────────────────────
@@ -38,6 +38,13 @@ const DATA: Dictionary = {
 		"portrait_right": WJ1,
 		"active_side": "right",
 		"text": "好。",
+		"next": "sy_monologue",
+	},
+	# ── 沈意入室前独白 ───────────────────────────────────────────────────
+	"sy_monologue": {
+		"speaker": "沈意",
+		"portrait": SY1,
+		"text": "这是我妈妈的病房。她出事前，我很少回来，也从来没发觉过她生病了。也许这次我能找到她生病前的一些事。",
 		"next": "",
 	},
 }

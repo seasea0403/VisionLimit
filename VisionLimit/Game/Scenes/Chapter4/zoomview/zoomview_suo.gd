@@ -56,6 +56,10 @@ func _on_password_correct() -> void:
 	print("Zoomview_suo: _on_password_correct received")
 	_puzzle_solved = true
 	_password_panel.hide()
+	
+	# 先关闭 ZoomView，恢复背景交互，防止产生空白层占用
+	hide_view()
+	
 	_things1.show()
 	_things1.input_pickable = true
 	

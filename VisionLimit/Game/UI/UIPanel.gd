@@ -5,6 +5,7 @@ extends Control
 @onready var setting_panel: Control = $SettingPanel
 @onready var start_button: TextureButton = $MainPanel/setting/TextureButton
 @onready var setting_button: TextureButton = $MainPanel/start/TextureButton
+@onready var quit_button: TextureButton = $MainPanel/quit/TextureButton
 
 
 func _ready() -> void:
@@ -12,6 +13,8 @@ func _ready() -> void:
 		start_button.pressed.connect(_on_start_pressed)
 	if setting_button and not setting_button.pressed.is_connected(_on_setting_pressed):
 		setting_button.pressed.connect(_on_setting_pressed)
+	if quit_button and not quit_button.pressed.is_connected(_on_quit_pressed):
+		quit_button.pressed.connect(_on_quit_pressed)
 
 	if choose_level_panel:
 		choose_level_panel.hide()
@@ -39,3 +42,7 @@ func _on_setting_pressed() -> void:
 		setting_panel.move_to_front()
 	if choose_level_panel:
 		choose_level_panel.hide()
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()

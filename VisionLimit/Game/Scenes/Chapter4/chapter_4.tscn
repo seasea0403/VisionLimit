@@ -14,10 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://cvwocxc2yliqs" path="res://Game/Scenes/Chapter4/items/fishpool.tscn" id="10_mscpq"]
 [ext_resource type="Script" uid="uid://cu07srmobwlt3" path="res://Script/Components/zoomview.gd" id="10_qxaf3"]
 [ext_resource type="PackedScene" uid="uid://dj57opwbti0wg" path="res://Game/Scenes/Chapter4/ClickableArea/ClickableArea_desk_drawer.tscn" id="11_1h7ny"]
-[ext_resource type="PackedScene" uid="uid://b4pbjlcio4ov" path="res://Game/Scenes/Chapter4/puzzle/puzzle_2.tscn" id="11_bgpjh"]
 [ext_resource type="FontFile" uid="uid://cwjfcn0dqtqs0" path="res://Font/源云明体/GenWanMinJP-Medium（源云明体）.ttf" id="11_mscpq"]
 [ext_resource type="PackedScene" uid="uid://5ujfgritpury" path="res://Game/Scenes/Chapter4/ClickableArea/ClickableArea_suo.tscn" id="12_ctts6"]
-[ext_resource type="PackedScene" uid="uid://be2v8r12vkfeu" path="res://Game/Scenes/Chapter4/puzzle/puzzle_4.tscn" id="12_qxaf3"]
 [ext_resource type="PackedScene" uid="uid://dfqaxpm6ufxjr" path="res://Game/Scenes/Chapter4/items/paper.tscn" id="13_xoqtl"]
 [ext_resource type="PackedScene" uid="uid://uoob8crha8uv" path="res://Game/Scenes/Chapter4/items/key.tscn" id="14_1uoxd"]
 
@@ -68,6 +66,9 @@ script = ExtResource("6_ch4sc")
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_lqic1")
 
+[node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="0" unique_id=552734023]
+visible = false
+
 [node name="PageIndicator" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="2" unique_id=111222335]
 visible = true
 offset_left = 823.0
@@ -82,12 +83,17 @@ position = Vector2(97, 0)
 position = Vector2(1070, 0)
 
 [node name="SumPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="1" unique_id=1239234424 instance=ExtResource("4_woqs7")]
+visible = false
 
 [node name="InferencePanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1999336769 instance=ExtResource("5_xoqtl")]
+visible = false
 correct_items = Array[String](["2", "3", "4", "5", "10"])
 
 [node name="hint" parent="UILayer/InferencePanel/PanelAnchor/BoardSection" parent_id_path=PackedInt32Array(1999336769, 102) index="1" unique_id=146050531]
 text = "转移 产业 勾结"
+
+[node name="Label" parent="UILayer/InferencePanel/NextButton/TextureButton" parent_id_path=PackedInt32Array(1999336769, 883295915, 1367535632) index="0" unique_id=1029178860]
+text = "下一步"
 
 [node name="CountdownLabel" type="Label" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="4" unique_id=314159265]
 offset_left = 820.0
@@ -100,6 +106,7 @@ text = "10:00"
 horizontal_alignment = 1
 
 [node name="ClickableArea_paper" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="0" unique_id=676050068 instance=ExtResource("3_qnvrk")]
+visible = false
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_paper" index="0" unique_id=55883732]
 position = Vector2(1532.1508, 877.56366)
@@ -123,6 +130,7 @@ visible = false
 item_id = "5"
 
 [node name="ClickableArea_desk" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=1229629625 instance=ExtResource("4_0r2fq")]
+visible = false
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_desk" index="0" unique_id=55883732]
 position = Vector2(873, 611.475)
@@ -173,6 +181,9 @@ position = Vector2(-571, -308)
 position = Vector2(1467.5474, 738.00006)
 shape = SubResource("RectangleShape2D_tm7mn")
 
+[node name="Zoomview_drawer_A1" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_A1" index="1" unique_id=198920514]
+position = Vector2(575, 312)
+
 [node name="A1" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_A1/Zoomview_drawer_A1/Items" parent_id_path=PackedInt32Array(1415919454, 1555496259, 198920514, 1759582505) index="0" unique_id=223355110]
 item_id = "13"
 description = "看得出环保局十分看重省级达标示范单位的名头，可眼下苍屿渔业萧条、水质持续变差，他们会出台怎样的应对措施？"
@@ -181,8 +192,11 @@ description = "看得出环保局十分看重省级达标示范单位的名头�
 position = Vector2(893.5, 740.5)
 shape = SubResource("RectangleShape2D_ej784")
 
-[node name="PasswordPanel_A2" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_A2" parent_id_path=PackedInt32Array(1415919454, 1788399999) index="1" unique_id=1855487618 instance=ExtResource("11_bgpjh")]
-visible = false
+[node name="PasswordPanel" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_A2/Zoomview_drawer_A2/Items" parent_id_path=PackedInt32Array(1415919454, 1788399999, 198920514, 1759582505) index="0" unique_id=1855487618]
+offset_left = 379.0
+offset_top = 129.0
+offset_right = 379.0
+offset_bottom = 219.0
 
 [node name="A2" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_A2/Zoomview_drawer_A2/Items" parent_id_path=PackedInt32Array(1415919454, 1788399999, 198920514, 1759582505) index="1" unique_id=223355110]
 item_id = "14"
@@ -204,10 +218,14 @@ position = Vector2(764, 426)
 shape = SubResource("RectangleShape2D_1h7ny")
 
 [node name="Zoomview_drawer_B2" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_B2" index="1" unique_id=198920514]
-script = ExtResource("10_qxaf3")
+position = Vector2(-609, -331)
+detail_character_image = null
 
-[node name="PasswordPanel_B2" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_B2/Zoomview_drawer_B2" index="0" unique_id=1991635398 instance=ExtResource("12_qxaf3")]
-visible = false
+[node name="PasswordPanel" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_B2/Zoomview_drawer_B2/Items" parent_id_path=PackedInt32Array(1415919454, 2013407887, 198920514, 1759582505) index="0" unique_id=1855487618]
+offset_left = 404.0
+offset_top = 133.0
+offset_right = 404.0
+offset_bottom = 223.0
 
 [node name="B2" parent="ZoomViews/ClickableArea_drawer/Zoomview_A1/ClickableArea_drawer_B2/Zoomview_drawer_B2/Items" parent_id_path=PackedInt32Array(1415919454, 2013407887, 198920514, 1759582505) index="1" unique_id=223355110]
 item_id = "16"
@@ -221,14 +239,20 @@ position = Vector2(858.59467, 910.8998)
 shape = SubResource("RectangleShape2D_qxaf3")
 
 [node name="ClickableArea_suo" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="4" unique_id=1459570122 instance=ExtResource("12_ctts6")]
-visible = false
 
 [node name="CollisionShape2D" parent="ZoomViews/ClickableArea_suo" index="0" unique_id=55883732]
 position = Vector2(352, 202.39977)
 shape = SubResource("RectangleShape2D_6pwwo")
 
 [node name="Background" parent="ZoomViews/ClickableArea_suo/Zoomview_suo" parent_id_path=PackedInt32Array(1459570122, 198920514) index="0" unique_id=698713652]
+visible = false
 texture = null
+
+[node name="PasswordPanel" parent="ZoomViews/ClickableArea_suo/Zoomview_suo/Items" parent_id_path=PackedInt32Array(1459570122, 198920514, 1759582505) index="0" unique_id=1855487618]
+offset_left = 378.0
+offset_top = 135.0
+offset_right = 378.0
+offset_bottom = 225.0
 
 [node name="SceneBgm" parent="." index="3" unique_id=996875468]
 stream = SubResource("AudioStreamMP3_qnvrk")

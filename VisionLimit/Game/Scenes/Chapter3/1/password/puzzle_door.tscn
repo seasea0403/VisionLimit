@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d0iqvq87rwkl7"]
 
 [ext_resource type="Script" uid="uid://lx6dc3tlm54s" path="res://Game/Scenes/Chapter3/1/password/puzzle_door.gd" id="1_hv27d"]
+[ext_resource type="AudioStream" uid="uid://q0u3yxfxoavj" path="res://Audio/SFX/Click.mp3" id="2_shk0q"]
 [ext_resource type="FontFile" uid="uid://bvl8ulxuys0rb" path="res://Font/华文隶书.TTF" id="3_4jc7x"]
 [ext_resource type="Texture2D" uid="uid://by2bon5amq7f3" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-病房门密码锁.png" id="3_gwxlh"]
 [ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="5_shk0q"]
@@ -193,12 +194,14 @@ cache/0/36/0/scale = 1.0
 [node name="PasswordPanel" type="Control" unique_id=1855487618]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 394.0
-offset_top = 131.0
-offset_right = 394.0
-offset_bottom = 221.0
+offset_left = 289.0
+offset_top = 99.0
+offset_right = 289.0
+offset_bottom = 189.0
 size_flags_horizontal = 4
 script = ExtResource("1_hv27d")
+correct_password = "9056"
+click_sound = ExtResource("2_shk0q")
 
 [node name="background" type="TextureRect" parent="." unique_id=1996196112]
 layout_mode = 0
@@ -226,6 +229,7 @@ text = "输入密码"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="." unique_id=1722708654]
+visible = false
 layout_mode = 0
 offset_left = 458.0
 offset_top = 219.0
@@ -234,7 +238,6 @@ offset_bottom = 251.0
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_4jc7x")
 theme_override_font_sizes/font_size = 30
-text = "结果"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="Control" parent="." unique_id=1152798077]

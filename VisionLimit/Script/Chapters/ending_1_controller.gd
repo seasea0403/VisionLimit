@@ -16,7 +16,7 @@ func _on_dialogue_finished() -> void:
 	# 如果没有专门的选择页面，通常返回主菜单或剧目选择
 	# 这里假设返回主面板或者关卡选择
 	if FileAccess.file_exists("res://Game/UI/MainPanel.tscn"):
-		SceneTransitionManager.change_scene_to_file("res://Game/UI/MainPanel.tscn")
+		SceneTransitionManager.change_scene_to_file("res://Game/UI/UIPanel.tscn")
 	else:
 		# 退而求其次
 		SceneTransitionManager.change_scene_to_file("res://Template/UI/Level.tscn")

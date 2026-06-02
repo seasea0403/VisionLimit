@@ -205,10 +205,16 @@ func _on_detail_opened(item_id: String) -> void:
 			if not _saw_photo:
 				_saw_photo = true
 				GameStateManager.set_record("saw_photo", "true")
+				_check_found_archive()
 		"20":  # 信件 — 影响结局
 			if not _saw_things1:
 				_saw_things1 = true
 				GameStateManager.set_record("saw_things1", "true")
+				_check_found_archive()
+
+func _check_found_archive() -> void:
+	if GameStateManager.get_record("saw_photo") == "true" and GameStateManager.get_record("saw_things1") == "true":
+		GameStateManager.set_clue("ch3_found_archive")
 
 
 

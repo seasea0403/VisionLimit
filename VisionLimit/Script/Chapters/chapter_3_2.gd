@@ -90,4 +90,6 @@ func _on_fish_puzzle_completed() -> void:
 	var zoomview_fish = $"ZoomViews/ClickableArea_fish/Zoomview_fish"
 	if zoomview_fish and zoomview_fish.has_method("hide_view"):
 		zoomview_fish.hide_view()
+	# 标记"从 chapter_3_2 返回"，让 chapter_3_1 恢复探索状态而非重演开场
+	GameStateManager.set_record("ch3_returning_from_3_2", "true")
 	SceneTransitionManager.change_scene_to_file("res://Game/Scenes/Chapter3/1/chapter_3_1.tscn")

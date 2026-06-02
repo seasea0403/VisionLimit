@@ -1,0 +1,161 @@
+# ch6_final_hide.gd
+# 第六章结局分支 4：扣下证据（结局三剧情）
+
+extends RefCounted
+
+const SY1 := "res://Art/Character/人物最终立绘/沈意-表情1.png"
+const SY3 := "res://Art/Character/人物最终立绘/沈意-表情3.png"
+const WJ1 := "res://Art/Character/人物最终立绘/魏江-表情1.png"
+const WJ3 := "res://Art/Character/人物最终立绘/魏江-表情3.png"
+
+const DATA: Dictionary = {
+	"start": {
+		"speaker": "系统",
+		"text": "魏江独自将线索检举给了警方。精炼厂被强制关停，苏临被移交警方。\n沈意接受了应有的职业惩罚，被判处三个月的有期徒刑。在入狱一个月后，沈意收到了一次探视。",
+		"next": "sy_1",
+	},
+	"sy_1": {
+		"speaker": "沈意",
+		"portrait": SY3,
+		"portrait_right": WJ1,
+		"active_side": "left",
+		"text": "是..你，我以为你不会再来了。",
+		"next": "wj_1",
+	},
+	"wj_1": {
+		"speaker": "魏江",
+		"portrait": SY3,
+		"portrait_right": WJ1,
+		"active_side": "right",
+		"text": "本来应该是这样的。其实，我今天来，是想告诉你一件事。",
+		"next": "sy_2",
+	},
+	"sy_2": {
+		"speaker": "沈意",
+		"portrait": SY1,
+		"portrait_right": WJ1,
+		"active_side": "left",
+		"text": "什么？",
+		"next": "wj_2",
+	},
+	"wj_2": {
+		"speaker": "魏江",
+		"portrait": SY1,
+		"portrait_right": WJ1,
+		"active_side": "right",
+		"text": "你知不知道，郑和平还有个女儿。",
+		"next": "sy_3",
+	},
+	"sy_3": {
+		"speaker": "沈意",
+		"portrait": SY1,
+		"portrait_right": WJ1,
+		"active_side": "left",
+		"text": "...",
+		"next": "wj_3",
+	},
+	"wj_3": {
+		"speaker": "魏江",
+		"portrait": SY1,
+		"portrait_right": WJ1,
+		"active_side": "right",
+		"text": "郑和平是我妈妈。我不叫魏江，我是陈星河。",
+		"next": "sy_4",
+	},
+	"sy_4": {
+		"speaker": "沈意",
+		"portrait": SY3,
+		"portrait_right": WJ1,
+		"active_side": "left",
+		"text": "江..河...陈星河...好熟悉...你在环境局工作过？",
+		"next": "wj_4",
+	},
+	"wj_4": {
+		"speaker": "魏江",
+		"portrait": SY3,
+		"portrait_right": WJ1,
+		"active_side": "right",
+		"text": "对。我和妈妈同年来到苍屿县，我在苍屿县环境监测局工作。工作过程中，我对某些明显被人为改动过的数据提出质疑，结果被迫离职。后来我妈妈突然晕倒，苏临突然出现，用我妈妈的生命作为威胁，让我离开苍屿县。",
+		"next": "wj_5",
+	},
+	"wj_5": {
+		"speaker": "魏江",
+		"portrait": SY3,
+		"portrait_right": WJ1,
+		"active_side": "right",
+		"text": "我当然没有那么听话了。我用自己的办法骗过她，编造了魏江的假身份，继续留在苍屿县调查妈妈的事。",
+		"next": "sy_5",
+	},
+	"sy_5": {
+		"speaker": "沈意",
+		"portrait": SY1,
+		"portrait_right": WJ1,
+		"active_side": "left",
+		"text": "原来是这样。那你找上我，也是因为我和你妈妈接触过？",
+		"next": "wj_6",
+	},
+	"wj_6": {
+		"speaker": "魏江",
+		"portrait": SY1,
+		"portrait_right": WJ1,
+		"active_side": "right",
+		"text": "对。我黑进了苍屿县第一医院的访客记录，看到了你进入我妈妈病房的记录。又调查了你的身份，想要借你之手，扳倒苏临，再让你受到应有的惩罚。",
+		"next": "sy_6",
+	},
+	"sy_6": {
+		"speaker": "沈意",
+		"portrait": SY3,
+		"portrait_right": WJ1,
+		"active_side": "left",
+		"text": "原来是这样...那，那也对...原来是这样。",
+		"next": "wj_7",
+	},
+	"wj_7": {
+		"speaker": "魏江",
+		"portrait": SY3,
+		"portrait_right": WJ1,
+		"active_side": "right",
+		"text": "今天应该是我最后一次见你了，沈意，我原以为你是被迫的，没想到你还是做出了同样的选择。",
+		"next": "sy_7",
+	},
+	"sy_7": {
+		"speaker": "沈意",
+		"portrait": SY3,
+		"portrait_right": WJ1,
+		"active_side": "left",
+		"text": "对不起。",
+		"next": "wj_8",
+	},
+	"wj_8": {
+		"speaker": "魏江",
+		"portrait": SY3,
+		"portrait_right": WJ1,
+		"active_side": "right",
+		"text": "你只会说对不起是吗？",
+		"next": "wj_9",
+	},
+	"wj_9": {
+		"speaker": "魏江",
+		"portrait": SY3,
+		"portrait_right": WJ3,
+		"active_side": "right",
+		"text": "沈意，这个世界上总有比钱和利益更重要的东西，这一点，我和妈妈知道。而你和苏临，永远也不会知道了。",
+		"next": "wj_10",
+	},
+	"wj_10": {
+		"speaker": "魏江",
+		"portrait": SY3,
+		"portrait_right": WJ1,
+		"active_side": "right",
+		"text": "你好自为之吧。谢谢你的配合。再见。",
+		"next": "sy_final",
+	},
+	"sy_final": {
+		"speaker": "沈意",
+		"portrait": SY3,
+		"portrait_right": WJ1,
+		"active_side": "none",
+		"text": "...",
+		"next": "",
+	},
+}

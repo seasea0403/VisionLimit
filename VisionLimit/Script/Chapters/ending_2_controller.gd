@@ -14,6 +14,6 @@ func start_ending_dialogue() -> void:
 func _on_dialogue_finished() -> void:
 	# 对话完成后进入游戏选择页面
 	if FileAccess.file_exists("res://Game/UI/MainPanel.tscn"):
-		SceneTransitionManager.change_scene_to_file("res://Game/UI/MainPanel.tscn")
+		SceneTransitionManager.change_scene_to_file("res://Game/UI/UIPanel.tscn")
 	else:
 		SceneTransitionManager.change_scene_to_file("res://Template/UI/Level.tscn")

@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bt25y1vbatsfo"]
+[gd_scene format=3 uid="uid://bt25y1vbatsfo"]
 
-[ext_resource type="Script" path="res://Script/Chapters/ending_2_controller.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://bg637h6klcgvu" path="res://Art/Scenes/尾声/教室里.png" id="1_dknnb"]
+[ext_resource type="Script" uid="uid://bokavyfdwdjyv" path="res://Script/Chapters/ending_2_controller.gd" id="1_script"]
 
 [node name="结局二" type="Node2D" unique_id=149764737]
 script = ExtResource("1_script")

@@ -4,8 +4,8 @@ const Ch6_1Intro = preload("res://Script/Dialogues/ch6_1_intro.gd")
 
 func _ready() -> void:
 	super._ready()
-	GameStateManager.set_current_chapter(7)
-	GameStateManager.reset_chapter_items(7)
+	GameStateManager.set_current_chapter(6)
+	GameStateManager.reset_chapter_items(6)
 
 	zoom_views_root.hide()
 	ui_layer.hide()

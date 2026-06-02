@@ -154,9 +154,12 @@ func _evaluate_state() -> void:
 	action_box.visible = true
 
 
+signal panel_completed
+
 func _on_btn_close_pressed() -> void:
 	if _decided:
 		return
 	_decided = true
 	action_box.visible = false
+	panel_completed.emit()
 	queue_free()

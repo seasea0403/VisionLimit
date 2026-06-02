@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://7r14g3cwop0y" path="res://Game/Scenes/Chapter1/items/grass.tscn" id="17_qmlx1"]
 [ext_resource type="PackedScene" uid="uid://dopkk51crhu70" path="res://Game/Scenes/Chapter1/items/father.tscn" id="18_cduhf"]
 [ext_resource type="PackedScene" uid="uid://bxgx5801p1s0i" path="res://Game/Scenes/Chapter1/items/glory.tscn" id="19_qmlx1"]
+[ext_resource type="Texture2D" uid="uid://dysgdk7utx1gn" path="res://Art/Scenes/Scene1/序章（沈意家）/0-证书.png" id="21_h2x5b"]
 [ext_resource type="PackedScene" uid="uid://cp3m63vfvgram" path="res://Game/Scenes/Chapter1/items/frame.tscn" id="21_xd5ah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hbde"]
@@ -224,6 +225,7 @@ shape = SubResource("RectangleShape2D_xd5ah")
 
 [node name="glory" parent="items" index="3" unique_id=833022264 instance=ExtResource("19_qmlx1")]
 item_id = "14"
+detail_image = ExtResource("21_h2x5b")
 
 [node name="CollisionShape2D" parent="items/glory" index="0" unique_id=398543410]
 position = Vector2(279.75, 849.00006)

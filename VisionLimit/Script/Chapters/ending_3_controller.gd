@@ -12,7 +12,7 @@ func start_ending_dialogue() -> void:
 	DialogueManager.dialogue_finished.connect(_on_dialogue_finished, CONNECT_ONE_SHOT)
 
 func _on_dialogue_finished() -> void:
-	if FileAccess.file_exists("res://Game/UI/MainPanel.tscn"):
-		SceneTransitionManager.change_scene_to_file("res://Game/UI/MainPanel.tscn")
+	if FileAccess.file_exists("res://Game/UI/UIPanel.tscn"):
+		SceneTransitionManager.change_scene_to_file("res://Game/UI/UIPanel.tscn")
 	else:
 		SceneTransitionManager.change_scene_to_file("res://Template/UI/Level.tscn")

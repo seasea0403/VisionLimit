@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bwu7fy36n2utc" path="res://Art/Scenes/Scene3/Background/Background3-2.png" id="2_rhku6"]
 [ext_resource type="PackedScene" uid="uid://c44a1x1pvt15y" path="res://Game/Scenes/Chapter3/2/ClickableArea/ClickableArea_Box.tscn" id="3_0qacq"]
 [ext_resource type="PackedScene" uid="uid://cl30wb1tyjc4m" path="res://Game/Scenes/Chapter3/2/ClickableArea/ClickableArea_Cylinder.tscn" id="4_q5k2v"]
+[ext_resource type="Texture2D" uid="uid://c8jjkr12hwc5h" path="res://Art/Scenes/Scene3/第二章（医院+码头）/2-码头鱼.png" id="5_npodj"]
 [ext_resource type="PackedScene" uid="uid://xahd66ggwcuj" path="res://Game/Scenes/Chapter3/2/ClickableArea/ClickableArea_PriceBoard.tscn" id="5_xkr2t"]
 [ext_resource type="Texture2D" uid="uid://dh08ghvtyxrkg" path="res://Art/Character/沈意叹气.png" id="6_38jul"]
 [ext_resource type="PackedScene" uid="uid://bnypflcovaqcf" path="res://Game/Scenes/Chapter3/2/ClickableArea/ClickableArea_Board.tscn" id="6_dbqq3"]
@@ -72,6 +73,7 @@ record_entry_description_2 = "根据苍屿县港口管理条例，所有在册�
 
 [node name="fish" parent="ZoomViews/ClickableArea_Box/Zoomview_box/Items" parent_id_path=PackedInt32Array(1094917011, 198920514, 1759582505) index="1" unique_id=2048691584]
 item_id = "11"
+detail_image = ExtResource("5_npodj")
 
 [node name="ClickableArea_Cylinder" parent="ZoomViews" parent_id_path=PackedInt32Array(395467288) index="1" unique_id=808617709 instance=ExtResource("4_q5k2v")]
 visible = false
@@ -142,6 +144,10 @@ shape = SubResource("RectangleShape2D_4k4r0")
 show_detail_on_open = false
 detail_title = ""
 detail_description = ""
+
+[node name="PasswordPanel" parent="ZoomViews/ClickableArea_fish/Zoomview_fish/Items" parent_id_path=PackedInt32Array(509288716, 198920514, 1759582505) index="0" unique_id=1855487618]
+offset_left = 382.0
+offset_right = 382.0
 
 [node name="2" parent="ZoomViews/ClickableArea_fish/Zoomview_fish/Items" parent_id_path=PackedInt32Array(509288716, 198920514, 1759582505) index="1" unique_id=180244854]
 offset_left = 11.0

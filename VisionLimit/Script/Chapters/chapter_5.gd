@@ -102,6 +102,3 @@ func _on_end_dialogue_finished() -> void:
 func _on_memory_result_finished() -> void:
 	GameStateManager.complete_chapter(5)
 	SceneTransitionManager.change_scene_to_file("res://Game/UI/ChooseLevelPanel/ChooseLevelPanel.tscn")
-
-
-
