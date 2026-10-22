@@ -3,14 +3,20 @@
 [ext_resource type="Script" uid="uid://38h216c4enfu" path="res://Game/Scenes/Chapter1/UI/Desktop.gd" id="1_script"]
 [ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="2_back"]
 [ext_resource type="Texture2D" uid="uid://r5pqdltqj1jb" path="res://Art/Scenes/Scene7/第六章全部 - 副本/computer.png" id="3_23f6d"]
-[ext_resource type="Texture2D" uid="uid://da2t35w8g5niv" path="res://Art/Scenes/Scene1/序章（沈意家）/0-沈意电脑桌面.jpg" id="3_desktop"]
-[ext_resource type="Texture2D" uid="uid://dbgw2oprjewbn" path="res://Art/Scenes/Scene1/序章（沈意家）/0-电脑-浏览器页面.png" id="4_browser"]
+[ext_resource type="Texture2D" uid="uid://dvc6buqed2atu" path="res://Art/Scenes/Scene1/序章（沈意家）/0-沈意电脑桌面.jpg" id="3_desktop"]
+[ext_resource type="Texture2D" uid="uid://kfo7qloeb3gc" path="res://Art/Scenes/Scene1/序章（沈意家）/0-电脑-浏览器页面.png" id="4_browser"]
 [ext_resource type="PackedScene" uid="uid://dr4nktscn01x" path="res://Game/Scenes/Chapter1/UI/BankingRecords.tscn" id="5_banking"]
 [ext_resource type="PackedScene" uid="uid://canc401gl5807" path="res://Game/Scenes/Chapter1/UI/1.tscn" id="6_password"]
-[ext_resource type="Texture2D" uid="uid://cdrtc6ypy6d1n" path="res://Art/UI/物品栏/IMG_3312.PNG" id="7_cmavt"]
+[ext_resource type="Texture2D" uid="uid://dlupw1nayxnui" path="res://Art/UI/物品栏/IMG_3312.PNG" id="7_cmavt"]
 [ext_resource type="Texture2D" uid="uid://c7xjcrhbntxpk" path="res://Art/Scenes/Scene1/序章（沈意家）/0-网银-46年记录.png" id="9_cmavt"]
 
+[ext_resource type="Texture2D" path="res://Art/Scenes/LeadingScene/Leading4.png" id="10_ad_thumb"]
+[ext_resource type="FontFile" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-Medium.ttf" id="11_ad_font"]
+
 [sub_resource type="FontFile" id="FontFile_cmavt"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -78,6 +84,30 @@ corner_radius_top_left = 12
 corner_radius_top_right = 12
 corner_radius_bottom_right = 12
 corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_ad"]
+bg_color = Color(0.12, 0.19, 0.23, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.55, 0.65, 0.66, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_left = 12
+corner_radius_bottom_right = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_ad_hover"]
+bg_color = Color(0.19, 0.29, 0.32, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85, 0.78, 0.57, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_left = 12
+corner_radius_bottom_right = 12
 
 [node name="Desktop" type="Control" unique_id=2040546291]
 layout_mode = 3
@@ -189,6 +219,7 @@ scale = Vector2(0.6937116, 1.9546847)
 text = "返回上一页"
 
 [node name="BankingRecords" parent="." unique_id=1801185166 instance=ExtResource("5_banking")]
+visible = false
 layout_mode = 1
 
 [node name="BaseImage" parent="BankingRecords" index="0" unique_id=1578470746]
@@ -250,6 +281,61 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_dh031")
 
 [node name="back" parent="BankingRecords" index="3" unique_id=2074814427]
 visible = true
+
+[node name="Advertisement" type="Button" parent="BrowserView/BrowserImage"]
+layout_mode = 1
+anchor_left = 0.49
+anchor_top = 0.47
+anchor_right = 0.78
+anchor_bottom = 0.90
+mouse_default_cursor_shape = 2
+tooltip_text = "播放海芯广告"
+theme_override_styles/normal = SubResource("StyleBox_ad")
+theme_override_styles/hover = SubResource("StyleBox_ad_hover")
+theme_override_styles/pressed = SubResource("StyleBox_ad_hover")
+
+[node name="Thumbnail" type="TextureRect" parent="BrowserView/BrowserImage/Advertisement"]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.72
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+mouse_filter = 2
+texture = ExtResource("10_ad_thumb")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Caption" type="Label" parent="BrowserView/BrowserImage/Advertisement"]
+layout_mode = 1
+anchor_top = 0.73
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = -8.0
+mouse_filter = 2
+theme_override_fonts/font = ExtResource("11_ad_font")
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0.95, 0.93, 0.85, 1)
+text = "海芯｜记忆的更多可能
+▶ 点击播放广告"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AdOverlay" type="Control" parent="."]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Screen" type="Control" parent="AdOverlay"]
+clip_contents = true
+layout_mode = 0
+mouse_filter = 2
 
 [editable path="BrowserView/back"]
 [editable path="BankingRecords"]

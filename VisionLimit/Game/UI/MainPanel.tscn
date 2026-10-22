@@ -90,12 +90,13 @@ texture_normal = ExtResource("5_r7mag")
 [node name="Label" parent="setting/TextureButton" index="0" unique_id=1029178860]
 text = ""
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="setting" unique_id=1029119758]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="setting" unique_id=1029119758 node_paths=PackedStringArray("hover_button")]
 position = Vector2(654.00006, 1545)
 scale = Vector2(0.69920504, 0.69920504)
 sprite_frames = SubResource("SpriteFrames_soapf")
 animation = &"fish"
 script = ExtResource("10_vof51")
+hover_button = NodePath("../TextureButton")
 
 [node name="quit" parent="." unique_id=-639979975 instance=ExtResource("3_p5a3q")]
 position = Vector2(13, -508)

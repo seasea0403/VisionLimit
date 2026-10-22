@@ -55,20 +55,29 @@ script = ExtResource("1_chapter1gd")
 scale = Vector2(0.6, 0.6)
 
 [node name="ItemDetail" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="0" unique_id=552734023]
-visible = false
 synthesis_item_ids = Array[String](["15"])
 synthesis_complete_text = "在我很小的时候，父母就离婚了。"
 synthesis_result_id = "15"
 synthesis_result_title = "相框"
 synthesis_result_texture = ExtResource("3_xd5ah")
 
+[node name="PrevButton" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="3" unique_id=1215963410]
+visible = false
+
+[node name="LaterButton" parent="UILayer/ItemDetail/Control" parent_id_path=PackedInt32Array(552734023, 327138164) index="4" unique_id=1536310642]
+visible = false
+
 [node name="DescriptionLabel" parent="UILayer/ItemDetail/Control/content" parent_id_path=PackedInt32Array(552734023, 917719551) index="1" unique_id=1691985772]
 offset_left = 274.0
 offset_top = 897.0
 offset_right = 1718.5005
 offset_bottom = 1110.0
+scale = Vector2(0.98584265, 0.84631556)
+text = "海芯的广告我已经看了太多遍了，这东西确实挺有用，记忆外包嘛。没有这技术我还不知道在哪谋生呢。"
 
 [node name="LeadingPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="1" unique_id=1166542545 instance=ExtResource("4_06b1o")]
+visible = false
+autoplay = false
 
 [node name="SumPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="2" unique_id=1239234424 instance=ExtResource("5_il3tr")]
 visible = false
@@ -91,8 +100,11 @@ z_index = -1
 visible = true
 z_index = 1000
 
+[node name="BankingRecords" parent="UILayer/Desktop" index="5" unique_id=1801185166]
+visible = true
+
 [node name="HudPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="5" unique_id=1624742861]
-visible = false
+visible = true
 z_index = 1005
 
 [node name="back" parent="UILayer/HudPanel" index="0" unique_id=116801208]

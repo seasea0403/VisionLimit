@@ -3,15 +3,8 @@
 [ext_resource type="Script" uid="uid://oir507y24r33" path="res://Game/UI/NotebookPanel/notebook_panel.gd" id="1_5lnwx"]
 [ext_resource type="Texture2D" uid="uid://mo3htet8ftn8" path="res://Art/UI/Record_book/Book.png" id="1_aobsf"]
 [ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="3_7y7sm"]
-[ext_resource type="Texture2D" uid="uid://dyk7cyhmk3cd2" path="res://Art/UI/Choose_Level/level1.png" id="4_3r07s"]
-[ext_resource type="FontFile" uid="uid://b0tas48jqyolx" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-ExtraLight.ttf" id="5_q2la6"]
-[ext_resource type="Texture2D" uid="uid://nsera1uydj02" path="res://Art/Character/人物大头/沈意.png" id="6_f81jx"]
-[ext_resource type="FontFile" uid="uid://bnsrpukraxd3g" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-Regular.ttf" id="7_8rs4v"]
-[ext_resource type="Texture2D" uid="uid://dead2ana6v20d" path="res://Art/Character/人物大头/魏江.png" id="8_4t22t"]
-[ext_resource type="Texture2D" uid="uid://duu6ldc0u57l8" path="res://Art/Character/人物大头/郑和平.png" id="9_n5uy5"]
-[ext_resource type="Texture2D" uid="uid://cija2msggpnwm" path="res://Art/Character/人物大头/苏临.png" id="10_h0cy4"]
 
-[node name="NotebookPanel" type="Control" unique_id=876573406]
+[node name="DiaryPanel" type="Control" unique_id=876573406]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_5lnwx")
@@ -27,186 +20,12 @@ texture = ExtResource("1_aobsf")
 
 [node name="back" parent="." unique_id=2074814427 instance=ExtResource("3_7y7sm")]
 
-[node name="1" type="Node2D" parent="." unique_id=1571344578]
-position = Vector2(-24, 3)
-
-[node name="TextureRect" type="TextureRect" parent="1" unique_id=996070808]
-offset_left = 398.0
-offset_top = 180.55115
-offset_right = 1406.0
-offset_bottom = 1188.5511
-scale = Vector2(0.31177866, 0.31657264)
-texture = ExtResource("4_3r07s")
-
-[node name="Label" type="Label" parent="1" unique_id=8726654]
-offset_left = 542.0
-offset_top = 416.55115
-offset_right = 602.0
-offset_bottom = 447.55115
-rotation = -0.17647731
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_q2la6")
-theme_override_font_sizes/font_size = 30
-text = "沈意"
-
-[node name="TextureRect2" type="TextureRect" parent="1" unique_id=1273487834]
-offset_left = 435.99997
-offset_top = 187.55109
-offset_right = 996.0
-offset_bottom = 934.5511
-rotation = -0.15955448
-scale = Vector2(0.30966067, 0.30966067)
-texture = ExtResource("6_f81jx")
-
-[node name="Label2" type="Label" parent="1" unique_id=1317091441]
-offset_left = 696.99994
-offset_top = 236.00002
-offset_right = 1021.2598
-offset_bottom = 505.0
-rotation = 0.01137862
-scale = Vector2(0.7288195, 0.7288195)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_8rs4v")
-theme_override_font_sizes/font_size = 30
-text = "32岁，女。曾在神经护理机构任托管师，在28岁时被公司清退，后因海芯出现排异反应，只能放弃自己托管师的职业，改行帮别人维护记忆，现任某小型神经数据公司系统维护员。"
-autowrap_mode = 3
-
-[node name="2" type="Node2D" parent="." unique_id=98506041]
-position = Vector2(0, 371)
-
-[node name="Node2D" type="Node2D" parent="2" unique_id=2983647]
-position = Vector2(474.00006, -235.00003)
-rotation = 0.46571848
-
-[node name="TextureRect" type="TextureRect" parent="2/Node2D" unique_id=781109414]
-offset_left = 398.0
-offset_top = 180.55115
-offset_right = 1406.0
-offset_bottom = 1188.5511
-scale = Vector2(0.31177866, 0.31657264)
-texture = ExtResource("4_3r07s")
-
-[node name="Label" type="Label" parent="2/Node2D" unique_id=1120703196]
-offset_left = 542.0
-offset_top = 416.55115
-offset_right = 602.0
-offset_bottom = 447.55115
-rotation = -0.17647731
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_q2la6")
-theme_override_font_sizes/font_size = 30
-text = "魏江"
-
-[node name="TextureRect2" type="TextureRect" parent="2/Node2D" unique_id=102044436]
-offset_left = 433.71753
-offset_top = 177.09332
-offset_right = 1086.7175
-offset_bottom = 1048.0933
-rotation = -0.15955448
-scale = Vector2(0.27743286, 0.27743286)
-texture = ExtResource("8_4t22t")
-
-[node name="Label2" type="Label" parent="2" unique_id=2090851170]
-offset_left = 441.0
-offset_top = 200.00002
-offset_right = 765.2599
-offset_bottom = 469.0
-rotation = 0.01137862
-scale = Vector2(0.7288195, 0.7288195)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_8rs4v")
-theme_override_font_sizes/font_size = 30
-text = "41岁，男。自由调查记者，曾任《海岸时讯》调查记者，从业将近二十年。2044年因一篇涉及神经数据行业监管漏洞的稿件被强制撤稿，随即离职，此后以独立身份运作。"
-autowrap_mode = 3
-
-[node name="3" type="Node2D" parent="." unique_id=1419376442]
-position = Vector2(606, 39)
-
-[node name="Node2D" type="Node2D" parent="3" unique_id=1714508088]
-position = Vector2(474.00006, -235.00003)
-rotation = 0.46571848
-
-[node name="TextureRect" type="TextureRect" parent="3/Node2D" unique_id=746650566]
-offset_left = 398.0
-offset_top = 180.55115
-offset_right = 1406.0
-offset_bottom = 1188.5511
-scale = Vector2(0.31177866, 0.31657264)
-texture = ExtResource("4_3r07s")
-
-[node name="Label" type="Label" parent="3/Node2D" unique_id=1436972912]
-offset_left = 522.78076
-offset_top = 425.56006
-offset_right = 612.78076
-offset_bottom = 456.56006
-rotation = -0.17647731
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_q2la6")
-theme_override_font_sizes/font_size = 30
-text = "郑和平"
-
-[node name="TextureRect2" type="TextureRect" parent="3/Node2D" unique_id=1688181269]
-offset_left = 433.71753
-offset_top = 177.09332
-offset_right = 1086.7175
-offset_bottom = 1048.0933
-rotation = -0.15955448
-scale = Vector2(0.27743286, 0.27743286)
-texture = ExtResource("9_n5uy5")
-
-[node name="Label2" type="Label" parent="3" unique_id=149754439]
-offset_left = 441.0
-offset_top = 211.0
-offset_right = 765.2599
-offset_bottom = 432.97705
-rotation = 0.01137862
-scale = Vector2(0.7288195, 0.7288195)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_8rs4v")
-theme_override_font_sizes/font_size = 30
-text = "51岁，女。水文地质研究员，前国家级地质研究所在编人员。2042年以独立研究者身份受苍屿县环保部门委托，评估近海地质变化。"
-autowrap_mode = 3
-
-[node name="4" type="Node2D" parent="." unique_id=778870182]
-position = Vector2(580, 343)
-
-[node name="TextureRect" type="TextureRect" parent="4" unique_id=966774887]
-offset_left = 398.0
-offset_top = 180.55115
-offset_right = 1406.0
-offset_bottom = 1188.5511
-scale = Vector2(0.31177866, 0.31657264)
-texture = ExtResource("4_3r07s")
-
-[node name="Label" type="Label" parent="4" unique_id=422663494]
-offset_left = 533.0
-offset_top = 420.0
-offset_right = 593.0
-offset_bottom = 451.0
-rotation = -0.17647731
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_q2la6")
-theme_override_font_sizes/font_size = 30
-text = "苏临"
-
-[node name="TextureRect2" type="TextureRect" parent="4" unique_id=902448118]
-offset_left = 425.99997
-offset_top = 164.0
-offset_right = 1057.0
-offset_bottom = 1005.0
-rotation = -0.15955448
-scale = Vector2(0.30966067, 0.30966067)
-texture = ExtResource("10_h0cy4")
-
-[node name="Label2" type="Label" parent="4" unique_id=29437797]
-offset_left = 692.99994
-offset_top = 264.0
-offset_right = 1017.25977
-offset_bottom = 419.45605
-rotation = 0.01137862
-scale = Vector2(0.7288195, 0.7288195)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_8rs4v")
-theme_override_font_sizes/font_size = 30
-text = "58岁，女。晴野基金会创始人，临深集团实际控制人。公开形象是低调的慈善家和实业家。"
-autowrap_mode = 3
+[node name="RichTextLabel" type="RichTextLabel" parent="back" unique_id=729244029]
+custom_minimum_size = Vector2(450, 700)
+offset_left = 446.0
+offset_top = 167.99998
+offset_right = 896.0
+offset_bottom = 868.0
+rotation = 0.009813445
+scale = Vector2(1.0028731, 1.0012438)
+text = "111111111111111111111111111111111111111111"

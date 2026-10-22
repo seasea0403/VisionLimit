@@ -65,6 +65,9 @@ signal detail_opened(item_id: String)
 
 # ==================== 初始化 ====================
 func _ready() -> void:
+	# 详情是模态界面：空白区域也必须命中自身，而非背后的浏览器按钮。
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	mouse_filter = Control.MOUSE_FILTER_STOP
 	_configure_image_display()
 	if image_display:
 		_image_base_position = image_display.position
@@ -91,6 +94,7 @@ func _ready() -> void:
 		next_button.pressed.connect(_on_next_pressed)
 	if back_button:
 		back_button.pressed.connect(close_detail)
+		back_button.get_parent().hide()
 	
 	# 连接合成面板信号
 	if frame_synthesis_panel and frame_synthesis_panel.has_signal("synthesis_complete"):
@@ -157,6 +161,11 @@ func show_detail_group(pages: Array[Dictionary]) -> void:
 	_apply_page(0)
 	# 确保预热期间 modulate 被重置为完全可见
 	modulate.a = 1.0
+	# Godot 的 z_index 只改变绘制顺序，不改变 GUI 命中顺序。
+	# 同时置于兄弟节点末尾，确保遮罩和详情先于桌面接收鼠标事件。
+	var parent := get_parent()
+	if parent:
+		parent.move_child(self, parent.get_child_count() - 1)
 	show()
 	text_sfx.play()
 	var chapter := _find_chapter()
@@ -224,6 +233,8 @@ func _apply_page(idx: int) -> void:
 	_auto_record(p)
 	# 检测是否需要激活合成解谜模式
 	_try_activate_synthesis()
+	if back_button:
+		back_button.get_parent().visible = _synthesis_active and not _synthesis_done
 
 
 func set_action_button(visible_state: bool, label_text: String = "尝试") -> void:
@@ -353,16 +364,26 @@ func _on_next_pressed() -> void:
 
 
 # ==================== 输入处理 ====================
-func _unhandled_input(event: InputEvent) -> void:
-	"""ItemDetail 可见时，点击内容区域外部则关闭面板（取代 DarkBackground 的 gui_input）"""
-	if not visible:
+func _input(event: InputEvent) -> void:
+	# 在 GUI/场景物件处理前消费关闭点击，避免同一次点击又打开背后的物品。
+	if not is_visible_in_tree():
 		return
-	if event is InputEventMouseButton and event.pressed:
-		var content_panel := get_node_or_null("Control")
-		if content_panel and content_panel.visible:
-			if not content_panel.get_global_rect().has_point(event.position):
-				get_viewport().set_input_as_handled()
-				close_detail()
+	if not (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+		return
+	# 未完成的照片合成仍需拖放；其原有返回入口保留。
+	if _synthesis_active and not _synthesis_done:
+		return
+	var hovered := get_viewport().gui_get_hovered_control()
+	# 翻页、记录、滚动等真实操作优先，覆盖在详情之上的其他面板也不受影响。
+	var target: Node = hovered
+	while target:
+		if target is BaseButton or target is Range or target is LineEdit or target is TextEdit:
+			return
+		target = target.get_parent()
+	if hovered and hovered != self and not is_ancestor_of(hovered):
+		return
+	get_viewport().set_input_as_handled()
+	close_detail()
 
 
 func _on_background_clicked(event: InputEvent) -> void:
@@ -448,6 +469,8 @@ func _try_activate_synthesis() -> void:
 func _on_synthesis_complete() -> void:
 	"""两张照片均摆放完成时触发，显示完整文字内容并加入物品栏"""
 	_synthesis_done = true
+	if back_button:
+		back_button.get_parent().hide()
 	description_label.text = synthesis_complete_text
 	content_node.show()
 	# 锁定合成面板，禁止再次拖拽

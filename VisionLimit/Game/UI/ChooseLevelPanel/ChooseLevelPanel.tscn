@@ -102,7 +102,7 @@ offset_top = -9.0
 offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
-horizontal_scroll_mode = 2
+horizontal_scroll_mode = 3
 vertical_scroll_mode = 0
 scroll_hint_mode = 2
 

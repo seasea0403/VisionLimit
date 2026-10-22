@@ -1,158 +1,14 @@
 [gd_scene format=3 uid="uid://canc401gl5807"]
 
 [ext_resource type="Script" uid="uid://3vxtjolakkn3" path="res://Game/Scenes/Chapter1/UI/1.gd" id="1_ocnge"]
-[ext_resource type="Texture2D" uid="uid://igiq6lwgjhca" path="res://Art/Character/沈意证件照.jpg" id="1_preul"]
-[ext_resource type="PackedScene" uid="uid://b55jdfoulgfa6" path="res://Game/UI/PasswordPanel/PasswordPanel.tscn" id="2_hvu2y"]
 [ext_resource type="Texture2D" uid="uid://r5pqdltqj1jb" path="res://Art/Scenes/Scene7/第六章全部 - 副本/computer.png" id="2_twlcs"]
 [ext_resource type="Script" uid="uid://btwfab8ieyhox" path="res://Game/Scenes/Chapter1/UI/password_1.gd" id="3_ap4gv"]
 [ext_resource type="PackedScene" uid="uid://1mvmebi7cmv3" path="res://Game/Scenes/Chapter1/UI/2.tscn" id="3_ocnge"]
+[ext_resource type="Texture2D" uid="uid://dgwv1wt8ihj4c" path="res://Art/UI/密码登录.png" id="5_twlcs"]
+[ext_resource type="PackedScene" uid="uid://bucgrqk25423d" path="res://Game/Scenes/Chapter4/puzzle/puzzle_suo.tscn" id="6_5uabm"]
 [ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="8_5uabm"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rw60"]
-
-[sub_resource type="FontFile" id="FontFile_hvu2y"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/60/0/ascent = 0.0
-cache/0/60/0/descent = 0.0
-cache/0/60/0/underline_position = 0.0
-cache/0/60/0/underline_thickness = 0.0
-cache/0/60/0/scale = 1.0
-cache/0/50/0/ascent = 0.0
-cache/0/50/0/descent = 0.0
-cache/0/50/0/underline_position = 0.0
-cache/0/50/0/underline_thickness = 0.0
-cache/0/50/0/scale = 1.0
-cache/0/47/0/ascent = 0.0
-cache/0/47/0/descent = 0.0
-cache/0/47/0/underline_position = 0.0
-cache/0/47/0/underline_thickness = 0.0
-cache/0/47/0/scale = 1.0
-cache/0/52/0/ascent = 0.0
-cache/0/52/0/descent = 0.0
-cache/0/52/0/underline_position = 0.0
-cache/0/52/0/underline_thickness = 0.0
-cache/0/52/0/scale = 1.0
-cache/0/54/0/ascent = 0.0
-cache/0/54/0/descent = 0.0
-cache/0/54/0/underline_position = 0.0
-cache/0/54/0/underline_thickness = 0.0
-cache/0/54/0/scale = 1.0
-cache/0/55/0/ascent = 0.0
-cache/0/55/0/descent = 0.0
-cache/0/55/0/underline_position = 0.0
-cache/0/55/0/underline_thickness = 0.0
-cache/0/55/0/scale = 1.0
-cache/0/57/0/ascent = 0.0
-cache/0/57/0/descent = 0.0
-cache/0/57/0/underline_position = 0.0
-cache/0/57/0/underline_thickness = 0.0
-cache/0/57/0/scale = 1.0
-cache/0/58/0/ascent = 0.0
-cache/0/58/0/descent = 0.0
-cache/0/58/0/underline_position = 0.0
-cache/0/58/0/underline_thickness = 0.0
-cache/0/58/0/scale = 1.0
-cache/0/59/0/ascent = 0.0
-cache/0/59/0/descent = 0.0
-cache/0/59/0/underline_position = 0.0
-cache/0/59/0/underline_thickness = 0.0
-cache/0/59/0/scale = 1.0
-cache/0/61/0/ascent = 0.0
-cache/0/61/0/descent = 0.0
-cache/0/61/0/underline_position = 0.0
-cache/0/61/0/underline_thickness = 0.0
-cache/0/61/0/scale = 1.0
-cache/0/56/0/ascent = 0.0
-cache/0/56/0/descent = 0.0
-cache/0/56/0/underline_position = 0.0
-cache/0/56/0/underline_thickness = 0.0
-cache/0/56/0/scale = 1.0
-cache/0/53/0/ascent = 0.0
-cache/0/53/0/descent = 0.0
-cache/0/53/0/underline_position = 0.0
-cache/0/53/0/underline_thickness = 0.0
-cache/0/53/0/scale = 1.0
-cache/0/51/0/ascent = 0.0
-cache/0/51/0/descent = 0.0
-cache/0/51/0/underline_position = 0.0
-cache/0/51/0/underline_thickness = 0.0
-cache/0/51/0/scale = 1.0
-cache/0/48/0/ascent = 0.0
-cache/0/48/0/descent = 0.0
-cache/0/48/0/underline_position = 0.0
-cache/0/48/0/underline_thickness = 0.0
-cache/0/48/0/scale = 1.0
-cache/0/46/0/ascent = 0.0
-cache/0/46/0/descent = 0.0
-cache/0/46/0/underline_position = 0.0
-cache/0/46/0/underline_thickness = 0.0
-cache/0/46/0/scale = 1.0
-cache/0/45/0/ascent = 0.0
-cache/0/45/0/descent = 0.0
-cache/0/45/0/underline_position = 0.0
-cache/0/45/0/underline_thickness = 0.0
-cache/0/45/0/scale = 1.0
-cache/0/44/0/ascent = 0.0
-cache/0/44/0/descent = 0.0
-cache/0/44/0/underline_position = 0.0
-cache/0/44/0/underline_thickness = 0.0
-cache/0/44/0/scale = 1.0
-cache/0/43/0/ascent = 0.0
-cache/0/43/0/descent = 0.0
-cache/0/43/0/underline_position = 0.0
-cache/0/43/0/underline_thickness = 0.0
-cache/0/43/0/scale = 1.0
-cache/0/42/0/ascent = 0.0
-cache/0/42/0/descent = 0.0
-cache/0/42/0/underline_position = 0.0
-cache/0/42/0/underline_thickness = 0.0
-cache/0/42/0/scale = 1.0
-cache/0/41/0/ascent = 0.0
-cache/0/41/0/descent = 0.0
-cache/0/41/0/underline_position = 0.0
-cache/0/41/0/underline_thickness = 0.0
-cache/0/41/0/scale = 1.0
-cache/0/40/0/ascent = 0.0
-cache/0/40/0/descent = 0.0
-cache/0/40/0/underline_position = 0.0
-cache/0/40/0/underline_thickness = 0.0
-cache/0/40/0/scale = 1.0
-cache/0/39/0/ascent = 0.0
-cache/0/39/0/descent = 0.0
-cache/0/39/0/underline_position = 0.0
-cache/0/39/0/underline_thickness = 0.0
-cache/0/39/0/scale = 1.0
-cache/0/38/0/ascent = 0.0
-cache/0/38/0/descent = 0.0
-cache/0/38/0/underline_position = 0.0
-cache/0/38/0/underline_thickness = 0.0
-cache/0/38/0/scale = 1.0
-cache/0/37/0/ascent = 0.0
-cache/0/37/0/descent = 0.0
-cache/0/37/0/underline_position = 0.0
-cache/0/37/0/underline_thickness = 0.0
-cache/0/37/0/scale = 1.0
-cache/0/36/0/ascent = 0.0
-cache/0/36/0/descent = 0.0
-cache/0/36/0/underline_position = 0.0
-cache/0/36/0/underline_thickness = 0.0
-cache/0/36/0/scale = 1.0
 
 [node name="1" type="Control" unique_id=1869578665]
 z_index = 2
@@ -160,13 +16,20 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ocnge")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1312666129]
-visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.6, 0.6)
+[node name="Background2" type="TextureRect" parent="." unique_id=209191550]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 107.0
+offset_top = 83.0
+offset_right = 2027.0
+offset_bottom = 1163.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.87045866, 0.92732954)
 texture = ExtResource("2_twlcs")
+expand_mode = 1
 
 [node name="password_1" type="Panel" parent="." unique_id=511807059]
 self_modulate = Color(0.256, 0.70026666, 0.8, 1)
@@ -174,65 +37,133 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 268.0
-offset_top = 164.0
-offset_right = 2188.0
-offset_bottom = 1244.0
+offset_left = 259.0
+offset_top = 176.0
+offset_right = 2179.0
+offset_bottom = 1256.0
 grow_horizontal = 0
-scale = Vector2(0.713, 0.773)
+scale = Vector2(0.7145176, 0.75656116)
 theme_override_styles/panel = SubResource("StyleBoxTexture_0rw60")
 script = ExtResource("3_ap4gv")
 terminal_scene = ExtResource("3_ocnge")
 
-[node name="ColorRect" type="ColorRect" parent="password_1" unique_id=1651170059]
+[node name="TextureRect" type="TextureRect" parent="password_1" unique_id=1911626400]
 layout_mode = 0
-offset_left = -49.999985
-offset_top = -11.250015
-offset_right = 1532.0
-offset_bottom = 877.75
-scale = Vector2(1.2621422, 1.2561849)
-color = Color(0.25492576, 0.36227685, 0.68671525, 1)
+offset_right = 1672.0
+offset_bottom = 941.0
+scale = Vector2(1.1692902, 1.1680803)
+texture = ExtResource("5_twlcs")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="password_1" unique_id=2117990325]
+[node name="PasswordPanel2" parent="password_1" unique_id=1855487618 instance=ExtResource("6_5uabm")]
 layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-theme_override_constants/separation = 7
-
-[node name="Control" type="Control" parent="password_1/VBoxContainer" unique_id=1964301057]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="password_1/VBoxContainer" unique_id=1279251837]
-custom_minimum_size = Vector2(300, 270)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-size_flags_stretch_ratio = 0.0
-texture = ExtResource("1_preul")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="password_1/VBoxContainer" unique_id=1977529479]
-layout_mode = 2
-theme_override_fonts/font = SubResource("FontFile_hvu2y")
-theme_override_font_sizes/font_size = 50
-text = "SHEN YI"
-horizontal_alignment = 1
-
-[node name="PasswordPanel" parent="password_1/VBoxContainer" unique_id=1904747298 instance=ExtResource("2_hvu2y")]
-custom_minimum_size = Vector2(800, 700)
-layout_mode = 2
-size_flags_vertical = 4
+offset_left = 441.99173
+offset_top = 157.69083
+offset_right = 441.99173
+offset_bottom = 247.69083
 correct_password = "0202"
+max_digits = 4
 
-[node name="VBoxContainer" parent="password_1/VBoxContainer/PasswordPanel" index="1" unique_id=1592428207]
-theme_override_constants/separation = 24
+[node name="background" parent="password_1/PasswordPanel2" index="0" unique_id=1996196112]
+visible = false
 
-[node name="Label2" parent="password_1/VBoxContainer/PasswordPanel/VBoxContainer" index="1" unique_id=1722708654]
-text = "工作凭证"
+[node name="background2" parent="password_1/PasswordPanel2" index="1" unique_id=1644652718]
+visible = false
+
+[node name="ColorRect" parent="password_1/PasswordPanel2" index="2" unique_id=1399859477]
+visible = false
+
+[node name="Label" parent="password_1/PasswordPanel2" index="3" unique_id=1677869521]
+offset_left = 424.32697
+offset_top = 364.4084
+offset_right = 699.99255
+offset_bottom = 419.4084
+
+[node name="Button" parent="password_1/PasswordPanel2/button" parent_id_path=PackedInt32Array(1855487618, 748971678) index="0" unique_id=1896421819]
+offset_left = 382.34067
+offset_top = 445.03638
+offset_right = 462.34067
+offset_bottom = 525.0364
+scale = Vector2(1.208844, 0.9820698)
+
+[node name="Button2" parent="password_1/PasswordPanel2/button" parent_id_path=PackedInt32Array(1855487618, 748971678) index="1" unique_id=1273906048]
+offset_left = 489.3293
+offset_top = 445.03638
+offset_right = 569.32935
+offset_bottom = 525.0364
+scale = Vector2(1.208844, 0.9820698)
+
+[node name="Button3" parent="password_1/PasswordPanel2/button" parent_id_path=PackedInt32Array(1855487618, 748971678) index="2" unique_id=963089141]
+offset_left = 594.27246
+offset_top = 445.03638
+offset_right = 674.27246
+offset_bottom = 525.0364
+scale = Vector2(1.208844, 0.9820698)
+
+[node name="Button4" parent="password_1/PasswordPanel2/button" parent_id_path=PackedInt32Array(1855487618, 748971678) index="3" unique_id=1851341322]
+offset_left = 382.34067
+offset_top = 548.13446
+offset_right = 462.34067
+offset_bottom = 628.13446
+scale = Vector2(1.208844, 0.9820696)
+
+[node name="Button5" parent="password_1/PasswordPanel2/button" parent_id_path=PackedInt32Array(1855487618, 748971678) index="4" unique_id=610193438]
+offset_left = 489.3293
+offset_top = 548.13446
+offset_right = 569.32935
+offset_bottom = 628.13446
+scale = Vector2(1.208844, 0.9820696)
+
+[node name="Button6" parent="password_1/PasswordPanel2/button" parent_id_path=PackedInt32Array(1855487618, 748971678) index="5" unique_id=1590361085]
+offset_left = 594.27246
+offset_top = 548.13446
+offset_right = 674.27246
+offset_bottom = 628.13446
+scale = Vector2(1.208844, 0.9820696)
+
+[node name="Button7" parent="password_1/PasswordPanel2/button" parent_id_path=PackedInt32Array(1855487618, 748971678) index="6" unique_id=1208696638]
+offset_left = 382.34067
+offset_top = 647.2672
+offset_right = 462.34067
+offset_bottom = 727.2672
+scale = Vector2(1.208844, 0.9820699)
+
+[node name="Button8" parent="password_1/PasswordPanel2/button" parent_id_path=PackedInt32Array(1855487618, 748971678) index="7" unique_id=1341746700]
+offset_left = 489.3293
+offset_top = 647.2672
+offset_right = 569.32935
+offset_bottom = 727.2672
+scale = Vector2(1.208844, 0.9820699)
+
+[node name="Button9" parent="password_1/PasswordPanel2/button" parent_id_path=PackedInt32Array(1855487618, 748971678) index="8" unique_id=517967051]
+offset_left = 594.27246
+offset_top = 647.2672
+offset_right = 674.27246
+offset_bottom = 727.2672
+scale = Vector2(1.208844, 0.9820699)
+
+[node name="Button10" parent="password_1/PasswordPanel2/button" parent_id_path=PackedInt32Array(1855487618, 748971678) index="9" unique_id=659046678]
+offset_left = 485.90704
+offset_top = 747.72174
+offset_right = 565.9071
+offset_bottom = 827.72174
+scale = Vector2(1.2088436, 0.9820699)
+
+[node name="Button11" parent="password_1/PasswordPanel2/button" parent_id_path=PackedInt32Array(1855487618, 748971678) index="10" unique_id=388850754]
+offset_left = 380.94113
+offset_top = 749.0435
+offset_right = 460.94113
+offset_bottom = 829.0435
+scale = Vector2(1.2088436, 0.9820696)
+
+[node name="Button12" parent="password_1/PasswordPanel2/button" parent_id_path=PackedInt32Array(1855487618, 748971678) index="11" unique_id=770177673]
+offset_left = 590.8503
+offset_top = 747.72174
+offset_right = 670.8503
+offset_bottom = 827.72174
+scale = Vector2(1.208844, 0.9820699)
 
 [node name="back" parent="." unique_id=2074814427 instance=ExtResource("8_5uabm")]
 
-[editable path="password_1/VBoxContainer/PasswordPanel"]
+[editable path="password_1/PasswordPanel2"]
+[editable path="password_1/PasswordPanel2/back"]
 [editable path="back"]

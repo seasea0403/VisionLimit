@@ -8,7 +8,7 @@ signal password_confirmed
 @export var terminal_scene: PackedScene
 
 # ==================== 子节点引用 ====================
-@onready var password_panel = $VBoxContainer/PasswordPanel
+@onready var password_panel = get_node_or_null("PasswordPanel2") if has_node("PasswordPanel2") else get_node_or_null("VBoxContainer/PasswordPanel")
 
 
 # ==================== 初始化 ====================

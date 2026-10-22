@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dg11fee1ngddy" path="res://Game/Scenes/Chapter1/UI/BankingRecords.gd" id="1_script"]
 [ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="2_back"]
-[ext_resource type="Texture2D" uid="uid://c3o2ktlipybjj" path="res://Art/Scenes/Scene1/序章（沈意家）/0-电脑-网银转账记录.png" id="3_base"]
+[ext_resource type="Texture2D" uid="uid://lcvtwbq7odo0" path="res://Art/Scenes/Scene1/序章（沈意家）/0-电脑-网银转账记录.png" id="3_base"]
 [ext_resource type="Texture2D" uid="uid://c7xjcrhbntxpk" path="res://Art/Scenes/Scene1/序章（沈意家）/0-网银-46年记录.png" id="4_y46"]
 [ext_resource type="Texture2D" uid="uid://by2e5u5ptad1g" path="res://Art/Scenes/Scene1/序章（沈意家）/0-网银-47年记录.png" id="5_y47"]
 [ext_resource type="Texture2D" uid="uid://yvj61qs2w3sq" path="res://Art/Scenes/Scene1/序章（沈意家）/0-网银-48年记录.png" id="6_y48"]
 [ext_resource type="Texture2D" uid="uid://ck4s1qohk7i17" path="res://Art/Scenes/Scene1/序章（沈意家）/0-网银-49年记录.png" id="7_y49"]
 [ext_resource type="Texture2D" uid="uid://62x5kklj32vg" path="res://Art/Scenes/Scene1/序章（沈意家）/0-网银-50年记录.png" id="8_y50"]
-[ext_resource type="Texture2D" uid="uid://cdrtc6ypy6d1n" path="res://Art/UI/物品栏/IMG_3312.PNG" id="9_5vcky"]
+[ext_resource type="Texture2D" uid="uid://dlupw1nayxnui" path="res://Art/UI/物品栏/IMG_3312.PNG" id="9_5vcky"]
 
 [node name="BankingRecords" type="Control" unique_id=1988045584]
 layout_mode = 3
