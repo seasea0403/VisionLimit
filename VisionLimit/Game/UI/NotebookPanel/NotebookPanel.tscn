@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://fcwikt8ri0aq"]
 
 [ext_resource type="Script" uid="uid://oir507y24r33" path="res://Game/UI/NotebookPanel/notebook_panel.gd" id="1_5lnwx"]
-[ext_resource type="Texture2D" uid="uid://cyj13lv6xgdr4" path="res://Art/UI/Record_book/Book.png" id="1_aobsf"]
+[ext_resource type="Texture2D" uid="uid://mo3htet8ftn8" path="res://Art/UI/Record_book/Book.png" id="1_aobsf"]
 [ext_resource type="PackedScene" uid="uid://djcpyudlr71mj" path="res://Game/UI/HUD/back.tscn" id="3_7y7sm"]
-[ext_resource type="Texture2D" uid="uid://bds24vn6u2n02" path="res://Art/UI/Choose_Level/level1.png" id="4_3r07s"]
+[ext_resource type="Texture2D" uid="uid://dyk7cyhmk3cd2" path="res://Art/UI/Choose_Level/level1.png" id="4_3r07s"]
 [ext_resource type="FontFile" uid="uid://b0tas48jqyolx" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-ExtraLight.ttf" id="5_q2la6"]
 [ext_resource type="Texture2D" uid="uid://nsera1uydj02" path="res://Art/Character/人物大头/沈意.png" id="6_f81jx"]
 [ext_resource type="FontFile" uid="uid://bnsrpukraxd3g" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-Regular.ttf" id="7_8rs4v"]
@@ -69,7 +69,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_8rs4v")
 theme_override_font_sizes/font_size = 30
 text = "32岁，女。曾在神经护理机构任托管师，在28岁时被公司清退，后因海芯出现排异反应，只能放弃自己托管师的职业，改行帮别人维护记忆，现任某小型神经数据公司系统维护员。"
-autowrap_mode = 2
+autowrap_mode = 3
 
 [node name="2" type="Node2D" parent="." unique_id=98506041]
 position = Vector2(0, 371)
@@ -117,7 +117,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_8rs4v")
 theme_override_font_sizes/font_size = 30
 text = "41岁，男。自由调查记者，曾任《海岸时讯》调查记者，从业将近二十年。2044年因一篇涉及神经数据行业监管漏洞的稿件被强制撤稿，随即离职，此后以独立身份运作。"
-autowrap_mode = 2
+autowrap_mode = 3
 
 [node name="3" type="Node2D" parent="." unique_id=1419376442]
 position = Vector2(606, 39)
@@ -165,7 +165,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_8rs4v")
 theme_override_font_sizes/font_size = 30
 text = "51岁，女。水文地质研究员，前国家级地质研究所在编人员。2042年以独立研究者身份受苍屿县环保部门委托，评估近海地质变化。"
-autowrap_mode = 2
+autowrap_mode = 3
 
 [node name="4" type="Node2D" parent="." unique_id=778870182]
 position = Vector2(580, 343)
@@ -209,4 +209,4 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_8rs4v")
 theme_override_font_sizes/font_size = 30
 text = "58岁，女。晴野基金会创始人，临深集团实际控制人。公开形象是低调的慈善家和实业家。"
-autowrap_mode = 2
+autowrap_mode = 3

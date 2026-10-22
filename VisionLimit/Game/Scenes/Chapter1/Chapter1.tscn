@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://c8s0nu16vrd7t" path="res://Script/Chapters/chapter_1.gd" id="1_chapter1gd"]
 [ext_resource type="PackedScene" uid="uid://doesud42gb1g4" path="res://Template/Scene/Chapter.tscn" id="1_xnqfp"]
 [ext_resource type="PackedScene" uid="uid://j0xbvmq5qgge" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_Table.tscn" id="2_xnqfp"]
-[ext_resource type="Texture2D" uid="uid://bi8r1x7gxn5fs" path="res://Art/Scenes/Scene1/Elements/合照.png" id="3_xd5ah"]
+[ext_resource type="Texture2D" uid="uid://c0ckpqn78pk42" path="res://Art/Scenes/Scene1/Elements/合照.png" id="3_xd5ah"]
 [ext_resource type="PackedScene" uid="uid://d2fksn0gfp2fw" path="res://Game/UI/LeadingPanel/LeadingPanel.tscn" id="4_06b1o"]
 [ext_resource type="PackedScene" uid="uid://ceft3bne41ye8" path="res://Game/Scenes/Chapter1/items/dock.tscn" id="5_5oj76"]
 [ext_resource type="Script" uid="uid://ddmi68bkrli6g" path="res://Game/Scenes/Chapter1/computer_trigger.gd" id="5_6oq13"]
 [ext_resource type="PackedScene" uid="uid://dnviance0gyg5" path="res://Game/UI/SumPanel/SumPanel.tscn" id="5_il3tr"]
 [ext_resource type="PackedScene" uid="uid://e5g0f23rifgx" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_Board.tscn" id="6_uari3"]
 [ext_resource type="PackedScene" uid="uid://drhq2slbuploc" path="res://Game/UI/InferencePanel/InferencePanel.tscn" id="7_cfqdq"]
-[ext_resource type="Texture2D" uid="uid://cp6vadvuhwvqs" path="res://Art/Character/沈意生气.png" id="8_06b1o"]
-[ext_resource type="Texture2D" uid="uid://df8y8e6blevfd" path="res://Art/Character/沈意骄傲.png" id="8_8f3k6"]
+[ext_resource type="Texture2D" uid="uid://c2e2st2dfigg0" path="res://Art/Character/沈意生气.png" id="8_06b1o"]
+[ext_resource type="Texture2D" uid="uid://on8d41rdugy0" path="res://Art/Character/沈意骄傲.png" id="8_8f3k6"]
 [ext_resource type="PackedScene" uid="uid://dd4sktscn01x" path="res://Game/Scenes/Chapter1/UI/Desktop.tscn" id="8_h2x5b"]
 [ext_resource type="PackedScene" uid="uid://d4r18xrnnmtq" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_bed.tscn" id="13_278lo"]
 [ext_resource type="PackedScene" uid="uid://cy203h1ac6kgg" path="res://Game/Scenes/Chapter1/ClickableArea/ClickableArea_Board_2.tscn" id="14_jcxq8"]
@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://7r14g3cwop0y" path="res://Game/Scenes/Chapter1/items/grass.tscn" id="17_qmlx1"]
 [ext_resource type="PackedScene" uid="uid://dopkk51crhu70" path="res://Game/Scenes/Chapter1/items/father.tscn" id="18_cduhf"]
 [ext_resource type="PackedScene" uid="uid://bxgx5801p1s0i" path="res://Game/Scenes/Chapter1/items/glory.tscn" id="19_qmlx1"]
-[ext_resource type="Texture2D" uid="uid://dysgdk7utx1gn" path="res://Art/Scenes/Scene1/序章（沈意家）/0-证书.png" id="21_h2x5b"]
+[ext_resource type="Texture2D" uid="uid://buqpxcoydvkw7" path="res://Art/Scenes/Scene1/序章（沈意家）/0-证书.png" id="21_h2x5b"]
 [ext_resource type="PackedScene" uid="uid://cp3m63vfvgram" path="res://Game/Scenes/Chapter1/items/frame.tscn" id="21_xd5ah"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hbde"]
@@ -77,6 +77,9 @@ visible = false
 visible = false
 correct_items = Array[String](["1", "2", "4", "6", "15"])
 
+[node name="TextureRect" parent="UILayer/InferencePanel" index="0" unique_id=1311303766]
+visible = true
+
 [node name="hint" parent="UILayer/InferencePanel/PanelAnchor/BoardSection" parent_id_path=PackedInt32Array(1999336769, 102) index="1" unique_id=146050531]
 text = "身份   处境   家庭"
 
@@ -89,6 +92,7 @@ visible = true
 z_index = 1000
 
 [node name="HudPanel" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="5" unique_id=1624742861]
+visible = false
 z_index = 1005
 
 [node name="back" parent="UILayer/HudPanel" index="0" unique_id=116801208]
@@ -114,6 +118,7 @@ offset_bottom = 791.0
 scale = Vector2(0.99644667, 1.0261724)
 
 [node name="Node2D" type="Node2D" parent="UILayer" parent_id_path=PackedInt32Array(577909593) index="6" unique_id=1229214350]
+visible = false
 z_index = 100
 
 [node name="ZoomViews" parent="." index="2" unique_id=395467288]

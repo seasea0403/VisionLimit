@@ -2,36 +2,17 @@
 
 [ext_resource type="Script" uid="uid://cye024fq1yxp5" path="res://Script/UI/inference_panel.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://dxne77hv3ymai" path="res://Art/UI/推理板/推理板背景.png" id="2_board"]
-[ext_resource type="Texture2D" uid="uid://w5uwq488vtpm" path="res://Art/UI/推理板/推理板方框.png" id="4_frame"]
+[ext_resource type="Texture2D" uid="uid://dh2xuu56t4x2n" path="res://Art/UI/推理板/推理板方框.png" id="4_frame"]
 [ext_resource type="Texture2D" uid="uid://ba18jtc3ijqmh" path="res://Art/UI/推理板/微信图片_20260527183105_626_2451.png" id="4_oola6"]
-[ext_resource type="Texture2D" uid="uid://cp2r8aupcvxtc" path="res://Art/UI/推理板/方框.png" id="5_slot"]
+[ext_resource type="Texture2D" uid="uid://bybvjlicyn6us" path="res://Art/UI/推理板/方框.png" id="5_slot"]
 [ext_resource type="Texture2D" uid="uid://do0cwo8ke37yr" path="res://Art/UI/推理板/左按键.png" id="6_left"]
-[ext_resource type="Texture2D" uid="uid://b31pwtsomolgb" path="res://Art/UI/物品栏/IMG_3311.PNG" id="6_yvepa"]
-[ext_resource type="Texture2D" uid="uid://j10qn2ws7dg" path="res://Art/UI/推理板/方框部分背景.png" id="7_bf706"]
+[ext_resource type="FontFile" uid="uid://c3mexkpdyf8ag" path="res://Font/鐙熬B2瀹嬫湞/SweiB2SerifCJKtc-Bold.ttf" id="6_ufi0g"]
+[ext_resource type="Texture2D" uid="uid://dsrnxvlyh5xca" path="res://Art/UI/物品栏/IMG_3311.PNG" id="6_yvepa"]
+[ext_resource type="Texture2D" uid="uid://clocls8o2yqw6" path="res://Art/UI/推理板/方框部分背景.png" id="7_bf706"]
 [ext_resource type="Texture2D" uid="uid://b1u8afilwhovm" path="res://Art/UI/推理板/右按键.png" id="7_right"]
 [ext_resource type="Texture2D" uid="uid://blab14kyncgud" path="res://Art/UI/红底按钮.png" id="10_jpeev"]
 [ext_resource type="PackedScene" uid="uid://83rj51cr1eo7" path="res://Template/UI/UIbutton.tscn" id="11_ufi0g"]
-
-[sub_resource type="FontFile" id="FontFile_jpeev"]
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/25/0/ascent = 0.0
-cache/0/25/0/descent = 0.0
-cache/0/25/0/underline_position = 0.0
-cache/0/25/0/underline_thickness = 0.0
-cache/0/25/0/scale = 1.0
+[ext_resource type="FontFile" uid="uid://ydc1n0okis46" path="res://Font/平方长安体1.00/PingFangChangAnTi-2.ttf" id="12_nafbt"]
 
 [sub_resource type="FontFile" id="FontFile_nafbt"]
 subpixel_positioning = 0
@@ -65,30 +46,6 @@ texture = ExtResource("10_jpeev")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p65pv"]
 texture = ExtResource("10_jpeev")
-
-[sub_resource type="FontFile" id="FontFile_yvepa"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/38/0/ascent = 0.0
-cache/0/38/0/descent = 0.0
-cache/0/38/0/underline_position = 0.0
-cache/0/38/0/underline_thickness = 0.0
-cache/0/38/0/scale = 1.0
 
 [node name="InferencePanel" type="Control" unique_id=1999336769]
 layout_mode = 3
@@ -152,16 +109,17 @@ offset_left = 124.0
 offset_top = 7.0
 offset_right = 926.0
 offset_bottom = 41.0
-theme_override_fonts/font = SubResource("FontFile_jpeev")
+theme_override_fonts/font = ExtResource("6_ufi0g")
 theme_override_font_sizes/font_size = 25
+text = "处境 家庭 身份"
 horizontal_alignment = 1
 
 [node name="Slot0" type="Control" parent="PanelAnchor/BoardSection" unique_id=104]
 anchors_preset = 0
-offset_left = 102.65909
-offset_top = 58.246765
-offset_right = 307.6591
-offset_bottom = 293.24677
+offset_left = 92.65909
+offset_top = 31.246765
+offset_right = 297.6591
+offset_bottom = 266.24677
 rotation = 0.07948404
 
 [node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot0" unique_id=107]
@@ -203,10 +161,10 @@ color = Color(0.2, 1, 0.3, 0.45)
 
 [node name="Slot1" type="Control" parent="PanelAnchor/BoardSection" unique_id=108]
 anchors_preset = 0
-offset_left = 434.6591
-offset_top = 71.246765
-offset_right = 639.65906
-offset_bottom = 306.24677
+offset_left = 424.6591
+offset_top = 44.246765
+offset_right = 629.65906
+offset_bottom = 279.24677
 rotation = -0.06955251
 
 [node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot1" unique_id=111]
@@ -248,10 +206,10 @@ color = Color(0.2, 1, 0.3, 0.45)
 
 [node name="Slot2" type="Control" parent="PanelAnchor/BoardSection" unique_id=112]
 anchors_preset = 0
-offset_left = 245.65909
-offset_top = 312.24677
-offset_right = 450.6591
-offset_bottom = 547.24677
+offset_left = 253.00003
+offset_top = 286.99997
+offset_right = 458.00003
+offset_bottom = 522.0
 rotation = -0.14413661
 
 [node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot2" unique_id=115]
@@ -293,10 +251,10 @@ color = Color(0.2, 1, 0.3, 0.45)
 
 [node name="Slot3" type="Control" parent="PanelAnchor/BoardSection" unique_id=116]
 anchors_preset = 0
-offset_left = 744.6591
-offset_top = 77.246765
-offset_right = 949.6591
-offset_bottom = 312.24677
+offset_left = 734.65906
+offset_top = 50.24676
+offset_right = 939.65906
+offset_bottom = 285.24677
 rotation = -0.034779113
 
 [node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot3" unique_id=119]
@@ -338,11 +296,11 @@ color = Color(0.2, 1, 0.3, 0.45)
 
 [node name="Slot4" type="Control" parent="PanelAnchor/BoardSection" unique_id=120]
 anchors_preset = 0
-offset_left = 602.6591
-offset_top = 294.24677
-offset_right = 807.6591
-offset_bottom = 529.24677
-rotation = 0.09105471
+offset_left = 593.0
+offset_top = 259.99997
+offset_right = 798.0
+offset_bottom = 494.99997
+rotation = 0.14494154
 
 [node name="FrameImg" type="TextureRect" parent="PanelAnchor/BoardSection/Slot4" unique_id=123]
 layout_mode = 1
@@ -464,8 +422,9 @@ offset_left = 264.0
 offset_top = 496.0
 offset_right = 752.0
 offset_bottom = 544.0
-theme_override_fonts/font = SubResource("FontFile_yvepa")
+theme_override_fonts/font = ExtResource("12_nafbt")
 theme_override_font_sizes/font_size = 38
+text = "提交线索失败"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -37,14 +37,14 @@ const DATA: Dictionary = {
 		"choices": [
 			{
 				"text": "你是故意让我看到这些线索的？",
-				"response": "你故意不出现，就是为了让我自己进来，然后看到你调查的这些线索？为什么找我来帮你。",
+				"response": "你故意一直不出现，就是为了让我自己进来，看到你调查的这些线索？为什么找我来帮你。",
 				"response_portrait": SY2,
 				"record_key": "ch2_first_choice",
 				"record_value": "A",
 				"next": "a_wj1",
 			},
 			{
-				"text": "你很没有时间观念。",
+				"text": "你很没有时间观念",
 				"response": "你在邮件里约我四点见面，却现在才出现，你们记者不是最追求时效性吗？",
 				"response_portrait": SY2,
 				"record_key": "ch2_first_choice",
@@ -52,7 +52,7 @@ const DATA: Dictionary = {
 				"next": "b_wj1",
 			},
 			{
-				"text": "我收费很高，没有钱就别找我。",
+				"text": "我收费很高，没有钱就别找我",
 				"response": "你们做记者的工资很高吗？我收费很贵，钱不到位的话我是不会同意帮你的。",
 				"response_portrait": SY2,
 				"record_key": "ch2_first_choice",
@@ -76,7 +76,7 @@ const DATA: Dictionary = {
 		"portrait": SY1,
 		"portrait_right": WJ1,
 		"active_side": "right",
-		"text": "你也看到了，我之前写过的稿子一发出去就被撤掉了，我现在一个人能做的很有限，我需要你的职业资质，我需要你和我一起查清楚这件事。",
+		"text": "你也看到了，我之前写过的稿子一发出去就被撤掉了，我现在一个人能做的很有限，我看中了你的职业资质，我需要你和我一起查清楚这件事。",
 		"next": "a_silence",
 	},
 	"a_silence": {
@@ -126,7 +126,7 @@ const DATA: Dictionary = {
 		"portrait": SY1,
 		"portrait_right": WJ3,
 		"active_side": "right",
-		"text": "你也看到了，我之前写过的稿子一发出去就被撤掉了，我现在一个人能做的很有限，我需要你的职业资质，我需要你和我一起查清楚这件事。",
+		"text": "你也看到了，我之前写过的稿子一发出去就被撤掉了，我现在一个人能做的很有限，我看中了你的职业资质，我需要你和我一起查清楚这件事。",
 		"next": "merge_1",
 	},
 
@@ -160,7 +160,7 @@ const DATA: Dictionary = {
 		"portrait": SY1,
 		"portrait_right": WJ1,
 		"active_side": "right",
-		"text": "你也看到了，我之前写过的稿子一发出去就被撤掉了，我现在一个人能做的很有限，我需要你的职业资质，我需要你和我一起查清楚这件事。",
+		"text": "你也看到了，我之前写过的稿子一发出去就被撤掉了，我现在一个人能做的很有限，我看中了你的职业资质，我需要你和我一起查清楚这件事。",
 		"next": "merge_1",
 	},
 
